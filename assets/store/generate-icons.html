@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Istanbul Mafia — Store Assets Generator</title>
+<style>
+  body { background: #111; color: #fff; font-family: monospace; padding: 20px; }
+  canvas { display: block; margin: 10px 0; border: 1px solid #333; }
+  button { background: #gold; color: #000; padding: 8px 16px; margin: 4px; cursor: pointer; font-weight: bold; }
+  .section { margin: 30px 0; }
+  h2 { color: #FFD700; }
+  .dl { color: #4af; cursor: pointer; text-decoration: underline; margin: 4px 0; display: block; }
+</style>
+</head>
+<body>
+<h1 style="color:#FFD700">🎮 Istanbul Mafia — Store Assets Generator</h1>
+<p>Tarayıcıda aç → sağ tık → "Resmi farklı kaydet" ile PNG olarak indir</p>
+
+<!-- ═══ 1024x1024 App Icon ═══ -->
+<div class="section">
+<h2>1. App Store Icon — 1024×1024</h2>
+<canvas id="icon1024" width="1024" height="1024" style="width:256px;height:256px"></canvas>
+<a class="dl" onclick="dl('icon1024','icon-1024.png')">⬇ icon-1024.png indir</a>
+</div>
+
+<!-- ═══ 512x512 Google Play Icon ═══ -->
+<div class="section">
+<h2>2. Google Play Icon — 512×512</h2>
+<canvas id="icon512" width="512" height="512" style="width:256px;height:256px"></canvas>
+<a class="dl" onclick="dl('icon512','icon-512.png')">⬇ icon-512.png indir</a>
+</div>
+
+<!-- ═══ 1024x500 Feature Graphic ═══ -->
+<div class="section">
+<h2>3. Google Play Feature Graphic — 1024×500</h2>
+<canvas id="feature" width="1024" height="500" style="width:512px;height:250px"></canvas>
+<a class="dl" onclick="dl('feature','feature-graphic.png')">⬇ feature-graphic.png indir</a>
+</div>
+
+<!-- ═══ iPhone Screenshots 1290x2796 ═══ -->
+<div class="section">
+<h2>4. iPhone Screenshots — 1290×2796</h2>
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+  <div><canvas id="ss1" width="1290" height="2796" style="width:120px;height:260px"></canvas><br><a class="dl" onclick="dl('ss1','ss-1.png')">⬇ ss-1.png</a></div>
+  <div><canvas id="ss2" width="1290" height="2796" style="width:120px;height:260px"></canvas><br><a class="dl" onclick="dl('ss2','ss-2.png')">⬇ ss-2.png</a></div>
+  <div><canvas id="ss3" width="1290" height="2796" style="width:120px;height:260px"></canvas><br><a class="dl" onclick="dl('ss3','ss-3.png')">⬇ ss-3.png</a></div>
+  <div><canvas id="ss4" width="1290" height="2796" style="width:120px;height:260px"></canvas><br><a class="dl" onclick="dl('ss4','ss-4.png')">⬇ ss-4.png</a></div>
+  <div><canvas id="ss5" width="1290" height="2796" style="width:120px;height:260px"></canvas><br><a class="dl" onclick="dl('ss5','ss-5.png')">⬇ ss-5.png</a></div>
+</div>
+</div>
+
+<!-- ═══ iPad Screenshot 2048x2732 ═══ -->
+<div class="section">
+<h2>5. iPad Screenshot — 2048×2732</h2>
+<canvas id="ipad" width="2048" height="2732" style="width:120px;height:160px"></canvas>
+<a class="dl" onclick="dl('ipad','ipad-ss-1.png')">⬇ ipad-ss-1.png indir</a>
+</div>
+
+<script>
+function dl(id, filename) {
+  var c = document.getElementById(id);
+  var a = document.createElement('a');
+  a.download = filename;
+  a.href = c.toDataURL('image/png');
+  a.click();
+}
+
+// ── Shared draw helpers ──────────────────────────────────────────────────
+function drawStars(ctx, w, h, n) {
+  ctx.fillStyle = 'rgba(255,255,255,0.7)';
+  for (var i = 0; i < n; i++) {
+    var x = Math.random() * w, y = Math.random() * h * 0.5;
+    var r = Math.random() * 2 + 0.5;
+    ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI*2); ctx.fill();
+  }
+}
+
+function drawSilhouette(ctx, w, h) {
+  // Simple Istanbul skyline silhouette
+  ctx.fillStyle = '#0a0a1a';
+  ctx.beginPath();
+  var base = h * 0.72;
+  ctx.moveTo(0, h);
+  ctx.lineTo(0, base);
+  // buildings
+  var bw = w / 14;
+  for (var i = 0; i < 14; i++) {
+    var bh = base - (Math.random() * h * 0.12 + h * 0.05);
+    ctx.lineTo(i * bw, base);
+    ctx.lineTo(i * bw, bh);
+    ctx.lineTo((i + 0.8) * bw, bh);
+    ctx.lineTo((i + 0.8) * bw, base);
+  }
+  ctx.lineTo(w, base); ctx.lineTo(w, h); ctx.closePath(); ctx.fill();
+
+  // Mosque dome (center)
+  var mx = w * 0.5, my = base - h * 0.18;
+  ctx.fillStyle = '#111133';
+  ctx.beginPath(); ctx.arc(mx, my, h * 0.08, Math.PI, 0); ctx.fill();
+  // Minaret left
+  ctx.fillRect(mx - h*0.12, my - h*0.12, h*0.025, h*0.14);
+  // Minaret right
+  ctx.fillRect(mx + h*0.09, my - h*0.12, h*0.025, h*0.14);
+}
+
+function drawCharacter(ctx, x, y, scale) {
+  // Simple suited character silhouette
+  scale = scale || 1;
+  var s = scale;
+  ctx.fillStyle = '#1a2a4a';
+  // Body
+  ctx.beginPath();
+  ctx.roundRect(x - 18*s, y - 40*s, 36*s, 50*s, 4*s);
+  ctx.fill();
+  // Head
+  ctx.fillStyle = '#c8956a';
+  ctx.beginPath(); ctx.arc(x, y - 50*s, 14*s, 0, Math.PI*2); ctx.fill();
+  // Suit lapels
+  ctx.fillStyle = '#0d1a2e';
+  ctx.beginPath();
+  ctx.moveTo(x, y - 38*s); ctx.lineTo(x - 10*s, y - 20*s);
+  ctx.lineTo(x - 18*s, y - 38*s); ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(x, y - 38*s); ctx.lineTo(x + 10*s, y - 20*s);
+  ctx.lineTo(x + 18*s, y - 38*s); ctx.fill();
+  // Tie
+  ctx.fillStyle = '#cc0000';
+  ctx.beginPath();
+  ctx.moveTo(x-4*s, y-36*s); ctx.lineTo(x+4*s, y-36*s);
+  ctx.lineTo(x+2*s, y-10*s); ctx.lineTo(x-2*s, y-10*s); ctx.fill();
+  // Hat
+  ctx.fillStyle = '#0d1a2e';
+  ctx.fillRect(x - 17*s, y - 64*s, 34*s, 8*s);
+  ctx.fillRect(x - 11*s, y - 78*s, 22*s, 16*s);
+  // Gun
+  ctx.fillStyle = '#888';
+  ctx.beginPath();
+  ctx.roundRect(x + 16*s, y - 28*s, 24*s, 8*s, 2*s); ctx.fill();
+  ctx.fillRect(x + 18*s, y - 20*s, 8*s, 10*s);
+}
+
+function textShadow(ctx, text, x, y, size, color, shadowColor) {
+  ctx.font = 'bold ' + size + 'px serif';
+  ctx.fillStyle = shadowColor || 'rgba(0,0,0,0.8)';
+  ctx.fillText(text, x+3, y+3);
+  ctx.fillStyle = color || '#FFD700';
+  ctx.fillText(text, x, y);
+}
+
+// ── 1024x1024 Icon ──────────────────────────────────────────────────────
+(function() {
+  var c = document.getElementById('icon1024');
+  var ctx = c.getContext('2d');
+  var w = 1024, h = 1024;
+
+  // Background gradient
+  var grad = ctx.createRadialGradient(w/2, h/2, 0, w/2, h/2, w*0.7);
+  grad.addColorStop(0, '#0d1a2e');
+  grad.addColorStop(0.6, '#060d1a');
+  grad.addColorStop(1, '#000000');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, w, h);
+
+  // Rounded rect clip
+  ctx.save();
+  ctx.beginPath(); ctx.roundRect(0,0,w,h,w*0.2); ctx.clip();
+
+  // Stars
+  drawStars(ctx, w, h, 200);
+
+  // Silhouette
+  drawSilhouette(ctx, w, h);
+
+  // Red band
+  ctx.fillStyle = '#b00020';
+  ctx.fillRect(0, h*0.52, w, h*0.14);
+  // Gold border top
+  ctx.fillStyle = '#FFD700';
+  ctx.fillRect(0, h*0.52, w, h*0.008);
+  ctx.fillRect(0, h*0.658, w, h*0.008);
+
+  // Character
+  drawCharacter(ctx, w*0.5, h*0.62, 5.5);
+
+  // ISTANBUL text
+  ctx.textAlign = 'center';
+  ctx.font = 'bold 120px serif';
+  ctx.letterSpacing = '8px';
+  ctx.fillStyle = 'rgba(0,0,0,0.6)';
+  ctx.fillText('ISTANBUL', w/2+4, h*0.22+4);
+  ctx.fillStyle = '#FFD700';
+  ctx.fillText('ISTANBUL', w/2, h*0.22);
+
+  // MAFİA text on red band
+  ctx.font = 'bold 140px serif';
+  ctx.fillStyle = 'rgba(0,0,0,0.7)';
+  ctx.fillText('MAFİA', w/2+4, h*0.61+4);
+  ctx.fillStyle = '#ffffff';
+  ctx.fillText('MAFİA', w/2, h*0.61);
+
+  // Gold ornament dots
+  ctx.fillStyle = '#FFD700';
+  for (var i = 0; i < 5; i++) {
+    ctx.beginPath(); ctx.arc(w*0.2 + i*(w*0.15), h*0.27, 6, 0, Math.PI*2); ctx.fill();
+  }
+
+  ctx.restore();
+})();
+
+// ── 512x512 Icon (same scaled) ──────────────────────────────────────────
+(function() {
+  var src = document.getElementById('icon1024');
+  var c = document.getElementById('icon512');
+  var ctx = c.getContext('2d');
+  ctx.drawImage(src, 0, 0, 512, 512);
+})();
+
+// ── 1024x500 Feature Graphic ─────────────────────────────────────────────
+(function() {
+  var c = document.getElementById('feature');
+  var ctx = c.getContext('2d');
+  var w = 1024, h = 500;
+
+  // Deep night gradient
+  var grad = ctx.createLinearGradient(0, 0, w, h);
+  grad.addColorStop(0, '#000510');
+  grad.addColorStop(0.5, '#0a1628');
+  grad.addColorStop(1, '#000510');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, w, h);
+
+  drawStars(ctx, w, h, 150);
+  drawSilhouette(ctx, w, h);
+
+  // Glow behind character
+  var glow = ctx.createRadialGradient(w*0.72, h*0.6, 0, w*0.72, h*0.6, 150);
+  glow.addColorStop(0, 'rgba(180,0,30,0.35)');
+  glow.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, w, h);
+
+  drawCharacter(ctx, w*0.72, h*0.78, 3.2);
+
+  // Left side text
+  ctx.textAlign = 'left';
+  textShadow(ctx, 'ISTANBUL', w*0.04, h*0.38, 96, '#FFD700');
+  ctx.fillStyle = '#b00020';
+  ctx.fillRect(w*0.04, h*0.43, w*0.5, h*0.16);
+  ctx.fillStyle = '#FFD700';
+  ctx.fillRect(w*0.04, h*0.43, w*0.5, 4);
+  ctx.fillRect(w*0.04, h*0.43+h*0.16-4, w*0.5, 4);
+  textShadow(ctx, 'MAFİA', w*0.06, h*0.55, 88, '#fff');
+  ctx.font = 'bold 28px sans-serif';
+  ctx.fillStyle = '#aaa';
+  ctx.fillText('Hayatta Kal • Güçlen • Kazan', w*0.04, h*0.69);
+
+  // LUMEN CO badge
+  ctx.fillStyle = 'rgba(255,215,0,0.15)';
+  ctx.beginPath(); ctx.roundRect(w*0.04, h*0.78, 160, 36, 6); ctx.fill();
+  ctx.font = 'bold 20px sans-serif';
+  ctx.fillStyle = '#FFD700';
+  ctx.fillText('LUMEN CO. 2026', w*0.06, h*0.83);
+})();
+
+// ── Screenshot helper ────────────────────────────────────────────────────
+function drawScreenshot(canvasId, title, subtitle, bgColor, drawContent) {
+  var c = document.getElementById(canvasId);
+  var ctx = c.getContext('2d');
+  var w = 1290, h = 2796;
+
+  // Status bar area
+  var grad = ctx.createLinearGradient(0, 0, 0, h);
+  grad.addColorStop(0, bgColor[0]);
+  grad.addColorStop(1, bgColor[1]);
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, w, h);
+
+  drawStars(ctx, w, h*0.4, 120);
+
+  // Notch
+  ctx.fillStyle = '#000';
+  ctx.beginPath(); ctx.roundRect(w/2-130, 0, 260, 50, [0,0,30,30]); ctx.fill();
+
+  drawContent(ctx, w, h);
+
+  // Title card top
+  ctx.fillStyle = 'rgba(0,0,0,0.6)';
+  ctx.fillRect(0, 60, w, 160);
+  ctx.textAlign = 'center';
+  ctx.font = 'bold 80px serif';
+  ctx.fillStyle = '#FFD700';
+  ctx.fillText('ISTANBUL MAFİA', w/2, 155);
+
+  // Subtitle bottom
+  ctx.fillStyle = 'rgba(0,0,0,0.75)';
+  ctx.fillRect(0, h-200, w, 200);
+  ctx.font = 'bold 60px sans-serif';
+  ctx.fillStyle = '#fff';
+  ctx.fillText(title, w/2, h-120);
+  ctx.font = '40px sans-serif';
+  ctx.fillStyle = '#aaa';
+  ctx.fillText(subtitle, w/2, h-60);
+}
+
+// SS1: Ana Menü
+drawScreenshot('ss1', 'OYNA VE HAYATTA KAL', '3 harita • 6 karakter • Sonsuz run',
+  ['#060d1a', '#0a1628'], function(ctx, w, h) {
+  drawSilhouette(ctx, w, h);
+  drawCharacter(ctx, w/2, h*0.42, 7);
+  // Buttons
+  var btns = ['OYNA', 'KARAKTER', 'AYARLAR'];
+  btns.forEach(function(t, i) {
+    var by = h*0.6 + i * 220;
+    ctx.fillStyle = i===0 ? '#b00020' : 'rgba(255,255,255,0.1)';
+    ctx.beginPath(); ctx.roundRect(w/2-280, by, 560, 140, 16); ctx.fill();
+    ctx.fillStyle = i===0 ? '#FFD700' : '#fff';
+    ctx.font = 'bold 64px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(t, w/2, by+90);
+  });
+});
+
+// SS2: Savaş anı
+drawScreenshot('ss2', 'OTOMATİK ATEŞ', 'Silahlar otomatik • Sen sadece hareket et',
+  ['#0a0005', '#1a0010'], function(ctx, w, h) {
+  // Blood moon
+  var moon = ctx.createRadialGradient(w*0.8, h*0.2, 0, w*0.8, h*0.2, 200);
+  moon.addColorStop(0, 'rgba(200,0,0,0.8)');
+  moon.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = moon;
+  ctx.fillRect(0,0,w,h);
+  drawSilhouette(ctx, w, h);
+  // Player
+  drawCharacter(ctx, w/2, h*0.55, 7);
+  // Enemies (simple red triangles)
+  ctx.fillStyle = '#ff2040';
+  var enemies = [[w*0.2,h*0.35],[w*0.8,h*0.38],[w*0.15,h*0.55],[w*0.85,h*0.52],[w*0.35,h*0.28]];
+  enemies.forEach(function(e) {
+    ctx.beginPath();
+    ctx.arc(e[0], e[1], 40, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 36px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('☠', e[0], e[1]+14);
+    ctx.fillStyle = '#ff2040';
+  });
+  // HP bar
+  ctx.fillStyle = '#333';
+  ctx.fillRect(w*0.1, h*0.73, w*0.8, 40);
+  ctx.fillStyle = '#00cc44';
+  ctx.fillRect(w*0.1, h*0.73, w*0.55, 40);
+  ctx.font = 'bold 36px sans-serif';
+  ctx.fillStyle = '#fff';
+  ctx.textAlign = 'center';
+  ctx.fillText('❤ 550 / 1000', w/2, h*0.735+30);
+});
+
+// SS3: Karakter seçimi
+drawScreenshot('ss3', '6 FARKLI KARAKTER', 'Her biri benzersiz güç',
+  ['#060d1a', '#0d1830'], function(ctx, w, h) {
+  var chars = [
+    {name:'POLAT',role:'Tabanca Ustası',color:'#3a6ea8'},
+    {name:'ÇAKIR',role:'Bıçak Sanatçısı',color:'#7a1a2a'},
+    {name:'MEMATİ',role:'Molotov Bombacı',color:'#8a3a0a'},
+    {name:'ABDÜLHEYYİ',role:'Zar Büyücüsü',color:'#4a1a7a'},
+    {name:'DAYI',role:'Şifreli Lider',color:'#1a5a1a'},
+    {name:'KEMAL',role:'Para Makinesi',color:'#7a6a0a'},
+  ];
+  var cols = 2, rows = 3;
+  var cw = w/cols - 80, ch = (h*0.55)/rows - 40;
+  chars.forEach(function(ch2, i) {
+    var col = i%cols, row = Math.floor(i/cols);
+    var x = 40 + col*(cw+80), y = h*0.22 + row*(ch+40);
+    ctx.fillStyle = ch2.color + '44';
+    ctx.beginPath(); ctx.roundRect(x, y, cw, ch, 20); ctx.fill();
+    ctx.strokeStyle = ch2.color;
+    ctx.lineWidth = 3;
+    ctx.stroke();
+    drawCharacter(ctx, x+cw/2, y+ch*0.62, 2.8);
+    ctx.textAlign = 'center';
+    ctx.font = 'bold 44px sans-serif';
+    ctx.fillStyle = '#FFD700';
+    ctx.fillText(ch2.name, x+cw/2, y+ch*0.85);
+    ctx.font = '32px sans-serif';
+    ctx.fillStyle = '#ccc';
+    ctx.fillText(ch2.role, x+cw/2, y+ch*0.96);
+  });
+});
+
+// SS4: Relic grid
+drawScreenshot('ss4', '47 EKSTRA GÜÇ', 'Kombinasyonlar sonsuz',
+  ['#0a0510', '#150a20'], function(ctx, w, h) {
+  var relics = ['🧿','⚡','🔥','💀','🎲','🗡','💎','🌙','🎯','💣','🔮','⚔','🛡','🌊','☄'];
+  var cols = 5;
+  var rw = 180, rh = 180, gap = 30;
+  var startX = (w - cols*(rw+gap))/2;
+  var startY = h*0.2;
+  relics.forEach(function(r, i) {
+    var col = i%cols, row = Math.floor(i/cols);
+    var rx = startX + col*(rw+gap), ry = startY + row*(rh+gap);
+    ctx.fillStyle = 'rgba(100,60,180,0.3)';
+    ctx.beginPath(); ctx.roundRect(rx, ry, rw, rh, 16); ctx.fill();
+    ctx.strokeStyle = '#7040cc';
+    ctx.lineWidth = 2; ctx.stroke();
+    ctx.font = '80px serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(r, rx+rw/2, ry+rh*0.72);
+  });
+  ctx.fillStyle = 'rgba(255,215,0,0.15)';
+  ctx.beginPath(); ctx.roundRect(w/2-380, h*0.68, 760, 100, 20); ctx.fill();
+  ctx.font = 'bold 52px sans-serif';
+  ctx.fillStyle = '#FFD700';
+  ctx.textAlign = 'center';
+  ctx.fillText('47 Ekstra • Sonsuz Kombinasyon', w/2, h*0.7+60);
+});
+
+// SS5: Boss sahne
+drawScreenshot('ss5', 'TESTERE NECMİ', '10. dakikada ortaya çıkar... Hazır mısın?',
+  ['#0a0000', '#200000'], function(ctx, w, h) {
+  // Red fog
+  var fog = ctx.createRadialGradient(w/2, h*0.45, 0, w/2, h*0.45, 500);
+  fog.addColorStop(0, 'rgba(180,0,0,0.5)');
+  fog.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = fog;
+  ctx.fillRect(0, 0, w, h);
+  drawSilhouette(ctx, w, h);
+  // Boss (big menacing figure)
+  ctx.save();
+  ctx.translate(w/2, h*0.43);
+  ctx.scale(1.4, 1.4);
+  // Body
+  ctx.fillStyle = '#2a0000';
+  ctx.beginPath(); ctx.roundRect(-60, -120, 120, 150, 8); ctx.fill();
+  // Head
+  ctx.fillStyle = '#3a1010';
+  ctx.beginPath(); ctx.arc(0, -140, 55, 0, Math.PI*2); ctx.fill();
+  // Eyes
+  ctx.fillStyle = '#ff0000';
+  ctx.beginPath(); ctx.arc(-20, -145, 12, 0, Math.PI*2); ctx.fill();
+  ctx.beginPath(); ctx.arc(20, -145, 12, 0, Math.PI*2); ctx.fill();
+  // Chainsaw
+  ctx.fillStyle = '#666';
+  ctx.beginPath(); ctx.roundRect(55, -80, 200, 30, 6); ctx.fill();
+  ctx.fillStyle = '#ff4400';
+  ctx.fillRect(55, -82, 200, 5);
+  ctx.restore();
+  // Boss name
+  ctx.textAlign = 'center';
+  ctx.font = 'bold 100px serif';
+  ctx.fillStyle = 'rgba(0,0,0,0.7)';
+  ctx.fillText('TESTERE NECMİ', w/2+5, h*0.25+5);
+  ctx.fillStyle = '#ff3333';
+  ctx.fillText('TESTERE NECMİ', w/2, h*0.25);
+  // HP bar
+  ctx.fillStyle = '#500';
+  ctx.fillRect(w*0.1, h*0.72, w*0.8, 50);
+  ctx.fillStyle = '#ff0000';
+  ctx.fillRect(w*0.1, h*0.72, w*0.7, 50);
+  ctx.font = 'bold 40px sans-serif';
+  ctx.fillStyle = '#fff';
+  ctx.fillText('💀 BOSS HP: 70%', w/2, h*0.72+38);
+});
+
+// iPad (reuse ss1 content scaled)
+(function() {
+  var src = document.getElementById('ss1');
+  var c = document.getElementById('ipad');
+  var ctx = c.getContext('2d');
+  // iPad is landscape-ish but we'll do portrait
+  ctx.drawImage(src, 0, 0, 2048, 2732);
+})();
+
+console.log('✅ Tüm görseller render edildi');
+</script>
+</body>
+</html>
