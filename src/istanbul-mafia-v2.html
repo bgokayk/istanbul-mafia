@@ -256,10 +256,31 @@ body{background:#08030f;width:100vw;height:100svh;overflow:hidden;font-family:'P
 #healFlash{position:absolute;inset:0;pointer-events:none;z-index:6;background:rgba(0,255,100,0);transition:background .15s;}
 
 ::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:#080214;}::-webkit-scrollbar-thumb{background:#8b6914;}
+
+/* ════ GLOBAL TOUCH FIX ════ */
+button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);}
+
+/* ════ MODAL ════ */
+#im-modal{position:absolute;inset:0;background:rgba(0,0,0,.93);z-index:200;display:none;align-items:center;justify-content:center;touch-action:manipulation;}
+#im-modal.on{display:flex;}
+.im-box{font-family:'Press Start 2P',monospace;background:#0d0318;border:2px solid #ffd700;padding:20px 18px;width:min(340px,90vw);text-align:center;}
+.im-title{font-size:9px;color:#ffd700;margin-bottom:10px;letter-spacing:2px;line-height:1.6;}
+.im-body{font-size:7px;color:#ccc;margin-bottom:16px;line-height:2;}
+.im-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.im-yes{font-family:'Press Start 2P',monospace;font-size:7px;padding:10px 16px;background:#0a2e18;border:2px solid #22aa44;color:#22aa44;cursor:pointer;touch-action:manipulation;}
+.im-no{font-family:'Press Start 2P',monospace;font-size:7px;padding:10px 16px;background:#2a0000;border:2px solid #cc0000;color:#ff4444;cursor:pointer;touch-action:manipulation;}
+
+/* ════ TOAST ════ */
+#im-toast{position:absolute;bottom:110px;left:50%;transform:translateX(-50%);font-family:'Press Start 2P',monospace;font-size:7px;background:rgba(0,0,0,.94);border:1px solid #ffd700;color:#ffd700;padding:9px 14px;z-index:210;pointer-events:none;opacity:0;transition:opacity .25s;white-space:nowrap;max-width:90vw;text-align:center;line-height:1.8;}
+#im-toast.on{opacity:1;}
 </style>
 </head>
 <body>
 <div id="app">
+
+<!-- ══════════════ MODAL & TOAST ══════════════ -->
+<div id="im-modal"><div class="im-box"><div class="im-title" id="im-mtitle"></div><div class="im-body" id="im-mbody"></div><div class="im-btns"><button class="im-yes" id="im-yes">EVET</button><button class="im-no" id="im-no">HAYIR</button></div></div></div>
+<div id="im-toast"></div>
 
 <!-- ══════════════ MENU ══════════════ -->
 <div class="screen active" id="menuScreen">
@@ -495,6 +516,11 @@ var MAPS=[
    tags:['EKSTREM'],border:'#b36bff',
    th:{f1:'#1b1021',f2:'#0c0710',accent:'#2b1638'},
    enemySpeedMult:2.0,enemyHpMult:2.8,goldMult:1.8,spawnRate:1.7},
+  {id:'besiktas',name:'BEŞİKTAŞ MEYDANI',diff:'hard',
+   desc:'ZOR — Sahil şeridi ve çarşı. Hızlı düşmanlar, bol altın.',
+   tags:['ZOR','GECE','BOSS'],border:'#00ccff',
+   th:{f1:'#0a1a2a',f2:'#050e18',accent:'#1a4060'},
+   enemySpeedMult:1.7,enemyHpMult:2.0,goldMult:1.6,spawnRate:1.5},
 ];
 
 // ════════════════════════════════════
@@ -856,7 +882,7 @@ function showEvoBanner(ev){
 var pdata={totalKills:0,bestTime:0,maxWave:0,gold:0,shopLvl:{},ach:{},lb:[],shopBuys:0,totalG:0,
   unlockedChars:['polat','cakir','memati','abdulhey'],
   premium:null,// 'caylak'|'don'|'patron'
-  dailyDate:'',dailyDone:false,dailyStreak:0,
+  dailyDate:'',dailyDone:false,dailyStreak:0,dailyDoneList:[],
   runModifier:null,lastRunStats:null};
 try{var _sv=JSON.parse(localStorage.getItem('imv7'));if(_sv)for(var k in _sv)pdata[k]=_sv[k];}catch(e){}
 if(!Array.isArray(pdata.relics))pdata.relics=['heart','uzi','rapid'];
@@ -927,22 +953,33 @@ var DAILY_CHALLENGES=[
   {id:'d_solo',   name:'TEK SİLAH',    desc:'Sadece 1 silahla 10 dalga',  goal:function(){return P.weaps.length===1&&wave>=10;},reward:350},
   {id:'d_gold',   name:'ALTIN HAR',    desc:'Tek oyunda 3000 altın topla',goal:function(){return runGold>=3000;},               reward:700},
 ];
-function getTodayChallenge(){
+function getTodayChallenges(){
   var d=new Date(),key=d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
-  var idx=((d.getFullYear()*366+d.getMonth()*31+d.getDate())%DAILY_CHALLENGES.length);
-  return{challenge:DAILY_CHALLENGES[idx],date:key};
+  var seed=d.getFullYear()*366+d.getMonth()*31+d.getDate();
+  var pool=DAILY_CHALLENGES.slice();
+  // Deterministik karıştır
+  for(var i=pool.length-1;i>0;i--){var j=(seed*(i+7))%i;var t=pool[i];pool[i]=pool[j];pool[j]=t;}
+  return{challenges:pool.slice(0,3),date:key};
 }
+// Geriye uyumluluk
+function getTodayChallenge(){var r=getTodayChallenges();return{challenge:r.challenges[0],date:r.date};}
 function checkDailyChallenge(){
-  var dc=getTodayChallenge();
-  if(pdata.dailyDate===dc.date&&pdata.dailyDone)return;
-  if(dc.challenge.goal()){
-    pdata.dailyDate=dc.date;pdata.dailyDone=true;
-    pdata.dailyStreak=(pdata.dailyStreak||0)+1;
-    pdata.gold=(pdata.gold||0)+dc.challenge.reward;
-    pdata.totalG=(pdata.totalG||0)+dc.challenge.reward;
-    saveP();
-    showDailyComplete(dc.challenge);
-  }
+  var dc=getTodayChallenges();
+  var today=dc.date;
+  if(pdata.dailyDate!==today){pdata.dailyDate=today;pdata.dailyDoneList=[];pdata.dailyDone=false;}
+  if(!Array.isArray(pdata.dailyDoneList))pdata.dailyDoneList=[];
+  dc.challenges.forEach(function(ch,i){
+    if(pdata.dailyDoneList.indexOf(i)>=0)return;
+    if(ch.goal()){
+      pdata.dailyDoneList.push(i);
+      pdata.dailyStreak=(pdata.dailyStreak||0)+1;
+      pdata.gold=(pdata.gold||0)+ch.reward;
+      pdata.totalG=(pdata.totalG||0)+ch.reward;
+      if(pdata.dailyDoneList.length>=3)pdata.dailyDone=true;
+      saveP();
+      showDailyComplete(ch);
+    }
+  });
 }
 function showDailyComplete(ch){
   var el=document.getElementById('dailyBanner');
@@ -977,6 +1014,38 @@ function pickRunModifiers(n){
   return pool.slice(0,n||3);
 }
 var _pendingModifiers=null;
+
+// ════════════════════════════════════
+// MODAL & TOAST (confirm/alert yerine)
+// ════════════════════════════════════
+var _modalCb=null;
+function showModal(title,body,onYes,onNo){
+  document.getElementById('im-mtitle').textContent=title;
+  document.getElementById('im-mbody').textContent=body||'';
+  _modalCb={yes:onYes,no:onNo};
+  document.getElementById('im-modal').classList.add('on');
+}
+(function(){
+  var yBtn=document.getElementById('im-yes');
+  var nBtn=document.getElementById('im-no');
+  function closeModal(yes){
+    document.getElementById('im-modal').classList.remove('on');
+    var cb=_modalCb;_modalCb=null;
+    if(cb){if(yes&&cb.yes)cb.yes();else if(!yes&&cb.no)cb.no();}
+  }
+  yBtn.addEventListener('click',function(){closeModal(true);});
+  yBtn.addEventListener('touchend',function(e){e.preventDefault();closeModal(true);},{passive:false});
+  nBtn.addEventListener('click',function(){closeModal(false);});
+  nBtn.addEventListener('touchend',function(e){e.preventDefault();closeModal(false);},{passive:false});
+})();
+var _toastT=null;
+function showToast(msg,col){
+  var el=document.getElementById('im-toast');
+  el.textContent=msg;el.style.borderColor=col||'#ffd700';el.style.color=col||'#ffd700';
+  el.classList.add('on');
+  if(_toastT)clearTimeout(_toastT);
+  _toastT=setTimeout(function(){el.classList.remove('on');},2800);
+}
 function showModifierSelect(){
   _pendingModifiers=pickRunModifiers(3);
   var el=document.getElementById('modSelect');
@@ -988,14 +1057,20 @@ function showModifierSelect(){
   var html='<div style="font-family:\'Press Start 2P\',monospace;font-size:10px;color:#ffd700;letter-spacing:3px;margin-bottom:8px;">🎯 RUN MODALI SEÇ</div>'
     +'<div style="font-family:\'Press Start 2P\',monospace;font-size:6px;color:#888;margin-bottom:12px;">Bu run için bir güç/lanet seç</div>';
   _pendingModifiers.forEach(function(m,i){
-    html+='<button onclick="applyModifier('+i+')" style="font-family:\'Press Start 2P\',monospace;font-size:7px;width:100%;max-width:300px;padding:12px 8px;background:rgba(0,0,0,.8);border:2px solid #ffd700;color:#fff;cursor:pointer;touch-action:manipulation;">'
+    html+='<button data-mi="'+i+'" style="font-family:\'Press Start 2P\',monospace;font-size:7px;width:100%;max-width:300px;padding:12px 8px;background:rgba(0,0,0,.8);border:2px solid #ffd700;color:#fff;cursor:pointer;touch-action:manipulation;">'
       +'<div style="font-size:16px;margin-bottom:4px;">'+m.icon+'</div>'
       +'<div style="color:#ffd700;margin-bottom:4px;">'+m.name+'</div>'
       +'<div style="color:#888;font-size:5px;">'+m.desc+'</div>'
       +'</button>';
   });
-  html+='<button onclick="applyModifier(-1)" style="font-family:\'Press Start 2P\',monospace;font-size:6px;padding:8px 16px;background:transparent;border:1px solid #444;color:#444;cursor:pointer;touch-action:manipulation;margin-top:4px;">Modifier olmadan devam et</button>';
-  el.innerHTML=html;el.style.display='flex';
+  html+='<button data-mi="-1" style="font-family:\'Press Start 2P\',monospace;font-size:6px;padding:8px 16px;background:transparent;border:1px solid #444;color:#444;cursor:pointer;touch-action:manipulation;margin-top:4px;">Modifier olmadan devam et</button>';
+  el.innerHTML=html;
+  el.querySelectorAll('[data-mi]').forEach(function(btn){
+    function doApply(e){if(e&&e.cancelable)e.preventDefault();window.applyModifier(parseInt(btn.dataset.mi));}
+    btn.addEventListener('click',doApply);
+    btn.addEventListener('touchend',doApply,{passive:false});
+  });
+  el.style.display='flex';
 }
 window.applyModifier=function(i){
   var el=document.getElementById('modSelect');if(el)el.style.display='none';
@@ -1330,7 +1405,9 @@ function buildCharScreen(){
         var buyBtn=document.createElement('button');
         buyBtn.textContent='SATIN AL';
         buyBtn.style.cssText='font-family:\'Press Start 2P\',monospace;font-size:5px;padding:4px 6px;background:#b8860b;border:1px solid #ffd700;color:#fff;cursor:pointer;touch-action:manipulation;margin-top:3px;';
-        buyBtn.onclick=function(ev){ev.stopPropagation();if(tryUnlockChar(ch)){buildCharScreen();}else{alert('Yeterli altın yok! Gereken: '+need+' 💰');}};
+        function _doBuy(ev){if(ev&&ev.cancelable)ev.preventDefault();ev.stopPropagation();if(tryUnlockChar(ch)){buildCharScreen();}else{showToast('Yeterli altın yok! Gereken: '+need+' 💰','#ff4444');}}
+        buyBtn.addEventListener('click',_doBuy);
+        buyBtn.addEventListener('touchend',_doBuy,{passive:false});
         card.appendChild(buyBtn);
       }
     }
@@ -1353,13 +1430,15 @@ function buildCharScreen(){
     card.appendChild(sb);
     var wep=document.createElement('div');wep.className='cwep';wep.textContent=(WICONS[ch.wep]||'🔫')+' '+ch.wep;
     card.appendChild(wep);
-    card.addEventListener('click',function(){
+    function _selChar(e){
       if(!unlocked)return;
       selCh=ch;document.querySelectorAll('.ccard').forEach(function(c2){c2.classList.remove('sel');});
       card.classList.add('sel');
       document.getElementById('cdname').textContent=ch.name;
       document.getElementById('cdtxt').textContent=ch.desc;
-    });
+    }
+    card.addEventListener('click',_selChar);
+    card.addEventListener('touchend',function(e){e.preventDefault();_selChar(e);},{passive:false});
     grid.appendChild(card);
   });
   // Daily challenge göster
@@ -1367,9 +1446,17 @@ function buildCharScreen(){
   var today=new Date(),dateKey=today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   var done=pdata.dailyDate===dateKey&&pdata.dailyDone;
   var dEl=document.getElementById('dailyWidget');
-  if(dEl){dEl.innerHTML='<div style="font-size:6px;color:#00ff88;letter-spacing:2px;margin-bottom:3px;">📅 GÜNLÜK GÖREV '+(done?'✓ TAMAMLANDI':'')+'</div>'
-    +'<div style="font-size:7px;color:#fff;">'+dc.challenge.name+': '+dc.challenge.desc+'</div>'
-    +'<div style="font-size:6px;color:#ffd700;margin-top:2px;">+'+dc.challenge.reward+' 💰 ödül</div>';}
+  if(dEl){
+    var dcs=getTodayChallenges();
+    var doneList=Array.isArray(pdata.dailyDoneList)?pdata.dailyDoneList:[];
+    var allDone=doneList.length>=3;
+    var html='<div style="font-size:6px;color:#00ff88;letter-spacing:2px;margin-bottom:4px;">📅 GÜNLÜK GÖREVLER '+(allDone?'✓ HEPSİ TAMAMLANDI':'('+doneList.length+'/3)')+'</div>';
+    dcs.challenges.forEach(function(ch,i){
+      var isDone=doneList.indexOf(i)>=0;
+      html+='<div style="font-size:6px;color:'+(isDone?'#00ff88':'#ccc')+';margin:1px 0;">'+(isDone?'✓ ':'○ ')+ch.name+': '+ch.desc+' <span style="color:#ffd700">+'+ch.reward+'💰</span></div>';
+    });
+    dEl.innerHTML=html;
+  }
   document.getElementById('cdname').textContent=selCh.name;
   document.getElementById('cdtxt').textContent=selCh.desc;
   document.getElementById('cdtxt').textContent=selCh.desc;
@@ -1431,6 +1518,20 @@ function drawMapThumb(cx,m,W,H){
     cx.fillStyle='rgba(255,200,100,.4)';cx.fillRect(tx2-4,ty2+5,3,3);cx.fillRect(tx2+2,ty2+5,3,3);cx.fillRect(tx2-4,ty2+15,3,3);cx.fillRect(tx2+2,ty2+15,3,3);
   }
 
+  if(m.id==='besiktas'){
+    // Deniz
+    cx.fillStyle='#031424';cx.fillRect(0,0,W,H*.35);
+    for(var wi=0;wi<4;wi++){cx.strokeStyle='rgba(0,150,220,.3)';cx.lineWidth=1;cx.beginPath();cx.moveTo(0,H*(0.1+wi*.06));cx.lineTo(W,H*(0.1+wi*.06));cx.stroke();}
+    // BJK amblemi (basit)
+    cx.save();cx.fillStyle='#000';cx.beginPath();cx.arc(W/2,H*.2,10,0,Math.PI*2);cx.fill();
+    cx.strokeStyle='#00ccff';cx.lineWidth=1.5;cx.stroke();
+    cx.restore();
+    // Sahil yolu
+    cx.fillStyle='#1a1a1a';cx.fillRect(0,H*.33,W,8);
+    // Fener (deniz feneri)
+    cx.fillStyle='#aaa';cx.fillRect(W*.8,H*.28,6,H*.1);cx.fillStyle='rgba(255,200,0,.6)';cx.beginPath();cx.arc(W*.83,H*.27,5,0,Math.PI*2);cx.fill();
+  }
+
   cx.strokeStyle=m.border;cx.lineWidth=2;cx.strokeRect(1,1,W-2,H-2);
 }
 
@@ -1444,7 +1545,9 @@ function buildMapScreen(){
     var info=document.createElement('div');info.className='minfo';
     info.innerHTML='<div class="mname">'+m.name+'</div><div class="mdesc">'+m.desc.replace(/\n/g,'<br>')+'</div><div class="mtags">'+tags+'</div>';
     card.appendChild(cv);card.appendChild(info);
-    card.addEventListener('click',function(){selMap=m;document.querySelectorAll('.mcard').forEach(function(c){c.classList.remove('sel');});card.classList.add('sel');});
+    function _selMap(){selMap=m;document.querySelectorAll('.mcard').forEach(function(c){c.classList.remove('sel');});card.classList.add('sel');}
+    card.addEventListener('click',_selMap);
+    card.addEventListener('touchend',function(e){e.preventDefault();_selMap();},{passive:false});
     ml.appendChild(card);
   });
 }
@@ -1482,7 +1585,7 @@ function buildLBScreen(){
     l.appendChild(el);
   });
 }
-function clearLB(){if(confirm('Skor tablosunu temizle?')){pdata.lb=[];saveP();buildLBScreen();}}
+function clearLB(){showModal('SKOR SİL','Skor tablosunu tamamen temizle?',function(){pdata.lb=[];saveP();buildLBScreen();});}
 window.clearLB=clearLB;
 function buildAchScreen(){
   var g=document.getElementById('achGrid');g.innerHTML='';
@@ -1581,9 +1684,9 @@ function buildPremiumScreen(){
       btn.textContent='SATIN AL — '+pkg.price;
       // Data attribute ile onclick — escape sorunu yok
       btn.dataset.pkgId=pkg.id;
-      btn.addEventListener('click',function(){
-        window.handlePremiumBuy(this.dataset.pkgId);
-      });
+      function _buyPkg(e){if(e&&e.cancelable)e.preventDefault();window.handlePremiumBuy(btn.dataset.pkgId);}
+      btn.addEventListener('click',_buyPkg);
+      btn.addEventListener('touchend',_buyPkg,{passive:false});
       btnWrap.appendChild(btn);
     }
     card.appendChild(btnWrap);
@@ -1594,10 +1697,9 @@ function buildPremiumScreen(){
   var restoreBtn=document.createElement('button');
   restoreBtn.style.cssText='font-family:\'Press Start 2P\',monospace;font-size:5px;padding:8px;background:transparent;border:1px solid #444;color:#666;cursor:pointer;width:100%;touch-action:manipulation;margin-top:4px;';
   restoreBtn.textContent='Önceki satın alımları geri yükle';
-  restoreBtn.addEventListener('click',function(){
-    if(window.restorePurchases)window.restorePurchases();
-    else alert('Bu özellik sadece native uygulamada çalışır.');
-  });
+  function _doRestore(){if(window.restorePurchases)window.restorePurchases();else showToast('Bu özellik native uygulamada çalışır.','#888');}
+  restoreBtn.addEventListener('click',_doRestore);
+  restoreBtn.addEventListener('touchend',function(e){e.preventDefault();_doRestore();},{passive:false});
   list.appendChild(restoreBtn);
 
   // Aktif paket bilgisi
@@ -1612,15 +1714,13 @@ function buildPremiumScreen(){
 window.handlePremiumBuy=function(id){
   var pkg=PREMIUM_PKGS.find(function(p){return p.id===id;});
   if(!pkg)return;
-  // Demo aktivasyon — gerçek uygulamada Capacitor IAP burada devreye girer
-  if(confirm('💎 '+pkg.name+'\n'+pkg.price+'\n\nSatın almak istiyor musun?\n\n(Şu an test modu — ücretsiz aktif olacak)')){
+  showModal('💎 '+pkg.name,'Fiyat: '+pkg.price+'\n(Test modu — ücretsiz aktif olacak)\nSatın almak istiyor musun?',function(){
     activatePremium(id);
     saveP();
     buildPremiumScreen();
-    // Char ekranını da güncelle
     if(document.getElementById('cgrid'))buildCharScreen();
-    alert('✅ '+pkg.name+' aktif edildi!\n\n'+pkg.perks.join('\n'));
-  }
+    showToast('✅ '+pkg.name+' aktif edildi!','#00ff88');
+  });
 };
 
 function buildRelicScreen(){
@@ -1873,12 +1973,16 @@ function checkBoss(){
   var k='w'+wave;
   if(wave%5===0&&!bossSpawned[k]){
     bossSpawned[k]=true;
+    var isMiniWave=wave%10!==0;
     spawnEnemy(ET[17]);
-    // Scale boss HP by wave
     var lastE=enemies[enemies.length-1];
     var bHPMult=(1+wave*.45)*(diff==='hard'?1.5:diff==='hiper'?2.2:1);
+    // Mini boss: yarı HP, tam boss: normal HP
+    if(isMiniWave){bHPMult*=0.5;}
     lastE.hp=ET[17].hp*bHPMult;lastE.maxHp=lastE.hp;
     if(wave>=10){lastE.spd=ET[17].spd+wave*.04;lastE.dmg=ET[17].dmg*(1+wave*.08);}
+    // Mini boss turuncu, tam boss kırmızı
+    if(isMiniWave){lastE.col='#ff8800';lastE._isMini=true;}
     showBossBanner(wave);
     sBoss();
   }
@@ -1894,11 +1998,12 @@ function showBossBanner(wv){
     document.head.appendChild(st);
   }
   var names={5:'KAPICI MUHAMMED',10:'KUMARBAZ ERDAL',15:'PATRON KENAN',20:'ÖLÜM AĞASI'};
-  var nm=names[vw]||(vw>=10?'ELİT PATRON':'PATRON');
-  var isElite=vw>=10;
-  el.innerHTML='<div style="font-family:\'Press Start 2P\',monospace;font-size:'+(isElite?'13px':'11px')+';color:'+(isElite?'#ff4444':'#ffd700')+';text-shadow:0 0 20px '+(isElite?'red':'#ffd700')+';letter-spacing:3px;margin-bottom:5px;">☠ PATRON GELİYOR ☠</div>'
+  var isMini=wv%10!==0;
+  var nm=names[wv]||(isMini?'MİNİ PATRON':'ELİT PATRON');
+  var isElite=wv%10===0;
+  el.innerHTML='<div style="font-family:\'Press Start 2P\',monospace;font-size:'+(isElite?'13px':'10px')+';color:'+(isElite?'#ff4444':isMini?'#ff8800':'#ffd700')+';text-shadow:0 0 20px '+(isElite?'red':isMini?'#ff8800':'#ffd700')+';letter-spacing:3px;margin-bottom:5px;">'+(isMini?'⚡ MİNİ PATRON ⚡':'☠ PATRON GELİYOR ☠')+'</div>'
     +'<div style="font-family:\'Press Start 2P\',monospace;font-size:9px;color:#fff;letter-spacing:2px;">'+nm+'</div>'
-    +(isElite?'<div style="font-family:\'Press Start 2P\',monospace;font-size:6px;color:#ff8888;margin-top:3px;">ELİT PATRON — DALGA '+vw+'</div>':'');
+    +(isElite?'<div style="font-family:\'Press Start 2P\',monospace;font-size:6px;color:#ff8888;margin-top:3px;">ELİT PATRON — DALGA '+wv+'</div>':isMini?'<div style="font-family:\'Press Start 2P\',monospace;font-size:6px;color:#ff9944;margin-top:3px;">MİNİ PATRON — DALGA '+wv+'</div>':'');
   el.style.display='block';el.style.animation='none';void el.offsetWidth;el.style.animation='bossIn 3s ease forwards';
   setTimeout(function(){el.style.display='none';},3000);
 }
@@ -2297,12 +2402,14 @@ function showCards(treasure){
   ups.forEach(function(u){
     var c=document.createElement('div');c.className='luc'+(u.r==='epic'?' epic':u.r==='rare'?' rare':'');
     c.innerHTML='<div class="luci">'+u.i+'</div><div><div class="lucn">'+u.n+(u.r!=='common'?' ['+u.r.toUpperCase()+']':'')+'</div><div class="lucd">'+u.d+'</div></div>';
-    c.addEventListener('click',function(){
+    function _pickCard(e){
       if(treasure&&picks>=2)return;
       u.fn(P);picks++;
       if(treasure){c.style.opacity='.35';c.style.pointerEvents='none';if(picks>=2){lu.classList.remove('on');lastT=performance.now();}}
       else{lu.classList.remove('on');lastT=performance.now();}
-    });
+    }
+    c.addEventListener('click',_pickCard);
+    c.addEventListener('touchend',function(e){e.preventDefault();_pickCard(e);},{passive:false});
     box.appendChild(c);
   });
 }
@@ -2685,6 +2792,26 @@ window.toggleSound=function(){
   if(b)b.textContent=_soundOn?'🔊':'🔇';
   if(AC){if(_soundOn)AC.resume().catch(function(){});else AC.suspend().catch(function(){});}
 };
+
+// ════════════════════════════════════
+// GLOBAL TOUCH BRIDGE
+// onclick butonları mobilde 300ms delay almadan çalışsın
+// ════════════════════════════════════
+(function(){
+  var _lt=0;
+  document.getElementById('app').addEventListener('touchend',function(e){
+    var el=e.target;
+    // Sadece button elementleri — modifier butonları kendi listener'ını halleder
+    if(el.tagName!=='BUTTON'||el.disabled||el.dataset.mi!==undefined)return;
+    // Modal butonları zaten hallediyor
+    if(el.id==='im-yes'||el.id==='im-no')return;
+    var now=Date.now();
+    if(now-_lt<350)return; // double-fire önleme
+    _lt=now;
+    e.preventDefault();
+    el.click();
+  },{passive:false});
+})();
 
 // INIT
 window.addEventListener('load',function(){drawMenuCanvas();updateMenuStats();});
