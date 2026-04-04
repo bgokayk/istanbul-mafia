@@ -22,18 +22,25 @@ body{background:#04010a;width:100vw;height:100svh;overflow:hidden;font-family:'P
 .menu-over{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:space-between;width:100%;height:100%;pointer-events:none;touch-action:manipulation;}
 .menu-top{display:flex;flex-direction:column;align-items:center;padding-top:clamp(12px,3vh,28px);width:100%;pointer-events:none;}
 .mtitle-wrap{display:flex;flex-direction:column;align-items:center;margin-bottom:clamp(8px,1.8vh,16px);}
-.mt1{font-size:clamp(10px,3.5vw,18px);color:#ffd700;text-shadow:0 0 14px #ffd700,2px 2px 0 #000;letter-spacing:6px;}
-.mt2{font-size:clamp(38px,12vw,68px);color:#ffd700;text-shadow:0 0 40px #ffd700,0 0 80px #ff8800,5px 5px 0 #000;letter-spacing:4px;line-height:1;}
-.mt3{font-size:clamp(7px,2.2vw,11px);color:#ff4444;letter-spacing:5px;text-shadow:0 0 10px red;margin-top:3px;}
+.mt1{font-size:clamp(8px,2.8vw,14px);color:rgba(255,215,0,.75);text-shadow:0 0 10px rgba(255,215,0,.4),2px 2px 0 #000;letter-spacing:8px;margin-bottom:2px;}
+.mt2{font-size:clamp(42px,13vw,72px);color:#ffd700;text-shadow:0 0 50px #ffd700,0 0 100px #ff6600,4px 4px 0 #000,8px 8px 0 rgba(180,80,0,.3);letter-spacing:3px;line-height:1;animation:titlePulse 3s ease-in-out infinite;}
+.mt3{font-size:clamp(6px,1.9vw,10px);color:#ff5522;letter-spacing:6px;text-shadow:0 0 14px #ff2200;margin-top:4px;border-top:1px solid rgba(255,80,0,.3);padding-top:5px;}
+@keyframes titlePulse{0%,100%{text-shadow:0 0 50px #ffd700,0 0 100px #ff6600,4px 4px 0 #000,8px 8px 0 rgba(180,80,0,.3);}50%{text-shadow:0 0 70px #ffd700,0 0 130px #ff4400,0 0 200px rgba(255,100,0,.4),4px 4px 0 #000,8px 8px 0 rgba(180,80,0,.3);}}
 .menu-chars-strip{display:none;}
-.mbtns{display:flex;flex-direction:column;gap:clamp(6px,1.2vh,10px);width:clamp(260px,80vw,380px);pointer-events:all;touch-action:manipulation;}
-.mbtn{font-family:'Press Start 2P',monospace;font-size:clamp(8px,2.5vw,13px);letter-spacing:2px;padding:clamp(12px,2.4vh,18px) 0;width:100%;text-align:center;border:2px solid;cursor:pointer;transition:all .12s;text-shadow:1px 1px 0 #000;background:rgba(0,0,0,.75);touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.3);}
+.mbtns{display:flex;flex-direction:column;gap:clamp(5px,1vh,8px);width:clamp(260px,82vw,380px);pointer-events:all;touch-action:manipulation;}
+.mbtn{font-family:'Press Start 2P',monospace;font-size:clamp(7px,2.2vw,11px);letter-spacing:2px;padding:clamp(10px,1.8vh,14px) 0;width:100%;text-align:center;border:2px solid;cursor:pointer;transition:all .15s;text-shadow:1px 1px 0 #000;background:rgba(0,0,0,.82);touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.3);}
+.mb-play{background:linear-gradient(90deg,#1a0500,#250800)!important;border-color:#ff6600!important;color:#ffd700!important;box-shadow:0 0 10px rgba(255,100,0,.35),inset 0 1px 0 rgba(255,160,0,.15);font-size:clamp(9px,2.8vw,13px)!important;}
+.mb-play:hover,.mb-play:active{box-shadow:0 0 18px rgba(255,100,0,.6);background:linear-gradient(90deg,#2a0800,#3a1000)!important;}
+.mb-shop{border-color:#ff3333!important;color:#ff6666!important;}
+.mb-ach{border-color:#ffd700!important;color:#ffd700!important;}
+.mb-lb{border-color:#4488ff!important;color:#88aaff!important;}
+.mb-extra{border-color:#aa44ff!important;color:#cc88ff!important;}
 .mb-play{border-color:#ffd700;color:#ffd700;}.mb-play:hover{background:#ffd700;color:#000;}
 .mb-shop{border-color:#22aa44;color:#22aa44;}.mb-shop:hover{background:#22aa44;color:#000;}
 .mb-ach{border-color:#aa44ff;color:#aa44ff;}.mb-ach:hover{background:#aa44ff;color:#000;}
 .mb-lb{border-color:#00ccaa;color:#00ccaa;}.mb-lb:hover{background:#00ccaa;color:#000;}
 .mb-extra{border-color:#ff8800;color:#ff8800;}.mb-extra:hover{background:#ff8800;color:#000;}
-.menu-bottom-strip{width:100%;background:rgba(0,0,0,.92);border-top:2px solid #b8860b;padding:clamp(6px,1.5vh,12px) clamp(8px,3vw,16px);display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;}
+.menu-bottom-strip{width:100%;background:rgba(0,0,0,.96);border-top:2px solid #663300;padding:clamp(5px,1.2vh,10px) clamp(8px,3vw,16px);display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;}
 .menu-stats-row{display:flex;justify-content:space-around;align-items:center;width:100%;}
 .mstat{display:flex;flex-direction:column;align-items:center;gap:3px;}
 .ms-v{font-size:clamp(11px,3.5vw,18px);color:#ffd700;}
@@ -51,7 +58,7 @@ body{background:#04010a;width:100vw;height:100svh;overflow:hidden;font-family:'P
 
 /* ════════════════ CHAR SELECT ════════════════ */
 #charScreen{background:#0a0118;}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(4px,1.2vw,8px);padding:clamp(5px,1.2vw,8px);width:100%;flex:1;overflow-y:auto;min-height:0;}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(4px,1.2vw,8px);padding:clamp(5px,1.2vw,8px);width:100%;flex:1;overflow-y:scroll;-webkit-overflow-scrolling:touch;min-height:0;}
 .ccard{background:linear-gradient(135deg,#140524,#0a0318);border:2px solid #3a1e6a;padding:clamp(5px,1.5vw,9px);cursor:pointer;transition:all .12s;position:relative;display:flex;flex-direction:column;align-items:center;}
 .ccard:hover,.ccard.sel{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.35);}
 .ccard.sel::after{content:'✓';position:absolute;top:3px;right:4px;color:#22aa44;font-size:10px;}
@@ -286,23 +293,26 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
 <!-- ══════════════ MENU ══════════════ -->
 <div class="screen active" id="menuScreen">
   <canvas id="menuCanvas" style="position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;pointer-events:none;"></canvas>
+  <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.08) 2px,rgba(0,0,0,.08) 4px);pointer-events:none;z-index:1;"></div>
   <div class="menu-over">
     <div class="menu-top">
       <div class="mtitle-wrap">
-        <div class="mt1">★ ISTANBUL ★</div>
+        <div class="mt1">☽ İSTANBUL ☾</div>
         <div class="mt2">MAFİA</div>
-        <div class="mt3">— KUMARHANE SAVAŞI —</div>
+        <div class="mt3">★ KAN VE ALTIN ★</div>
       </div>
-          <div class="mbtns">
-        <button class="mbtn mb-play" onclick="goTo('charScreen')">⚔ OYUNA GİR</button>
-        <button class="mbtn mb-shop" onclick="goTo('shopScreen')">🛒 DÜKKAN</button>
-        <button class="mbtn mb-ach"  onclick="goTo('achScreen')">🏆 BAŞARIMLAR</button>
-        <button class="mbtn mb-lb"   onclick="goTo('lbScreen')">📊 SKOR TABLOSU</button>
-        <button class="mbtn mb-extra" onclick="goTo('relicScreen')">🧿 EKSTRALAR</button>
-        <button class="mbtn" style="border-color:#ffd700;color:#ffd700;touch-action:manipulation;" onclick="buildPremiumScreen();goTo('premiumScreen')">💎 PREMİUM MAĞAZA</button>
-        <button class="mbtn mb-extra" onclick="buildEvoGuideScreen();goTo('evoGuideScreen');" style="touch-action:manipulation;">⚗ EVRİM REHBERİ</button>
+      <div class="mbtns">
+        <button class="mbtn mb-play" onclick="goTo('charScreen')">▶  SAVAŞA GİR</button>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(4px,1vw,7px);width:100%;pointer-events:all;">
+          <button class="mbtn mb-shop" onclick="goTo('shopScreen')" style="margin:0;">🛒 DÜKKAN</button>
+          <button class="mbtn mb-ach" onclick="goTo('achScreen')" style="margin:0;">🏆 BAŞARIM</button>
+          <button class="mbtn mb-lb" onclick="goTo('lbScreen')" style="margin:0;">📊 SKOR</button>
+          <button class="mbtn mb-extra" onclick="goTo('relicScreen')" style="margin:0;">🧿 EKSTRA</button>
+          <button class="mbtn mb-extra" onclick="buildEvoGuideScreen();goTo('evoGuideScreen');" style="margin:0;">⚗ EVRİM</button>
+          <button class="mbtn" style="margin:0;border-color:#ffd700;color:#ffd700;" onclick="buildPremiumScreen();goTo('premiumScreen')">💎 PREMIUM</button>
+        </div>
       </div>
-      <div class="studio-footer">LUMEN CO. 2026</div>
+      <div class="studio-footer">LUMEN CO. · 2026 · v4.0</div>
     </div>
     <div class="menu-bottom-strip">
       <div class="menu-stats-row">
@@ -554,7 +564,7 @@ var CHARS=[
   {id:'polat',   name:'POLAT',    wep:'tabanca', desc:'İstanbul\'un demiri. Her vuruşta düşman yavaşlar. Yüksek hasar, orta hız.',   col:'#1a3a8b',acc:'#4488ff',dmg:45,spd:2.3,hp:100,fr:0.75,ps:7,pc:1,stars:[1,0,1,1,0],unlock:'free',  passive:'❄ Yavaşlatma: Her vuruşta -30% hız (1sn)'},
   {id:'cakir',   name:'CAKIR',    wep:'bicak',   desc:'Sessiz ve hızlı. Bıçaklar geri döner. %25 kritik vuruş şansı.',             col:'#2a0050',acc:'#aa44ff',dmg:16,spd:3.6,hp:60, fr:.55,ps:8,pc:2,stars:[1,1,0,0,1],unlock:'free',  passive:'🗡 Kritik: %25 ihtimalle 2x hasar'},
   {id:'memati',  name:'MEMATI',   wep:'molotov', desc:'Mahallenin korkusu. Tüm alev hasarı +%30. Molotov geniş alan yakar.',       col:'#2a1500',acc:'#ff8800',dmg:20,spd:2.5,hp:110,fr:1.0,ps:5,pc:1,stars:[0,1,1,0,0],unlock:'free',  passive:'🔥 Alev Ustası: Yangın hasarı +30%'},
-  {id:'abdulhey',name:'ABDÜLHEYİ',wep:'zar',    desc:'Kumar masasının efendisi. Hasar 0-3x arası — şans her şey.',                col:'#001a0d',acc:'#00ff88',dmg:24,spd:2.7,hp:70, fr:.9, ps:6,pc:1,stars:[1,0,0,1,1],unlock:'free',  passive:'🎰 Kumar: Hasar 0.05x-3x arası rastgele'},
+  {id:'abdulhey',name:'ABDÜLHEY',wep:'zar',    desc:'Kumar masasının efendisi. Hasar 0-3x arası — şans her şey.',                col:'#001a0d',acc:'#00ff88',dmg:24,spd:2.7,hp:70, fr:.9, ps:6,pc:1,stars:[1,0,0,1,1],unlock:'free',  passive:'🎰 Kumar: Hasar 0.05x-3x arası rastgele'},
   {id:'dayi',  name:'DAYI',    wep:'zincir',desc:'Dayı her şeyi halleder. Zinciriyle 4 düşmana aynı anda vurur. Her öldürmede can çalar.', col:'#0d2a1a',acc:'#00ffaa',dmg:18,spd:2.9,hp:80, fr:.8, ps:6,pc:1,stars:[0,1,0,1,1],unlock:'gold:5000',passive:'💚 Dayı Karizması: Her kill +3 HP'},
   {id:'kemal',   name:'KEMAL BABA',wep:'av_tufegi',desc:'Esnafın patronu. Saçma mermileri 2 kat genişler. Zırh delici.',         col:'#1a1a00',acc:'#ffff00',dmg:28,spd:2.0,hp:130,fr:1.5,ps:5,pc:1,stars:[1,0,1,0,1],unlock:'kills:2000',passive:'🎯 Geniş Saçma: Alan hasarı +50%'},
 ];
@@ -639,36 +649,36 @@ var CHAR_AUTO={
 // ════════════════════════════════════
 var SHOP=[
   // ─── TEMEL ───
-  {id:'hp',   icon:'❤', name:'GÜÇLÜ VÜCUT',      desc:'Başlangıç canı +25',              cost:2400,  max:8, fn:function(sv){sv.startHp=(sv.startHp||0)+25;}},
-  {id:'dmg',  icon:'⚔', name:'KESKİN SİLAH',     desc:'Başlangıç hasarı +4',             cost:3200,  max:8, fn:function(sv){sv.startDmg=(sv.startDmg||0)+4;}},
-  {id:'spd',  icon:'👟', name:'ÇEVİK ADIMLAR',    desc:'Başlangıç hızı +0.25',            cost:2800,  max:5, fn:function(sv){sv.startSpd=(sv.startSpd||0)+.25;}},
-  {id:'mag',  icon:'🧲', name:'GÜÇLİ MANYETO',    desc:'Mıknatıs alanı +80',              cost:2000,  max:6, fn:function(sv){sv.startMag=(sv.startMag||0)+80;}},
-  {id:'xp',   icon:'✦', name:'DENEYİMLİ DON',     desc:'XP kazanımı +15%',                cost:4000, max:5, fn:function(sv){sv.startXP=(sv.startXP||1)*1.15;}},
-  {id:'w2',   icon:'🔫', name:'İKİ ELLİ USTA',    desc:'2. silahla başla',                cost:10000, max:1, fn:function(sv){sv.extraWeapon=true;}},
-  {id:'gold', icon:'💰', name:'ALTIN DOKUNUŞ',     desc:'Düşmanlar %30 fazla altın bırakır',cost:4800,max:5,fn:function(sv){sv.goldMult=(sv.goldMult||1)*1.3;}},
+  {id:'hp',   icon:'❤', name:'GÜÇLÜ VÜCUT',      desc:'Başlangıç canı +25',              cost:5000,  max:8, fn:function(sv){sv.startHp=(sv.startHp||0)+25;}},
+  {id:'dmg',  icon:'⚔', name:'KESKİN SİLAH',     desc:'Başlangıç hasarı +4',             cost:7000,  max:8, fn:function(sv){sv.startDmg=(sv.startDmg||0)+4;}},
+  {id:'spd',  icon:'👟', name:'ÇEVİK ADIMLAR',    desc:'Başlangıç hızı +0.25',            cost:6500,  max:5, fn:function(sv){sv.startSpd=(sv.startSpd||0)+.25;}},
+  {id:'mag',  icon:'🧲', name:'GÜÇLİ MANYETO',    desc:'Mıknatıs alanı +80',              cost:4500,  max:6, fn:function(sv){sv.startMag=(sv.startMag||0)+80;}},
+  {id:'xp',   icon:'✦', name:'DENEYİMLİ DON',     desc:'XP kazanımı +15%',                cost:9000,  max:5, fn:function(sv){sv.startXP=(sv.startXP||1)*1.15;}},
+  {id:'w2',   icon:'🔫', name:'İKİ ELLİ USTA',    desc:'2. silahla başla',                cost:22000, max:1, fn:function(sv){sv.extraWeapon=true;}},
+  {id:'gold', icon:'💰', name:'ALTIN DOKUNUŞ',     desc:'Düşmanlar %30 fazla altın bırakır',cost:11000,max:5,fn:function(sv){sv.goldMult=(sv.goldMult||1)*1.3;}},
   // ─── SAVUNMA ───
-  {id:'arm',  icon:'🛡', name:'HAFİF ZIRH',        desc:'Başlangıç zırhı +%8',             cost:3600,  max:5, fn:function(sv){sv.startArmor=(sv.startArmor||0)+.08;}},
-  {id:'ls',   icon:'💉', name:'CAN ÇALMA BAŞLANGIÇ',desc:'Her öldürmede +1 can',           cost:4400, max:5, fn:function(sv){sv.startLS=(sv.startLS||0)+1;}},
-  {id:'shld', icon:'🧿', name:'BAŞLANGIÇ KALKANI', desc:'Her oyuna 1 kalkan ile başla',    cost:8000, max:1, fn:function(sv){sv.startShield=true;}},
-  {id:'reg',  icon:'🩹', name:'HIZLI İYİLEŞME',   desc:'HP %30 altındayken 0.5 can/sn',   cost:7200, max:3, fn:function(sv){sv.startRegen=(sv.startRegen||0)+.5;}},
-  {id:'rev',  icon:'⚰', name:'SON NEFES',          desc:'Bir kez 1 canla ölümden dön',     cost:16000, max:1, fn:function(sv){sv.startRevive=true;}},
+  {id:'arm',  icon:'🛡', name:'HAFİF ZIRH',        desc:'Başlangıç zırhı +%8',             cost:8000,  max:5, fn:function(sv){sv.startArmor=(sv.startArmor||0)+.08;}},
+  {id:'ls',   icon:'💉', name:'CAN ÇALMA BAŞLANGIÇ',desc:'Her öldürmede +1 can',           cost:10000, max:5, fn:function(sv){sv.startLS=(sv.startLS||0)+1;}},
+  {id:'shld', icon:'🧿', name:'BAŞLANGIÇ KALKANI', desc:'Her oyuna 1 kalkan ile başla',    cost:18000, max:1, fn:function(sv){sv.startShield=true;}},
+  {id:'reg',  icon:'🩹', name:'HIZLI İYİLEŞME',   desc:'HP %30 altındayken 0.5 can/sn',   cost:16000, max:3, fn:function(sv){sv.startRegen=(sv.startRegen||0)+.5;}},
+  {id:'rev',  icon:'⚰', name:'SON NEFES',          desc:'Bir kez 1 canla ölümden dön',     cost:38000, max:1, fn:function(sv){sv.startRevive=true;}},
   // ─── SALDIRI ───
-  {id:'fr',   icon:'⚡', name:'HIZLI TETİK',       desc:'Ateş hızı %10 artar başlangıçta', cost:5200, max:4, fn:function(sv){sv.startFR=(sv.startFR||1)*.90;}},
-  {id:'pc',   icon:'🎯', name:'ÇİFT ATIŞ BAŞLANGIÇ',desc:'1 ekstra mermi ile başla',       cost:12000, max:2, fn:function(sv){sv.startPC=(sv.startPC||0)+1;}},
-  {id:'bsize',icon:'💫', name:'BÜYÜK MERMİ',       desc:'Mermi boyutu %20 büyük başlar',   cost:3400,  max:4, fn:function(sv){sv.startBS=(sv.startBS||1)*1.2;}},
-  {id:'pi',   icon:'🗡', name:'BAŞLANGIÇ DELİCİ',  desc:'Mermiler düşmandan geçer (1)',     cost:14000, max:2, fn:function(sv){sv.startPI=(sv.startPI||0)+1;}},
-  {id:'ps',   icon:'🚀', name:'UZUN MENZİL',       desc:'Mermi hızı +2',                   cost:3800,  max:4, fn:function(sv){sv.startPS=(sv.startPS||0)+2;}},
+  {id:'fr',   icon:'⚡', name:'HIZLI TETİK',       desc:'Ateş hızı %10 artar başlangıçta', cost:12000, max:4, fn:function(sv){sv.startFR=(sv.startFR||1)*.90;}},
+  {id:'pc',   icon:'🎯', name:'ÇİFT ATIŞ BAŞLANGIÇ',desc:'1 ekstra mermi ile başla',       cost:28000, max:2, fn:function(sv){sv.startPC=(sv.startPC||0)+1;}},
+  {id:'bsize',icon:'💫', name:'BÜYÜK MERMİ',       desc:'Mermi boyutu %20 büyük başlar',   cost:8000,  max:4, fn:function(sv){sv.startBS=(sv.startBS||1)*1.2;}},
+  {id:'pi',   icon:'🗡', name:'BAŞLANGIÇ DELİCİ',  desc:'Mermiler düşmandan geçer (1)',     cost:32000, max:2, fn:function(sv){sv.startPI=(sv.startPI||0)+1;}},
+  {id:'ps',   icon:'🚀', name:'UZUN MENZİL',       desc:'Mermi hızı +2',                   cost:8500,  max:4, fn:function(sv){sv.startPS=(sv.startPS||0)+2;}},
   // ─── EKSİTRA ───
-  {id:'relic',icon:'🏺', name:'BAŞLANGIÇ RELİĞİ',  desc:'Ekstra bir relic ile başla',      cost:20000, max:3, fn:function(sv){sv.startRelics=(sv.startRelics||0)+1;}},
-  {id:'lvl',  icon:'📈', name:'YÜKSEK BAŞLANGIÇ',  desc:'Seviye 3 olarak başla',           cost:24000, max:2, fn:function(sv){sv.startLevel=(sv.startLevel||1)+3;}},
-  {id:'multi',icon:'✖', name:'ÇOK AMAÇLI MÜHIMMAT',desc:'Her 10. vuruş patlama yapar',    cost:8800, max:1, fn:function(sv){sv.startExpl=true;}},
-  {id:'luck', icon:'🎰', name:'ŞANS BOOSTERI',      desc:'Abdülheyİ zarı min 0.3x hasar',  cost:6000, max:3, fn:function(sv){sv.startLuck=(sv.startLuck||0)+.1;}},
-  {id:'crit', icon:'💥', name:'KRİTİK BAŞLANGIÇ',  desc:'%10 kritik vuruş şansı',          cost:8000, max:3, fn:function(sv){sv.startCrit=(sv.startCrit||0)+.1;}},
-  {id:'bounce',icon:'🎱',name:'SIÇRAYAN MERMİ',     desc:'Mermiler 1 düşmana zıplar',       cost:11200, max:2, fn:function(sv){sv.startBounce=(sv.startBounce||0)+1;}},
-  {id:'time', icon:'⏰', name:'ZAMAN BOOSTERI',     desc:'Dalga geçişi 2 dakika değil 1.5', cost:16000, max:1, fn:function(sv){sv.fasterWaves=true;}},
-  {id:'loot', icon:'🎁', name:'LOOT YAĞMURU',       desc:'Düşmanlar %40 fazla item bırakır',cost:7200, max:3, fn:function(sv){sv.lootMult=(sv.lootMult||1)*1.4;}},
-  {id:'curse',icon:'😈', name:'LANET VE GÜÇLÜK',    desc:'Zorluk +1 ama XP 2x (kalıcı)',   cost:39960, max:1, fn:function(sv){sv.cursed=true;}},
-  {id:'start3',icon:'🔱',name:'ÜÇLÜ BAŞLANGIÇ',     desc:'3 silah ile başla',               cost:32000, max:1, fn:function(sv){sv.tripleStart=true;}},
+  {id:'relic',icon:'🏺', name:'BAŞLANGIÇ RELİĞİ',  desc:'Ekstra bir relic ile başla',      cost:45000, max:3, fn:function(sv){sv.startRelics=(sv.startRelics||0)+1;}},
+  {id:'lvl',  icon:'📈', name:'YÜKSEK BAŞLANGIÇ',  desc:'Seviye 3 olarak başla',           cost:55000, max:2, fn:function(sv){sv.startLevel=(sv.startLevel||1)+3;}},
+  {id:'multi',icon:'✖', name:'ÇOK AMAÇLI MÜHIMMAT',desc:'Her 10. vuruş patlama yapar',    cost:20000, max:1, fn:function(sv){sv.startExpl=true;}},
+  {id:'luck', icon:'🎰', name:'ŞANS BOOSTERI',      desc:'Abdülhey zarı min 0.3x hasar',  cost:14000, max:3, fn:function(sv){sv.startLuck=(sv.startLuck||0)+.1;}},
+  {id:'crit', icon:'💥', name:'KRİTİK BAŞLANGIÇ',  desc:'%10 kritik vuruş şansı',          cost:18000, max:3, fn:function(sv){sv.startCrit=(sv.startCrit||0)+.1;}},
+  {id:'bounce',icon:'🎱',name:'SIÇRAYAN MERMİ',     desc:'Mermiler 1 düşmana zıplar',       cost:26000, max:2, fn:function(sv){sv.startBounce=(sv.startBounce||0)+1;}},
+  {id:'time', icon:'⏰', name:'ZAMAN BOOSTERI',     desc:'Dalga geçişi 2 dakika değil 1.5', cost:38000, max:1, fn:function(sv){sv.fasterWaves=true;}},
+  {id:'loot', icon:'🎁', name:'LOOT YAĞMURU',       desc:'Düşmanlar %40 fazla item bırakır',cost:16000, max:3, fn:function(sv){sv.lootMult=(sv.lootMult||1)*1.4;}},
+  {id:'curse',icon:'😈', name:'LANET VE GÜÇLÜK',    desc:'Zorluk +1 ama XP 2x (kalıcı)',   cost:95000, max:1, fn:function(sv){sv.cursed=true;}},
+  {id:'start3',icon:'🔱',name:'ÜÇLÜ BAŞLANGIÇ',     desc:'3 silah ile başla',               cost:75000, max:1, fn:function(sv){sv.tripleStart=true;}},
 ];
 
 // ════════════════════════════════════
@@ -678,26 +688,26 @@ var ACHS=[
   // ─── İLK ADIMLAR ───
   {id:'fk1',   icon:'🗡', name:'İLK KAN',           desc:'İlk düşmanı öldür'},
   {id:'fk10',  icon:'💀', name:'ONBİR KAFADAN',      desc:'10 düşman öldür'},
-  {id:'fk100', icon:'☠',  name:'SOKAK KASABI',       desc:'100 düşman öldür'},
-  {id:'fk500', icon:'💀', name:'MAHALLE KATLI',      desc:'500 düşman öldür'},
-  {id:'fk1000',icon:'👻', name:'BİN KAFADAN',        desc:'1000 düşman öldür'},
-  {id:'fk5000',icon:'🩸', name:'KAN HAVUZU',         desc:'5000 düşman öldür'},
+  {id:'fk100', icon:'☠',  name:'SOKAK KASABI',       desc:'250 düşman öldür'},
+  {id:'fk500', icon:'💀', name:'MAHALLE KATLI',      desc:'1000 düşman öldür'},
+  {id:'fk1000',icon:'👻', name:'BİN KAFADAN',        desc:'3000 düşman öldür'},
+  {id:'fk5000',icon:'🩸', name:'KAN HAVUZU',         desc:'10000 düşman öldür'},
   // ─── DALGA ───
-  {id:'w5',    icon:'🌊', name:'DALGA GEÇTİ',        desc:'5. dalgaya ulaş'},
-  {id:'w10',   icon:'🌊', name:'DALGAYI ATSAYDIM',   desc:'10. dalgaya ulaş'},
-  {id:'w20',   icon:'🌊', name:'SÖRFÇİ DON',         desc:'20. dalgaya ulaş'},
-  {id:'w50',   icon:'🌪', name:'KASIRGA DALGA',       desc:'50. dalgaya ulaş'},
+  {id:'w5',    icon:'🌊', name:'DALGA GEÇTİ',        desc:'10. dalgaya ulaş'},
+  {id:'w10',   icon:'🌊', name:'DALGAYI ATSAYDIM',   desc:'20. dalgaya ulaş'},
+  {id:'w20',   icon:'🌊', name:'SÖRFÇİ DON',         desc:'30. dalgaya ulaş'},
+  {id:'w50',   icon:'🌪', name:'KASIRGA DALGA',       desc:'80. dalgaya ulaş'},
   // ─── SEVİYE ───
-  {id:'l5',    icon:'⭐', name:'ÇAYLAK',              desc:'Seviye 5\'e ulaş'},
-  {id:'l10',   icon:'⭐', name:'SEMTİN ADAMI',        desc:'Seviye 10\'a ulaş'},
-  {id:'l20',   icon:'🌟', name:'MAHALLE REİSİ',       desc:'Seviye 20\'ye ulaş'},
-  {id:'l30',   icon:'💫', name:'SEMT EFENDİSİ',       desc:'Seviye 30\'a ulaş'},
-  {id:'l50',   icon:'🏅', name:'İSTANBUL DEVİ',       desc:'Seviye 50\'ye ulaş'},
+  {id:'l5',    icon:'⭐', name:'ÇAYLAK',              desc:'Seviye 8\'e ulaş'},
+  {id:'l10',   icon:'⭐', name:'SEMTİN ADAMI',        desc:'Seviye 15\'e ulaş'},
+  {id:'l20',   icon:'🌟', name:'MAHALLE REİSİ',       desc:'Seviye 25\'e ulaş'},
+  {id:'l30',   icon:'💫', name:'SEMT EFENDİSİ',       desc:'Seviye 40\'a ulaş'},
+  {id:'l50',   icon:'🏅', name:'İSTANBUL DEVİ',       desc:'Seviye 60\'a ulaş'},
   // ─── SÜRE ───
   {id:'t1',    icon:'⌚', name:'BİR DAKIKA',           desc:'1 dakika hayatta kal'},
-  {id:'t5',    icon:'⌛', name:'BEŞ DAKİKA',           desc:'5 dakika hayatta kal'},
-  {id:'t10',   icon:'🕐', name:'GECE NÖBETÇI',        desc:'10 dakika hayatta kal'},
-  {id:'t20',   icon:'🌙', name:'GECEYİ ATLATMAK',     desc:'20 dakika hayatta kal'},
+  {id:'t5',    icon:'⌛', name:'DAYANIKLI SAVAŞÇI',   desc:'8 dakika hayatta kal'},
+  {id:'t10',   icon:'🕐', name:'GECE NÖBETÇİSİ',      desc:'15 dakika hayatta kal'},
+  {id:'t20',   icon:'🌙', name:'GECEYİ ATLATMAK',     desc:'30 dakika hayatta kal'},
   // ─── BOSS ───
   {id:'bk1',   icon:'👑', name:'İLK PATRON',           desc:'İlk patronu öldür'},
   {id:'bk5',   icon:'💀', name:'PATRON AVCISI',        desc:'5 patron öldür'},
@@ -1019,12 +1029,12 @@ var pdata={totalKills:0,bestTime:0,maxWave:0,gold:0,shopLvl:{},ach:{},lb:[],shop
   seenLore:[],introSeen:false,
   mapProgress:{},tutorialDone:false,_runTotalDmg:0};
 try{var _sv=JSON.parse(localStorage.getItem('imv7'));if(_sv)for(var k in _sv)pdata[k]=_sv[k];}catch(e){}
-if(!Array.isArray(pdata.relics))pdata.relics=['heart','uzi','rapid'];
+if(!Array.isArray(pdata.relics))pdata.relics=[];
 if(!pdata.mapProgress)pdata.mapProgress={};
 ['kapalicarsi','uskudar','besiktas','taksim','balat'].forEach(function(mid){
   if(!pdata.mapProgress[mid])pdata.mapProgress[mid]={stage:0,kills:0,waves:0,bosses:0,completed:false};
 });
-if(typeof pdata.relicCap!=='number')pdata.relicCap=3;
+if(typeof pdata.relicCap!=='number'||pdata.relicCap<5)pdata.relicCap=5;
 if(!pdata._runTotalDmg)pdata._runTotalDmg=0;
 function saveP(){try{localStorage.setItem('imv7',JSON.stringify(pdata));}catch(e){}}
 
@@ -1053,31 +1063,31 @@ function tryUnlockChar(ch){
 // PREMIUM SİSTEM
 // ════════════════════════════════════
 var PREMIUM_PKGS=[
-  {id:'caylak',  name:'ÇAYLAK PAKETİ', price:'₺49',  icon:'🥉',color:'#cd7f32',
+  {id:'caylak',  name:'ÇAYLAK PAKETİ', price:'₺99',  icon:'🥉',color:'#cd7f32',
    perks:['2000 başlangıç altını','Destek rozeti'],
    apply:function(){pdata.gold=(pdata.gold||0)+2000;}},
-  {id:'don',     name:'DON PAKETİ',    price:'₺109', icon:'🥈',color:'#aaaaaa',
+  {id:'don',     name:'DON PAKETİ',    price:'₺219', icon:'🥈',color:'#aaaaaa',
    perks:['DAYI+Kemal açılır','8000 altın','Altın çerçeve','Relic cap 4'],
    apply:function(){pdata.gold=(pdata.gold||0)+8000;['dayi','kemal'].forEach(function(c){pdata.unlockedChars=pdata.unlockedChars||[];if(pdata.unlockedChars.indexOf(c)<0)pdata.unlockedChars.push(c);});pdata.goldenFrame=true;pdata.relicCap=4;}},
-  {id:'patron',  name:'PATRON PAKETİ', price:'₺199', icon:'🥇',color:'#ffd700',
+  {id:'patron',  name:'PATRON PAKETİ', price:'₺399', icon:'🥇',color:'#ffd700',
    perks:['TÜM karakterler','Revive her run','Altın isim','Relic cap 5'],
    apply:function(){CHARS.forEach(function(c){pdata.unlockedChars=pdata.unlockedChars||[];if(pdata.unlockedChars.indexOf(c.id)<0)pdata.unlockedChars.push(c.id);});pdata.patronRevive=true;pdata.goldenFrame=true;pdata.relicCap=5;}},
-  {id:'reklamsiz',name:'REKLAMSIZ',    price:'₺99',  icon:'🚫',color:'#ff8888',
+  {id:'reklamsiz',name:'REKLAMSIZ',    price:'₺199', icon:'🚫',color:'#ff8888',
    perks:['Reklamlar kaldırılır','Her run +500 altın'],
    apply:function(){pdata.noAds=true;pdata.runStartBonus=(pdata.runStartBonus||0)+500;}},
-  {id:'baslangic',name:'BAŞLANGIÇ PAKETİ',price:'₺29',icon:'🎁',color:'#66aa44',
+  {id:'baslangic',name:'BAŞLANGIÇ PAKETİ',price:'₺59',icon:'🎁',color:'#66aa44',
    perks:['+1000 Altın','1 Relic Açma Hakkı'],
    apply:function(){pdata.gold=(pdata.gold||0)+1000;pdata.relicUnlocks=(pdata.relicUnlocks||0)+1;}},
-  {id:'istanbul',name:'İSTANBUL PAKETİ',price:'₺149',icon:'🌙',color:'#cc4400',
+  {id:'istanbul',name:'İSTANBUL PAKETİ',price:'₺299',icon:'🌙',color:'#cc4400',
    perks:['Tüm haritalar tamamlandı','Altın çerçeve','2× Altın drop'],
    apply:function(){
      if(pdata.mapProgress){Object.keys(pdata.mapProgress).forEach(function(k){pdata.mapProgress[k].completed=true;pdata.mapProgress[k].stage=3;});}
      pdata.goldenFrame=true;pdata.gm=(pdata.gm||1)*2;
    }},
-  {id:'haftalik',name:'HAFTALIK ABONELİK',price:'₺39/hafta',icon:'📅',color:'#4488ff',
+  {id:'haftalik',name:'HAFTALIK ABONELİK',price:'₺79/hafta',icon:'📅',color:'#4488ff',
    perks:['Her gün 500 altın','Double XP','Özel relic'],
    apply:function(){pdata.weeklyActive=true;pdata.weeklyStart=Date.now();pdata.xpm=(pdata.xpm||1)*2;pdata.gold=(pdata.gold||0)+500;}},
-  {id:'yillik',name:'YILLIK ABONELİK',price:'₺299/yıl',icon:'💎',color:'#ffd700',
+  {id:'yillik',name:'YILLIK ABONELİK',price:'₺599/yıl',icon:'💎',color:'#ffd700',
    perks:['Tüm paket özellikleri','365 gün geçerli','Patron seviyesi'],
    apply:function(){
      ['caylak','don','patron','istanbul','baslangic','haftalik'].forEach(function(pid){
@@ -1297,26 +1307,26 @@ function checkAchs(){
   // Kill milestones
   if(kc>=1)unlockAch('fk1');
   if(kc>=10)unlockAch('fk10');
-  if(kc>=100)unlockAch('fk100');
-  if(kc>=500)unlockAch('fk500');
-  if(kc>=1000)unlockAch('fk1000');
-  if(kc>=5000)unlockAch('fk5000');
+  if(kc>=250)unlockAch('fk100');
+  if(kc>=1000)unlockAch('fk500');
+  if(kc>=3000)unlockAch('fk1000');
+  if(kc>=10000)unlockAch('fk5000');
   // Wave
-  if(wave>=5)unlockAch('w5');
-  if(wave>=10)unlockAch('w10');
-  if(wave>=20)unlockAch('w20');
-  if(wave>=50)unlockAch('w50');
+  if(wave>=10)unlockAch('w5');
+  if(wave>=20)unlockAch('w10');
+  if(wave>=30)unlockAch('w20');
+  if(wave>=80)unlockAch('w50');
   // Level
-  if(P.lvl>=5)unlockAch('l5');
-  if(P.lvl>=10)unlockAch('l10');
-  if(P.lvl>=20)unlockAch('l20');
-  if(P.lvl>=30)unlockAch('l30');
-  if(P.lvl>=50)unlockAch('l50');
+  if(P.lvl>=8)unlockAch('l5');
+  if(P.lvl>=15)unlockAch('l10');
+  if(P.lvl>=25)unlockAch('l20');
+  if(P.lvl>=40)unlockAch('l30');
+  if(P.lvl>=60)unlockAch('l50');
   // Time (elapsed in ms)
   if(elapsed>=60000)unlockAch('t1');
-  if(elapsed>=300000)unlockAch('t5');
-  if(elapsed>=600000)unlockAch('t10');
-  if(elapsed>=1200000)unlockAch('t20');
+  if(elapsed>=480000)unlockAch('t5');
+  if(elapsed>=900000)unlockAch('t10');
+  if(elapsed>=1800000)unlockAch('t20');
   // Boss
   if((pd.bossKills||0)>=1)unlockAch('bk1');
   if((pd.bossKills||0)>=5)unlockAch('bk5');
@@ -1693,7 +1703,8 @@ function showBossChestOverlay(opts){
       if(o.type==='upg'){applyUpgrade(o._upg);showToast('⬆ '+o._upg.name+' KAZANILDI!','#ffd700');}
       else if(o.type==='gold'){pdata.gold=(pdata.gold||0)+o._amount;saveP();showToast('+'+o._amount+' ALTIN','#ffd700');}
       else if(o.type==='heal'){P.hp=P.maxHp;showToast('❤ TAM CAN!','#ff4444');}
-      if(raf2){cancelAnimationFrame(raf2);lastT=performance.now();raf2=requestAnimationFrame(gloop);}
+      if(raf2)cancelAnimationFrame(raf2);
+      lastT=performance.now();raf2=requestAnimationFrame(gloop);
     }
     btn.addEventListener('click',doSelect);
     btn.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();doSelect();},{passive:false});
@@ -1803,15 +1814,55 @@ function drawMenuCanvas(){
   var mc=document.getElementById('menuCanvas');
   if(!mc)return;
   var cx=mc.getContext('2d'),W=mc.width,H=mc.height;
-  // Arka plan gradient
+  mc.width=W;mc.height=H;
+  // Sky gradient
   var g=cx.createLinearGradient(0,0,0,H);
-  g.addColorStop(0,'#08030f');g.addColorStop(1,'#12061e');
+  g.addColorStop(0,'#04010a');g.addColorStop(0.5,'#0c0318');g.addColorStop(1,'#1a0508');
   cx.fillStyle=g;cx.fillRect(0,0,W,H);
-  // Yıldızlar
-  for(var i=0;i<40;i++){
-    cx.fillStyle='rgba(255,215,0,'+(0.1+Math.random()*.3)+')';
-    cx.beginPath();cx.arc(Math.random()*W,Math.random()*H*.6,Math.random()*1.5,0,Math.PI*2);cx.fill();
+  // Moon
+  cx.save();
+  cx.shadowBlur=30;cx.shadowColor='rgba(255,200,100,.5)';
+  cx.fillStyle='rgba(255,220,120,.9)';
+  cx.beginPath();cx.arc(W*0.78,H*0.13,18,0,Math.PI*2);cx.fill();
+  cx.fillStyle='#04010a';cx.beginPath();cx.arc(W*0.78+8,H*0.13-3,15,0,Math.PI*2);cx.fill();
+  cx.restore();
+  // Stars
+  for(var i=0;i<60;i++){
+    var sx=Math.sin(i*137.5)*W,sy=Math.cos(i*97.3)*H*.55;
+    sx=((sx%W)+W)%W;sy=((sy%H*.55)+H*.55)%(H*.55);
+    var sa=0.15+Math.sin(i*0.7)*0.1;
+    cx.fillStyle='rgba(255,220,180,'+sa+')';
+    cx.beginPath();cx.arc(sx,sy,Math.random()<0.1?1.5:0.8,0,Math.PI*2);cx.fill();
   }
+  // City silhouette — back row (Bosphorus buildings)
+  cx.fillStyle='rgba(10,4,20,.8)';
+  var buildings=[
+    [0,60],[20,55],[40,58],[55,45],[75,48],[95,40],[120,38],[150,50],[170,42],[195,38],
+    [220,52],[245,45],[260,48],[280,35],[300,30],[330,42],[355,38],[375,45],[400,40],[420,52],[430,60]
+  ];
+  cx.beginPath();cx.moveTo(0,H);
+  var bH=H*0.72;
+  buildings.forEach(function(b){cx.lineTo(b[0]/430*W,bH-b[1]/100*H*.25);});
+  cx.lineTo(W,H);cx.closePath();cx.fill();
+  // Mosque silhouette (center-right)
+  cx.fillStyle='rgba(15,6,30,.95)';
+  var mx=W*0.65,my=H*0.62;
+  // Dome
+  cx.beginPath();cx.arc(mx,my,W*0.07,Math.PI,0);cx.fill();
+  // Minarets
+  cx.fillRect(mx-W*0.09,my-H*0.12,W*0.012,H*0.12);
+  cx.fillRect(mx+W*0.075,my-H*0.12,W*0.012,H*0.12);
+  cx.beginPath();cx.arc(mx-W*0.084,my-H*0.12,W*0.01,Math.PI,0);cx.fill();
+  cx.beginPath();cx.arc(mx+W*0.081,my-H*0.12,W*0.01,Math.PI,0);cx.fill();
+  cx.fillRect(0,my,W,H-my);
+  // Ground glow (Bosphorus reflection)
+  var gg=cx.createLinearGradient(0,H*0.72,0,H);
+  gg.addColorStop(0,'rgba(80,20,10,.25)');gg.addColorStop(1,'rgba(20,5,5,.0)');
+  cx.fillStyle=gg;cx.fillRect(0,H*0.72,W,H*0.28);
+  // Atmospheric haze
+  var hz=cx.createLinearGradient(0,H*0.55,0,H*0.72);
+  hz.addColorStop(0,'rgba(100,10,0,0)');hz.addColorStop(1,'rgba(80,10,5,.12)');
+  cx.fillStyle=hz;cx.fillRect(0,H*0.55,W,H*0.17);
 }
 
 function drawSprite(cx,x,y,facing,ch,S){
@@ -2390,7 +2441,6 @@ function buildWorld(){
   if(m.id==='balat'){
     var borders=[{x:0,y:0,w:W,h:90},{x:0,y:W-90,w:W,h:90},{x:0,y:0,w:90,h:W},{x:W-90,y:0,w:90,h:W}];
     borders.forEach(function(w){worldObj.colliders.push(w);});
-    // Scattered corridor walls
     for(var i=0;i<30;i++){
       if(Math.random()<.5)worldObj.colliders.push({x:rng(200,W-3000),y:rng(200,W-200),w:rng(800,2000),h:180});
       else worldObj.colliders.push({x:rng(200,W-200),y:rng(200,W-3000),w:180,h:rng(800,2000)});
@@ -2398,27 +2448,44 @@ function buildWorld(){
     for(var i=0;i<NPILLARS;i++)worldObj.pillars.push({x:rng(300,W-300),y:rng(300,W-300),r:rng(18,32)});
     for(var i=0;i<NBARRELS;i++)worldObj.barrels.push({x:rng(200,W-200),y:rng(200,W-200)});
     for(var i=0;i<NLIGHTS;i++)worldObj.lights.push({x:rng(200,W-200),y:rng(200,W-200)});
-    for(var i=0;i<NTABLES;i++)worldObj.tables.push({x:rng(300,W-300),y:rng(300,W-300),w:120,h:70,oct:false});
+    for(var i=0;i<NTABLES;i++){var tx=rng(400,W-400),ty=rng(400,W-400),tw=120,th=70;worldObj.tables.push({x:tx,y:ty,w:tw,h:th,oct:false});if(i%3===0)worldObj.colliders.push({x:tx-tw/2,y:ty-th/2,w:tw,h:th});}
+    // Extra market stalls as blockers
+    for(var i=0;i<25;i++){var sx=rng(300,W-300),sy=rng(300,W-300),sw=rng(80,180),sh2=rng(60,100);worldObj.colliders.push({x:sx,y:sy,w:sw,h:sh2});}
   } else if(m.id==='uskudar'){
     var uborders=[{x:0,y:0,w:W,h:90},{x:0,y:W-90,w:W,h:90},{x:0,y:0,w:90,h:W},{x:W-90,y:0,w:90,h:W}];
     uborders.forEach(function(w){worldObj.colliders.push(w);});
-    // Scattered pier obstacles
     for(var i=0;i<20;i++)worldObj.colliders.push({x:rng(500,W-1500),y:rng(500,W-500),w:rng(150,400),h:rng(60,120)});
     for(var i=0;i<NBARRELS;i++)worldObj.barrels.push({x:rng(200,W-200),y:rng(200,W-200)});
     for(var i=0;i<NLIGHTS;i++)worldObj.lights.push({x:rng(200,W-200),y:rng(200,W-200)});
     for(var i=0;i<NPILLARS;i++)worldObj.pillars.push({x:rng(300,W-300),y:rng(300,W-300),r:rng(20,32)});
-    for(var i=0;i<NTABLES;i++)worldObj.tables.push({x:rng(300,W-300),y:rng(300,W-300),w:160,h:95,oct:false});
-    for(var i=0;i<12;i++)worldObj.tables.push({x:rng(600,W-600),y:rng(600,W-600),w:220,h:220,oct:true});
+    for(var i=0;i<NTABLES;i++){var tx=rng(400,W-400),ty=rng(400,W-400),tw=160,th=95;worldObj.tables.push({x:tx,y:ty,w:tw,h:th,oct:false});if(i%4===0)worldObj.colliders.push({x:tx-tw/2,y:ty-th/2,w:tw,h:th});}
+    for(var i=0;i<12;i++){var tx=rng(600,W-600),ty=rng(600,W-600);worldObj.tables.push({x:tx,y:ty,w:220,h:220,oct:true});worldObj.colliders.push({x:tx-110,y:ty-110,w:220,h:220});}
+    // Pier wooden platforms
+    for(var i=0;i<18;i++)worldObj.colliders.push({x:rng(800,W-800),y:rng(800,W-800),w:rng(200,500),h:rng(40,80)});
+  } else if(m.id==='besiktas'){
+    var bborders=[{x:0,y:0,w:W,h:90},{x:0,y:W-90,w:W,h:90},{x:0,y:0,w:90,h:W},{x:W-90,y:0,w:90,h:W}];
+    bborders.forEach(function(w){worldObj.colliders.push(w);});
+    // Beşiktaş: market stalls + fountain pillars
+    for(var i=0;i<22;i++){
+      if(Math.random()<.5)worldObj.colliders.push({x:rng(200,W-2500),y:rng(200,W-200),w:rng(500,1500),h:150});
+      else worldObj.colliders.push({x:rng(200,W-200),y:rng(200,W-2500),w:150,h:rng(500,1500)});
+    }
+    for(var i=0;i<NTABLES;i++){var tx=rng(400,W-400),ty=rng(400,W-400),tw=rng(100,180),th=rng(60,100);worldObj.tables.push({x:tx,y:ty,w:tw,h:th,oct:false});if(i%3===0)worldObj.colliders.push({x:tx-tw/2,y:ty-th/2,w:tw,h:th});}
+    for(var i=0;i<NPILLARS;i++)worldObj.pillars.push({x:rng(300,W-300),y:rng(300,W-300),r:rng(20,35)});
+    for(var i=0;i<NBARRELS;i++)worldObj.barrels.push({x:rng(200,W-200),y:rng(200,W-200)});
+    for(var i=0;i<NLIGHTS;i++)worldObj.lights.push({x:rng(200,W-200),y:rng(200,W-200)});
+    // Çarşı fountain (center)
+    worldObj.pillars.push({x:W/2,y:W/2,r:160});worldObj.colliders.push({x:W/2-160,y:W/2-160,w:320,h:320});
   } else {
-    // Kapalıçarşı
+    // Kapalıçarşı (+ taksim fallthrough handled below)
     var kborders=[{x:0,y:0,w:W,h:95},{x:0,y:W-95,w:W,h:95},{x:0,y:0,w:95,h:W},{x:W-95,y:0,w:95,h:W}];
     kborders.forEach(function(w){worldObj.colliders.push(w);});
     for(var i=0;i<25;i++){
       if(Math.random()<.5)worldObj.colliders.push({x:rng(100,W-3000),y:rng(100,W-300),w:rng(1000,2500),h:160});
       else worldObj.colliders.push({x:rng(100,W-300),y:rng(100,W-3000),w:160,h:rng(1000,2500)});
     }
-    for(var i=0;i<NTABLES;i++)worldObj.tables.push({x:rng(300,W-300),y:rng(300,W-300),w:rng(120,200),h:rng(70,110),oct:false});
-    for(var i=0;i<14;i++)worldObj.tables.push({x:rng(500,W-500),y:rng(500,W-500),w:240,h:240,oct:true});
+    for(var i=0;i<NTABLES;i++){var tx=rng(400,W-400),ty=rng(400,W-400),tw=rng(120,200),th=rng(70,110);worldObj.tables.push({x:tx,y:ty,w:tw,h:th,oct:false});if(i%3===0)worldObj.colliders.push({x:tx-tw/2,y:ty-th/2,w:tw,h:th});}
+    for(var i=0;i<14;i++){var tx=rng(500,W-500),ty=rng(500,W-500);worldObj.tables.push({x:tx,y:ty,w:240,h:240,oct:true});worldObj.colliders.push({x:tx-120,y:ty-120,w:240,h:240});}
     for(var i=0;i<NBARRELS;i++)worldObj.barrels.push({x:rng(200,W-200),y:rng(200,W-200)});
     for(var i=0;i<NLIGHTS;i++)worldObj.lights.push({x:rng(200,W-200),y:rng(200,W-200)});
     for(var i=0;i<NPILLARS;i++)worldObj.pillars.push({x:rng(300,W-300),y:rng(300,W-300),r:rng(24,38)});
@@ -2506,9 +2573,9 @@ function checkBoss(){
     var loopNum=Math.floor((elMin-1)/MINI_BOSSES.length);
     spawnMiniBoss(MINI_BOSSES[defIdx],Math.pow(1.5,loopNum));
   }
-  if(!pdata.ach['w5']&&wave>=5)unlockAch('w5');
-  if(!pdata.ach['w10']&&wave>=10)unlockAch('w10');
-  if(!pdata.ach['w20']&&wave>=20)unlockAch('w20');
+  if(!pdata.ach['w5']&&wave>=10)unlockAch('w5');
+  if(!pdata.ach['w10']&&wave>=20)unlockAch('w10');
+  if(!pdata.ach['w20']&&wave>=30)unlockAch('w20');
   var k='w'+wave;
   if(wave%5===0&&!bossSpawned[k]){
     bossSpawned[k]=true;
@@ -3397,6 +3464,9 @@ appEl.addEventListener('touchend',function(e){
   if(!document.getElementById('gameScreen').classList.contains('active'))return;
   e.preventDefault();joyAct=false;jDx=0;jDy=0;jknob.style.left='50%';jknob.style.top='50%';jknob.style.transform='translate(-50%,-50%)';
 },{passive:false});
+appEl.addEventListener('touchcancel',function(){
+  joyAct=false;jDx=0;jDy=0;jknob.style.left='50%';jknob.style.top='50%';jknob.style.transform='translate(-50%,-50%)';
+});
 
 // ════════════════════════════════════
 // GAME LOOP
