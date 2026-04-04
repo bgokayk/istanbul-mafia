@@ -1013,7 +1013,6 @@ function pickRunModifiers(n){
   for(var i=pool.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=pool[i];pool[i]=pool[j];pool[j]=t;}
   return pool.slice(0,n||3);
 }
-var _pendingModifiers=null;
 
 // ════════════════════════════════════
 // MODAL & TOAST (confirm/alert yerine)
@@ -1046,43 +1045,6 @@ function showToast(msg,col){
   if(_toastT)clearTimeout(_toastT);
   _toastT=setTimeout(function(){el.classList.remove('on');},2800);
 }
-function showModifierSelect(){
-  _pendingModifiers=pickRunModifiers(3);
-  var el=document.getElementById('modSelect');
-  if(!el){
-    el=document.createElement('div');el.id='modSelect';
-    el.style.cssText='position:absolute;inset:0;background:rgba(0,0,0,.96);z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;';
-    document.getElementById('gameScreen').appendChild(el);
-  }
-  var html='<div style="font-family:\'Press Start 2P\',monospace;font-size:10px;color:#ffd700;letter-spacing:3px;margin-bottom:8px;">🎯 RUN MODALI SEÇ</div>'
-    +'<div style="font-family:\'Press Start 2P\',monospace;font-size:6px;color:#888;margin-bottom:12px;">Bu run için bir güç/lanet seç</div>';
-  _pendingModifiers.forEach(function(m,i){
-    html+='<button data-mi="'+i+'" style="font-family:\'Press Start 2P\',monospace;font-size:7px;width:100%;max-width:300px;padding:12px 8px;background:rgba(0,0,0,.8);border:2px solid #ffd700;color:#fff;cursor:pointer;touch-action:manipulation;">'
-      +'<div style="font-size:16px;margin-bottom:4px;">'+m.icon+'</div>'
-      +'<div style="color:#ffd700;margin-bottom:4px;">'+m.name+'</div>'
-      +'<div style="color:#888;font-size:5px;">'+m.desc+'</div>'
-      +'</button>';
-  });
-  html+='<button data-mi="-1" style="font-family:\'Press Start 2P\',monospace;font-size:6px;padding:8px 16px;background:transparent;border:1px solid #444;color:#444;cursor:pointer;touch-action:manipulation;margin-top:4px;">Modifier olmadan devam et</button>';
-  el.innerHTML=html;
-  el.querySelectorAll('[data-mi]').forEach(function(btn){
-    function doApply(e){if(e&&e.cancelable)e.preventDefault();window.applyModifier(parseInt(btn.dataset.mi));}
-    btn.addEventListener('click',doApply);
-    btn.addEventListener('touchend',doApply,{passive:false});
-  });
-  el.style.display='flex';
-}
-window.applyModifier=function(i){
-  var el=document.getElementById('modSelect');if(el)el.style.display='none';
-  if(i>=0&&_pendingModifiers&&_pendingModifiers[i]){
-    var mod=_pendingModifiers[i];
-    pdata.runModifier=mod.id;
-    mod.apply(P);
-  }
-  _pendingModifiers=null;
-  if(raf2)cancelAnimationFrame(raf2);
-  lastT=performance.now();raf2=requestAnimationFrame(gloop);
-};
 
 var selCh=CHARS[0],selMap=MAPS[0],diff='normal';
 var showStats=false;
@@ -2778,9 +2740,14 @@ function startGame(){
   // patron paketi bonus revive
   if(pdata.patronRun&&!P._revived)P.revive=true;
   for(var i=0;i<18;i++)spawnEnemy();
-  // Run modifier seçimi — ilk spawn'dan sonra göster, raf başlatma modifier'a bırakılıyor
-  showModifierSelect();
-  // NOT: raf2 applyModifier içinden başlatılıyor
+  // Otomatik random modifier seç ve direkt başlat
+  var _mods=pickRunModifiers(3);
+  var _autoMod=_mods[Math.floor(Math.random()*_mods.length)];
+  pdata.runModifier=_autoMod.id;
+  _autoMod.apply(P);
+  showToast(_autoMod.icon+' '+_autoMod.name,'#ffd700');
+  if(raf2)cancelAnimationFrame(raf2);
+  lastT=performance.now();raf2=requestAnimationFrame(gloop);
 }
 window.startGame=startGame;
 window.haptic=function(ms){try{if(navigator.vibrate)navigator.vibrate(ms||30);}catch(e){}};
