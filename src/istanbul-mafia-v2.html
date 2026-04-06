@@ -2581,10 +2581,10 @@ window.openJackpot=function(){
       +'<div style="display:flex;gap:8px;">'
         +JP_BETS.map(function(b){return '<button data-jb="'+b+'" onclick="window._jpSetBet('+b+')" style="font-family:\'Press Start 2P\',monospace;font-size:6px;padding:6px 10px;background:'+(b===_jpBet?'#b8860b':'#222')+';border:2px solid '+(b===_jpBet?'#ffd700':'#555')+';color:'+(b===_jpBet?'#ffd700':'#888')+';cursor:pointer;">'+b+'💰</button>';}).join('')
       +'</div>'
-      +'<div style="font-family:\'Press Start 2P\',monospace;font-size:7px;color:#ffd700;">💰 Bakiye: '+_goldStr()+'</div>'
+      +'<div id="_jpBal" style="font-family:\'Press Start 2P\',monospace;font-size:7px;color:#ffd700;">💰 Bakiye: '+_goldStr()+'</div>'
       +'<div style="display:flex;gap:10px;">'
         +'<button onclick="window._jpSpin()" style="font-family:\'Press Start 2P\',monospace;font-size:8px;padding:12px 24px;background:#b8860b;border:2px solid #ffd700;color:#fff;cursor:pointer;letter-spacing:2px;">ÇEVİR — '+_jpBet+'💰</button>'
-        +'<button onclick="document.body.removeChild(document.getElementById(\'_jpOv\'))" style="font-family:\'Press Start 2P\',monospace;font-size:7px;padding:10px 14px;background:#222;border:2px solid #555;color:#888;cursor:pointer;">ÇIKIŞ</button>'
+        +'<button onclick="var o=document.getElementById(\'_jpOv\');if(o&&o.parentNode)o.parentNode.removeChild(o);if(typeof buildMenuStats===\'function\')buildMenuStats();" style="font-family:\'Press Start 2P\',monospace;font-size:7px;padding:10px 14px;background:#222;border:2px solid #555;color:#888;cursor:pointer;">ÇIKIŞ</button>'
       +'</div>';
   }
   _render();
@@ -2632,7 +2632,7 @@ window._jpSpin=function(){
         slots.forEach(function(sl){sl.style.borderColor='#ff2200';sl.style.boxShadow='none';});
       }
       // Bakiye güncelle
-      var balEl=ov.querySelector('[style*="Bakiye"]');
+      var balEl=document.getElementById('_jpBal');
       if(balEl)balEl.textContent='💰 Bakiye: '+(pdata.gold||0).toLocaleString('tr-TR');
     }
   },25);
