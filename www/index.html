@@ -2656,20 +2656,34 @@ var CHEAT_CODES={
   'gokbobaba':function(){CHARS.forEach(function(c){pdata.unlockedChars=pdata.unlockedChars||[];if(pdata.unlockedChars.indexOf(c.id)<0)pdata.unlockedChars.push(c.id);});saveP();if(document.getElementById('cgrid'))buildCharScreen();_showCheatMsg('👨‍👧 GÖKBO BABA','Tüm karakterler açıldı!');},
 };
 // Menüden cheat girebilmek için overlay
+function _closeCheatOv(){var o=document.getElementById('_cheatOv');if(o&&o.parentNode)o.parentNode.removeChild(o);}
+function _applyCheat(){var inp=document.getElementById('_cheatIn');if(!inp)return;var v=inp.value.toLowerCase().trim();if(CHEAT_CODES[v]){CHEAT_CODES[v]();_closeCheatOv();}else{inp.style.borderColor='#ff0000';setTimeout(function(){inp.style.borderColor='#ffd700';},600);}}
 window.openCheatInput=function(){
+  if(document.getElementById('_cheatOv'))return;
   var ov=document.createElement('div');
-  ov.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;';
-  ov.innerHTML='<div style="font-family:\'Press Start 2P\',monospace;font-size:10px;color:#ffd700;letter-spacing:3px;">🍀 LANET OKU</div>'
-    +'<input id="_cheatIn" type="text" autocomplete="off" autocapitalize="none" style="font-family:monospace;font-size:18px;padding:10px 16px;background:#111;border:2px solid #ffd700;color:#fff;width:260px;text-align:center;" placeholder="kodu yaz...">'
-    +'<div style="font-family:\'Press Start 2P\',monospace;font-size:6px;color:#666;">ŞİFRELER: sadece bilenler bilir</div>'
-    +'<div style="display:flex;gap:10px;">'
-    +'<button onclick="var v=document.getElementById(\'_cheatIn\').value.toLowerCase().trim();if(CHEAT_CODES[v]){CHEAT_CODES[v]();document.body.removeChild(document.getElementById(\'_cheatOv\'));}else{var ei=document.getElementById(\'_cheatIn\');ei.style.borderColor=\'#ff0000\';setTimeout(function(){ei.style.borderColor=\'#ffd700\';},600);}" style="font-family:\'Press Start 2P\',monospace;font-size:7px;padding:10px 18px;background:#333;border:2px solid #ffd700;color:#ffd700;cursor:pointer;">UYGULA</button>'
-    +'<button onclick="document.body.removeChild(document.getElementById(\'_cheatOv\'))" style="font-family:\'Press Start 2P\',monospace;font-size:7px;padding:10px 18px;background:#333;border:2px solid #666;color:#888;cursor:pointer;">İPTAL</button>'
-    +'</div>';
   ov.id='_cheatOv';
-  document.body.appendChild(ov);
-  setTimeout(function(){var inp=document.getElementById('_cheatIn');if(inp)inp.focus();},100);
-  _cheatActive=true;
+  ov.style.cssText='position:absolute;inset:0;background:rgba(0,0,0,.95);z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;touch-action:manipulation;';
+  ov.innerHTML='<div style="font-family:\'Press Start 2P\',monospace;font-size:10px;color:#ffd700;letter-spacing:3px;text-align:center;">🍀 LANET OKU</div>'
+    +'<div style="font-family:\'Press Start 2P\',monospace;font-size:6px;color:#666;text-align:center;">ŞİFRENİ YAZ</div>'
+    +'<input id="_cheatIn" type="text" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" style="font-family:monospace;font-size:20px;padding:12px 18px;background:#111;border:2px solid #ffd700;color:#fff;width:280px;max-width:80vw;text-align:center;touch-action:manipulation;-webkit-appearance:none;" placeholder="kodu buraya yaz...">'
+    +'<div style="display:flex;gap:12px;">'
+    +'<button id="_cheatApplyBtn" style="font-family:\'Press Start 2P\',monospace;font-size:7px;padding:12px 20px;background:#222;border:2px solid #ffd700;color:#ffd700;cursor:pointer;touch-action:manipulation;min-height:44px;">UYGULA</button>'
+    +'<button id="_cheatCloseBtn" style="font-family:\'Press Start 2P\',monospace;font-size:7px;padding:12px 20px;background:#222;border:2px solid #666;color:#888;cursor:pointer;touch-action:manipulation;min-height:44px;">İPTAL</button>'
+    +'</div>';
+  var appEl2=document.getElementById('app')||document.body;
+  appEl2.appendChild(ov);
+  // Event listeners (click + touchend)
+  var applyBtn=document.getElementById('_cheatApplyBtn');
+  var closeBtn=document.getElementById('_cheatCloseBtn');
+  function _doApply(e){if(e)e.preventDefault();_applyCheat();}
+  function _doClose(e){if(e)e.preventDefault();_closeCheatOv();}
+  applyBtn.addEventListener('click',_doApply);
+  applyBtn.addEventListener('touchend',_doApply,{passive:false});
+  closeBtn.addEventListener('click',_doClose);
+  closeBtn.addEventListener('touchend',_doClose,{passive:false});
+  // Enter key
+  var inp2=document.getElementById('_cheatIn');
+  if(inp2){inp2.addEventListener('keydown',function(e){if(e.key==='Enter')_applyCheat();});setTimeout(function(){inp2.focus();},150);}
 };
 function _showCheatMsg(t,d){
   var el=document.createElement('div');
