@@ -2601,6 +2601,7 @@ window._jpSpin=function(){
   saveP();
   var balElNow=document.getElementById('_jpBal');
   if(balElNow)balElNow.textContent='💰 Bakiye: '+(pdata.gold||0).toLocaleString('tr-TR');
+  var msG=document.getElementById('msGold');if(msG)msG.textContent=pdata.gold||0;
   var slots=ov.querySelectorAll('._jpSlot');
   // Animasyon: slot makinesi efekti (300ms spin)
   var spinCount=0,maxSpin=12;
@@ -2625,6 +2626,7 @@ window._jpSpin=function(){
       if(won){
         var prize=_jpBet*10;
         pdata.gold=(pdata.gold||0)+prize;pdata.totalG=(pdata.totalG||0)+prize;saveP();
+        var msGw=document.getElementById('msGold');if(msGw)msGw.textContent=pdata.gold||0;
         if(res){res.textContent='🎉 JACKPOT! +'+prize+'💰';res.style.color='#ffd700';}
         slots.forEach(function(sl){sl.style.borderColor='#ffd700';sl.style.boxShadow='0 0 20px #ffd700';});
         showToast('🎰 JACKPOT! +'+prize+' ALTIN!','#ffd700');
