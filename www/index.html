@@ -506,6 +506,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
   <canvas id="minimap" width="90" height="90"></canvas>
   <button id="pauseBtn" onclick="togglePause()">⏸</button>
   <div id="wepRow"></div>
+  <div id="comboHud"><div class="combo-count"></div><div class="combo-bar"><div class="combo-fill"></div></div></div>
   <div id="buffRow"></div>
   <div id="aaHud" style="position:absolute;bottom:clamp(130px,22vh,160px);right:10px;z-index:12;display:none;flex-direction:column;align-items:center;gap:2px;"><canvas id="aaCdCanvas" width="36" height="36" style="border-radius:50%;"></canvas><div id="aaName" style="font-family:'Press Start 2P',monospace;font-size:4px;color:rgba(255,255,255,.6);text-align:center;max-width:40px;"></div></div>
   <!-- ULT HUD — 30sn cooldown ult butonu -->
@@ -4330,7 +4331,10 @@ function gupdate(dt){
       P._revived=true;P.hp=Math.floor(P.mhp*.3);
       healP(Math.floor(P.mhp*.3),'#ffd700');
       screenShake=20;
-      spawnDN(P.x,P.y-40,'♻ SON NEFES!','#ffd700');
+      var _revMsg='♻ SON NEFES!';
+      if(P._nazarCount&&P._nazarCount>0){P._nazarCount--;_revMsg='🧿 NAZAR KORUDU!'+(P._nazarCount>0?' ('+(P._nazarCount)+' kaldı)':'');if(P._nazarCount>0){P._revived=false;}}
+      spawnDN(P.x,P.y-40,_revMsg,'#ffd700');
+      showToast(_revMsg,'#0066ff');
     } else {P.hp=0;doGameOver();}
   }
 
@@ -4874,6 +4878,9 @@ function gloop(ts){
   if(_slowMoTimer>0)_slowMoTimer-=dt;
   // Combo decay
   if(_comboTimer>0){_comboTimer-=dt;if(_comboTimer<=0){_comboKills=0;if(P)P._comboDmgMult=1.0;}}
+  // Combo HUD güncelle
+  var _chud=document.getElementById('comboHud');
+  if(_chud){if(_comboKills>1&&_comboTimer>0){_chud.style.display='block';_chud.querySelector('.combo-count').textContent=_comboKills+'x COMBO';_chud.querySelector('.combo-fill').style.width=Math.round(_comboTimer/5000*100)+'%';}else{_chud.style.display='none';}}
   // Dash & ambush tick
   if(typeof window._tickDashAndAmbush==='function')window._tickDashAndAmbush(dt);
   // Quest tracker güncelle (her 2 saniyede bir)
@@ -4946,11 +4953,11 @@ function startGame(){
   }
   // Shop geçici buff'ları
   if(pdata.espressoBuff){P.fr*=0.60;}// Çift Dip Espresso: ateş +40%
-  if(pdata.nazarShield&&pdata.nazarShield>0&&!P.revive){P.revive=true;}// Nazar Kolye
+  if(pdata.nazarShield&&pdata.nazarShield>0){P._nazarCount=pdata.nazarShield;P.revive=true;}// Nazar Kolye
   if(pdata.sigaraBuff&&pdata.sigaraBuff>0){P.dmg=Math.floor(P.dmg*(1+0.25*pdata.sigaraBuff));}// Patron Sigarası
   enemies=[];bullets=[];particles=[];orbs=[];goldOrbs=[];dmgNums=[];activBuffs=[];
   healthOrbs=[];floorItems=[];chests=[];itemSpawnT=0;chestSpawnT=0;
-  window._fogMap={};
+  if(!pdata.minimapAlways)window._fogMap={};
   _shownBossDialogs={};_taksiciWaveSpawned=false;_taksiciLastWave=0;_lastComboMilestone=0;_slowMoTimer=0;_comboKills=0;_comboTimer=0;_srDone=false;_bossReinforceTimer=25000;
   rescueNpcs=[];_rescueTimer=0;
   kills=0;elapsed=0;wave=1;spawnT=0;_necmiSpawned=false;_miniBossMinute=0;
