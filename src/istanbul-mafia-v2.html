@@ -11,13 +11,13 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#04010a;width:100vw;height:100svh;overflow:hidden;font-family:'Press Start 2P',monospace;touch-action:manipulation;user-select:none;display:flex;align-items:center;justify-content:center;}
+body{background:#04010a;width:100vw;height:100dvh;overflow:hidden;font-family:'Press Start 2P',monospace;touch-action:manipulation;user-select:none;display:flex;align-items:center;justify-content:center;}
 #app{position:relative;width:100vw!important;height:100vh!important;max-width:100vw!important;overflow:hidden;background:#000;flex-shrink:0;}
 .screen{display:none;position:absolute;inset:0;flex-direction:column;align-items:center;overflow:hidden;touch-action:manipulation;}
 .screen.active{display:flex;}
 
 /* ════════════════ MENU ════════════════ */
-#menuScreen{background:#000;touch-action:manipulation;width:100%!important;height:100%!important;display:flex;flex-direction:column;justify-content:space-between;}
+#menuScreen{background:#000;touch-action:manipulation;width:100%!important;height:100%!important;flex-direction:column;justify-content:space-between;}
 #menuCanvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;pointer-events:none;}
 .menu-over{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;width:100%;flex:1;pointer-events:none;touch-action:manipulation;justify-content:space-between;}
 .menu-top{display:flex;flex-direction:column;align-items:center;width:100%;flex:1;justify-content:space-evenly;padding:clamp(8px,2vh,20px) 0 0 0;pointer-events:none;max-width:none!important;margin:0 auto;}
@@ -692,7 +692,7 @@ var CHAR_AUTO={
   polat:   {cd:8000,t:0,icon:'⚡',name:'Şok Dalgası'},
   cakir:   {cd:5000,t:0,icon:'🗡',name:'Bıçak Yağmuru'},
   memati:  {cd:10000,t:0,icon:'🔥',name:'Alev Çemberi'},
-  abdulheyyi:{cd:6000,t:0,icon:'🎰',name:'Hasar Burst'},
+  abdulhey:{cd:6000,t:0,icon:'🎰',name:'Hasar Burst'},
   dayi:    {cd:12000,t:0,icon:'⛓',name:'Zincir Fırtınası'},
   kemal_baba:{cd:7000,t:0,icon:'💥',name:'Saçma Patlaması'}
 };
@@ -1936,6 +1936,8 @@ function goTo(id){
   if(id==='relicScreen')buildRelicScreen();
   if(id==='premiumScreen')buildPremiumScreen();
   if(id==='lanetScreen')buildLanetScreen();
+  if(id==='questScreen')window.buildQuestScreen&&window.buildQuestScreen();
+  if(id==='evoGuideScreen')window.buildEvoGuideScreen&&window.buildEvoGuideScreen();
   if(id!=='gameScreen')document.getElementById('joy').style.display='none';
 }
 window.goTo=goTo;
