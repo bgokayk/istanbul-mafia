@@ -898,6 +898,59 @@ var RELICS=[
 {id:'explosive2',icon:'🧨',name:'Patlayici Uzman', desc:'Patlama hasari +50%',    apply:function(P){P.expl=true;P.bsize=(P.bsize||1)*1.3;}},
 ];
 
+// RELIC KİLİT KOŞULLARI — ilk 5 ücretsiz, geri kalanı kill/boss bazlı
+var RELIC_UNLOCK={
+  heart:null,uzi:null,rapid:null,armor:null,crit:null,
+  magnet:    {t:'k',n:100,  h:'100 kill'},
+  icecore:   {t:'k',n:150,  h:'150 kill'},
+  goldchip:  {t:'k',n:200,  h:'200 kill'},
+  bloodbag:  {t:'k',n:250,  h:'250 kill'},
+  sprint:    {t:'k',n:300,  h:'300 kill'},
+  scholar:   {t:'k',n:400,  h:'400 kill'},
+  firecore:  {t:'k',n:350,  h:'350 kill'},
+  pierce:    {t:'k',n:500,  h:'500 kill'},
+  poison2:   {t:'b',n:1,    h:'1 boss öldür'},
+  bigbang:   {t:'k',n:750,  h:'750 kill'},
+  double:    {t:'k',n:600,  h:'600 kill'},
+  sniper:    {t:'k',n:1000, h:'1000 kill'},
+  chain2:    {t:'k',n:1200, h:'1200 kill'},
+  tough:     {t:'k',n:1500, h:'1500 kill'},
+  dodge:     {t:'k',n:2000, h:'2000 kill'},
+  cay_pot:   {t:'b',n:2,    h:'2 boss öldür'},
+  regen2:    {t:'k',n:2200, h:'2200 kill'},
+  thorns:    {t:'k',n:2500, h:'2500 kill'},
+  explosive2:{t:'k',n:2800, h:'2800 kill'},
+  nazar_eye: {t:'b',n:3,    h:'3 boss öldür'},
+  magnet2:   {t:'k',n:3000, h:'3000 kill'},
+  berserk:   {t:'k',n:3500, h:'3500 kill'},
+  midas:     {t:'k',n:4000, h:'4000 kill'},
+  simit_r:   {t:'b',n:5,    h:'5 boss öldür'},
+  xp2:       {t:'k',n:4500, h:'4500 kill'},
+  vamp2:     {t:'k',n:5000, h:'5000 kill'},
+  ghoststep: {t:'k',n:5500, h:'5500 kill'},
+  glass:     {t:'k',n:6000, h:'6000 kill'},
+  dolmus_s:  {t:'b',n:7,    h:'7 boss öldür'},
+  kebap_sk:  {t:'b',n:10,   h:'10 boss öldür'},
+  executor:  {t:'k',n:7500, h:'7500 kill'},
+  raki_b:    {t:'b',n:12,   h:'12 boss öldür'},
+  hamsi:     {t:'k',n:8000, h:'8000 kill'},
+  galata_t:  {t:'k',n:9000, h:'9000 kill'},
+  istmag:    {t:'b',n:15,   h:'15 boss öldür'},
+  fury:      {t:'k',n:10000,h:'10000 kill'},
+  kapici_k:  {t:'b',n:20,   h:'20 boss öldür'},
+  legend_k:  {t:'k',n:15000,h:'15000 kill'},
+  legend_d:  {t:'k',n:20000,h:'20000 kill'},
+  legend_t:  {t:'k',n:25000,h:'25000 kill'},
+  legend_s:  {t:'b',n:50,   h:'50 boss öldür'},
+};
+function isRelicUnlocked(rid){
+  var c=RELIC_UNLOCK[rid];
+  if(!c)return true;
+  if(c.t==='k')return(pdata.totalKills||0)>=c.n;
+  if(c.t==='b')return(pdata.bossKills||0)>=c.n;
+  return true;
+}
+
 function ensureRelics(){
   if(!Array.isArray(pdata.relics) || !pdata.relics.length){
     pdata.relics=['heart','uzi','rapid'];
@@ -2509,9 +2562,16 @@ function showRelicDetail(id){
   var eb=document.getElementById('relicEquipBtn');
   var rb=document.getElementById('relicRemoveBtn');
   if(info){
-    ic.textContent=info.icon; nm.textContent=info.name; ds.textContent=info.desc;
-    eb.disabled=equipped || pdata.relics.length>=pdata.relicCap;
-    rb.disabled=!equipped;
+    if(!isRelicUnlocked(id)){
+      var _uc2=RELIC_UNLOCK[id];
+      ic.textContent='🔒';nm.textContent='KİLİTLİ: '+info.name;
+      ds.textContent=_uc2?'Açılış: '+_uc2.h:'Henüz kilitli.';
+      eb.disabled=true;rb.disabled=!equipped;
+    }else{
+      ic.textContent=info.icon; nm.textContent=info.name; ds.textContent=info.desc;
+      eb.disabled=equipped || pdata.relics.length>=pdata.relicCap;
+      rb.disabled=!equipped;
+    }
   }else{
     ic.textContent='?'; nm.textContent='KİLİTLİ EKLENTİ'; ds.textContent='Bu slot daha sonra açılacak.';
     eb.disabled=true; rb.disabled=true;
@@ -2521,7 +2581,7 @@ window.toggleSelectedRelic=function(shouldEquip){
   var id=selectedRelicId, idx=pdata.relics.indexOf(id), info=relicById(id);
   if(!info)return;
   if(shouldEquip){
-    if(idx>=0 || pdata.relics.length>=pdata.relicCap)return;
+    if(idx>=0 || pdata.relics.length>=pdata.relicCap || !isRelicUnlocked(id))return;
     pdata.relics.push(id);
   }else{
     if(idx<0)return;
@@ -2657,15 +2717,19 @@ function buildRelicScreen(){
   while(all.length<20){ all.push(PLACEHOLDER_RELICS[(all.length-RELICS.length)%PLACEHOLDER_RELICS.length]); }
   all.forEach(function(r){
     var equipped=pdata.relics.indexOf(r.id)>=0;
+    var unlocked=r.icon?isRelicUnlocked(r.id):false;
     var card=document.createElement('div');
     var classes=['relic-card'];
-    if(!r.icon)classes.push('locked');
+    if(!unlocked)classes.push('locked');
     if(equipped)classes.push('equipped');
     card.className=classes.join(' ');
-    if(r.icon){
-      card.innerHTML='<div class="ricon">'+r.icon+'</div>'+(equipped?'<div class="eqmark">E</div>':'');
-    }else{
+    if(!r.icon){
       card.innerHTML='<div class="rroman">'+r.roman+'</div>';
+    }else if(!unlocked){
+      var _uc=RELIC_UNLOCK[r.id];
+      card.innerHTML='<div class="ricon">🔒</div>'+(_uc?'<div style="font-size:5px;color:#bbb;position:absolute;bottom:2px;left:0;right:0;text-align:center;line-height:1.2;">'+_uc.h+'</div>':'');
+    }else{
+      card.innerHTML='<div class="ricon">'+r.icon+'</div>'+(equipped?'<div class="eqmark">E</div>':'');
     }
     card.addEventListener('click',function(){showRelicDetail(r.id);});
     card.addEventListener('touchend',function(e){e.preventDefault();showRelicDetail(r.id);});
@@ -2812,88 +2876,131 @@ function buildWorld(){
   var rng=function(a,b){return a+Math.random()*(b-a)|0;};
   var m=selMap;
   var W=WORLD;
-  // Fixed density — large world but reasonable object count for performance
-  var NTABLES=120, NBARRELS=150, NLIGHTS=200, NPILLARS=40;
+  var CX=W/2,CY=W/2,CLEAR_R=300; // spawn clear zone radius
 
+  function inClear(x,y){var dx=x-CX,dy=y-CY;return dx*dx+dy*dy<CLEAR_R*CLEAR_R;}
+
+  // Borders
+  [{x:0,y:0,w:W,h:90},{x:0,y:W-90,w:W,h:90},{x:0,y:0,w:90,h:W},{x:W-90,y:0,w:90,h:W}]
+    .forEach(function(b){worldObj.colliders.push(b);});
+
+  // Map-specific structural colliders
   if(m.id==='balat'){
-    var borders=[{x:0,y:0,w:W,h:90},{x:0,y:W-90,w:W,h:90},{x:0,y:0,w:90,h:W},{x:W-90,y:0,w:90,h:W}];
-    borders.forEach(function(w){worldObj.colliders.push(w);});
     for(var i=0;i<30;i++){
       if(Math.random()<.5)worldObj.colliders.push({x:rng(200,W-3000),y:rng(200,W-200),w:rng(800,2000),h:180});
       else worldObj.colliders.push({x:rng(200,W-200),y:rng(200,W-3000),w:180,h:rng(800,2000)});
     }
-    for(var i=0;i<NPILLARS;i++)worldObj.pillars.push({x:rng(300,W-300),y:rng(300,W-300),r:rng(18,32)});
-    for(var i=0;i<NBARRELS;i++)worldObj.barrels.push({x:rng(200,W-200),y:rng(200,W-200)});
-    for(var i=0;i<NLIGHTS;i++)worldObj.lights.push({x:rng(200,W-200),y:rng(200,W-200)});
-    for(var i=0;i<NTABLES;i++){var tx=rng(400,W-400),ty=rng(400,W-400),tw=120,th=70;worldObj.tables.push({x:tx,y:ty,w:tw,h:th,oct:false});if(i%3===0)worldObj.colliders.push({x:tx-tw/2,y:ty-th/2,w:tw,h:th});}
-    // Extra market stalls as blockers
-    for(var i=0;i<25;i++){var sx=rng(300,W-300),sy=rng(300,W-300),sw=rng(80,180),sh2=rng(60,100);worldObj.colliders.push({x:sx,y:sy,w:sw,h:sh2});}
   } else if(m.id==='uskudar'){
-    var uborders=[{x:0,y:0,w:W,h:90},{x:0,y:W-90,w:W,h:90},{x:0,y:0,w:90,h:W},{x:W-90,y:0,w:90,h:W}];
-    uborders.forEach(function(w){worldObj.colliders.push(w);});
     for(var i=0;i<20;i++)worldObj.colliders.push({x:rng(500,W-1500),y:rng(500,W-500),w:rng(150,400),h:rng(60,120)});
-    for(var i=0;i<NBARRELS;i++)worldObj.barrels.push({x:rng(200,W-200),y:rng(200,W-200)});
-    for(var i=0;i<NLIGHTS;i++)worldObj.lights.push({x:rng(200,W-200),y:rng(200,W-200)});
-    for(var i=0;i<NPILLARS;i++)worldObj.pillars.push({x:rng(300,W-300),y:rng(300,W-300),r:rng(20,32)});
-    for(var i=0;i<NTABLES;i++){var tx=rng(400,W-400),ty=rng(400,W-400),tw=160,th=95;worldObj.tables.push({x:tx,y:ty,w:tw,h:th,oct:false});if(i%4===0)worldObj.colliders.push({x:tx-tw/2,y:ty-th/2,w:tw,h:th});}
-    for(var i=0;i<12;i++){var tx=rng(600,W-600),ty=rng(600,W-600);worldObj.tables.push({x:tx,y:ty,w:220,h:220,oct:true});worldObj.colliders.push({x:tx-110,y:ty-110,w:220,h:220});}
-    // Pier wooden platforms
     for(var i=0;i<18;i++)worldObj.colliders.push({x:rng(800,W-800),y:rng(800,W-800),w:rng(200,500),h:rng(40,80)});
   } else if(m.id==='besiktas'){
-    var bborders=[{x:0,y:0,w:W,h:90},{x:0,y:W-90,w:W,h:90},{x:0,y:0,w:90,h:W},{x:W-90,y:0,w:90,h:W}];
-    bborders.forEach(function(w){worldObj.colliders.push(w);});
-    // Beşiktaş: market stalls + fountain pillars
     for(var i=0;i<22;i++){
       if(Math.random()<.5)worldObj.colliders.push({x:rng(200,W-2500),y:rng(200,W-200),w:rng(500,1500),h:150});
       else worldObj.colliders.push({x:rng(200,W-200),y:rng(200,W-2500),w:150,h:rng(500,1500)});
     }
-    for(var i=0;i<NTABLES;i++){var tx=rng(400,W-400),ty=rng(400,W-400),tw=rng(100,180),th=rng(60,100);worldObj.tables.push({x:tx,y:ty,w:tw,h:th,oct:false});if(i%3===0)worldObj.colliders.push({x:tx-tw/2,y:ty-th/2,w:tw,h:th});}
-    for(var i=0;i<NPILLARS;i++)worldObj.pillars.push({x:rng(300,W-300),y:rng(300,W-300),r:rng(20,35)});
-    for(var i=0;i<NBARRELS;i++)worldObj.barrels.push({x:rng(200,W-200),y:rng(200,W-200)});
-    for(var i=0;i<NLIGHTS;i++)worldObj.lights.push({x:rng(200,W-200),y:rng(200,W-200)});
-    // Çarşı fountain (center)
-    worldObj.pillars.push({x:W/2,y:W/2,r:160});worldObj.colliders.push({x:W/2-160,y:W/2-160,w:320,h:320});
+    worldObj.pillars.push({x:CX,y:CY,r:160});worldObj.colliders.push({x:CX-160,y:CY-160,w:320,h:320});
   } else {
-    // Kapalıçarşı (+ taksim fallthrough handled below)
-    var kborders=[{x:0,y:0,w:W,h:95},{x:0,y:W-95,w:W,h:95},{x:0,y:0,w:95,h:W},{x:W-95,y:0,w:95,h:W}];
-    kborders.forEach(function(w){worldObj.colliders.push(w);});
     for(var i=0;i<25;i++){
       if(Math.random()<.5)worldObj.colliders.push({x:rng(100,W-3000),y:rng(100,W-300),w:rng(1000,2500),h:160});
       else worldObj.colliders.push({x:rng(100,W-300),y:rng(100,W-3000),w:160,h:rng(1000,2500)});
     }
-    for(var i=0;i<NTABLES;i++){var tx=rng(400,W-400),ty=rng(400,W-400),tw=rng(120,200),th=rng(70,110);worldObj.tables.push({x:tx,y:ty,w:tw,h:th,oct:false});if(i%3===0)worldObj.colliders.push({x:tx-tw/2,y:ty-th/2,w:tw,h:th});}
-    for(var i=0;i<14;i++){var tx=rng(500,W-500),ty=rng(500,W-500);worldObj.tables.push({x:tx,y:ty,w:240,h:240,oct:true});worldObj.colliders.push({x:tx-120,y:ty-120,w:240,h:240});}
-    for(var i=0;i<NBARRELS;i++)worldObj.barrels.push({x:rng(200,W-200),y:rng(200,W-200)});
-    for(var i=0;i<NLIGHTS;i++)worldObj.lights.push({x:rng(200,W-200),y:rng(200,W-200)});
-    for(var i=0;i<NPILLARS;i++)worldObj.pillars.push({x:rng(300,W-300),y:rng(300,W-300),r:rng(24,38)});
   }
-  if(selMap.id==='taksim'){
-    var cx3=WORLD/2,cy3=WORLD/2;
+  if(m.id==='taksim'){
     [0,60,120,180,240,300].forEach(function(deg){
-      var rad=deg*Math.PI/180;
-      var px=cx3+Math.cos(rad)*800,py=cy3+Math.sin(rad)*800;
-      worldObj.pillars.push({x:px,y:py,r:45});
-      worldObj.colliders.push({x:px-45,y:py-45,w:90,h:90});
+      var rad=deg*Math.PI/180,px=CX+Math.cos(rad)*800,py=CY+Math.sin(rad)*800;
+      worldObj.pillars.push({x:px,y:py,r:45});worldObj.colliders.push({x:px-45,y:py-45,w:90,h:90});
     });
-    worldObj.pillars.push({x:cx3,y:cy3,r:120});
-    worldObj.colliders.push({x:0,y:WORLD/2-220,w:WORLD,h:20});
-    worldObj.colliders.push({x:0,y:WORLD/2+200,w:WORLD,h:20});
+    worldObj.pillars.push({x:CX,y:CY,r:120});
+    worldObj.colliders.push({x:0,y:CY-220,w:W,h:20});
+    worldObj.colliders.push({x:0,y:CY+200,w:W,h:20});
   }
 
-  // Spawn area guaranteed obstacles (player sees them immediately)
-  var SC=WORLD/2, SR=1800;
-  var spawnTableOffsets=[[-300,-250],[-120,-350],[200,-200],[350,-120],[-250,200],[120,300],[-350,80],[260,260],[-180,-130],[80,-300],[300,130],[-130,260]];
-  spawnTableOffsets.forEach(function(o){
-    var stx=SC+o[0],sty=SC+o[1],stw=rng(100,180),sth=rng(60,100);
-    worldObj.tables.push({x:stx,y:sty,w:stw,h:sth,oct:false});
-    worldObj.colliders.push({x:stx-stw/2,y:sty-sth/2,w:stw,h:sth});
-  });
-  for(var _si=0;_si<8;_si++){
-    var _ang=_si/8*Math.PI*2,_dist=rng(600,1400);
-    worldObj.pillars.push({x:SC+Math.cos(_ang)*_dist,y:SC+Math.sin(_ang)*_dist,r:rng(25,45)});
-    worldObj.colliders.push({x:SC+Math.cos(_ang)*_dist-30,y:SC+Math.sin(_ang)*_dist-30,w:60,h:60});
+  // ── MAP-SPECIFIC OBSTACLE TEMPLATES ──
+  var OBSTYPES;
+  if(m.id==='kapalicarsi'){
+    OBSTYPES=[
+      {w:120,h:70, col:'#1a5c1a',bd:'#ffd700'},  // poker masası
+      {w:100,h:100,col:'#8b0000',bd:'#ffd700'},   // rulet masası
+      {w:200,h:40, col:'#5c3317',bd:'#c89b6e'},   // bar tezgahı
+      {w:32, h:32, col:'#2d1a0a',bd:'#9c7c52'},   // casino sandalyesi
+    ];
+  } else if(m.id==='uskudar'){
+    OBSTYPES=[
+      {w:150,h:50, col:'#1a3a6e',bd:'#5ad2ff'},   // balık tezgahı
+      {w:180,h:80, col:'#0a1a2e',bd:'#2a4a8e'},   // tekne enkazı
+      {w:160,h:50, col:'#2a6e7e',bd:'#8ad7ff'},   // plaj barı
+    ];
+  } else if(m.id==='balat'){
+    OBSTYPES=[
+      {w:20, h:150,col:'#4a2060',bd:'#c06eff'},   // dar duvar
+      {w:60, h:40, col:'#5a5a5a',bd:'#aaaaaa'},   // çöp konteyneri
+      {w:100,h:30, col:'#5c3317',bd:'#a0703a'},   // tahta barikat
+    ];
+  } else if(m.id==='besiktas'){
+    OBSTYPES=[
+      {w:130,h:70, col:'#4a2d3a',bd:'#d18fff'},   // pazar tezgahı
+      {w:160,h:70, col:'#3a2a1a',bd:'#c09060'},   // market standı
+    ];
+  } else if(m.id==='galata'){
+    OBSTYPES=[
+      {w:140,h:80, col:'#2a1a40',bd:'#9966ff'},   // kale taşı
+      {w:60, h:60, col:'#1a1a30',bd:'#6644cc'},   // kulelerin parçaları
+    ];
+  } else { // taksim, vb.
+    OBSTYPES=[
+      {w:140,h:80, col:null,bd:null},
+      {w:120,h:70, col:null,bd:null},
+    ];
   }
-  for(var _bi=0;_bi<20;_bi++)worldObj.barrels.push({x:rng(SC-SR,SC+SR),y:rng(SC-SR,SC+SR)});
+
+  // ── 4×4 SEKTÖR DAĞILIMI ──
+  var SECTOR=W/4;
+  for(var sx=0;sx<4;sx++){
+    for(var sy=0;sy<4;sy++){
+      var count=3+Math.floor(Math.random()*3); // 3-5 obje per sektör
+      for(var ci=0;ci<count;ci++){
+        var ox=(sx*SECTOR)+(SECTOR*0.08)+Math.random()*(SECTOR*0.84);
+        var oy=(sy*SECTOR)+(SECTOR*0.08)+Math.random()*(SECTOR*0.84);
+        if(inClear(ox,oy))continue; // spawn noktası etrafı boş
+        var tmpl=OBSTYPES[Math.floor(Math.random()*OBSTYPES.length)];
+        var tw=tmpl.w,th=tmpl.h;
+        worldObj.tables.push({x:ox,y:oy,w:tw,h:th,oct:false,col:tmpl.col,bd:tmpl.bd});
+        if(ci%2===0||tw<30||th<30)worldObj.colliders.push({x:ox-tw/2,y:oy-th/2,w:tw,h:th});
+      }
+      // Her sektörde 2-3 varil
+      for(var bi=0;bi<2+Math.floor(Math.random()*2);bi++){
+        var bx=(sx*SECTOR)+Math.random()*SECTOR,by=(sy*SECTOR)+Math.random()*SECTOR;
+        if(!inClear(bx,by))worldObj.barrels.push({x:bx,y:by});
+      }
+    }
+  }
+
+  // Pillar'lar
+  for(var pi=0;pi<40;pi++){
+    var px=rng(300,W-300),py=rng(300,W-300);
+    if(!inClear(px,py)){
+      worldObj.pillars.push({x:px,y:py,r:rng(20,35)});
+      worldObj.colliders.push({x:px-20,y:py-20,w:40,h:40});
+    }
+  }
+
+  // Işıklar (tüm dünyaya rastgele)
+  for(var li=0;li<200;li++)worldObj.lights.push({x:rng(200,W-200),y:rng(200,W-200)});
+
+  // Spawn alanı görünür engeller (oyuncu hemen görür)
+  var SR=1800;
+  [[-300,-250],[-120,-350],[200,-200],[350,-120],[-250,200],[120,300],[-350,80],[260,260],[-180,-130],[80,-300],[300,130],[-130,260]]
+    .forEach(function(o){
+      var stx=CX+o[0],sty=CY+o[1],stw=rng(100,180),sth=rng(60,100);
+      worldObj.tables.push({x:stx,y:sty,w:stw,h:sth,oct:false,col:null,bd:null});
+      worldObj.colliders.push({x:stx-stw/2,y:sty-sth/2,w:stw,h:sth});
+    });
+  for(var si=0;si<8;si++){
+    var sang=si/8*Math.PI*2,sdist=rng(600,1400);
+    worldObj.pillars.push({x:CX+Math.cos(sang)*sdist,y:CY+Math.sin(sang)*sdist,r:rng(25,45)});
+    worldObj.colliders.push({x:CX+Math.cos(sang)*sdist-30,y:CY+Math.sin(sang)*sdist-30,w:60,h:60});
+  }
+  for(var sbi=0;sbi<20;sbi++)worldObj.barrels.push({x:rng(CX-SR,CX+SR),y:rng(CY-SR,CY+SR)});
 }
 
 // ════════════════════════════════════
@@ -3732,7 +3839,12 @@ function gdraw(){
   wo.tables.forEach(function(t){
     if(t.x<camX-280||t.x>camX+W+280||t.y<camY-160||t.y>camY+H+160)return;
     gctx.save();
-    if(m.id==='kapalicarsi'){
+    if(t.col){
+      // Haritaya özel renkli engel
+      gctx.fillStyle=t.col;gctx.fillRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h);
+      gctx.strokeStyle=t.bd||'#888';gctx.lineWidth=2.5;gctx.strokeRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h);
+      gctx.fillStyle='rgba(255,255,255,.06)';gctx.fillRect(t.x-t.w/2+4,t.y-t.h/2+4,t.w-8,Math.min(14,t.h-8));
+    } else if(m.id==='kapalicarsi'){
       gctx.fillStyle='#5a2f12'; gctx.fillRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h);
       gctx.strokeStyle='#d4a017'; gctx.lineWidth=3; gctx.strokeRect(t.x-t.w/2,t.y-t.h/2,t.w,t.h);
       gctx.fillStyle='rgba(255,230,150,.12)'; gctx.fillRect(t.x-t.w/2+8,t.y-t.h/2+8,t.w-16,18);
