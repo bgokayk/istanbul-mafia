@@ -702,36 +702,36 @@ var CHAR_AUTO={
 // ════════════════════════════════════
 var SHOP=[
   // ─── TEMEL ───
-  {id:'hp',   icon:'❤', name:'GÜÇLÜ VÜCUT',      desc:'Başlangıç canı +25',              cost:5000,  max:8, fn:function(sv){sv.startHp=(sv.startHp||0)+25;}},
-  {id:'dmg',  icon:'⚔', name:'KESKİN SİLAH',     desc:'Başlangıç hasarı +4',             cost:7000,  max:8, fn:function(sv){sv.startDmg=(sv.startDmg||0)+4;}},
-  {id:'spd',  icon:'👟', name:'ÇEVİK ADIMLAR',    desc:'Başlangıç hızı +0.25',            cost:6500,  max:5, fn:function(sv){sv.startSpd=(sv.startSpd||0)+.25;}},
-  {id:'mag',  icon:'🧲', name:'GÜÇLİ MANYETO',    desc:'Mıknatıs alanı +80',              cost:4500,  max:6, fn:function(sv){sv.startMag=(sv.startMag||0)+80;}},
-  {id:'xp',   icon:'✦', name:'DENEYİMLİ DON',     desc:'XP kazanımı +15%',                cost:9000,  max:5, fn:function(sv){sv.startXP=(sv.startXP||1)*1.15;}},
-  {id:'w2',   icon:'🔫', name:'İKİ ELLİ USTA',    desc:'2. silahla başla',                cost:22000, max:1, fn:function(sv){sv.extraWeapon=true;}},
-  {id:'gold', icon:'💰', name:'ALTIN DOKUNUŞ',     desc:'Düşmanlar %30 fazla altın bırakır',cost:11000,max:5,fn:function(sv){sv.goldMult=(sv.goldMult||1)*1.3;}},
+  {id:'hp',   icon:'❤', name:'GÜÇLÜ VÜCUT',      desc:'Başlangıç canı +25',              cost:7500,  max:8, fn:function(sv){sv.startHp=(sv.startHp||0)+25;}},
+  {id:'dmg',  icon:'⚔', name:'KESKİN SİLAH',     desc:'Başlangıç hasarı +4',             cost:10500, max:8, fn:function(sv){sv.startDmg=(sv.startDmg||0)+4;}},
+  {id:'spd',  icon:'👟', name:'ÇEVİK ADIMLAR',    desc:'Başlangıç hızı +0.25',            cost:9750,  max:5, fn:function(sv){sv.startSpd=(sv.startSpd||0)+.25;}},
+  {id:'mag',  icon:'🧲', name:'GÜÇLİ MANYETO',    desc:'Mıknatıs alanı +80',              cost:6750,  max:6, fn:function(sv){sv.startMag=(sv.startMag||0)+80;}},
+  {id:'xp',   icon:'✦', name:'DENEYİMLİ DON',     desc:'XP kazanımı +15%',                cost:13500, max:5, fn:function(sv){sv.startXP=(sv.startXP||1)*1.15;}},
+  {id:'w2',   icon:'🔫', name:'İKİ ELLİ USTA',    desc:'2. silahla başla',                cost:33000, max:1, fn:function(sv){sv.extraWeapon=true;}},
+  {id:'gold', icon:'💰', name:'ALTIN DOKUNUŞ',     desc:'Düşmanlar %30 fazla altın bırakır',cost:16500,max:5,fn:function(sv){sv.goldMult=(sv.goldMult||1)*1.3;}},
   // ─── SAVUNMA ───
-  {id:'arm',  icon:'🛡', name:'HAFİF ZIRH',        desc:'Başlangıç zırhı +%8',             cost:8000,  max:5, fn:function(sv){sv.startArmor=(sv.startArmor||0)+.08;}},
-  {id:'ls',   icon:'💉', name:'CAN ÇALMA BAŞLANGIÇ',desc:'Her öldürmede +1 can',           cost:10000, max:5, fn:function(sv){sv.startLS=(sv.startLS||0)+1;}},
-  {id:'shld', icon:'🧿', name:'BAŞLANGIÇ KALKANI', desc:'Her oyuna 1 kalkan ile başla',    cost:18000, max:1, fn:function(sv){sv.startShield=true;}},
-  {id:'reg',  icon:'🩹', name:'HIZLI İYİLEŞME',   desc:'HP %30 altındayken 0.5 can/sn',   cost:16000, max:3, fn:function(sv){sv.startRegen=(sv.startRegen||0)+.5;}},
-  {id:'rev',  icon:'⚰', name:'SON NEFES',          desc:'Bir kez 1 canla ölümden dön',     cost:38000, max:1, fn:function(sv){sv.startRevive=true;}},
+  {id:'arm',  icon:'🛡', name:'HAFİF ZIRH',        desc:'Başlangıç zırhı +%8',             cost:12000, max:5, fn:function(sv){sv.startArmor=(sv.startArmor||0)+.08;}},
+  {id:'ls',   icon:'💉', name:'CAN ÇALMA BAŞLANGIÇ',desc:'Her öldürmede +1 can',           cost:15000, max:5, fn:function(sv){sv.startLS=(sv.startLS||0)+1;}},
+  {id:'shld', icon:'🧿', name:'BAŞLANGIÇ KALKANI', desc:'Her oyuna 1 kalkan ile başla',    cost:27000, max:1, fn:function(sv){sv.startShield=true;}},
+  {id:'reg',  icon:'🩹', name:'HIZLI İYİLEŞME',   desc:'HP %30 altındayken 0.5 can/sn',   cost:24000, max:3, fn:function(sv){sv.startRegen=(sv.startRegen||0)+.5;}},
+  {id:'rev',  icon:'⚰', name:'SON NEFES',          desc:'Bir kez 1 canla ölümden dön',     cost:57000, max:1, fn:function(sv){sv.startRevive=true;}},
   // ─── SALDIRI ───
-  {id:'fr',   icon:'⚡', name:'HIZLI TETİK',       desc:'Ateş hızı %10 artar başlangıçta', cost:12000, max:4, fn:function(sv){sv.startFR=(sv.startFR||1)*.90;}},
-  {id:'pc',   icon:'🎯', name:'ÇİFT ATIŞ BAŞLANGIÇ',desc:'1 ekstra mermi ile başla',       cost:28000, max:2, fn:function(sv){sv.startPC=(sv.startPC||0)+1;}},
-  {id:'bsize',icon:'💫', name:'BÜYÜK MERMİ',       desc:'Mermi boyutu %20 büyük başlar',   cost:8000,  max:4, fn:function(sv){sv.startBS=(sv.startBS||1)*1.2;}},
-  {id:'pi',   icon:'🗡', name:'BAŞLANGIÇ DELİCİ',  desc:'Mermiler düşmandan geçer (1)',     cost:32000, max:2, fn:function(sv){sv.startPI=(sv.startPI||0)+1;}},
-  {id:'ps',   icon:'🚀', name:'UZUN MENZİL',       desc:'Mermi hızı +2',                   cost:8500,  max:4, fn:function(sv){sv.startPS=(sv.startPS||0)+2;}},
+  {id:'fr',   icon:'⚡', name:'HIZLI TETİK',       desc:'Ateş hızı %10 artar başlangıçta', cost:18000, max:4, fn:function(sv){sv.startFR=(sv.startFR||1)*.90;}},
+  {id:'pc',   icon:'🎯', name:'ÇİFT ATIŞ BAŞLANGIÇ',desc:'1 ekstra mermi ile başla',       cost:42000, max:2, fn:function(sv){sv.startPC=(sv.startPC||0)+1;}},
+  {id:'bsize',icon:'💫', name:'BÜYÜK MERMİ',       desc:'Mermi boyutu %20 büyük başlar',   cost:12000, max:4, fn:function(sv){sv.startBS=(sv.startBS||1)*1.2;}},
+  {id:'pi',   icon:'🗡', name:'BAŞLANGIÇ DELİCİ',  desc:'Mermiler düşmandan geçer (1)',     cost:48000, max:2, fn:function(sv){sv.startPI=(sv.startPI||0)+1;}},
+  {id:'ps',   icon:'🚀', name:'UZUN MENZİL',       desc:'Mermi hızı +2',                   cost:12750, max:4, fn:function(sv){sv.startPS=(sv.startPS||0)+2;}},
   // ─── EKSİTRA ───
-  {id:'relic',icon:'🏺', name:'BAŞLANGIÇ RELİĞİ',  desc:'Ekstra bir relic ile başla',      cost:45000, max:3, fn:function(sv){sv.startRelics=(sv.startRelics||0)+1;}},
-  {id:'lvl',  icon:'📈', name:'YÜKSEK BAŞLANGIÇ',  desc:'Seviye 3 olarak başla',           cost:55000, max:2, fn:function(sv){sv.startLevel=(sv.startLevel||1)+3;}},
-  {id:'multi',icon:'✖', name:'ÇOK AMAÇLI MÜHIMMAT',desc:'Her 10. vuruş patlama yapar',    cost:20000, max:1, fn:function(sv){sv.startExpl=true;}},
-  {id:'luck', icon:'🎰', name:'ŞANS BOOSTERI',      desc:'Abdülhey zarı min 0.3x hasar',  cost:14000, max:3, fn:function(sv){sv.startLuck=(sv.startLuck||0)+.1;}},
-  {id:'crit', icon:'💥', name:'KRİTİK BAŞLANGIÇ',  desc:'%10 kritik vuruş şansı',          cost:18000, max:3, fn:function(sv){sv.startCrit=(sv.startCrit||0)+.1;}},
-  {id:'bounce',icon:'🎱',name:'SIÇRAYAN MERMİ',     desc:'Mermiler 1 düşmana zıplar',       cost:26000, max:2, fn:function(sv){sv.startBounce=(sv.startBounce||0)+1;}},
-  {id:'time', icon:'⏰', name:'ZAMAN BOOSTERI',     desc:'Dalga geçişi 2 dakika değil 1.5', cost:38000, max:1, fn:function(sv){sv.fasterWaves=true;}},
-  {id:'loot', icon:'🎁', name:'LOOT YAĞMURU',       desc:'Düşmanlar %40 fazla item bırakır',cost:16000, max:3, fn:function(sv){sv.lootMult=(sv.lootMult||1)*1.4;}},
-  {id:'curse',icon:'😈', name:'LANET VE GÜÇLÜK',    desc:'Zorluk +1 ama XP 2x (kalıcı)',   cost:95000, max:1, fn:function(sv){sv.cursed=true;}},
-  {id:'start3',icon:'🔱',name:'ÜÇLÜ BAŞLANGIÇ',     desc:'3 silah ile başla',               cost:75000, max:1, fn:function(sv){sv.tripleStart=true;}},
+  {id:'relic',icon:'🏺', name:'BAŞLANGIÇ RELİĞİ',  desc:'Ekstra bir relic ile başla',      cost:67500, max:3, fn:function(sv){sv.startRelics=(sv.startRelics||0)+1;}},
+  {id:'lvl',  icon:'📈', name:'YÜKSEK BAŞLANGIÇ',  desc:'Seviye 3 olarak başla',           cost:82500, max:2, fn:function(sv){sv.startLevel=(sv.startLevel||1)+3;}},
+  {id:'multi',icon:'✖', name:'ÇOK AMAÇLI MÜHIMMAT',desc:'Her 10. vuruş patlama yapar',    cost:30000, max:1, fn:function(sv){sv.startExpl=true;}},
+  {id:'luck', icon:'🎰', name:'ŞANS BOOSTERI',      desc:'Abdülhey zarı min 0.3x hasar',  cost:21000, max:3, fn:function(sv){sv.startLuck=(sv.startLuck||0)+.1;}},
+  {id:'crit', icon:'💥', name:'KRİTİK BAŞLANGIÇ',  desc:'%10 kritik vuruş şansı',          cost:27000, max:3, fn:function(sv){sv.startCrit=(sv.startCrit||0)+.1;}},
+  {id:'bounce',icon:'🎱',name:'SIÇRAYAN MERMİ',     desc:'Mermiler 1 düşmana zıplar',       cost:39000, max:2, fn:function(sv){sv.startBounce=(sv.startBounce||0)+1;}},
+  {id:'time', icon:'⏰', name:'ZAMAN BOOSTERI',     desc:'Dalga geçişi 2 dakika değil 1.5', cost:57000, max:1, fn:function(sv){sv.fasterWaves=true;}},
+  {id:'loot', icon:'🎁', name:'LOOT YAĞMURU',       desc:'Düşmanlar %40 fazla item bırakır',cost:24000, max:3, fn:function(sv){sv.lootMult=(sv.lootMult||1)*1.4;}},
+  {id:'curse',icon:'😈', name:'LANET VE GÜÇLÜK',    desc:'Zorluk +1 ama XP 2x (kalıcı)',   cost:142500,max:1, fn:function(sv){sv.cursed=true;}},
+  {id:'start3',icon:'🔱',name:'ÜÇLÜ BAŞLANGIÇ',     desc:'3 silah ile başla',               cost:112500,max:1, fn:function(sv){sv.tripleStart=true;}},
 ];
 
 // ════════════════════════════════════
@@ -739,67 +739,84 @@ var SHOP=[
 // ════════════════════════════════════
 var ACHS=[
   // ─── İLK ADIMLAR ───
-  {id:'fk1',   icon:'🗡', name:'İLK KAN',           desc:'İlk düşmanı öldür'},
-  {id:'fk10',  icon:'💀', name:'ONBİR KAFADAN',      desc:'10 düşman öldür'},
-  {id:'fk100', icon:'☠',  name:'SOKAK KASABI',       desc:'250 düşman öldür'},
-  {id:'fk500', icon:'💀', name:'MAHALLE KATLI',      desc:'1000 düşman öldür'},
-  {id:'fk1000',icon:'👻', name:'BİN KAFADAN',        desc:'3000 düşman öldür'},
-  {id:'fk5000',icon:'🩸', name:'KAN HAVUZU',         desc:'10000 düşman öldür'},
+  {id:'fk1',   icon:'🗡', name:'İLK KAN',           desc:'İlk düşmanı öldür',            gold:5},
+  {id:'fk10',  icon:'💀', name:'ONBİR KAFADAN',      desc:'10 düşman öldür',              gold:10},
+  {id:'fk100', icon:'☠',  name:'SOKAK KASABI',       desc:'250 düşman öldür',             gold:30},
+  {id:'fk500', icon:'💀', name:'MAHALLE KATLI',      desc:'1000 düşman öldür',            gold:60},
+  {id:'fk1000',icon:'👻', name:'BİN KAFADAN',        desc:'3000 düşman öldür',            gold:100},
+  {id:'fk5000',icon:'🩸', name:'KAN HAVUZU',         desc:'10000 düşman öldür',           gold:200},
   // ─── DALGA ───
-  {id:'w5',    icon:'🌊', name:'DALGA GEÇTİ',        desc:'10. dalgaya ulaş'},
-  {id:'w10',   icon:'🌊', name:'DALGAYI ATSAYDIM',   desc:'20. dalgaya ulaş'},
-  {id:'w20',   icon:'🌊', name:'SÖRFÇİ DON',         desc:'30. dalgaya ulaş'},
-  {id:'w50',   icon:'🌪', name:'KASIRGA DALGA',       desc:'80. dalgaya ulaş'},
+  {id:'w5',    icon:'🌊', name:'DALGA GEÇTİ',        desc:'10. dalgaya ulaş',             gold:15},
+  {id:'w10',   icon:'🌊', name:'DALGAYI ATSAYDIM',   desc:'20. dalgaya ulaş',             gold:25},
+  {id:'w20',   icon:'🌊', name:'SÖRFÇİ DON',         desc:'30. dalgaya ulaş',             gold:50},
+  {id:'w50',   icon:'🌪', name:'KASIRGA DALGA',       desc:'80. dalgaya ulaş',             gold:200},
   // ─── SEVİYE ───
-  {id:'l5',    icon:'⭐', name:'ÇAYLAK',              desc:'Seviye 8\'e ulaş'},
-  {id:'l10',   icon:'⭐', name:'SEMTİN ADAMI',        desc:'Seviye 15\'e ulaş'},
-  {id:'l20',   icon:'🌟', name:'MAHALLE REİSİ',       desc:'Seviye 25\'e ulaş'},
-  {id:'l30',   icon:'💫', name:'SEMT EFENDİSİ',       desc:'Seviye 40\'a ulaş'},
-  {id:'l50',   icon:'🏅', name:'İSTANBUL DEVİ',       desc:'Seviye 60\'a ulaş'},
+  {id:'l5',    icon:'⭐', name:'ÇAYLAK',              desc:'Seviye 8\'e ulaş',             gold:10},
+  {id:'l10',   icon:'⭐', name:'SEMTİN ADAMI',        desc:'Seviye 15\'e ulaş',            gold:20},
+  {id:'l20',   icon:'🌟', name:'MAHALLE REİSİ',       desc:'Seviye 25\'e ulaş',            gold:40},
+  {id:'l30',   icon:'💫', name:'SEMT EFENDİSİ',       desc:'Seviye 40\'a ulaş',            gold:80},
+  {id:'l50',   icon:'🏅', name:'İSTANBUL DEVİ',       desc:'Seviye 60\'a ulaş',            gold:150},
   // ─── SÜRE ───
-  {id:'t1',    icon:'⌚', name:'BİR DAKIKA',           desc:'1 dakika hayatta kal'},
-  {id:'t5',    icon:'⌛', name:'DAYANIKLI SAVAŞÇI',   desc:'8 dakika hayatta kal'},
-  {id:'t10',   icon:'🕐', name:'GECE NÖBETÇİSİ',      desc:'15 dakika hayatta kal'},
-  {id:'t20',   icon:'🌙', name:'GECEYİ ATLATMAK',     desc:'30 dakika hayatta kal'},
+  {id:'t1',    icon:'⌚', name:'BİR DAKIKA',           desc:'1 dakika hayatta kal',         gold:10},
+  {id:'t5',    icon:'⌛', name:'DAYANIKLI SAVAŞÇI',   desc:'8 dakika hayatta kal',         gold:30},
+  {id:'t10',   icon:'🕐', name:'GECE NÖBETÇİSİ',      desc:'15 dakika hayatta kal',        gold:60},
+  {id:'t20',   icon:'🌙', name:'GECEYİ ATLATMAK',     desc:'30 dakika hayatta kal',        gold:150},
   // ─── BOSS ───
-  {id:'bk1',   icon:'👑', name:'İLK PATRON',           desc:'İlk patronu öldür'},
-  {id:'bk5',   icon:'💀', name:'PATRON AVCISI',        desc:'5 patron öldür'},
-  {id:'bk10',  icon:'🏆', name:'PATRON KATİLİ',        desc:'10 patron öldür'},
-  {id:'bkelite',icon:'☠',name:'ELİT AVCISI',          desc:'Dalga 10+ elitini öldür'},
+  {id:'bk1',   icon:'👑', name:'İLK PATRON',           desc:'İlk patronu öldür',            gold:50},
+  {id:'bk5',   icon:'💀', name:'PATRON AVCISI',        desc:'5 patron öldür',               gold:100},
+  {id:'bk10',  icon:'🏆', name:'PATRON KATİLİ',        desc:'10 patron öldür',              gold:200},
+  {id:'bkelite',icon:'☠',name:'ELİT AVCISI',          desc:'Dalga 10+ elitini öldür',      gold:30},
   // ─── SİLAH ───
-  {id:'w3weap',icon:'🔫', name:'SİLAH SEVDALISI',      desc:'3 silah taşı'},
-  {id:'w6weap',icon:'💥', name:'CEPHANE DEPOSU',       desc:'6 silah taşı'},
-  {id:'evo1',  icon:'⚗',  name:'ALKİMİST',             desc:'İlk silah evrimini gerçekleştir'},
-  {id:'evoall',icon:'🌟', name:'EVRİM EFENDİSİ',       desc:'Tüm 5 evrimi gerçekleştir'},
+  {id:'w3weap',icon:'🔫', name:'SİLAH SEVDALISI',      desc:'3 silah taşı',                 gold:20},
+  {id:'w6weap',icon:'💥', name:'CEPHANE DEPOSU',       desc:'6 silah taşı',                 gold:50},
+  {id:'evo1',  icon:'⚗',  name:'ALKİMİST',             desc:'İlk silah evrimini gerçekleştir',gold:30},
+  {id:'evoall',icon:'🌟', name:'EVRİM EFENDİSİ',       desc:'Tüm 5 evrimi gerçekleştir',    gold:100},
   // ─── ÖZEL TÜRK TEMALı ───
-  {id:'tea1',  icon:'🫖', name:'ÇAY İÇTİK',            desc:'Çay tipi 50 düşman öldür'},
-  {id:'tea500',icon:'🍵', name:'500 ÇAY',               desc:'500 çay bardağı düşmanı öldür'},
-  {id:'taxi',  icon:'🚕', name:'TAKSİ SAVAŞÇISI',      desc:'200 taksi şoförü öldür'},
-  {id:'simit', icon:'🥯', name:'SİMİT SEVERLER',       desc:'100 simit satıcısı öldür'},
-  {id:'granny',icon:'👵', name:'BÜYÜKANNE KILLER',      desc:'50 büyükanne öldür'},
-  {id:'gang',  icon:'🔫', name:'ÇETE KIRANI',           desc:'300 rakip çete öldür'},
-  {id:'ghost', icon:'👻', name:'HAYALET AVCISI',        desc:'100 taksici hayaleti öldür'},
-  {id:'fisher',icon:'🎣', name:'BALIKÇI BALADESİ',     desc:'100 balıkçı öldür'},
-  {id:'kebap', icon:'🍢', name:'KEBAP KATİLİ',          desc:'100 kebapçı öldür'},
+  {id:'tea1',  icon:'🫖', name:'ÇAY İÇTİK',            desc:'Çay tipi 50 düşman öldür',     gold:20},
+  {id:'tea500',icon:'🍵', name:'500 ÇAY',               desc:'500 çay bardağı düşmanı öldür',gold:80},
+  {id:'taxi',  icon:'🚕', name:'TAKSİ SAVAŞÇISI',      desc:'200 taksi şoförü öldür',       gold:40},
+  {id:'simit', icon:'🥯', name:'SİMİT SEVERLER',       desc:'100 simit satıcısı öldür',     gold:25},
+  {id:'granny',icon:'👵', name:'BÜYÜKANNE KILLER',      desc:'50 büyükanne öldür',           gold:20},
+  {id:'gang',  icon:'🔫', name:'ÇETE KIRANI',           desc:'300 rakip çete öldür',         gold:60},
+  {id:'ghost', icon:'👻', name:'HAYALET AVCISI',        desc:'100 taksici hayaleti öldür',   gold:25},
+  {id:'fisher',icon:'🎣', name:'BALIKÇI BALADESİ',     desc:'100 balıkçı öldür',            gold:25},
+  {id:'kebap', icon:'🍢', name:'KEBAP KATİLİ',          desc:'100 kebapçı öldür',            gold:25},
   // ─── ALTIN & DÜKKAN ───
-  {id:'g100',  icon:'💰', name:'HARÇLIK',               desc:'100 altın topla'},
-  {id:'g1k',   icon:'💵', name:'BİN ALTIN',             desc:'1000 altın topla'},
-  {id:'g10k',  icon:'💎', name:'MAHALLE ZENGİNİ',       desc:'10000 altın topla'},
-  {id:'shop5', icon:'🛒', name:'TÜCCAR',                desc:'5 dükkan alımı yap'},
-  {id:'shop15',icon:'🏪', name:'BÜYÜK TÜCCAR',          desc:'15 dükkan alımı yap'},
-  {id:'shop30',icon:'🏬', name:'ALIŞVERİŞ BAĞIMLISI',  desc:'30 dükkan alımı yap'},
+  {id:'g100',  icon:'💰', name:'HARÇLIK',               desc:'100 altın topla',              gold:10},
+  {id:'g1k',   icon:'💵', name:'BİN ALTIN',             desc:'1000 altın topla',             gold:30},
+  {id:'g10k',  icon:'💎', name:'MAHALLE ZENGİNİ',       desc:'10000 altın topla',            gold:100},
+  {id:'shop5', icon:'🛒', name:'TÜCCAR',                desc:'5 dükkan alımı yap',           gold:20},
+  {id:'shop15',icon:'🏪', name:'BÜYÜK TÜCCAR',          desc:'15 dükkan alımı yap',          gold:50},
+  {id:'shop30',icon:'🏬', name:'ALIŞVERİŞ BAĞIMLISI',  desc:'30 dükkan alımı yap',          gold:100},
   // ─── ÖZEL HAREKETLER ───
-  {id:'nokill',icon:'🕊', name:'BARIŞÇIL MİSAFİR',      desc:'1 dakika düşman öldürmeden hayatta kal'},
-  {id:'nohit', icon:'💨', name:'HAYALET GİBİ',          desc:'30 saniye hasar almadan hayatta kal'},
-  {id:'fullhp',icon:'❤',  name:'SAPASAĞLAM',            desc:'5 dakika tam canla hayatta kal'},
-  {id:'speed', icon:'🏃', name:'RÜZGAR GİBİ',           desc:'4+ hızla yürü'},
-  {id:'overkill',icon:'💀',name:'HADDİNDEN FAZLA',    desc:'1000+ hasar ver tek vuruşta'},
+  {id:'nokill',icon:'🕊', name:'BARIŞÇIL MİSAFİR',      desc:'1 dakika düşman öldürmeden hayatta kal',gold:30},
+  {id:'nohit', icon:'💨', name:'HAYALET GİBİ',          desc:'30 saniye hasar almadan hayatta kal',gold:30},
+  {id:'fullhp',icon:'❤',  name:'SAPASAĞLAM',            desc:'5 dakika tam canla hayatta kal',gold:50},
+  {id:'speed', icon:'🏃', name:'RÜZGAR GİBİ',           desc:'4+ hızla yürü',                gold:20},
+  {id:'overkill',icon:'💀',name:'HADDİNDEN FAZLA',    desc:'1000+ hasar ver tek vuruşta',    gold:50},
+  // ─── YENİ BAŞARIMLAR ───
+  {id:'k1',    icon:'🩸', name:'İlk Kan',               desc:'1 düşman öldür',               gold:10,  cond:function(){return(pdata.totalKills||0)>=1;}},
+  {id:'k50',   icon:'💀', name:'Çaylak',                desc:'50 kill',                      gold:20,  cond:function(){return(pdata.totalKills||0)>=50;}},
+  {id:'k500',  icon:'⚔', name:'Savaşçı',               desc:'500 kill',                     gold:50,  cond:function(){return(pdata.totalKills||0)>=500;}},
+  {id:'k2500', icon:'🔥', name:'Canavar',               desc:'2500 kill',                    gold:100, cond:function(){return(pdata.totalKills||0)>=2500;}},
+  {id:'k10k',  icon:'👑', name:'Efsane',                desc:'10000 kill',                   gold:200, cond:function(){return(pdata.totalKills||0)>=10000;}},
+  {id:'t5m',   icon:'⏱', name:'Isındım',               desc:'5 dk hayatta kal',             gold:20,  cond:function(){return(pdata.bestTime||0)>=300000;}},
+  {id:'t15m',  icon:'⌛', name:'Uzman',                 desc:'15 dk hayatta kal',            gold:60,  cond:function(){return(pdata.bestTime||0)>=900000;}},
+  {id:'w15',   icon:'🌊', name:'Tehlikeli',             desc:'Wave 15\'e ulaş',              gold:50,  cond:function(){return(pdata.maxWave||0)>=15;}},
+  {id:'w30',   icon:'🌊', name:'İmkansız',              desc:'Wave 30\'e ulaş',              gold:150, cond:function(){return(pdata.maxWave||0)>=30;}},
+  {id:'r1',    icon:'🧿', name:'İlk Relic',             desc:'1 relic tak',                  gold:10,  cond:function(){return(pdata.relics&&pdata.relics.length>=1);}},
+  {id:'r3',    icon:'🧿', name:'Güçlü',                 desc:'3 relic tak',                  gold:20,  cond:function(){return(pdata.relics&&pdata.relics.length>=3);}},
+  {id:'eco',   icon:'💰', name:'Ekonomist',             desc:'10000 altın biriktir',         gold:100, cond:function(){return(pdata.totalG||0)>=10000;}},
+  {id:'p2w',   icon:'💎', name:'Pay to Win',            desc:'Premium al',                   gold:200, cond:function(){return!!pdata.premium;}},
+  {id:'evo3',  icon:'⚗', name:'Evrimci',               desc:'3 evrim yap',                  gold:50,  cond:function(){return(pdata.totalEvolutions||0)>=3;}},
+  {id:'dash1', icon:'💨', name:'Hızlı Adım',            desc:'Dash kullan',                  gold:15,  cond:function(){return(pdata._totalDashes||0)>=1;}},
+  {id:'shop5_new',icon:'🛒',name:'Müdavim',             desc:'5 item satın al',              gold:30,  cond:function(){return(pdata.shopBuys||0)>=5;}},
   // ─── GİZLİ ───
-  {id:'secret1',icon:'❓',name:'GİZLİ: GALATA FANIĞI',desc:'???'},
-  {id:'secret2',icon:'❓',name:'GİZLİ: KARANLIK DON', desc:'???'},
-  {id:'secret3',icon:'❓',name:'GİZLİ: ÖLÜM DANS',    desc:'???'},
-  {id:'secret4',icon:'❓',name:'GİZLİ: BOĞAZİÇİ',     desc:'???'},
-  {id:'secret5',icon:'❓',name:'GİZLİ: SULTAN',        desc:'Tüm başarımları aç'},
+  {id:'secret1',icon:'❓',name:'GİZLİ: GALATA FANIĞI',desc:'???',                            gold:100},
+  {id:'secret2',icon:'❓',name:'GİZLİ: KARANLIK DON', desc:'???',                            gold:100},
+  {id:'secret3',icon:'❓',name:'GİZLİ: ÖLÜM DANS',    desc:'???',                            gold:100},
+  {id:'secret4',icon:'❓',name:'GİZLİ: BOĞAZİÇİ',     desc:'???',                            gold:100},
+  {id:'secret5',icon:'❓',name:'GİZLİ: SULTAN',        desc:'Tüm başarımları aç',             gold:500},
 ];
 
 // ════════════════════════════════════
@@ -1162,9 +1179,25 @@ if(!pdata.mapProgress)pdata.mapProgress={};
 ['kapalicarsi','uskudar','besiktas','taksim','balat'].forEach(function(mid){
   if(!pdata.mapProgress[mid])pdata.mapProgress[mid]={stage:0,kills:0,waves:0,bosses:0,completed:false};
 });
-if(typeof pdata.relicCap!=='number'||pdata.relicCap<5)pdata.relicCap=5;
+if(typeof pdata.relicCap!=='number'||pdata.relicCap<3)pdata.relicCap=3;
 if(!pdata._runTotalDmg)pdata._runTotalDmg=0;
 function saveP(){try{localStorage.setItem('imv7',JSON.stringify(pdata));}catch(e){}}
+function checkRelicSlotUnlocks(){
+  var caps=[
+    {cap:4,cond:function(){return(pdata.totalKills||0)>=500;},msg:'4. SLOT AÇILDI! (500 kill)'},
+    {cap:5,cond:function(){return(pdata.bossKills||0)>=3;},msg:'5. SLOT AÇILDI! (3 Boss öldür)'},
+    {cap:6,cond:function(){return(pdata.totalKills||0)>=2000;},msg:'6. SLOT AÇILDI! (2000 kill)'},
+    {cap:7,cond:function(){return(pdata.totalKills||0)>=10000;},msg:'7. SLOT AÇILDI! (10000 kill)'},
+    {cap:8,cond:function(){return pdata.premium==='patron'||pdata.premium==='don';},msg:'8. SLOT AÇILDI! (Patron paketi)'}
+  ];
+  caps.forEach(function(c){
+    if((pdata.relicCap||3)<c.cap&&c.cond()){
+      pdata.relicCap=c.cap;
+      saveP();
+      showToast('🔓 '+c.msg,'#ffd700');
+    }
+  });
+}
 // Günlük login bonus — sayfa açılınca kontrol et
 setTimeout(function(){if(typeof checkDailyLogin==='function')checkDailyLogin();},1200);
 
@@ -1505,11 +1538,16 @@ var appEl=document.getElementById('app');
 // ════════════════════════════════════
 function unlockAch(id){
   if(pdata.ach[id])return;
+  var achDef=ACHS.find(function(x){return x.id===id;});
+  if(achDef&&achDef.gold){
+    pdata.gold=(pdata.gold||0)+achDef.gold;
+    pdata.totalG=(pdata.totalG||0)+achDef.gold;
+  }
   pdata.ach[id]=true;saveP();
-  var a=ACHS.find(function(x){return x.id===id;});if(!a)return;
+  var a=achDef;if(!a)return;
   sAch();
   var p=document.getElementById('achPopup');
-  document.getElementById('achPopupName').textContent=a.icon+' '+a.name;
+  document.getElementById('achPopupName').textContent=a.icon+' '+a.name+(a.gold?' +'+a.gold+'💰':'');
   p.classList.add('show');setTimeout(function(){p.classList.remove('show');},2800);
 }
 function checkAchs(){
@@ -1570,6 +1608,24 @@ function checkAchs(){
   var allNonSecret=ACHS.filter(function(a){return a.id.indexOf('secret')<0;});
   var allDone=allNonSecret.every(function(a){return pd.ach[a.id];});
   if(allDone)unlockAch('secret5');
+  // New kill/time/wave/relic achievements
+  if((pd.totalKills||0)>=1)unlockAch('k1');
+  if((pd.totalKills||0)>=50)unlockAch('k50');
+  if((pd.totalKills||0)>=500)unlockAch('k500');
+  if((pd.totalKills||0)>=2500)unlockAch('k2500');
+  if((pd.totalKills||0)>=10000)unlockAch('k10k');
+  if((pd.bestTime||0)>=300000)unlockAch('t5m');
+  if((pd.bestTime||0)>=900000)unlockAch('t15m');
+  if((pd.maxWave||0)>=15)unlockAch('w15');
+  if((pd.maxWave||0)>=30)unlockAch('w30');
+  if(pd.relics&&pd.relics.length>=1)unlockAch('r1');
+  if(pd.relics&&pd.relics.length>=3)unlockAch('r3');
+  if((pd.totalG||0)>=10000)unlockAch('eco');
+  if(pd.premium)unlockAch('p2w');
+  if((pd.totalEvolutions||0)>=3)unlockAch('evo3');
+  if((pd._totalDashes||0)>=1)unlockAch('dash1');
+  if((pd.shopBuys||0)>=5)unlockAch('shop5_new');
+  checkRelicSlotUnlocks();
 }
 
 // ════════════════════════════════════
@@ -2481,6 +2537,43 @@ function buildPremiumScreen(){
   list.innerHTML='';
   var cur=pdata.premium;
 
+  // ─── ALTIN PAKETLERİ ───
+  var goldPacks=[
+    {id:'g1',name:'Minik Kesim', price:'₺9',  gold:2500, icon:'💰'},
+    {id:'g2',name:'Orta Kesim',  price:'₺19', gold:7000, icon:'💰💰'},
+    {id:'g3',name:'Büyük Kesim', price:'₺39', gold:18000,icon:'💰💰💰'},
+    {id:'g4',name:'Patron Kasası',price:'₺79',gold:50000,icon:'👑',bonus:'+ Özel Relic'}
+  ];
+  var gpHeader=document.createElement('div');
+  gpHeader.style.cssText='font-family:\'Press Start 2P\',monospace;font-size:8px;color:#ffd700;text-align:center;padding:10px 0 6px;border-bottom:1px solid #333;margin-bottom:8px;';
+  gpHeader.textContent='💰 ALTIN PAKETLERİ';
+  list.appendChild(gpHeader);
+  var gpGrid=document.createElement('div');
+  gpGrid.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;';
+  goldPacks.forEach(function(gp){
+    var gc=document.createElement('div');
+    gc.style.cssText='background:linear-gradient(135deg,#1a1000,#0a0800);border:2px solid #b8860b;border-radius:6px;padding:10px;font-family:\'Press Start 2P\',monospace;text-align:center;cursor:pointer;touch-action:manipulation;';
+    gc.innerHTML='<div style="font-size:18px;margin-bottom:4px;">'+gp.icon+'</div>'
+      +'<div style="font-size:6px;color:#ffd700;margin-bottom:3px;">'+gp.name+'</div>'
+      +'<div style="font-size:7px;color:#00ff88;margin-bottom:3px;">'+gp.gold+'💰</div>'
+      +(gp.bonus?'<div style="font-size:5px;color:#ff8800;margin-bottom:3px;">'+gp.bonus+'</div>':'')
+      +'<div style="font-size:8px;color:#ffd700;border:1px solid #ffd700;padding:4px;margin-top:4px;">'+gp.price+'</div>';
+    function _buyGold(gpk){return function(e){if(e&&e.cancelable)e.preventDefault();
+      pdata.gold=(pdata.gold||0)+gpk.gold;pdata.totalG=(pdata.totalG||0)+gpk.gold;saveP();
+      showToast('💰 '+gpk.name+': +'+gpk.gold+' altın!','#ffd700');
+      var hg=document.getElementById('hGold');if(hg)hg.textContent=pdata.gold;
+    };}
+    gc.addEventListener('click',_buyGold(gp));
+    gc.addEventListener('touchend',_buyGold(gp),{passive:false});
+    gpGrid.appendChild(gc);
+  });
+  list.appendChild(gpGrid);
+
+  var pkgHeader=document.createElement('div');
+  pkgHeader.style.cssText='font-family:\'Press Start 2P\',monospace;font-size:8px;color:#ffd700;text-align:center;padding:6px 0;border-bottom:1px solid #333;margin-bottom:8px;';
+  pkgHeader.textContent='💎 PREMIUM PAKETLER';
+  list.appendChild(pkgHeader);
+
   PREMIUM_PKGS.forEach(function(pkg){
     var owned=cur==='patron'||(cur==='don'&&(pkg.id==='caylak'||pkg.id==='don'))||(cur===pkg.id);
 
@@ -3295,7 +3388,7 @@ function gupdate(dt){
       boom(e.x,e.y,'#cc0000',10,4);
       if(P.dwave)enemies.forEach(function(e2){if(d2(e,e2)<125*125){e2.hp-=P.dmg*.5;boom(e.x,e.y,'#ff8800',6,3);}});
       orbs.push({x:e.x,y:e.y,v:e.xp*(P.xpm||1),r:6,col:e.type.id==='para'?'#ffd700':'#00ff88'});
-      spawnGold(e.x,e.y,Math.floor((e.gold||2)*4*(P.gm||1)*(pdata.goldMult||1)));
+      spawnGold(e.x,e.y,Math.floor((e.gold||2)*0.8*(P.gm||1)*(pdata.goldMult||1)));
       // HP drops
       var hrc=e.type.boss?1:e.r>22?.3:e.r>16?.2:.07;
       if(Math.random()<hrc)spawnHP(e.x,e.y,e.type.boss?65:e.r>20?28:14);
@@ -4038,26 +4131,74 @@ window.addEventListener('resize',function(){if(document.getElementById('menuScre
 // v6.0 — GÖREV SİSTEMİ
 // ════════════════════════════════════════════════════════════
 var MAIN_QUESTS=[
-  {id:'q1',name:'İlk Kan',desc:'50 düşman öldür',icon:'🗡',progress:function(){return pdata.totalKills||0;},goal:50,reward:{gold:2000,unlock:'cakir'},done:false},
-  {id:'q2',name:'Kapalıçarşı\'yı Temizle',desc:'Kapalıçarşı\'da dalga 10\'a ulaş',icon:'🏪',progress:function(){var mp=pdata.mapProgress&&pdata.mapProgress['kapali'];return mp?mp.kills>0?10:0:0;},goal:10,reward:{gold:5000},done:false},
-  {id:'q3',name:'Kumarbaz\'ı Öldür',desc:'Kumarbaz Erdal\'ı yen (dalga 10)',icon:'🎲',progress:function(){return (pdata.bossKills||0)>=2?1:0;},goal:1,reward:{gold:10000,unlock:'memati'},done:false},
-  {id:'q4',name:'Testere Necmi\'yi Öldür',desc:'Testere Necmi\'yi yen',icon:'🪚',progress:function(){return pdata.necmiKilled?1:0;},goal:1,reward:{gold:25000,unlock:'dayi'},done:false},
-  {id:'q5',name:'Son Hesaplaşma',desc:'Patron Kenan ve Ölüm Ağası\'nı yen',icon:'💀',progress:function(){return (pdata.bossKills||0)>=4?1:0;},goal:1,reward:{gold:50000,title:'İstanbul\'un Efendisi'},done:false}
+  {id:'q1',name:'İlk Kan',desc:'50 düşman öldür',icon:'🗡',progress:function(){return pdata.totalKills||0;},goal:50,reward:{gold:600,unlock:'cakir'},done:false},
+  {id:'q2',name:'Kapalıçarşı\'yı Temizle',desc:'Kapalıçarşı\'da dalga 10\'a ulaş',icon:'🏪',progress:function(){var mp=pdata.mapProgress&&pdata.mapProgress['kapali'];return mp?mp.kills>0?10:0:0;},goal:10,reward:{gold:1500},done:false},
+  {id:'q3',name:'Kumarbaz\'ı Öldür',desc:'Kumarbaz Erdal\'ı yen (dalga 10)',icon:'🎲',progress:function(){return (pdata.bossKills||0)>=2?1:0;},goal:1,reward:{gold:3000,unlock:'memati'},done:false},
+  {id:'q4',name:'Testere Necmi\'yi Öldür',desc:'Testere Necmi\'yi yen',icon:'🪚',progress:function(){return pdata.necmiKilled?1:0;},goal:1,reward:{gold:7500,unlock:'dayi'},done:false},
+  {id:'q5',name:'Son Hesaplaşma',desc:'Patron Kenan ve Ölüm Ağası\'nı yen',icon:'💀',progress:function(){return (pdata.bossKills||0)>=4?1:0;},goal:1,reward:{gold:15000,title:'İstanbul\'un Efendisi'},done:false},
+  {id:'q6',name:'İlk Evrim',desc:'1 evrim yap',icon:'⚗',progress:function(){return pdata.totalEvolutions||0;},goal:1,reward:{gold:300},done:false},
+  {id:'q7',name:'Ekstra Güç',desc:'3 relic takılı oyna',icon:'🧿',progress:function(){return (pdata.relics&&pdata.relics.length)||0;},goal:3,reward:{gold:400},done:false},
+  {id:'q8',name:'Dükkan Müdavimi',desc:'3 item satın al',icon:'🛒',progress:function(){return pdata.shopBuys||0;},goal:3,reward:{gold:500},done:false},
+  {id:'q9',name:'Üsküdar\'da Gece',desc:'Üsküdar\'da wave 10\'a ulaş',icon:'🌊',progress:function(){var mp=pdata.mapProgress&&pdata.mapProgress['uskudar'];return mp&&mp.waves>=10?1:0;},goal:1,reward:{gold:600},done:false},
+  {id:'q10',name:'Balat Kabusu',desc:'Balat\'ta wave 5\'e ulaş',icon:'🌆',progress:function(){var mp=pdata.mapProgress&&pdata.mapProgress['balat'];return mp&&mp.waves>=5?1:0;},goal:1,reward:{gold:800},done:false},
+  {id:'q11',name:'Combo Ustası',desc:'25 kill combo yap',icon:'🔥',progress:function(){return (pdata._bestCombo||0)>=25?1:0;},goal:1,reward:{gold:400},done:false},
+  {id:'q12',name:'Silah Koleksiyoncusu',desc:'5 farklı silah kullan',icon:'🔫',progress:function(){return Object.keys(pdata._usedWeapons||{}).length;},goal:5,reward:{gold:500},done:false},
+  {id:'q13',name:'Hayatta Kalanlar',desc:'15 dk hayatta kal',icon:'⏱',progress:function(){return (pdata.bestTime||0)>=900000?1:0;},goal:1,reward:{gold:900},done:false},
+  {id:'q14',name:'Altın Çağ',desc:'Tek run\'da 1000 altın topla',icon:'💰',progress:function(){return (pdata._bestRunGold||0)>=1000?1:0;},goal:1,reward:{gold:300},done:false},
+  {id:'q15',name:'Efsane',desc:'Toplam 5000 kill',icon:'👑',progress:function(){return pdata.totalKills||0;},goal:5000,reward:{gold:2000},done:false}
 ];
 var DAILY_QUEST_POOL=[
-  {id:'dk',name:'{X} düşman öldür',icon:'💀',type:'kills',targets:[50,100,200],rewards:[200,500,1000]},
-  {id:'ds',name:'{X} dakika hayatta kal',icon:'⏱',type:'survive',targets:[3,5,10],rewards:[500,1000,2000]},
-  {id:'dg',name:'{X} altın topla',icon:'💰',type:'gold',targets:[500,1000,3000],rewards:[300,600,800]},
-  {id:'dc',name:'Kritik vuruş yap {X} kez',icon:'💥',type:'crits',targets:[10,25,50],rewards:[400,700,1000]},
-  {id:'dw',name:'Wave 15\'i geç',icon:'🌊',type:'wave',targets:[15],rewards:[2500]},
-  {id:'de',name:'Tek run\'da 3 evrim yap',icon:'⚗',type:'evolutions',targets:[3],rewards:[3000]}
+  {id:'dk',name:'{X} düşman öldür',icon:'💀',type:'kills',targets:[50,100,200],rewards:[100,250,500]},
+  {id:'ds',name:'{X} dakika hayatta kal',icon:'⏱',type:'survive',targets:[3,5,10],rewards:[250,500,1000]},
+  {id:'dg',name:'{X} altın topla',icon:'💰',type:'gold',targets:[500,1000,3000],rewards:[150,300,400]},
+  {id:'dc',name:'Kritik vuruş yap {X} kez',icon:'💥',type:'crits',targets:[10,25,50],rewards:[200,350,500]},
+  {id:'dw',name:'Wave 15\'i geç',icon:'🌊',type:'wave',targets:[15],rewards:[1250]},
+  {id:'de',name:'Tek run\'da 3 evrim yap',icon:'⚗',type:'evolutions',targets:[3],rewards:[1500]},
+  {id:'dr',name:'{X} run oyna',icon:'🎮',type:'runs',targets:[1,3,5],rewards:[50,100,200]},
+  {id:'dd',name:'Dash {X} kez kullan',icon:'💨',type:'dashes',targets:[3,5,10],rewards:[100,200,400]},
+  {id:'dm',name:'{X} haritada oyna',icon:'🗺',type:'maps',targets:[1,2,3],rewards:[200,400,600]},
+  {id:'db',name:'{X} boss öldür',icon:'💀',type:'bosses',targets:[1,2,3],rewards:[300,600,1000]},
+  {id:'dch',name:'{X} karakteriyle oyna',icon:'👤',type:'char',targets:['Polat','Çakır','Memati'],rewards:[200,200,200]},
+  {id:'dnc',name:'Hiç can almadan wave 3',icon:'❤',type:'nodmg',targets:[1],rewards:[500]},
+  {id:'dsc',name:'{X} sandık aç',icon:'📦',type:'chests',targets:[1,3,5],rewards:[100,200,400]},
+  {id:'del',name:'{X} elite düşman öldür',icon:'⭐',type:'elites',targets:[1,3,5],rewards:[200,400,800]}
 ];
 var SIDE_QUESTS=[
-  {id:'sq1',name:'Koleksiyoncu',desc:'20 farklı relic topla',icon:'🧿',progress:function(){return Object.keys(pdata.ownedRelics||{}).length;},goal:20,reward:{gold:10000}},
-  {id:'sq2',name:'Gezgin',desc:'6 haritada oyna',icon:'🗺',progress:function(){var mp=pdata.mapProgress||{};return Object.keys(mp).length;},goal:6,reward:{gold:5000}},
-  {id:'sq3',name:'İntikamcı',desc:'Tüm boss\'ları öldür',icon:'⚔',progress:function(){return pdata.bossKills||0;},goal:4,reward:{gold:15000}},
-  {id:'sq4',name:'Katil',desc:'Toplam 10000 düşman öldür',icon:'🔥',progress:function(){return pdata.totalKills||0;},goal:10000,reward:{gold:30000}},
-  {id:'sq5',name:'Evrimci',desc:'10 evrim tamamla',icon:'⚗',progress:function(){return pdata.totalEvolutions||0;},goal:10,reward:{gold:12000}}
+  {id:'sq1',name:'Koleksiyoncu',desc:'20 farklı relic topla',icon:'🧿',progress:function(){return Object.keys(pdata.ownedRelics||{}).length;},goal:20,reward:{gold:4000}},
+  {id:'sq2',name:'Gezgin',desc:'6 haritada oyna',icon:'🗺',progress:function(){var mp=pdata.mapProgress||{};return Object.keys(mp).length;},goal:6,reward:{gold:2000}},
+  {id:'sq3',name:'İntikamcı',desc:'Tüm boss\'ları öldür',icon:'⚔',progress:function(){return pdata.bossKills||0;},goal:4,reward:{gold:6000}},
+  {id:'sq4',name:'Katil',desc:'Toplam 10000 düşman öldür',icon:'🔥',progress:function(){return pdata.totalKills||0;},goal:10000,reward:{gold:12000}},
+  {id:'sq5',name:'Evrimci',desc:'10 evrim tamamla',icon:'⚗',progress:function(){return pdata.totalEvolutions||0;},goal:10,reward:{gold:4800}},
+  {id:'sq6',name:'Acemi Savaşçı',desc:'100 düşman öldür',icon:'⚔',progress:function(){return pdata.totalKills||0;},goal:100,reward:{gold:80}},
+  {id:'sq7',name:'Sokak Savaşçısı',desc:'500 düşman öldür',icon:'🗡',progress:function(){return pdata.totalKills||0;},goal:500,reward:{gold:120}},
+  {id:'sq8',name:'Mahalle Patronu',desc:'2000 düşman öldür',icon:'👊',progress:function(){return pdata.totalKills||0;},goal:2000,reward:{gold:200}},
+  {id:'sq9',name:'Şehir Efsanesi',desc:'5000 düşman öldür',icon:'🔥',progress:function(){return pdata.totalKills||0;},goal:5000,reward:{gold:400}},
+  {id:'sq10',name:'İlk Boss',desc:'İlk boss\'u öldür',icon:'💀',progress:function(){return Math.min(pdata.bossKills||0,1);},goal:1,reward:{gold:60}},
+  {id:'sq11',name:'Boss Avcısı',desc:'3 farklı boss öldür',icon:'🏹',progress:function(){return Math.min(pdata.bossKills||0,3);},goal:3,reward:{gold:150}},
+  {id:'sq12',name:'Hayatta Kalan',desc:'10 dk hayatta kal',icon:'⏱',progress:function(){return (pdata.bestTime||0)>=600000?1:0;},goal:1,reward:{gold:100}},
+  {id:'sq13',name:'Dayanıklı',desc:'20 dk hayatta kal',icon:'⌛',progress:function(){return (pdata.bestTime||0)>=1200000?1:0;},goal:1,reward:{gold:200}},
+  {id:'sq14',name:'Büyük Koleksiyoncu',desc:'25 relic topla',icon:'🧿',progress:function(){return Object.keys(pdata.ownedRelics||{}).length;},goal:25,reward:{gold:400}},
+  {id:'sq15',name:'Silah Ustası',desc:'5 silah kullan',icon:'🔫',progress:function(){return Object.keys(pdata._usedWeapons||{}).length;},goal:5,reward:{gold:100}},
+  {id:'sq16',name:'Arsenal',desc:'Tüm silahları kullan',icon:'💥',progress:function(){return Object.keys(pdata._usedWeapons||{}).length;},goal:20,reward:{gold:500}},
+  {id:'sq17',name:'Gezgin 2',desc:'3 harita oyna',icon:'🗺',progress:function(){return Object.keys(pdata.mapProgress||{}).length;},goal:3,reward:{gold:150}},
+  {id:'sq18',name:'Kaşif',desc:'Tüm haritaları oyna',icon:'🌍',progress:function(){return Object.keys(pdata.mapProgress||{}).length;},goal:6,reward:{gold:400}},
+  {id:'sq19',name:'Büyük Evrimci',desc:'15 evrim yap',icon:'⚗',progress:function(){return pdata.totalEvolutions||0;},goal:15,reward:{gold:500}},
+  {id:'sq20',name:'Dükkan Müdavimi',desc:'10 item satın al',icon:'🛒',progress:function(){return pdata.shopBuys||0;},goal:10,reward:{gold:150}},
+  {id:'sq21',name:'Zengin',desc:'10000 altın biriktir',icon:'💰',progress:function(){return pdata.totalG||0;},goal:10000,reward:{gold:300}},
+  {id:'sq22',name:'Polat Hayranı',desc:'Polat ile 10 run oyna',icon:'👤',progress:function(){return pdata._polatRuns||0;},goal:10,reward:{gold:120}},
+  {id:'sq23',name:'Combo Ustası',desc:'50 kill combo yap',icon:'🔥',progress:function(){return (pdata._bestCombo||0)>=50?1:0;},goal:1,reward:{gold:200}},
+  {id:'sq24',name:'Kritik Makine',desc:'500 kritik vur',icon:'💥',progress:function(){return pdata._totalCrits||0;},goal:500,reward:{gold:300}},
+  {id:'sq25',name:'Wave Sörfçüsü',desc:'Wave 25\'e ulaş',icon:'🌊',progress:function(){return (pdata.maxWave||0)>=25?1:0;},goal:1,reward:{gold:400}},
+  {id:'sq26',name:'Sandık Avcısı',desc:'20 sandık aç',icon:'📦',progress:function(){return pdata._chestsOpened||0;},goal:20,reward:{gold:200}},
+  {id:'sq27',name:'Elite Avcı',desc:'50 elite düşman öldür',icon:'⭐',progress:function(){return pdata._eliteKills||0;},goal:50,reward:{gold:300}},
+  {id:'sq28',name:'Bağımlı',desc:'7 gün üst üste oyna',icon:'📅',progress:function(){return pdata.loginStreak||0;},goal:7,reward:{gold:500}},
+  {id:'sq29',name:'İstanbul Geceleri',desc:'Gece 23-05 arası oyna',icon:'🌙',progress:function(){var h=new Date().getHours();return(h>=23||h<5)?1:0;},goal:1,reward:{gold:200}},
+  {id:'sq30',name:'Sessiz Ölüm',desc:'Bir run\'da hiç hasar almadan 3 dalga',icon:'👻',progress:function(){return pdata._nodmgWaves||0;},goal:3,reward:{gold:300}},
+  {id:'sq31',name:'Hızlı El',desc:'5 saniyede 10 kill',icon:'⚡',progress:function(){return pdata._quickKills||0;},goal:1,reward:{gold:200}},
+  {id:'sq32',name:'İnatçı',desc:'3 kez öl ve devam et',icon:'💪',progress:function(){return pdata._deaths||0;},goal:3,reward:{gold:80}},
+  {id:'sq33',name:'Kötü Talih',desc:'100 kez öl',icon:'💀',progress:function(){return pdata._deaths||0;},goal:100,reward:{gold:100}},
+  {id:'sq34',name:'Dalga Efendisi',desc:'Wave 50\'ye ulaş',icon:'🌊',progress:function(){return (pdata.maxWave||0)>=50?1:0;},goal:1,reward:{gold:1000}},
+  {id:'sq35',name:'Türk Efsanesi',desc:'Toplam 15000 kill',icon:'🇹🇷',progress:function(){return pdata.totalKills||0;},goal:15000,reward:{gold:800}}
 ];
 function checkMainQuests(){
   MAIN_QUESTS.forEach(function(q){
@@ -4130,7 +4271,7 @@ window.buildQuestScreen=function(){
 function getDailyQuests(dateKey){
   var seed=0;for(var i=0;i<dateKey.length;i++)seed+=dateKey.charCodeAt(i);
   var result=[];var used={};
-  for(var i=0;i<3;i++){
+  for(var i=0;i<5;i++){
     var idx=(seed*(i+1)*7919)%DAILY_QUEST_POOL.length|0;
     idx=Math.abs(idx)%DAILY_QUEST_POOL.length;
     if(used[idx]){idx=(idx+1)%DAILY_QUEST_POOL.length;}
@@ -4146,6 +4287,16 @@ function getDailyProgress(q){
   if(q.type==='gold')return pdata.totalG||0;
   if(q.type==='crits')return pdata._runCrits||0;
   if(q.type==='evolutions')return pdata.totalEvolutions||0;
+  if(q.type==='runs')return pdata._todayRuns||0;
+  if(q.type==='dashes')return pdata._todayDashes||0;
+  if(q.type==='maps')return Object.keys(pdata.mapProgress||{}).length;
+  if(q.type==='bosses')return pdata.bossKills||0;
+  if(q.type==='char')return 1;
+  if(q.type==='nodmg')return pdata._nodmgWaves||0;
+  if(q.type==='chests')return pdata._chestsOpened||0;
+  if(q.type==='elites')return pdata._eliteKills||0;
+  if(q.type==='wave')return pdata.maxWave||0;
+  if(q.type==='survive')return Math.floor((pdata.bestTime||0)/60000);
   return 0;
 }
 
