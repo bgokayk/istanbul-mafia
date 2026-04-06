@@ -347,7 +347,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
           <button class="mbtn" style="margin:0;border-color:#00ff88;color:#00ff88;grid-column:span 2;" onclick="buildQuestScreen();goTo('questScreen')">📋 GÖREVLER</button>
         </div>
       </div>
-      <div class="studio-footer">LUMEN CO. · 2026 · v4.0</div>
+      <div class="studio-footer">LUMEN CO. · 2026 · v6.1</div>
     </div>
     <div class="menu-bottom-strip">
       <div class="menu-stats-row">
@@ -361,7 +361,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
       </div>
     </div>
   </div>
-  <div class="mver">v9.0</div>
+  <div class="mver">v6.1</div>
 </div>
 
 <!-- ══════════════ CHAR SELECT ══════════════ -->
@@ -3121,7 +3121,7 @@ function fire(id){
   if(!ne&&id!=='molotov'&&id!=='bomba'&&id!=='hancer')return;
   var ang=ne?Math.atan2(ne.y-P.y,ne.x-P.x):0;
   var bdmg=P.dmg;
-  if(P.char.id==='abdulhey')bdmg=Math.floor(bdmg*(Math.random()*2.8+.05));
+  if(P.char&&P.char.id==='abdulhey')bdmg=Math.floor(bdmg*(Math.random()*2.8+.05));
   var dm=diff==='hard'?1.3:diff==='hiper'?1.7:1;
   var dmg=Math.floor(bdmg*dm);
   var bs=P.bsize||1;
@@ -3460,6 +3460,8 @@ function gupdate(dt){
       // Combo sistemi — streak bazlı
       _comboKills=(_comboKills||0)+1;
       _comboTimer=3000;
+      // bestCombo kalıcı kaydet (combo görevleri için)
+      if(_comboKills>(pdata._bestCombo||0)){pdata._bestCombo=_comboKills;}
       if(_comboKills===5){P._comboDmgMult=1.1;}
       else if(_comboKills===10){P._comboDmgMult=1.3;spawnGold(P.x,P.y,50);}
       else if(_comboKills===25){P._comboDmgMult=1.5;showComboBanner(25);}
@@ -3569,6 +3571,7 @@ function gupdate(dt){
   if(worldObj&&worldObj.pillars)worldObj.pillars.forEach(function(pi){var dd=dn(P,pi);if(dd<P.r+pi.r){var a=Math.atan2(P.y-pi.y,P.x-pi.x);P.x=pi.x+Math.cos(a)*(P.r+pi.r);P.y=pi.y+Math.sin(a)*(P.r+pi.r);}});
 
   // Particles
+  if(particles.length>3000)particles.length=3000; // Freeze önleme: particle limit
   particles.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.04;p.life-=dt;});
   particles=particles.filter(function(p){return p.life>0;});
   dmgNums=dmgNums.filter(function(d){return Date.now()-d.born<800;});
@@ -4166,7 +4169,7 @@ function startGame(){
   enemies=[];bullets=[];particles=[];orbs=[];goldOrbs=[];dmgNums=[];activBuffs=[];
   healthOrbs=[];floorItems=[];chests=[];itemSpawnT=0;chestSpawnT=0;
   window._fogMap={};
-  _shownBossDialogs={};_taksiciWaveSpawned=false;_taksiciLastWave=0;_lastComboMilestone=0;_slowMoTimer=0;
+  _shownBossDialogs={};_taksiciWaveSpawned=false;_taksiciLastWave=0;_lastComboMilestone=0;_slowMoTimer=0;_comboKills=0;_comboTimer=0;
   kills=0;elapsed=0;wave=1;spawnT=0;_necmiSpawned=false;_miniBossMinute=0;
   _mapMissionBossKills=0;_bossChestOpen=false;
   Object.keys(CHAR_AUTO).forEach(function(id2){CHAR_AUTO[id2].t=0;});
