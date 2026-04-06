@@ -2599,6 +2599,8 @@ window._jpSpin=function(){
   // Bahsi düş
   pdata.gold=(pdata.gold||0)-_jpBet;
   saveP();
+  var balElNow=document.getElementById('_jpBal');
+  if(balElNow)balElNow.textContent='💰 Bakiye: '+(pdata.gold||0).toLocaleString('tr-TR');
   var slots=ov.querySelectorAll('._jpSlot');
   // Animasyon: slot makinesi efekti (300ms spin)
   var spinCount=0,maxSpin=12;
