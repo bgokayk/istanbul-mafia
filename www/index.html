@@ -73,7 +73,7 @@ body{background:#04010a;width:100vw;height:100dvh;overflow:hidden;font-family:'P
 .combo-bar{width:60px;height:4px;background:#111;border:1px solid #333;margin-top:2px;margin-left:auto;}
 .combo-fill{height:100%;background:linear-gradient(90deg,#ff6600,#ffd700);transition:width .1s;}
 /* ════════════════ QUEST TRACKER (in-game) ════════════════ */
-#questTracker{position:absolute;top:8px;left:8px;z-index:15;background:rgba(0,0,0,.8);border:1px solid #2e1450;padding:4px 6px;pointer-events:none;max-width:160px;display:none;}
+#questTracker{position:absolute;top:52px;left:4px;z-index:15;background:rgba(0,0,0,.8);border:1px solid #2e1450;padding:4px 6px;pointer-events:none;max-width:160px;display:none;}
 .qt-title{font-family:'Press Start 2P',monospace;font-size:5px;color:#888;margin-bottom:2px;}
 .qt-text{font-family:'Press Start 2P',monospace;font-size:5px;color:#ffd700;line-height:1.5;}
 /* ════════════════ LEVEL UP CARD GLOW ════════════════ */
@@ -484,7 +484,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
 <div class="screen" id="gameScreen">
   <canvas id="gc"></canvas>
   <div id="questTracker" style="display:none;"><div class="qt-title">GÜNLÜK GÖREV</div><div class="qt-text"></div></div>
-  <div id="dailyTracker" style="position:absolute;top:36px;left:4px;font-family:'Press Start 2P',monospace;font-size:5px;color:#ffd700;background:rgba(0,0,0,0.7);padding:3px 5px;border-radius:3px;z-index:10;pointer-events:none;max-width:120px;display:none;"></div>
+  <div id="dailyTracker" style="position:absolute;top:96px;left:4px;font-family:'Press Start 2P',monospace;font-size:5px;color:#ffd700;background:rgba(0,0,0,0.7);padding:3px 5px;border-radius:3px;z-index:10;pointer-events:none;max-width:120px;display:none;"></div>
   <!-- VS-STYLE HUD -->
   <div id="xpBar"><div id="xpBarFill" style="width:0%"></div></div>
   <div id="bossProgBar" style="position:absolute;top:clamp(7px,1.2vh,10px);left:0;right:0;height:3px;z-index:9;pointer-events:none;"><div id="bossProgFill" style="height:100%;background:linear-gradient(90deg,#880000,#ff2200);width:0%;transition:width .4s;box-shadow:0 0 5px #ff0000;"></div></div>
@@ -1862,7 +1862,8 @@ function showModifierSelect(){
       +'<div style="color:#888;font-size:5px;">'+m.desc+'</div>'
       +'</button>';
   });
-  html+='<button data-mi="-1" style="font-family:\'Press Start 2P\',monospace;font-size:6px;min-height:40px;padding:10px 16px;background:transparent;border:1px solid #444;color:#444;cursor:pointer;pointer-events:all;touch-action:manipulation;margin-top:4px;">Modifier olmadan devam et</button>';
+  html+='<div id="modCountdownEl" style="font-family:\'Press Start 2P\',monospace;font-size:6px;color:#555;margin-top:8px;text-align:center;">5 sn içinde modifier olmadan başlıyor...</div>';
+  html+='<button data-mi="-1" style="font-family:\'Press Start 2P\',monospace;font-size:7px;min-height:44px;padding:10px 20px;background:rgba(0,0,0,.6);border:2px solid #666;color:#bbb;cursor:pointer;pointer-events:all;touch-action:manipulation;margin-top:4px;">⚡ Modifier olmadan devam et</button>';
   el.innerHTML=html;
   el.querySelectorAll('[data-mi]').forEach(function(btn){
     var idx=parseInt(btn.dataset.mi);
@@ -1870,8 +1871,18 @@ function showModifierSelect(){
     btn.addEventListener('click',doApply);
     btn.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();doApply();},{passive:false});
   });
+  // 5 saniyelik geri sayım — kullanıcı seçmezse modifier olmadan başlar
+  var _mcd=5;
+  var _mcdEl=document.getElementById('modCountdownEl');
+  if(window._modCdInterval)clearInterval(window._modCdInterval);
+  window._modCdInterval=setInterval(function(){
+    _mcd--;
+    if(_mcdEl)_mcdEl.textContent=_mcd+' sn içinde modifier olmadan başlıyor...';
+    if(_mcd<=0){clearInterval(window._modCdInterval);window._modCdInterval=null;window.applyModifier(-1);}
+  },1000);
 }
 window.applyModifier=function(i){
+  if(window._modCdInterval){clearInterval(window._modCdInterval);window._modCdInterval=null;}
   var el=document.getElementById('modSelect');if(el)el.style.display='none';
   if(i>=0&&_pendingModifiers&&_pendingModifiers[i]){
     var mod=_pendingModifiers[i];
