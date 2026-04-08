@@ -198,7 +198,7 @@ body{background:#04010a;width:100vw;height:100dvh;overflow:hidden;font-family:'P
 
 /* ════════════════ VS-STYLE HUD ════════════════ */
 #gameScreen{background:#000;padding:0;}
-#gc{position:absolute;inset:0;width:100%;height:100%;}
+#gc{position:absolute;inset:0;width:100%;height:100%;touch-action:none;}
 /* Top XP bar — full width like VS */
 #xpBar{position:absolute;top:0;left:0;right:0;height:clamp(6px,1.2vh,9px);background:#111;z-index:8;}
 #xpBarFill{height:100%;background:linear-gradient(90deg,#4400aa,#0088ff);transition:width .2s;box-shadow:0 0 6px #44aaff;}
@@ -354,7 +354,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
           <button class="mbtn" style="margin:0;border-color:#ff8800;color:#ff8800;background:rgba(255,100,0,.08);grid-column:span 2;" onclick="window.openJackpot&&window.openJackpot()">🎰 JACKPOT — ŞANSINI DENEYEBİLİRSİN</button>
         </div>
       </div>
-      <div class="studio-footer">LUMEN CO. · 2026 · v6.1</div>
+      <div class="studio-footer">LUMEN CO. · 2026 · v6.4</div>
       <div style="text-align:center;margin-top:2px;pointer-events:auto;"><button onclick="window.openCheatInput&&window.openCheatInput()" style="font-family:'Press Start 2P',monospace;font-size:5px;color:rgba(255,215,0,.3);background:transparent;border:none;cursor:pointer;padding:2px 6px;letter-spacing:1px;touch-action:manipulation;pointer-events:auto;">🍀 lanet oku</button></div>
     </div>
     <div class="menu-bottom-strip">
@@ -371,7 +371,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
       </div>
     </div>
   </div>
-  <div class="mver">v6.2</div>
+  <div class="mver">v6.4</div>
   <div id="menuAccLvl" style="position:absolute;top:6px;right:8px;font-family:'Press Start 2P',monospace;font-size:7px;color:#ffd700;background:rgba(0,0,0,.7);border:1px solid #b8860b;padding:3px 6px;z-index:5;pointer-events:none;">LVL 1</div>
 </div>
 
@@ -3771,7 +3771,7 @@ function spawnEnemy(forceTp){
       var _en=enemies[enemies.length-1];
       _en.elite=true;
       _en.hp=_en.hp*2.5;_en.maxHp=_en.hp;
-      _en.gold=15+Math.floor(Math.random()*11);// garantili 15-25 altın
+      _en.gold=5+Math.floor(Math.random()*4);// garantili 5-8 altın (0.33x)
     }
   }
 }
@@ -4250,7 +4250,7 @@ function gupdate(dt){
       orbs.push({x:e.x,y:e.y,v:e.xp*(P.xpm||1),r:6,col:e.type.id==='para'?'#ffd700':'#00ff88'});
       var _gdiff=diff==='hiper'?2.0:diff==='hard'?1.5:1.0;
       var _bossMult=(e.type.boss||e._isMiniTimeBoss)?3:1;
-      spawnGold(e.x,e.y,Math.floor((e.gold||2)*0.8*_gdiff*(P.gm||1)*(pdata.goldMult||1)*_bossMult));
+      spawnGold(e.x,e.y,Math.floor((e.gold||2)*0.33*_gdiff*(P.gm||1)*(pdata.goldMult||1)*_bossMult));
       if(_bossMult>1){orbs[orbs.length-1].v=Math.floor(orbs[orbs.length-1].v*3);} // Boss: 3x XP
       // HP drops
       var hrc=e.type.boss?1:e.r>22?.3:e.r>16?.2:.07;
@@ -4320,9 +4320,11 @@ function gupdate(dt){
   if(worldObj&&worldObj.colliders)worldObj.colliders.forEach(function(c){
     // Spatial cull: skip if too far from player
     if(Math.abs(P.x-(c.x+c.w/2))>c.w/2+P.r+200||Math.abs(P.y-(c.y+c.h/2))>c.h/2+P.r+200)return;
-    var cx2=c.x+c.w/2,cy2=c.y+c.h/2;var ox=P.r+c.w/2-Math.abs(P.x-cx2),oy=P.r+c.h/2-Math.abs(P.y-cy2);if(ox>0&&oy>0){if(ox<oy)P.x+=P.x<cx2?-ox:ox;else P.y+=P.y<cy2?-oy:oy;}
+    var cx2=c.x+c.w/2,cy2=c.y+c.h/2;var ox=P.r+c.w/2-Math.abs(P.x-cx2),oy=P.r+c.h/2-Math.abs(P.y-cy2);if(ox>0&&oy>0){if(ox<oy){P.x+=P.x<cx2?-(ox+1):ox+1;}else{P.y+=P.y<cy2?-(oy+1):oy+1;}}
   });
-  if(worldObj&&worldObj.pillars)worldObj.pillars.forEach(function(pi){var dd=dn(P,pi);if(dd<P.r+pi.r){var a=Math.atan2(P.y-pi.y,P.x-pi.x);P.x=pi.x+Math.cos(a)*(P.r+pi.r);P.y=pi.y+Math.sin(a)*(P.r+pi.r);}});
+  if(worldObj&&worldObj.pillars)worldObj.pillars.forEach(function(pi){var dd=dn(P,pi);if(dd<P.r+pi.r){var a=Math.atan2(P.y-pi.y,P.x-pi.x);P.x=pi.x+Math.cos(a)*(P.r+pi.r+1);P.y=pi.y+Math.sin(a)*(P.r+pi.r+1);}});
+  // Re-clamp after collision push-out
+  P.x=Math.max(20,Math.min(WORLD-20,P.x));P.y=Math.max(20,Math.min(WORLD-20,P.y));
 
   // Array limits — uzun süre oynayınca freeze önleme
   if(enemies.length>180)enemies.splice(0,enemies.length-180);
@@ -4488,6 +4490,7 @@ function doGameOver(){
   var _prevLvl=getAccountLevel();
   pdata.totalXP=(pdata.totalXP||0)+_earnedXP;
   var _newLvl=getAccountLevel();
+  pdata.accountLevel=_newLvl;
   if(_newLvl>_prevLvl)showToast('⬆ HESAP LVL '+_newLvl+'!','#ffd700');
   checkAchs();
   var dm=diff==='hiper'?2.5:diff==='hard'?1.5:1;
@@ -5297,7 +5300,7 @@ function trySpawnElite(e){
 }
 // Elite düşman ölünce extra gold
 function eliteDeathBonus(e){
-  if(e.elite){spawnGold(e.x,e.y,100);}
+  if(e.elite){spawnGold(e.x,e.y,33);}
 }
 
 // ════════════════════════════════════════════════════════════
