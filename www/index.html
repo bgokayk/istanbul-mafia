@@ -121,7 +121,7 @@ body{background:#04010a;width:100vw;height:100dvh;overflow:hidden;font-family:'P
 .mdesc{font-size:clamp(4px,1.2vw,6px);color:#888;line-height:1.8;margin-bottom:4px;}
 .mtags{display:flex;gap:3px;flex-wrap:wrap;}
 .mtag{font-size:clamp(4px,1.1vw,5px);padding:2px 4px;border:1px solid;}
-.tn{color:#4af;border-color:#4af;}.th{color:#f84;border-color:#f84;}.te{color:#fa4;border-color:#fa4;}
+.tn{color:#4af;border-color:#4af;}.th{color:#f84;border-color:#f84;}.te{color:#fa4;border-color:#fa4;}.tx{color:#f44;border-color:#f44;}
 .diffrow{display:flex;gap:4px;padding:6px;width:100%;flex-shrink:0;background:#050110;border-top:2px solid #2e1e50;}
 .dfbtn{font-family:'Press Start 2P',monospace;font-size:clamp(5px,1.4vw,7px);padding:6px 4px;flex:1;border:2px solid;cursor:pointer;transition:all .12s;}
 .dn{background:#0d1530;border-color:#4488ff;color:#4488ff;}
@@ -822,15 +822,13 @@ var MAPS=[
    enemySpeedMult:1.5,enemyHpMult:1.8,goldMult:2.0,spawnRate:1.6,
    speedrun:true,speedrunTime:180},
   {id:'kasimpasa',name:'KASIMPAŞA',diff:'extreme',
-   desc:'ÇOK YAKINDA — Tarihi semt, tehlikeli sokaklar. En karanlık gece seni bekliyor.',
-   tags:['YAKINDA'],border:'#ff6600',
-   comingSoon:true,
+   desc:'CEHENNEM — Tarihi semt, en tehlikeli sokaklar. İstanbul\'un karanlık kalbi. Çeteler, mafya, ve gece canavarları seni bekliyor.',
+   tags:['EKSTREM','GECE','BOSS'],border:'#ff6600',
    th:{f1:'#1a0800',f2:'#0d0500',accent:'#ff4400'},
    enemySpeedMult:2.5,enemyHpMult:3.5,goldMult:2.0,spawnRate:2.0},
   {id:'bursa',name:'BURSA — YEŞİL KENT',diff:'extreme',
-   desc:'ÇOK YAKINDA — İpek yolu kavşağı. Farklı düşmanlar, farklı kurallar.',
-   tags:['YAKINDA','ÖZEL'],border:'#00aa44',
-   comingSoon:true,
+   desc:'ÖLÜM YOLU — İpek yolu kavşağı. Çılgın hız, üçlü altın ama hasar dayanılmaz. Bursa\'ya girersen çıkamazsın.',
+   tags:['EKSTREM','ÖZEL','HIZLI'],border:'#00aa44',
    th:{f1:'#001a08',f2:'#000f05',accent:'#00aa44'},
    enemySpeedMult:3.0,enemyHpMult:4.0,goldMult:2.5,spawnRate:2.5},
 ];
@@ -866,6 +864,18 @@ var MAP_MISSIONS={
     {kills:200,waves:0,bosses:0,label:'Dar Sokak — 200 Kill',reward:{type:'gold',amount:800}},
     {kills:0,waves:3,bosses:0,noDamage:true,label:'Duvar Aşan — Hasarsız Wave 3',reward:{type:'gold',amount:1000}},
     {kills:0,waves:15,bosses:0,label:'Balat Efsanesi — Dalga 15',reward:{type:'special',name:'Sokak Religi',desc:'Hareket hızı +30%',id:'sokak_religi'}}
+  ],
+  kasimpasa:[
+    {kills:300,waves:0,bosses:0,label:'Gece Avcısı — 300 Kill',reward:{type:'gold',amount:1000}},
+    {kills:0,waves:0,bosses:3,label:'Üç Patron — 3 Boss Öldür',reward:{type:'gold',amount:1500}},
+    {kills:0,waves:0,bosses:0,survive:480,label:'Karanlıkta Hayatta Kal — 8 dk',reward:{type:'gold',amount:2000}},
+    {kills:1500,waves:0,bosses:10,label:'Kasımpaşa Efsanesi — 1500 Kill + 10 Boss',reward:{type:'special',name:'Gece Religi',desc:'Gece: ateş hızı +40%',id:'gece_religi'}}
+  ],
+  bursa:[
+    {kills:500,waves:0,bosses:0,label:'İpek Yolu Katliamı — 500 Kill',reward:{type:'gold',amount:1200}},
+    {kills:0,waves:5,bosses:0,label:'Orman Kaçkını — Dalga 5',reward:{type:'gold',amount:1800}},
+    {kills:0,waves:0,bosses:0,gold:5000,label:'Altın Tüccarı — 5000 Altın Topla',reward:{type:'gold',amount:2500}},
+    {kills:3000,waves:0,bosses:20,label:'Bursa Sultanı — 3000 Kill + 20 Boss',reward:{type:'special',name:'Orman Religi',desc:'Can rejeni +3/sn, altın +50%',id:'orman_religi'}}
   ]
 };
 var _mapMissionBossKills=0;
@@ -1203,6 +1213,14 @@ var RELICS=[
 {id:'berber_ustr',icon:'✂',name:'Berber Usturası',     desc:'Hasar +20%, mermi +1',apply:function(P){P.dmg=Math.floor(P.dmg*1.2);P.pc=(P.pc||1)+1;}},
 {id:'doviz_carki',icon:'💱',name:'Döviz Çarkı',         desc:'Altın +60%',          apply:function(P){P.gm=(P.gm||1)*1.6;}},
 {id:'insaat_kask',icon:'⛑',name:'İnşaat Kaskı',        desc:'Zırh +20%',           apply:function(P){P.armor=(P.armor||0)+.20;}},
+// Harita Görev Relicler
+{id:'tabut_religi', icon:'⚰',name:'Tabut Religi',      desc:'Her ölümde +500 altın bırak', apply:function(P){P._tabutRelic=true;}},
+{id:'sahil_religi', icon:'🌊',name:'Sahil Religi',      desc:'Her dalga +1 can',            apply:function(P){P._sahilRelic=true;}},
+{id:'kartal_religi',icon:'🦅',name:'Kartal Religi',     desc:'Boss hasarı +50%',            apply:function(P){P._bossBonus=(P._bossBonus||1)*1.5;}},
+{id:'anit_religi',  icon:'🏛',name:'Anıt Religi',       desc:'Tüm stat +15%',              apply:function(P){P.dmg=Math.floor(P.dmg*1.15);P.spd*=1.15;P.mhp=Math.floor(P.mhp*1.15);P.hp=Math.min(P.hp,P.mhp);}},
+{id:'sokak_religi', icon:'🚶',name:'Sokak Religi',      desc:'Hareket hızı +30%',           apply:function(P){P.spd*=1.3;}},
+{id:'gece_religi',  icon:'🌙',name:'Gece Religi',       desc:'Ateş hızı +40%',              apply:function(P){P.fr*=0.6;}},
+{id:'orman_religi', icon:'🌲',name:'Orman Religi',      desc:'Can rejeni +3/sn, altın +50%',apply:function(P){P.regen=(P.regen||0)+3;P.gm=(P.gm||1)*1.5;}},
 ];
 
 // RELIC KİLİT KOŞULLARI — ilk 5 ücretsiz, geri kalanı kill/boss bazlı
@@ -1285,7 +1303,7 @@ var FITEMS=[
   {id:'kt', icon:'🩸', name:'KAN TORBASI',    desc:'+80 can',           col:'#cc0000',border:'#880000',apply:function(){healP(80,'#cc0000');}},
   {id:'cay',icon:'🫖', name:'TÜRK ÇAYI',      desc:'30sn +0.5 hız',     col:'#cc4400',border:'#993300',apply:function(){P.spd+=.5;setTimeout(function(){P.spd-=.5;},30000);}},
   {id:'naz',icon:'🧿', name:'NAZAR BONCUĞU',  desc:'10sn kalkan',       col:'#0055ff',border:'#003399',apply:function(){P.shield=true;P.shieldT=10000;addBuff('🧿');}},
-  {id:'bak',icon:'🍯', name:'BAKLAVA GÜCÜ',   desc:'20sn +%25 hasar',   col:'#cc8800',border:'#996600',apply:function(){P.dmg=Math.floor(P.dmg*1.25);setTimeout(function(){P.dmg=Math.floor(P.dmg/1.25);},20000);addBuff('💥');}},
+  {id:'bak',icon:'🍯', name:'BAKLAVA GÜCÜ',   desc:'20sn +%25 hasar',   col:'#cc8800',border:'#996600',apply:function(){P.dmg=Math.floor(P.dmg*1.25);setTimeout(function(){P.dmg=Math.floor(P.dmg/1.25);removeBuff('💥');},20000);addBuff('💥');}},
   {id:'mag',icon:'🧲', name:'SÜPER MANYETO',  desc:'Tüm XP+altın çek',  col:'#8844ff',border:'#6622cc',apply:function(){vacuumAll();}},
   {id:'rk', icon:'🍾', name:'RAKI ŞİŞESİ',   desc:'Tüm ekrana hasar',   col:'#aaaaff',border:'#6666cc',apply:function(){aoeBlast();}},
   {id:'ap', icon:'💰', name:'ALTIN YAĞMURU',  desc:'+30 Altın',          col:'#ffd700',border:'#b8860b',apply:function(){runGold+=30;pdata.gold+=30;pdata.totalG=(pdata.totalG||0)+30;document.getElementById('hGold').textContent=runGold;sGold();}},
@@ -2400,15 +2418,22 @@ window.buildEvoGuideScreen=function(){
 };
 
 function showMissionComplete(name,desc,id){
+  // Kazanılan religi ownedRelics'e kaydet
+  if(id){
+    if(!pdata.ownedRelics)pdata.ownedRelics={};
+    pdata.ownedRelics[id]=true;
+    saveP();
+  }
   var el=document.getElementById('missionBanner');
   if(!el){
     el=document.createElement('div');el.id='missionBanner';
     el.style.cssText='position:absolute;top:20%;left:50%;transform:translate(-50%,-50%);z-index:25;text-align:center;pointer-events:none;padding:12px 18px;background:rgba(0,0,0,.95);border:2px solid #00ff88;display:none;';
     document.getElementById('gameScreen').appendChild(el);
   }
-  el.innerHTML='<div style="font-family:\'Press Start 2P\',monospace;font-size:9px;color:#00ff88;margin-bottom:6px;">🏆 ÖZEL ÖDÜL!</div>'
+  el.innerHTML='<div style="font-family:\'Press Start 2P\',monospace;font-size:9px;color:#00ff88;margin-bottom:6px;">🏆 ÖZEL RELIC KAZANILDI!</div>'
     +'<div style="font-family:\'Press Start 2P\',monospace;font-size:8px;color:#ffd700;margin-bottom:4px;">'+name+'</div>'
-    +'<div style="font-family:\'Press Start 2P\',monospace;font-size:5px;color:#aaa;">'+desc+'</div>';
+    +'<div style="font-family:\'Press Start 2P\',monospace;font-size:5px;color:#aaa;">'+desc+'</div>'
+    +'<div style="font-family:\'Press Start 2P\',monospace;font-size:4px;color:#666;margin-top:4px;">EKSTRA ekranda donat!</div>';
   el.style.display='block';
   setTimeout(function(){el.style.display='none';},4000);
 }
@@ -3121,6 +3146,49 @@ function drawMapThumb(cx,m,W,H){
     cx.fillStyle='#aaa';cx.fillRect(W*.8,H*.28,6,H*.1);cx.fillStyle='rgba(255,200,0,.6)';cx.beginPath();cx.arc(W*.83,H*.27,5,0,Math.PI*2);cx.fill();
   }
 
+  if(m.id==='kasimpasa'){
+    // Dark alley bricks
+    cx.fillStyle='#0d0400';cx.fillRect(0,0,W,H);
+    for(var ki=0;ki<6;ki++){cx.fillStyle='rgba(80,30,0,'+(0.15+ki*.03)+')';cx.fillRect(ki*16,H*.25,15,H);cx.strokeStyle='rgba(50,20,0,.4)';cx.lineWidth=.5;cx.strokeRect(ki*16,H*.25,15,H);}
+    // Sis / duman efekti
+    cx.fillStyle='rgba(20,8,0,.4)';cx.fillRect(0,H*.25,W,H*.2);
+    // Gece feneri
+    cx.save();cx.shadowBlur=15;cx.shadowColor='#ff4400';
+    cx.fillStyle='#ff4400';cx.beginPath();cx.arc(W*.2,H*.3,4,0,Math.PI*2);cx.fill();
+    cx.restore();
+    cx.fillStyle='#888';cx.fillRect(W*.18,H*.28,4,H*.15);
+    // İkinci fener
+    cx.save();cx.shadowBlur=10;cx.shadowColor='#ff2200';
+    cx.fillStyle='rgba(255,60,0,.3)';cx.beginPath();cx.arc(W*.75,H*.32,4,0,Math.PI*2);cx.fill();
+    cx.restore();
+    cx.fillStyle='#666';cx.fillRect(W*.73,H*.30,4,H*.12);
+    // Kan lekeleri (zemin)
+    cx.fillStyle='rgba(180,0,0,.3)';cx.beginPath();cx.ellipse(W*.5,H*.7,12,5,0,0,Math.PI*2);cx.fill();
+    cx.fillStyle='rgba(160,0,0,.2)';cx.beginPath();cx.ellipse(W*.3,H*.85,8,3,0.5,0,Math.PI*2);cx.fill();
+  }
+
+  if(m.id==='bursa'){
+    // Yeşil orman zemini
+    cx.fillStyle='#001408';cx.fillRect(0,0,W,H);
+    for(var bi=0;bi<W;bi+=8){for(var bj=Math.floor(H*.25);bj<H;bj+=8){
+      var _g=(Math.sin(bi*.3)*2+Math.cos(bj*.4)*2+4)/8;
+      cx.fillStyle='rgba(0,'+(80+Math.floor(_g*40))+','+(20+Math.floor(_g*15))+',.8)';
+      cx.fillRect(bi,bj,8,8);
+    }}
+    // Uludağ silueti (arka)
+    cx.fillStyle='#002210';cx.beginPath();cx.moveTo(0,H*.35);cx.lineTo(W*.2,H*.15);cx.lineTo(W*.4,H*.28);cx.lineTo(W*.6,H*.1);cx.lineTo(W*.8,H*.22);cx.lineTo(W,H*.3);cx.lineTo(W,H*.35);cx.closePath();cx.fill();
+    // İpek yolu taşları
+    cx.fillStyle='rgba(100,80,40,.5)';cx.fillRect(W*.35,H*.3,W*.3,H);
+    cx.strokeStyle='rgba(80,60,20,.4)';cx.lineWidth=.5;
+    for(var rs=H*.3;rs<H;rs+=6){cx.beginPath();cx.moveTo(W*.35,rs);cx.lineTo(W*.65,rs);cx.stroke();}
+    // Yeşil sis
+    cx.fillStyle='rgba(0,80,20,.15)';cx.fillRect(0,H*.4,W,H*.3);
+    // Altın parıltısı
+    cx.save();cx.shadowBlur=18;cx.shadowColor='#00ff44';
+    cx.fillStyle='rgba(0,255,80,.2)';cx.beginPath();cx.arc(W/2,H*.2,W*.15,0,Math.PI*2);cx.fill();
+    cx.restore();
+  }
+
   cx.strokeStyle=m.border;cx.lineWidth=2;cx.strokeRect(1,1,W-2,H-2);
 }
 
@@ -3135,7 +3203,7 @@ function buildMapScreen(){
     var cv=document.createElement('canvas');cv.width=100;cv.height=70;cv.className='mthumb';
     if(_coming){cv.style.filter='grayscale(1)';}
     drawMapThumb(cv.getContext('2d'),m,100,70);
-    var tags=m.tags.map(function(t){return'<span class="mtag '+(t==='ZOR'||t==='BOSS'||t==='EFSA'?'th':t==='GECE'||t==='YAKINDA'?'te':'tn')+'">'+t+'</span>';}).join('');
+    var tags=m.tags.map(function(t){return'<span class="mtag '+(t==='ZOR'||t==='BOSS'||t==='EFSA'?'th':t==='EKSTREM'||t==='CANAVAR'?'tx':t==='GECE'||t==='HIZLI'?'te':'tn')+'">'+t+'</span>';}).join('');
     var lockMsg=_locked?'<div style="font-family:\'Press Start 2P\',monospace;font-size:5px;color:#ff4444;margin-top:2px;">🔒 SEVİYE '+m.unlockLevel+' GEREKLİ</div>':'';
     var comingMsg=_coming?'<div style="font-family:\'Press Start 2P\',monospace;font-size:5px;color:#ff8800;margin-top:2px;">⏳ ÇOK YAKINDA</div>':'';
     var info=document.createElement('div');info.className='minfo';
@@ -3468,6 +3536,7 @@ function healP(amt,col){
   spawnDN(P.x,P.y-30,'+'+amt,'#00ff88');sHeal();
 }
 function addBuff(icon){if(activBuffs.indexOf(icon)<0)activBuffs.push(icon);renderBuffRow();}
+function removeBuff(icon){var i=activBuffs.indexOf(icon);if(i>=0)activBuffs.splice(i,1);renderBuffRow();}
 function renderBuffRow(){
   var br=document.getElementById('buffRow');br.innerHTML='';
   activBuffs.forEach(function(b){var d=document.createElement('div');d.className='buff';d.textContent=b;br.appendChild(d);});
@@ -4038,7 +4107,7 @@ function gupdate(dt){
     if(dx!==0)P.facing=dx>0?1:-1;
   }
   if(screenShake>0)screenShake=Math.max(0,screenShake-.8);
-  if(P.shieldT&&P.shieldT>0){P.shieldT-=dt;if(P.shieldT<=0)P.shield=false;}
+  if(P.shieldT&&P.shieldT>0){P.shieldT-=dt;if(P.shieldT<=0){P.shield=false;removeBuff('🧿');}}
   // Regen (only when HP < 30%)
   if(P.regen&&P.hp/P.mhp<.30)P.hp=Math.min(P.mhp,P.hp+P.regen*dt/1000);
 
