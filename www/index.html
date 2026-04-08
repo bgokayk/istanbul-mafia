@@ -1860,6 +1860,9 @@ var _lastComboMilestone=0;
 var _slowMoTimer=0;
 var _comboKills=0;
 var _comboTimer=0;
+var _furyT=0; // Fury religi timer
+var _waveNoDmg=true; // Bu dalgada hasar alındı mı (nodmg quest için)
+var _recentKills=0,_recentKillsT=0; // Quick kills quest (5sn/10kill)
 function showBossDialog(name,quote,col,icon){
   var el=document.getElementById('bossDialogEl');
   if(!el){
@@ -2349,8 +2352,10 @@ function spawnMiniBoss(def,hpMult){
 }
 
 function checkMapMissions(){
+  if(!pdata.mapProgress)pdata.mapProgress={};
   var mid=selMap?selMap.id:'kapalicarsi';
   var missions=MAP_MISSIONS[mid];if(!missions)return;
+  if(!pdata.mapProgress[mid])pdata.mapProgress[mid]={stage:0,kills:0,waves:0,gold:0};
   var mp=pdata.mapProgress[mid];if(!mp||mp.completed)return;
   mp.waves=Math.max(mp.waves||0,wave);
   mp.gold=Math.max(mp.gold||0,runGold||0);
@@ -2561,7 +2566,7 @@ function openBossChest(c){
   var gAmt=(wave||1)*80+500;
   opts.push({type:'gold',icon:'💰',name:gAmt+' ALTIN',desc:'Hemen kazan',_amount:gAmt});
   // Seçenek 3: Can
-  opts.push({type:'heal',icon:'❤',name:'TAM CAN',desc:'HP\'yi doldur',_amount:P.maxHp});
+  opts.push({type:'heal',icon:'❤',name:'TAM CAN',desc:'HP\'yi doldur',_amount:P.mhp});
   showBossChestOverlay(opts);
   sBuy();screenShake=15;
 }
@@ -2590,7 +2595,7 @@ function showBossChestOverlay(opts){
       var o=opts[idx];
       if(o.type==='upg'){applyUpgrade(o._upg);showToast('⬆ '+o._upg.name+' KAZANILDI!','#ffd700');}
       else if(o.type==='gold'){pdata.gold=(pdata.gold||0)+o._amount;saveP();showToast('+'+o._amount+' ALTIN','#ffd700');}
-      else if(o.type==='heal'){P.hp=P.maxHp;showToast('❤ TAM CAN!','#ff4444');}
+      else if(o.type==='heal'){P.hp=P.mhp;showToast('❤ TAM CAN!','#ff4444');}
       if(raf2)cancelAnimationFrame(raf2);
       lastT=performance.now();raf2=requestAnimationFrame(gloop);
     }
@@ -3581,7 +3586,7 @@ function spawnDN(x,y,val,col){
   dmgNums.push({x:x,y:y,val:val,col:col||'#ffd700',born:Date.now()});
   if(val>0&&val>(pdata._runBestHit||0))pdata._runBestHit=Math.ceil(val);
 }
-function triggerFlash(){var el=document.getElementById('dmgFlash');el.style.background='rgba(255,0,0,.35)';setTimeout(function(){el.style.background='rgba(255,0,0,0)';},120);}
+function triggerFlash(){_waveNoDmg=false;var el=document.getElementById('dmgFlash');el.style.background='rgba(255,0,0,.35)';setTimeout(function(){el.style.background='rgba(255,0,0,0)';},120);}
 function healP(amt,col){
   P.hp=Math.min(P.hp+amt,P.mhp);
   var el=document.getElementById('healFlash');el.style.background='rgba(0,255,100,.28)';setTimeout(function(){el.style.background='rgba(0,255,100,0)';},200);
@@ -3599,7 +3604,7 @@ function spawnGold(x,y,v){goldOrbs.push({x:x,y:y,vx:(Math.random()-.5)*2,vy:(Mat
 function spawnHP(x,y,amt){healthOrbs.push({x:x,y:y,vx:(Math.random()-.5)*1.5,vy:(Math.random()-.5)*1.5,amount:amt,r:8,life:12000,pulse:0});}
 function spawnFloor(x,y){var item=FITEMS[Math.floor(Math.random()*FITEMS.length)];floorItems.push({x:x,y:y,item:item,r:14,life:20000,pulse:0,age:0});}
 function spawnChest(x,y,tier){chests.push({x:x,y:y,r:18,life:25000,tier:tier||'normal',pulse:0});}
-function openChest(c){boom(c.x,c.y,'#ffd700',20,5);screenShake=8;sLvl();spawnFloor(c.x,c.y);runGold+=c.tier==='boss'?50:20;pdata.gold+=c.tier==='boss'?50:20;document.getElementById('hGold').textContent=runGold;if(c.tier==='boss')healP(60,'#ffd700');}
+function openChest(c){pdata._chestsOpened=(pdata._chestsOpened||0)+1;boom(c.x,c.y,'#ffd700',20,5);screenShake=8;sLvl();spawnFloor(c.x,c.y);runGold+=c.tier==='boss'?50:20;pdata.gold+=c.tier==='boss'?50:20;pdata.totalG=(pdata.totalG||0)+(c.tier==='boss'?50:20);document.getElementById('hGold').textContent=runGold;if(c.tier==='boss')healP(60,'#ffd700');}
 function showItemToast(item){
   var t=document.getElementById('itemToast');
   document.getElementById('itIc').textContent=item.icon;document.getElementById('itNm').textContent=item.name;document.getElementById('itNm').style.color=item.col;
@@ -4107,9 +4112,22 @@ function gupdate(dt){
   elapsed+=dt;wave=Math.floor(elapsed/(pdata.fasterWaves?13000:18000))+1;
   hancerAng+=dt*.003;
   // Boss wave uyarısı — boss önceki dalga geçişinde bildir
+  if(wave!==prevWave){
+    // _waveHeal religi: her dalga +5 max HP
+    if(P._waveHeal){P.mhp+=5;P.hp=Math.min(P.hp+5,P.mhp);}
+    // _sahilRelic: her dalga +1 can
+    if(P._sahilRelic){P.hp=Math.min(P.hp+1,P.mhp);}
+    // _nodmgWaves quest: hasar almadan dalga geçti mi?
+    if(_waveNoDmg)pdata._nodmgWaves=(pdata._nodmgWaves||0)+1;
+    _waveNoDmg=true; // yeni dalga için sıfırla
+  }
   if(wave!==prevWave&&BOSS_DIALOGS[wave]&&!_shownBossDialogs[wave]){
     showToast('⚠ DALGA '+wave+' — BOSS GELİYOR!','#ff4400');
   }
+  // Fury timer tick
+  if(_furyT>0)_furyT-=dt;
+  // Quick kills timer tick
+  if(_recentKillsT>0){_recentKillsT-=dt;}else{_recentKills=0;}
   // Boss diyalogları — her 5 dalgada bir
   if(wave!==prevWave&&BOSS_DIALOGS[wave]&&!_shownBossDialogs[wave]){
     _shownBossDialogs[wave]=true;
@@ -4219,8 +4237,8 @@ function gupdate(dt){
   });
   // Enemy specials (aura, poison + yeni: healer, flameRange, netThrow)
   enemies.forEach(function(e){
-    if(e.type.aura&&d2(P,e)<(e.r+65)*(e.r+65))P.hp-=e.type.auraDmg*dt/1000*(P.armor?1-P.armor:1);
-    if(e.type.poison&&d2(P,e)<(e.r+75)*(e.r+75))P.hp-=4*dt/1000*(P.armor?1-P.armor:1);
+    if(e.type.aura&&d2(P,e)<(e.r+65)*(e.r+65)){P.hp-=e.type.auraDmg*dt/1000*(P.armor?1-P.armor:1);_waveNoDmg=false;}
+    if(e.type.poison&&d2(P,e)<(e.r+75)*(e.r+75)){P.hp-=4*dt/1000*(P.armor?1-P.armor:1);_waveNoDmg=false;}
     // Büyükanne: yakındaki düşmanları iyileştirir
     if(e.type.healer){
       enemies.forEach(function(e2){
@@ -4305,8 +4323,12 @@ function gupdate(dt){
         var _dmg=b.dmg*(P._comboDmgMult||1.0)*(P._dmgBoostMult||1.0);
         // Polat ulti: Derin Devlet — düşmanlar 2x hasar alır
         if(P._derinDevlet>0)_dmg*=2;
+        // _bossBonus (Kartal Religi): boss'a ekstra hasar
+        if((e.type.boss||e._isMiniTimeBoss)&&P._bossBonus)_dmg*=P._bossBonus;
+        // _fury: her 10 kill'de 3sn +50% hasar
+        if(_furyT>0)_dmg*=1.5;
         var _isCrit=false;
-        if(P._critChance&&Math.random()<P._critChance){_dmg*=2;_isCrit=true;}
+        if(P._critChance&&Math.random()<P._critChance){_dmg*=2;_isCrit=true;pdata._totalCrits=(pdata._totalCrits||0)+1;pdata._runCrits=(pdata._runCrits||0)+1;}
         e.hp-=_dmg;b.hits.add(e);boom(e.x,e.y,b.col,_isCrit?8:4,_isCrit?5:3);
         dmgNums.push({x:e.x,y:e.y-e.r,val:_isCrit?'💥'+Math.ceil(_dmg):Math.ceil(_dmg),col:_isCrit?'#ff2222':b.col,born:Date.now(),_crit:_isCrit});
         if(Math.ceil(_dmg)>0&&Math.ceil(_dmg)>(pdata._runBestHit||0))pdata._runBestHit=Math.ceil(_dmg);
@@ -4355,10 +4377,19 @@ function gupdate(dt){
       if(eid==='kebapci'){pdata.kc_kebapci=(pdata.kc_kebapci||0)+1;}
       if(e.type.boss){pdata.bossKills=(pdata.bossKills||0)+1;if(wave>=10)pdata.eliteKills=(pdata.eliteKills||0)+1;}
       if(e.type.boss||e._isMiniTimeBoss)_mapMissionBossKills++;
+      // Elite kill tracking + bonus
+      if(e.elite){pdata._eliteKills=(pdata._eliteKills||0)+1;eliteDeathBonus(e);}
       pdata.totalKills=(pdata.totalKills||0)+1;
+      // Quick kills quest (5sn içinde 10 kill)
+      _recentKills++;_recentKillsT=5000;
+      if(_recentKills>=10){pdata._quickKills=(pdata._quickKills||0)+1;_recentKills=0;}
       // Karakter pasifleri — kill tetiklenir
       if(P.ls)P.hp=Math.min(P.hp+(P.ls||0),P.mhp);
       if(P._berserker)P.spd=Math.min(P.spd+.05,8); // Berserker modifier
+      // _cayBonus: çay düşmanı +1 HP
+      if(P._cayBonus&&eid==='cay'){P.hp=Math.min(P.hp+1,P.mhp);}
+      // _fury: her 10 kill'de 3sn hasar boost
+      if(P._fury&&kills>0&&kills%10===0){_furyT=3000;spawnDN(P.x,P.y-30,'😤 FURY!','#ff4400');}
   if(P._derinDevlet>0)P._derinDevlet-=dt; // Polat ulti decay
       if(P._vampireMode)P.hp=Math.min(P.hp+5,P.mhp); // Vampir modifier
       if(P.char&&P.char.id==='dayi')P.hp=Math.min(P.hp+3,P.mhp); // Zeynep pasifi
@@ -4467,7 +4498,7 @@ function gupdate(dt){
       if(P._nazarCount&&P._nazarCount>0){P._nazarCount--;_revMsg='🧿 NAZAR KORUDU!'+(P._nazarCount>0?' ('+(P._nazarCount)+' kaldı)':'');if(P._nazarCount>0){P._revived=false;}}
       spawnDN(P.x,P.y-40,_revMsg,'#ffd700');
       showToast(_revMsg,'#0066ff');
-    } else {P.hp=0;doGameOver();}
+    } else {P.hp=0;if(P._tabutRelic){var _tg=500;pdata.gold=(pdata.gold||0)+_tg;pdata.totalG=(pdata.totalG||0)+_tg;showToast('⚰ TABUT: +'+_tg+' ALTIN!','#ffd700');}doGameOver();}
   }
 
   // VS-style HUD update
@@ -4623,7 +4654,7 @@ function doGameOver(){
     bestKill:pdata._runBestHit||0,
     bossKills:pdata._runBossKills||0
   };
-  pdata._runBestHit=0;pdata._runBossKills=0;pdata.runModifier=null;
+  pdata._runBestHit=0;pdata._runBossKills=0;pdata.runModifier=null;pdata._runCrits=0;
   // Lore unlock
   if(!pdata.seenLore)pdata.seenLore=[];
   var avLore=LORE_POOL.filter(function(l){return pdata.seenLore.indexOf(l.id)<0;});
@@ -5091,7 +5122,7 @@ function startGame(){
   enemies=[];bullets=[];particles=[];orbs=[];goldOrbs=[];dmgNums=[];activBuffs=[];
   healthOrbs=[];floorItems=[];chests=[];itemSpawnT=0;chestSpawnT=0;
   if(!pdata.minimapAlways)window._fogMap={};
-  _shownBossDialogs={};_taksiciWaveSpawned=false;_taksiciLastWave=0;_lastComboMilestone=0;_slowMoTimer=0;_comboKills=0;_comboTimer=0;_srDone=false;_bossReinforceTimer=25000;
+  _shownBossDialogs={};_taksiciWaveSpawned=false;_taksiciLastWave=0;_lastComboMilestone=0;_slowMoTimer=0;_comboKills=0;_comboTimer=0;_srDone=false;_bossReinforceTimer=25000;_furyT=0;_waveNoDmg=true;_recentKills=0;_recentKillsT=0;
   rescueNpcs=[];_rescueTimer=0;
   kills=0;elapsed=0;wave=1;spawnT=0;_necmiSpawned=false;_miniBossMinute=0;
   _mapMissionBossKills=0;_bossChestOpen=false;
