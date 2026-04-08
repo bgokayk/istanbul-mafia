@@ -1545,9 +1545,10 @@ var pdata={totalKills:0,bestTime:0,maxWave:0,gold:0,shopLvl:{},ach:{},lb:[],shop
   dailyDate:'',dailyDone:false,dailyStreak:0,dailyDoneList:[],
   runModifier:null,lastRunStats:null,
   seenLore:[],introSeen:false,
-  mapProgress:{},tutorialDone:false,_runTotalDmg:0};
+  mapProgress:{},tutorialDone:false,_runTotalDmg:0,
+  ownedRelics:{},relics:[],accountLevel:1,totalXP:0};
 try{var _sv=JSON.parse(localStorage.getItem('imv7'));if(_sv&&typeof _sv==='object'){for(var k in _sv)pdata[k]=_sv[k];}}catch(e){console.warn('Save bozuk, yeni oyun başlatılıyor');try{localStorage.removeItem('imv7');}catch(e2){}}
-pdata._saveVersion=61; // v6.1
+pdata._saveVersion=64; // v6.4
 if(!Array.isArray(pdata.relics))pdata.relics=[];
 if(!pdata.mapProgress)pdata.mapProgress={};
 ['kapalicarsi','uskudar','besiktas','taksim','balat'].forEach(function(mid){
@@ -2195,9 +2196,7 @@ function showMiniBossAnnounce(name,quote,col){
     el=document.createElement('div');el.id='miniBossBanner';
     el.style.cssText='position:absolute;top:30%;left:50%;transform:translate(-50%,-50%);z-index:22;text-align:center;pointer-events:none;display:none;padding:10px 16px;';
     document.getElementById('gameScreen').appendChild(el);
-    var st=document.createElement('style');
-    st.textContent='@keyframes mbIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.7);}20%{opacity:1;transform:translate(-50%,-50%) scale(1);}75%{opacity:1;}100%{opacity:0;}}';
-    document.head.appendChild(st);
+    if(!window._mbInStyleAdded){window._mbInStyleAdded=true;var st=document.createElement('style');st.textContent='@keyframes mbIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.7);}20%{opacity:1;transform:translate(-50%,-50%) scale(1);}75%{opacity:1;}100%{opacity:0;}}';document.head.appendChild(st);}
   }
   el.style.borderColor=col||'#ff8800';
   el.style.border='2px solid '+(col||'#ff8800');
@@ -3713,7 +3712,7 @@ function buildWorld(){
 function spawnEnemy(forceTp){
   if(enemies.length>=180)return;
   var ang=Math.random()*Math.PI*2,dist=380+Math.random()*200;
-  var inGalata=selMap.id==='galata';
+  var inGalata=selMap&&selMap.id==='galata';
   var ex,ey;
   if(inGalata){var R=1050;ex=WORLD/2+Math.cos(ang)*R*.85;ey=WORLD/2+Math.sin(ang)*R*.85;}
   else{ex=Math.max(60,Math.min(WORLD-60,P.x+Math.cos(ang)*dist));ey=Math.max(60,Math.min(WORLD-60,P.y+Math.sin(ang)*dist));}
@@ -3811,9 +3810,7 @@ function showBossBanner(wv){
     el=document.createElement('div');el.id='bossBanner';
     el.style.cssText='position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);z-index:22;text-align:center;pointer-events:none;display:none;';
     document.getElementById('gameScreen').appendChild(el);
-    var st=document.createElement('style');
-    st.textContent='@keyframes bossIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.6);}18%{opacity:1;transform:translate(-50%,-50%) scale(1.05);}25%{transform:translate(-50%,-50%) scale(1);}75%{opacity:1;}100%{opacity:0;}}';
-    document.head.appendChild(st);
+    if(!window._bossInStyleAdded){window._bossInStyleAdded=true;var st=document.createElement('style');st.textContent='@keyframes bossIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.6);}18%{opacity:1;transform:translate(-50%,-50%) scale(1.05);}25%{transform:translate(-50%,-50%) scale(1);}75%{opacity:1;}100%{opacity:0;}}';document.head.appendChild(st);}
   }
   var names={5:'KAPICI MUHAMMED',10:'KUMARBAZ ERDAL',15:'PATRON KENAN',20:'ÖLÜM AĞASI'};
   var isMini=wv%10!==0;
@@ -3844,8 +3841,9 @@ function fire(id){
     if(P.fire)b.onfire=true;if(P.ice)b.frozen=true;if(P.expl)b.explosive=true;
     bullets.push(b);
   }
-  if(id==='tabanca'){for(var i=0;i<P.pc;i++)mkb(ang+(i-(P.pc-1)/2)*.18,P.ps,dmg,4*bs,'#ffdd44',1400,'b');if(P.char.id==='polat'){enemies.forEach(function(e){if(d2(P,e)<200*200){e.slow=.5;e.slowT=600;}});}}
-  else if(id==='bicak'){for(var i=0;i<P.pc;i++)mkb(ang+(i-(P.pc-1)/2)*.2,P.ps,P.char.id==='cakir'&&Math.random()<.25?dmg*2:dmg*.9,5*bs,'#ccccff',1000,'k');if(P.char.id==='cakir')mkb(ang+Math.PI,P.ps*.6,dmg*.6,4*bs,'#aa88ff',700,'k');}
+  var _cid=P.char&&P.char.id;
+  if(id==='tabanca'){for(var i=0;i<P.pc;i++)mkb(ang+(i-(P.pc-1)/2)*.18,P.ps,dmg,4*bs,'#ffdd44',1400,'b');if(_cid==='polat'){enemies.forEach(function(e){if(d2(P,e)<200*200){e.slow=.5;e.slowT=600;}});}}
+  else if(id==='bicak'){for(var i=0;i<P.pc;i++)mkb(ang+(i-(P.pc-1)/2)*.2,P.ps,_cid==='cakir'&&Math.random()<.25?dmg*2:dmg*.9,5*bs,'#ccccff',1000,'k');if(_cid==='cakir')mkb(ang+Math.PI,P.ps*.6,dmg*.6,4*bs,'#aa88ff',700,'k');}
   else if(id==='molotov'){enemies.forEach(function(e){if(d2(P,e)<230*230){e.hp-=dmg*2;boom(e.x,e.y,'#ff5500',8,3);}});boom(P.x,P.y,'#ff8800',16,5);screenShake=8;}
   else if(id==='zar'){for(var i=0;i<P.pc;i++)mkb(ang+(i-(P.pc-1)/2)*.22,P.ps,dmg,6*bs,'#ffd700',1600,'z');}
   else if(id==='kama'){mkb(ang,P.ps*1.4,dmg*1.6,7*bs,'#bbaacc',900,'k');mkb(ang+Math.PI,P.ps*1.4,dmg*1.6,7*bs,'#bbaacc',900,'k');}
@@ -4019,7 +4017,7 @@ function gupdate(dt){
   var _hasBoss=enemies.some(function(en){return en.type&&(en.type.boss||en._isMiniTimeBoss);});
   if(_hasBoss){_bossReinforceTimer-=dt;if(_bossReinforceTimer<=0){_bossReinforceTimer=25000;showToast('⚠ TAKVİYE GELİYOR!','#ff4400');var _rc=5+Math.floor(Math.random()*4);for(var _ri=0;_ri<_rc;_ri++)(function(i2){setTimeout(function(){if(enemies.length<120)spawnEnemy(null,true);},i2*500);}(_ri));}}else{_bossReinforceTimer=25000;}
 
-  var inGalata=selMap.id==='galata';
+  var inGalata=selMap&&selMap.id==='galata';
   var gcR=1150,gcX=WORLD/2,gcY=WORLD/2;
 
   // Player move
@@ -4243,14 +4241,14 @@ function gupdate(dt){
   if(P._derinDevlet>0)P._derinDevlet-=dt; // Polat ulti decay
       if(P._vampireMode)P.hp=Math.min(P.hp+5,P.mhp); // Vampir modifier
       if(P.char&&P.char.id==='dayi')P.hp=Math.min(P.hp+3,P.mhp); // Zeynep pasifi
-      if(P.char&&P.char.id==='kemal'&&P.char.id==='kemal'){}// Kemal pasifi bullet size halihazırda
+      // Kemal pasifi: bsize*3 + _wideShotBonus startGame'de uygulandı (satır 4956)
       checkDailyChallenge();
       boom(e.x,e.y,'#cc0000',10,4);
       if(P.dwave)enemies.forEach(function(e2){if(d2(e,e2)<125*125){e2.hp-=P.dmg*.5;boom(e.x,e.y,'#ff8800',6,3);}});
       orbs.push({x:e.x,y:e.y,v:e.xp*(P.xpm||1),r:6,col:e.type.id==='para'?'#ffd700':'#00ff88'});
       var _gdiff=diff==='hiper'?2.0:diff==='hard'?1.5:1.0;
       var _bossMult=(e.type.boss||e._isMiniTimeBoss)?3:1;
-      spawnGold(e.x,e.y,Math.floor((e.gold||2)*0.33*_gdiff*(P.gm||1)*(pdata.goldMult||1)*_bossMult));
+      spawnGold(e.x,e.y,Math.max(1,Math.floor((e.gold||2)*0.33*_gdiff*(P.gm||1)*(pdata.goldMult||1)*_bossMult)));
       if(_bossMult>1){orbs[orbs.length-1].v=Math.floor(orbs[orbs.length-1].v*3);} // Boss: 3x XP
       // HP drops
       var hrc=e.type.boss?1:e.r>22?.3:e.r>16?.2:.07;
@@ -4423,7 +4421,7 @@ function gupdate(dt){
 // LEVEL UP
 // ════════════════════════════════════
 function doLvlUp(){
-  P.xp-=P.xpn;P.lvl++;P.xpn=Math.floor(P.xpn*1.4+22);
+  P.xp-=P.xpn;P.lvl++;P.xpn=Math.min(50000,Math.floor(P.xpn*1.4+22));
   sLvl();
   // Level up parlama efekti
   var flashDiv=document.getElementById('lvlFlashEl');
@@ -4602,7 +4600,7 @@ function gdraw(){
     gctx.strokeRect(300,300,WORLD-600,WORLD-600);
   }
 
-  if(selMap.id==='taksim'){
+  if(selMap&&selMap.id==='taksim'){
     gctx.strokeStyle='rgba(150,150,150,.25)';gctx.lineWidth=4;
     var ry1=WORLD/2-200,ry2=WORLD/2+200;
     gctx.beginPath();gctx.moveTo(-camX,ry1-camY);gctx.lineTo(WORLD-camX,ry1-camY);gctx.stroke();
