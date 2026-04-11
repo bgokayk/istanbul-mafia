@@ -91,12 +91,12 @@ body{background:#04010a;width:100vw;height:100dvh;overflow:hidden;font-family:'P
 /* ════════════════ CHAR SELECT ════════════════ */
 #charScreen{background:#0a0118;height:100%;display:none;flex-direction:column;}
 #charScreen.active{display:flex!important;}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(4px,1vw,8px);padding:clamp(4px,1vw,8px);width:100%;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0;align-content:start;}
-.ccard{background:linear-gradient(135deg,#140524,#0a0318);border:2px solid #3a1e6a;padding:clamp(4px,1vw,7px) clamp(3px,.8vw,6px);cursor:pointer;transition:all .12s;position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:0;}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,1fr);gap:clamp(3px,.7vw,6px);padding:clamp(3px,.7vw,6px);width:100%;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0;align-content:stretch;}
+.ccard{background:linear-gradient(135deg,#140524,#0a0318);border:2px solid #3a1e6a;padding:clamp(2px,.5vw,4px) clamp(2px,.5vw,4px);cursor:pointer;transition:all .12s;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:0;overflow:hidden;}
 .ccard:hover,.ccard.sel{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.35);}
 .ccard.sel::after{content:'✓';position:absolute;top:3px;right:4px;color:#22aa44;font-size:10px;}
 .ccard.locked{border-color:#555;opacity:.75;}
-.cname{font-size:clamp(5px,1.6vw,8px);color:#ffd700;letter-spacing:1px;text-align:center;line-height:1.2;}
+.cname{font-size:clamp(4px,1.3vw,7px);color:#ffd700;letter-spacing:1px;text-align:center;line-height:1;}
 .ccanv{display:block;image-rendering:pixelated;}
 .cstars{display:flex;gap:2px;}
 .cstar{font-size:clamp(5px,1.4vw,7px);}
@@ -106,7 +106,7 @@ body{background:#04010a;width:100vw;height:100dvh;overflow:hidden;font-family:'P
 .cstat-bar{flex:1;height:4px;background:#111;border:1px solid #333;overflow:hidden;}
 .cstat-fill{height:100%;transition:width .3s;}
 .cwep{font-size:clamp(4px,1vw,6px);color:#fa0;text-align:center;}
-.cdbox{width:100%;background:#060110;border-top:2px solid #ffd700;padding:clamp(4px,1vw,7px);flex-shrink:0;min-height:0;}
+.cdbox{width:100%;background:#060110;border-top:2px solid #ffd700;padding:clamp(3px,.7vw,5px);flex-shrink:0;min-height:0;max-height:clamp(50px,8vh,70px);overflow:hidden;}
 .cdname{font-size:clamp(6px,1.8vw,9px);color:#ffd700;margin-bottom:4px;}
 .cdtxt{font-size:clamp(4px,1.1vw,6px);color:#bbb;line-height:1.9;}
 
@@ -783,6 +783,8 @@ var CHARS=[
   {id:'abdulhey',name:'ABDÜLHEY',wep:'zar',    desc:'Kumar masasının efendisi. Hasar 0-3x arası — şans her şey.',                col:'#001a0d',acc:'#00ff88',dmg:24,spd:2.7,hp:70, fr:.9, ps:6,pc:1,stars:[1,0,0,1,1],unlock:'free',  passive:'🎰 Kumar: Hasar 0.05x-3x arası rastgele',backstory:'Kumar masasından kalktı. Şans ona hizmet ediyor.'},
   {id:'dayi',  name:'DAYI',    wep:'zincir',desc:'Dayı her şeyi halleder. Zinciriyle 4 düşmana aynı anda vurur. Her öldürmede can çalar. 1.000.000 altın ile açılır!', col:'#0d2a1a',acc:'#00ffaa',dmg:72,spd:2.9,hp:160, fr:.8, ps:6,pc:1,stars:[0,1,0,1,1],unlock:'gold:1000000',passive:'💚 Dayı Karizması: Her kill +8 HP | 2x Hasar',backstory:'Herkes onu tanır. Kimse nerede olduğunu bilmez.'},
   {id:'kemal',   name:'KEMAL BABA',wep:'av_tufegi',desc:'Esnafın patronu. Saçma mermileri 3 kat genişler. Zırh delici. Alan hasarı +100%. Premium gerektirir.', col:'#1a1a00',acc:'#ffff00',dmg:112,spd:2.0,hp:260,fr:1.5,ps:5,pc:1,stars:[1,0,1,0,1],unlock:'premium100',passive:'🎯 Geniş Saçma: Alan hasarı +100% | 2x Hasar',backstory:'Esnafın patronu. Son kez silah taşıyor.'},
+  {id:'abla',    name:'ABLA',     wep:'kama',    desc:'Mahallenin ablası. Hızlı bıçak + can çalma. Düşman öldürünce %15 ihtimalle sağlık orbı düşürür.',   col:'#4a0028',acc:'#ff66aa',dmg:32,spd:3.2,hp:85, fr:.6, ps:7,pc:2,stars:[1,1,0,1,0],unlock:'gold:50000', passive:'💗 Şifacı: Kill\'de %15 sağlık orbı + can çalma',backstory:'Mahallenin ablası. Kimse ona dokunmaz.'},
+  {id:'esref',   name:'EŞREF TAKSİCİ',wep:'revolver',desc:'Taksim\'in delisi. Taksisiyle çarpar. Hız arttıkça hasar artar. Düşmanları ezip geçer.',         col:'#3a3a00',acc:'#ffcc00',dmg:28,spd:3.8,hp:95, fr:.7, ps:8,pc:1,stars:[0,1,1,1,0],unlock:'gold:75000', passive:'🚕 Taksi Çarpması: Hızla orantılı hasar + ezme',backstory:'İstanbul trafiğinin kralı. Taksimetre her zaman çalışıyor.'},
 ];
 
 // ════════════════════════════════════
@@ -937,7 +939,9 @@ var CHAR_AUTO={
   memati:  {cd:10000,t:0,icon:'🔥',name:'Alev Çemberi'},
   abdulhey:{cd:6000,t:0,icon:'🎰',name:'Hasar Burst'},
   dayi:    {cd:12000,t:0,icon:'⛓',name:'Zincir Fırtınası'},
-  kemal:   {cd:7000,t:0,icon:'💥',name:'Saçma Patlaması'}
+  kemal:   {cd:7000,t:0,icon:'💥',name:'Saçma Patlaması'},
+  abla:    {cd:6000,t:0,icon:'💗',name:'Şifa Dalgası'},
+  esref:   {cd:5000,t:0,icon:'🚕',name:'Taksi Çarpması'}
 };
 
 // ═══ KARAKTER ULTİ SİSTEMİ (30sn cooldown, elle basılır) ═══
@@ -1014,6 +1018,27 @@ var CHAR_ULTS={
       }
       boom(P.x,P.y,'#ffff00',35,8);screenShake=25;
       showToast('🔱 AV SEZONU — 24 yön saçma!','#ffff00');
+    }},
+  abla:    {cd:25000,t:0,icon:'💗',name:'MAHALLE ABLASI',
+    fire:function(){
+      if(!P)return;
+      // Tüm düşmanlara zehir + can çal
+      P.hp=Math.min(P.mhp,P.hp+Math.floor(P.mhp*.4));
+      enemies.forEach(function(e){if(d2(P,e)<300*300){e.hp-=P.dmg*3;e.burn=true;e.burnT=5000;boom(e.x,e.y,'#ff66aa',6,3);}});
+      boom(P.x,P.y,'#ff66aa',30,8);screenShake=10;
+      showToast('💗 MAHALLE ABLASI — %40 can + zehir!','#ff66aa');
+    }},
+  esref:   {cd:25000,t:0,icon:'🚕',name:'TAKSİ SÜRDÜ',
+    fire:function(){
+      if(!P)return;
+      // Yatay çizgide düşmanları ez
+      var dir=P.facing||1;
+      for(var i=0;i<20;i++){
+        var tx=P.x+dir*i*60,ty=P.y;
+        enemies.forEach(function(e){var dx=e.x-tx,dy=e.y-ty;if(dx*dx+dy*dy<80*80){e.hp-=P.dmg*4;boom(e.x,e.y,'#ffcc00',8,3);spawnDN(e.x,e.y-e.r,'🚕','#ffcc00');}});
+      }
+      boom(P.x,P.y,'#ffcc00',25,6);screenShake=18;
+      showToast('🚕 TAKSİ SÜRDÜ — düşmanları ezdi!','#ffcc00');
     }}
 };
 // ULT HUD güncelleme (gloop içinden çağrılır)
@@ -4220,18 +4245,17 @@ function gupdate(dt){
   // Regen (only when HP < 30%)
   if(P.regen&&P.hp/P.mhp<.30)P.hp=Math.min(P.mhp,P.hp+P.regen*dt/1000);
 
-  // Spawn enemies — higher cap like VS
+  // Spawn enemies — dengeli artış
   spawnT+=dt;
-  var si=Math.max(110,850-wave*72-(diff==='hiper'?220:diff==='hard'?120:0)); // v8: faster
+  var si=Math.max(200,900-wave*50-(diff==='hiper'?150:diff==='hard'?80:0));
   if(spawnT>=si){
     spawnT=0;spawnEnemy();
-    if(elapsed>12000)spawnEnemy();
-    if(elapsed>25000&&Math.random()<.65)spawnEnemy();
-    if(elapsed>50000)spawnEnemy();
-    if(elapsed>80000&&Math.random()<.7)spawnEnemy();  // v8: yeni
-    if(elapsed>120000)spawnEnemy();                   // v8: 2dk sonra sürekli
-    if(diff==='hiper'){spawnEnemy();if(Math.random()<.55)spawnEnemy();}
-    if(inGalata)spawnEnemy();
+    if(elapsed>20000&&Math.random()<.4)spawnEnemy();            // 20sn: %40 ekstra
+    if(elapsed>45000&&Math.random()<.5)spawnEnemy();            // 45sn: %50 ekstra
+    if(elapsed>90000&&Math.random()<.5)spawnEnemy();            // 90sn: %50 ekstra
+    if(elapsed>150000&&Math.random()<.4)spawnEnemy();           // 2.5dk: %40 ekstra
+    if(diff==='hiper'){if(Math.random()<.4)spawnEnemy();}      // Hiper: %40 ekstra
+    if(inGalata&&Math.random()<.5)spawnEnemy();                // Galata: %50 ekstra
     // TAKSİM: Her 3 dalgada bir taksici sürüsü (5 adet)
     if(selMap&&selMap.id==='taksim'&&wave>0&&wave%3===0&&wave!==_taksiciLastWave){
       _taksiciLastWave=wave;
@@ -4425,6 +4449,10 @@ function gupdate(dt){
       // Karakter pasifleri — kill tetiklenir
       if(P.ls)P.hp=Math.min(P.hp+(P.ls||0),P.mhp);
       if(P._berserker)P.spd=Math.min(P.spd+.05,8); // Berserker modifier
+      // Abla pasifi: %15 sağlık orbı düşür
+      if(P._healOrbChance&&Math.random()<P._healOrbChance){healthOrbs.push({x:e.x,y:e.y,v:15,life:8000});}
+      // Eşref pasifi: hızla orantılı bonus hasar
+      if(P._taxiRam)P._spdDmgMult=1+Math.max(0,(P.spd-2))*0.15;
       // _cayBonus: çay düşmanı +1 HP
       if(P._cayBonus&&eid==='cay'){P.hp=Math.min(P.hp+1,P.mhp);}
       // _fury: her 10 kill'de 3sn hasar boost
@@ -5202,6 +5230,8 @@ function startGame(){
   if(ch.id==='abdulhey') P._zarMode=true;
   if(ch.id==='dayi'){P.ls=(P.ls||0)+8;P._chainMulti=true;}
   if(ch.id==='kemal'){P.bsize=(P.bsize||1)*3;P._wideShotBonus=2.0;}
+  if(ch.id==='abla'){P.ls=(P.ls||0)+3;P._healOrbChance=0.15;}
+  if(ch.id==='esref'){P._taxiRam=true;P._spdDmgMult=1.0;}
   // Extra weapon(s)
   if(pdata.extraWeapon&&P.weaps.indexOf('av_tufegi')<0)P.weaps.push('av_tufegi');
   if(pdata.tripleStart){
