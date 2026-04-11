@@ -1578,7 +1578,7 @@ function checkEvolution(){
     wT[ev.result]=0;
     renderWepSlots();
     showEvoBanner(ev);
-    pdata.evoCount=(pdata.evoCount||0)+1;
+    pdata.evoCount=(pdata.evoCount||0)+1;pdata.totalEvolutions=(pdata.totalEvolutions||0)+1;
     // Evrim kilidini aç (evo guide'da görünür)
     pdata.unlockedEvos=pdata.unlockedEvos||{};
     pdata.unlockedEvos[ev.result]=true;
@@ -3311,12 +3311,16 @@ function buildShopScreen(){
     var can=!mx&&pdata.gold>=cost;
     var el=document.createElement('div');el.className='sitem'+(mx?' maxed':'');
     el.innerHTML='<div class="si-icon">'+item.icon+'</div><div class="si-info"><div class="si-name">'+item.name+'</div><div class="si-desc">'+item.desc+'</div><div class="si-lv">Lv: '+lv+'/'+item.max+'</div></div><div class="si-cost'+(can?'':' cant')+'" style="color:'+(mx?'#444':can?'#ffd700':'#555')+'">'+(mx?'MAX':'💰'+cost)+'</div>';
-    if(!mx)el.addEventListener('click',function(){
-      var lv2=pdata.shopLvl[item.id]||0,cost2=item.cost+lv2*Math.floor(item.cost*1.2);
-      if(pdata.gold<cost2){el.style.transform='translateX(-4px)';setTimeout(function(){el.style.transform='';},200);return;}
-      pdata.gold-=cost2;pdata.shopLvl[item.id]=(pdata.shopLvl[item.id]||0)+1;
-      pdata.shopBuys=(pdata.shopBuys||0)+1;item.fn(pdata);saveP();sBuy();checkAchs();buildShopScreen();
-    });
+    if(!mx){
+      function _buyItem(ev){
+        var lv2=pdata.shopLvl[item.id]||0,cost2=item.cost+lv2*Math.floor(item.cost*1.2);
+        if(pdata.gold<cost2){el.style.transform='translateX(-4px)';setTimeout(function(){el.style.transform='';},200);return;}
+        pdata.gold-=cost2;pdata.shopLvl[item.id]=(pdata.shopLvl[item.id]||0)+1;
+        pdata.shopBuys=(pdata.shopBuys||0)+1;item.fn(pdata);saveP();sBuy();checkAchs();buildShopScreen();
+      }
+      el.addEventListener('click',_buyItem);
+      el.addEventListener('touchend',function(e){e.preventDefault();_buyItem(e);},{passive:false});
+    }
     g.appendChild(el);
   });
 }
@@ -4388,7 +4392,7 @@ function gupdate(dt){
       if(eid==='taksi_hayalet'){pdata.kc_hayalet=(pdata.kc_hayalet||0)+1;}
       if(eid==='balikci'){pdata.kc_balikci=(pdata.kc_balikci||0)+1;}
       if(eid==='kebapci'){pdata.kc_kebapci=(pdata.kc_kebapci||0)+1;}
-      if(e.type.boss){pdata.bossKills=(pdata.bossKills||0)+1;if(wave>=10)pdata.eliteKills=(pdata.eliteKills||0)+1;}
+      if(e.type.boss){pdata.bossKills=(pdata.bossKills||0)+1;pdata._runBossKills=(pdata._runBossKills||0)+1;if(wave>=10)pdata.eliteKills=(pdata.eliteKills||0)+1;}
       if(e.type.boss||e._isMiniTimeBoss)_mapMissionBossKills++;
       // Elite kill tracking + bonus
       if(e.elite){pdata._eliteKills=(pdata._eliteKills||0)+1;eliteDeathBonus(e);}
@@ -4425,7 +4429,7 @@ function gupdate(dt){
         spawnChest(e.x,e.y,'boss');spawnBossChest(e.x,e.y);
         // Boss ölüm diyaloğu
         (function(wv){setTimeout(function(){
-          if(e._isNecmi&&NECMI_DIALOG){showBossDialog(NECMI_DIALOG.name,NECMI_DIALOG.death,NECMI_DIALOG.col,NECMI_DIALOG.icon);}
+          if(e._necmi&&NECMI_DIALOG){pdata.necmiKilled=true;pdata._necmiKilled=true;saveP();showBossDialog(NECMI_DIALOG.name,NECMI_DIALOG.death,NECMI_DIALOG.col,NECMI_DIALOG.icon);}
           else if(BOSS_DIALOGS[wv]&&BOSS_DIALOGS[wv].death){showBossDialog(BOSS_DIALOGS[wv].name,BOSS_DIALOGS[wv].death,BOSS_DIALOGS[wv].col,BOSS_DIALOGS[wv].icon);}
           checkMainQuests();checkLevelGoals();
         },600);})(wave);
@@ -4645,6 +4649,9 @@ function showCards(treasure){
 function doGameOver(){
   document.getElementById('lvlup').classList.remove('on');
   document.querySelectorAll('[data-lore]').forEach(function(el){el.parentNode.removeChild(el);});
+  if(runGold>(pdata._bestRunGold||0))pdata._bestRunGold=runGold;
+  // Silah kullanımı güncelle
+  if(P&&P.weaps&&pdata._usedWeapons){P.weaps.forEach(function(w){pdata._usedWeapons[w]=true;});}
   stopAmbientMusic();
   var t=elapsed/1000;
   if(t>pdata.bestTime)pdata.bestTime=t;
@@ -5192,6 +5199,12 @@ function startGame(){
   if(aaEl){aaEl.style.display='flex';var aaNameEl=document.getElementById('aaName');if(aaNameEl&&P.char){var ab2=CHAR_AUTO[P.char.id];if(ab2)aaNameEl.textContent=ab2.name;}}
   // patron paketi bonus revive
   if(pdata.patronRun&&!P._revived)P.revive=true;
+  // Tracking: run sayısı, karakter kullanımı, silah kullanımı
+  pdata._todayRuns=(pdata._todayRuns||0)+1;
+  if(ch.id==='polat')pdata._polatRuns=(pdata._polatRuns||0)+1;
+  if(!pdata._usedWeapons)pdata._usedWeapons={};
+  P.weaps.forEach(function(w){pdata._usedWeapons[w]=true;});
+  saveP();
   for(var i=0;i<18;i++)spawnEnemy();
   // Run modifier seçimi — raf başlatma applyModifier'a bırakılıyor
   showIntro(function(){showModifierSelect();});
@@ -5470,7 +5483,7 @@ function getDailyQuests(dateKey){
 function getDailyProgress(q){
   if(q.type==='kills')return pdata.totalKills||0;
   if(q.type==='gold')return pdata.totalG||0;
-  if(q.type==='crits')return pdata._runCrits||0;
+  if(q.type==='crits')return pdata._totalCrits||0;
   if(q.type==='evolutions')return pdata.totalEvolutions||0;
   if(q.type==='runs')return pdata._todayRuns||0;
   if(q.type==='dashes')return pdata._todayDashes||0;
@@ -5533,6 +5546,7 @@ var _dashAfterX=null,_dashAfterY=null,_dashAfterT=0;
       P.x+=dx2/dist2*dashDist;P.y+=dy2/dist2*dashDist;
       P._dashInvuln=300;
       _dashCooldown=5000;
+      pdata._totalDashes=(pdata._totalDashes||0)+1;pdata._todayDashes=(pdata._todayDashes||0)+1;
       boom(P.x,P.y,'#4488ff',14,5);
     }
     _lastTapTime=now2;_lastTapX=tx;_lastTapY=ty;
