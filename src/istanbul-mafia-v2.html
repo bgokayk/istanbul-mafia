@@ -1382,7 +1382,7 @@ var FITEMS=[
   {id:'bak',icon:'🍯', name:'BAKLAVA GÜCÜ',   desc:'20sn +%25 hasar',   col:'#cc8800',border:'#996600',apply:function(){var gid=_gameId;P.dmg=Math.floor(P.dmg*1.25);setTimeout(function(){if(_gameId===gid){P.dmg=Math.floor(P.dmg/1.25);removeBuff('💥');}},20000);addBuff('💥');}},
   {id:'mag',icon:'🧲', name:'SÜPER MANYETO',  desc:'Tüm XP+altın çek',  col:'#8844ff',border:'#6622cc',apply:function(){vacuumAll();}},
   {id:'rk', icon:'🍾', name:'RAKI ŞİŞESİ',   desc:'Tüm ekrana hasar',   col:'#aaaaff',border:'#6666cc',apply:function(){aoeBlast();}},
-  {id:'ap', icon:'💰', name:'ALTIN YAĞMURU',  desc:'+30 Altın',          col:'#ffd700',border:'#b8860b',apply:function(){runGold+=30;pdata.gold+=30;pdata.totalG=(pdata.totalG||0)+30;document.getElementById('hGold').textContent=runGold;sGold();}},
+  {id:'ap', icon:'💰', name:'ALTIN YAĞMURU',  desc:'+100 Altın',          col:'#ffd700',border:'#b8860b',apply:function(){runGold+=100;pdata.gold+=100;pdata.totalG=(pdata.totalG||0)+100;document.getElementById('hGold').textContent=runGold;sGold();}},
 ];
 
 // ════════════════════════════════════
@@ -3092,6 +3092,42 @@ function drawSprite(cx,x,y,facing,ch,S){
     // Shotgun
     if(!flip){p('#555',-3,8,3,2);p('#333',-4,9,2,1);p('#222',-4,8,1,3);}
     else{p('#555',10,8,3,2);p('#333',12,9,2,1);p('#222',13,8,1,3);}
+  } else if(ch.id==='abla'){
+    // Head — long dark hair, earrings
+    p('#1a0a00',1,0,8,2);p('#1a0a00',0,1,2,5);p('#1a0a00',8,1,2,5);
+    p('#e8b87a',2,2,6,3);p('#1a0800',3,3,1,1);p('#1a0800',6,3,1,1);
+    p('#cc3366',3,5,4,1);p('#e8b87a',4,5,2,1);
+    p('#ffd700',0,3,1,1);p('#ffd700',9,3,1,1); // earrings
+    // Body — red/pink leather
+    p('#8b0035',1,6,8,5);p('#cc0050',3,6,4,2);p('#ff66aa',4,7,2,2);
+    p('#660028',3,9,4,2);
+    // Legs — dark
+    p('#2a0012',1,11,3,4);p('#2a0012',6,11,3,4);
+    p('#1a000a',0,14,4,1);p('#1a000a',6,14,4,1);
+    // Arms
+    p('#8b0035',0,6,1,4);p('#e8b87a',0,10,1,1);
+    p('#8b0035',9,6,1,4);p('#e8b87a',9,10,1,1);
+    // Kama blade
+    if(!flip){p('#c0c0c0',10,8,3,1);p('#888',10,9,2,1);p('#ff66aa',10,7,1,1);}
+    else{p('#c0c0c0',-3,8,3,1);p('#888',-2,9,2,1);p('#ff66aa',-1,7,1,1);}
+  } else if(ch.id==='esref'){
+    // Head — flat cap, mustache
+    p('#5a5a00',1,0,8,1);p('#3a3a00',0,1,10,1);// flat cap
+    p('#d4a060',2,2,6,3);p('#2a1800',3,3,1,1);p('#2a1800',6,3,1,1);
+    p('#3a2a00',3,5,4,1);p('#3a2a00',2,4,2,1);p('#3a2a00',6,4,2,1);// thick mustache
+    // Body — yellow/brown taxi driver vest
+    p('#ccaa00',1,6,8,5);p('#aa8800',2,6,2,3);p('#aa8800',6,6,2,3);
+    p('#fff',3,6,4,1);p('#333',4,7,2,2);// tie area
+    p('#886600',3,9,4,2);
+    // Legs — brown
+    p('#4a3000',1,11,3,4);p('#4a3000',6,11,3,4);
+    p('#2a1a00',0,14,4,1);p('#2a1a00',6,14,4,1);
+    // Arms
+    p('#ccaa00',0,6,1,4);p('#d4a060',0,10,1,1);
+    p('#ccaa00',9,6,1,4);p('#d4a060',9,10,1,1);
+    // Revolver
+    if(!flip){p('#555',10,8,2,2);p('#333',11,7,1,2);p('#aaa',12,8,1,1);}
+    else{p('#555',-2,8,2,2);p('#333',-2,7,1,2);p('#aaa',-3,8,1,1);}
   }
 }
 
@@ -3668,7 +3704,7 @@ function spawnGold(x,y,v){goldOrbs.push({x:x,y:y,vx:(Math.random()-.5)*2,vy:(Mat
 function spawnHP(x,y,amt){healthOrbs.push({x:x,y:y,vx:(Math.random()-.5)*1.5,vy:(Math.random()-.5)*1.5,amount:amt,r:8,life:12000,pulse:0});}
 function spawnFloor(x,y){var item=FITEMS[Math.floor(Math.random()*FITEMS.length)];floorItems.push({x:x,y:y,item:item,r:14,life:20000,pulse:0,age:0});}
 function spawnChest(x,y,tier){chests.push({x:x,y:y,r:18,life:25000,tier:tier||'normal',pulse:0});}
-function openChest(c){pdata._chestsOpened=(pdata._chestsOpened||0)+1;boom(c.x,c.y,'#ffd700',20,5);screenShake=8;sLvl();spawnFloor(c.x,c.y);runGold+=c.tier==='boss'?50:20;pdata.gold+=c.tier==='boss'?50:20;pdata.totalG=(pdata.totalG||0)+(c.tier==='boss'?50:20);document.getElementById('hGold').textContent=runGold;if(c.tier==='boss')healP(60,'#ffd700');}
+function openChest(c){pdata._chestsOpened=(pdata._chestsOpened||0)+1;boom(c.x,c.y,'#ffd700',20,5);screenShake=8;sLvl();spawnFloor(c.x,c.y);var _cg=c.tier==='boss'?200:80;runGold+=_cg;pdata.gold+=_cg;pdata.totalG=(pdata.totalG||0)+_cg;document.getElementById('hGold').textContent=runGold;if(c.tier==='boss')healP(60,'#ffd700');}
 function showItemToast(item){
   var t=document.getElementById('itemToast');
   document.getElementById('itIc').textContent=item.icon;document.getElementById('itNm').textContent=item.name;document.getElementById('itNm').style.color=item.col;
@@ -4467,7 +4503,7 @@ function gupdate(dt){
       orbs.push({x:e.x,y:e.y,v:e.xp*(P.xpm||1),r:6,col:e.type.id==='para'?'#ffd700':'#00ff88'});
       var _gdiff=diff==='hiper'?2.0:diff==='hard'?1.5:1.0;
       var _bossMult=(e.type.boss||e._isMiniTimeBoss)?3:1;
-      spawnGold(e.x,e.y,Math.max(1,Math.floor((e.gold||2)*0.33*_gdiff*(P.gm||1)*(pdata.goldMult||1)*_bossMult)));
+      spawnGold(e.x,e.y,Math.max(1,Math.floor((e.gold||2)*1.2*_gdiff*(P.gm||1)*(pdata.goldMult||1)*_bossMult)));
       if(_bossMult>1){orbs[orbs.length-1].v=Math.floor(orbs[orbs.length-1].v*3);} // Boss: 3x XP
       // HP drops
       var hrc=e.type.boss?1:e.r>22?.3:e.r>16?.2:.07;
