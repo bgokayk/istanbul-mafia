@@ -5072,7 +5072,17 @@ var joyEl=document.getElementById('joy'),jknob=document.getElementById('jknob');
 var joyAct=false,jOx=0,jOy=0,jDx=0,jDy=0;
 document.addEventListener('keydown',function(e){
   keys[e.key]=true;
-  if(e.key===' '){e.preventDefault();togglePause();}
+  if(e.key===' '){
+    e.preventDefault();
+    var _scr=document.querySelector('.screen.active');
+    var _modEl=document.getElementById('modSelect');
+    var _storyEl=document.getElementById('storyOverlay');
+    var _inGame=_scr&&_scr.id==='gameScreen';
+    var _modOpen=_modEl&&_modEl.style.display!=='none';
+    var _storyOpen=_storyEl&&_storyEl.style.display!=='none';
+    // Space ile pause sadece oyun içinde ve overlay yokken
+    if(_inGame&&!_modOpen&&!_storyOpen)togglePause();
+  }
   if(e.key==='Tab'){e.preventDefault();showStats=!showStats;document.getElementById('statPanel').style.display=showStats?'block':'none';}
   // Menü/karakter/harita ekranlarında Enter ile devam
   if(e.key==='Enter'){
@@ -5122,7 +5132,7 @@ function gloop(ts){
   if(!document.getElementById('gameScreen').classList.contains('active'))return;
   if(document.getElementById('lvlup').classList.contains('on')){lastT=ts;raf2=requestAnimationFrame(gloop);return;}
   if(document.getElementById('gover').classList.contains('on'))return;
-  if(paused)return;
+  if(paused){raf2=requestAnimationFrame(gloop);return;}
   raf2=requestAnimationFrame(gloop);
   var dt=Math.min(ts-lastT,50);lastT=ts;
   var _dtScale=(_slowMoTimer>0)?0.2:1.0;
