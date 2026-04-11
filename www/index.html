@@ -68,7 +68,7 @@ body{background:#04010a;width:100vw;height:100dvh;overflow:hidden;font-family:'P
 .q-prog{font-size:clamp(4px,1.1vw,5px);color:#4af;}
 .q-rew{font-size:clamp(4px,1.1vw,5px);color:#ffd700;flex-shrink:0;text-align:right;}
 /* ════════════════ COMBO TRACKER ════════════════ */
-#comboHud{position:absolute;top:50px;right:8px;z-index:15;text-align:right;pointer-events:none;display:none;}
+#comboHud{position:absolute;top:clamp(145px,25vh,165px);right:8px;z-index:15;text-align:right;pointer-events:none;display:none;}
 .combo-count{font-family:'Press Start 2P',monospace;font-size:9px;color:#ffd700;text-shadow:0 0 8px #ff6600;}
 .combo-bar{width:60px;height:4px;background:#111;border:1px solid #333;margin-top:2px;margin-left:auto;}
 .combo-fill{height:100%;background:linear-gradient(90deg,#ff6600,#ffd700);transition:width .1s;}
@@ -91,8 +91,8 @@ body{background:#04010a;width:100vw;height:100dvh;overflow:hidden;font-family:'P
 /* ════════════════ CHAR SELECT ════════════════ */
 #charScreen{background:#0a0118;height:100%;display:none;flex-direction:column;}
 #charScreen.active{display:flex!important;}
-.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(6px,1.5vw,12px);padding:clamp(7px,1.5vw,12px);width:100%;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0;align-content:start;}
-.ccard{background:linear-gradient(135deg,#140524,#0a0318);border:2px solid #3a1e6a;padding:clamp(6px,1.5vw,10px) clamp(4px,1vw,7px);cursor:pointer;transition:all .12s;position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;min-height:clamp(130px,22vh,180px);}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(4px,1vw,8px);padding:clamp(4px,1vw,8px);width:100%;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0;align-content:start;}
+.ccard{background:linear-gradient(135deg,#140524,#0a0318);border:2px solid #3a1e6a;padding:clamp(4px,1vw,7px) clamp(3px,.8vw,6px);cursor:pointer;transition:all .12s;position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:0;}
 .ccard:hover,.ccard.sel{border-color:#ffd700;box-shadow:0 0 12px rgba(255,215,0,.35);}
 .ccard.sel::after{content:'✓';position:absolute;top:3px;right:4px;color:#22aa44;font-size:10px;}
 .ccard.locked{border-color:#555;opacity:.75;}
@@ -106,7 +106,7 @@ body{background:#04010a;width:100vw;height:100dvh;overflow:hidden;font-family:'P
 .cstat-bar{flex:1;height:4px;background:#111;border:1px solid #333;overflow:hidden;}
 .cstat-fill{height:100%;transition:width .3s;}
 .cwep{font-size:clamp(4px,1vw,6px);color:#fa0;text-align:center;}
-.cdbox{width:100%;background:#060110;border-top:2px solid #ffd700;padding:clamp(5px,1.2vw,9px);flex-shrink:0;min-height:80px;}
+.cdbox{width:100%;background:#060110;border-top:2px solid #ffd700;padding:clamp(4px,1vw,7px);flex-shrink:0;min-height:0;}
 .cdname{font-size:clamp(6px,1.8vw,9px);color:#ffd700;margin-bottom:4px;}
 .cdtxt{font-size:clamp(4px,1.1vw,6px);color:#bbb;line-height:1.9;}
 
@@ -545,7 +545,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
     <div class="ptip">BOŞLUK / ⏸ ile duraklat</div>
   </div>
   <div id="storyOverlay" style="display:none;position:absolute;inset:0;background:rgba(0,0,0,.97);z-index:60;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:24px;pointer-events:all;touch-action:manipulation;"><div id="storyText" style="font-family:'Press Start 2P',monospace;font-size:8px;color:#ffd700;text-align:center;line-height:2.4;max-width:340px;white-space:pre-line;"></div><button id="storyBtn" style="font-family:'Press Start 2P',monospace;font-size:8px;padding:14px 24px;background:#0a2e18;border:2px solid #22aa44;color:#22aa44;cursor:pointer;touch-action:manipulation;pointer-events:all;">DEVAM ET ▶</button></div>
-  <div id="runSummary" style="display:none;position:absolute;inset:0;background:rgba(0,0,0,.97);z-index:24;flex-direction:column;align-items:center;justify-content:flex-start;padding:16px;overflow-y:auto;"><div id="rsContent" style="width:100%;max-width:380px;"></div><div style="display:flex;gap:8px;margin-top:12px;flex-shrink:0;"><button id="rsShareBtn" style="font-family:'Press Start 2P',monospace;font-size:7px;padding:10px 14px;background:#0a2e18;border:2px solid #22aa44;color:#22aa44;cursor:pointer;touch-action:manipulation;">📤 PAYLAŞ</button><button id="rsContinueBtn" style="font-family:'Press Start 2P',monospace;font-size:7px;padding:10px 14px;flex:1;background:#2a0000;border:2px solid #cc0000;color:#ff4444;cursor:pointer;touch-action:manipulation;">DEVAM →</button></div></div>
+  <div id="runSummary" style="display:none;position:absolute;inset:0;background:rgba(0,0,0,.97);z-index:30;flex-direction:column;align-items:center;justify-content:center;padding:16px;overflow-y:auto;"><div id="rsContent" style="width:100%;max-width:380px;"></div><div style="display:flex;gap:8px;margin-top:12px;flex-shrink:0;"><button id="rsShareBtn" style="font-family:'Press Start 2P',monospace;font-size:7px;padding:10px 14px;background:#0a2e18;border:2px solid #22aa44;color:#22aa44;cursor:pointer;touch-action:manipulation;">📤 PAYLAŞ</button><button id="rsContinueBtn" style="font-family:'Press Start 2P',monospace;font-size:7px;padding:10px 14px;flex:1;background:#2a0000;border:2px solid #cc0000;color:#ff4444;cursor:pointer;touch-action:manipulation;">DEVAM →</button></div></div>
   <div id="gover">
     <h1>DON DÜŞTÜ</h1>
     <div class="gos">— İSTANBUL SENİ YUTTU —</div>
@@ -982,9 +982,10 @@ var CHAR_ULTS={
       var roll=Math.floor(Math.random()*5);
       var msgs=['💰 2x Altın (30sn)','❤ Tam can!','⚡ Hasar 5x (10sn)','🛡 Kalkan aktif!','💀 Patlama dalgası!'];
       showToast('🎲 BÜYÜK KUMAR: '+msgs[roll],'#00ff88');
-      if(roll===0){P.gm=(P.gm||1)*2;setTimeout(function(){P.gm/=2;},30000);}
+      var gid=_gameId;
+      if(roll===0){P.gm=(P.gm||1)*2;setTimeout(function(){if(_gameId===gid)P.gm/=2;},30000);}
       else if(roll===1){P.hp=P.mhp;var hh=document.getElementById('hHp');if(hh)hh.textContent=Math.ceil(P.hp);}
-      else if(roll===2){P._dmgBoostMult=5;setTimeout(function(){P._dmgBoostMult=1;},10000);}
+      else if(roll===2){P._dmgBoostMult=5;setTimeout(function(){if(_gameId===gid)P._dmgBoostMult=1;},10000);}
       else if(roll===3){P.shield=true;P._shieldHp=300;}
       else{enemies.forEach(function(e){e.hp-=P.dmg*8;boom(e.x,e.y,'#ff8800',12,3);});}
     }},
@@ -1351,9 +1352,9 @@ function applyRelicsToPlayer(){
 var FITEMS=[
   {id:'ks', icon:'💉', name:'KAN ŞIRINGASİ', desc:'+40 can',           col:'#ff4444',border:'#cc0000',apply:function(){healP(40,'#ff4444');}},
   {id:'kt', icon:'🩸', name:'KAN TORBASI',    desc:'+80 can',           col:'#cc0000',border:'#880000',apply:function(){healP(80,'#cc0000');}},
-  {id:'cay',icon:'🫖', name:'TÜRK ÇAYI',      desc:'30sn +0.5 hız',     col:'#cc4400',border:'#993300',apply:function(){P.spd+=.5;setTimeout(function(){P.spd-=.5;},30000);}},
+  {id:'cay',icon:'🫖', name:'TÜRK ÇAYI',      desc:'30sn +0.5 hız',     col:'#cc4400',border:'#993300',apply:function(){var gid=_gameId;P.spd+=.5;setTimeout(function(){if(_gameId===gid)P.spd-=.5;},30000);}},
   {id:'naz',icon:'🧿', name:'NAZAR BONCUĞU',  desc:'10sn kalkan',       col:'#0055ff',border:'#003399',apply:function(){P.shield=true;P.shieldT=10000;addBuff('🧿');}},
-  {id:'bak',icon:'🍯', name:'BAKLAVA GÜCÜ',   desc:'20sn +%25 hasar',   col:'#cc8800',border:'#996600',apply:function(){P.dmg=Math.floor(P.dmg*1.25);setTimeout(function(){P.dmg=Math.floor(P.dmg/1.25);removeBuff('💥');},20000);addBuff('💥');}},
+  {id:'bak',icon:'🍯', name:'BAKLAVA GÜCÜ',   desc:'20sn +%25 hasar',   col:'#cc8800',border:'#996600',apply:function(){var gid=_gameId;P.dmg=Math.floor(P.dmg*1.25);setTimeout(function(){if(_gameId===gid){P.dmg=Math.floor(P.dmg/1.25);removeBuff('💥');}},20000);addBuff('💥');}},
   {id:'mag',icon:'🧲', name:'SÜPER MANYETO',  desc:'Tüm XP+altın çek',  col:'#8844ff',border:'#6622cc',apply:function(){vacuumAll();}},
   {id:'rk', icon:'🍾', name:'RAKI ŞİŞESİ',   desc:'Tüm ekrana hasar',   col:'#aaaaff',border:'#6666cc',apply:function(){aoeBlast();}},
   {id:'ap', icon:'💰', name:'ALTIN YAĞMURU',  desc:'+30 Altın',          col:'#ffd700',border:'#b8860b',apply:function(){runGold+=30;pdata.gold+=30;pdata.totalG=(pdata.totalG||0)+30;document.getElementById('hGold').textContent=runGold;sGold();}},
@@ -1909,11 +1910,16 @@ var LORE_POOL=[
 ];
 var INTRO_LINES=[
   'İSTANBUL, 2026...',
-  'Şehrin altında bir savaş var.',
-  'Polat — eski bir sokak savaşçısı.',
-  'Ailesi kayboldu. Testere Necmi\'nin işi.',
-  'Artık intikam zamanı.',
-  'HAYDİ SAVAŞ.'
+  'Boğaz\'ın karanlık sularında bir fısıltı dolaşıyor.',
+  'Kapalıçarşı\'nın altındaki tünellerden yükselen silah sesleri...',
+  'Testere Necmi ve Kumarhane Karteli şehri ele geçirdi.',
+  'Sokaklar artık güvenli değil. Her köşe bir tuzak.',
+  'Polat — bir zamanlar bu sokakların çocuğuydu.',
+  'Ailesi bir gece ansızın kayboldu. Mahallesi ateşe verildi.',
+  'Geriye sadece intikam kaldı.',
+  'Şimdi silahını kap, sokaklara in.',
+  'İstanbul seni bekliyor, savaşçı.',
+  '— HAYDİ SAVAŞ —'
 ];
 
 var _pendingModifiers=null;
@@ -2283,11 +2289,16 @@ function showMiniBossAnnounce(name,quote,col){
 }
 var _tutStep=0;
 var TUTORIAL_STEPS=[
-  {text:'Joystick ile\nhareket et',pos:{bottom:'100px',left:'60px'}},
-  {text:'Otomatik\nateş eder',pos:{top:'60px',left:'50%'}},
-  {text:'XP topla,\nseviye atla',pos:{top:'30px',right:'10px'}},
-  {text:'Altın biriktir,\ndükkan aç',pos:{top:'30px',left:'10px'}},
-  {text:'Minimapı\ntakip et',pos:{bottom:'60px',right:'10px'}}
+  {text:'🕹 Joystick ile\nhareket et\nParmağını sürükle!',pos:{bottom:'100px',left:'60px'}},
+  {text:'🔫 Silahın otomatik\nateş eder\nDüşmanlara yaklaş!',pos:{top:'60px',left:'50%'}},
+  {text:'💎 Mavi orbları topla\nXP kazan, seviye atla\nHer seviyede güçlen!',pos:{top:'30px',right:'10px'}},
+  {text:'💰 Altın topla\nDükkandan kalıcı\ngüçlendirme al!',pos:{top:'30px',left:'10px'}},
+  {text:'❤ Kırmızı haçları al\nCanını doldur\nHayatta kal!',pos:{top:'50%',left:'50%'}},
+  {text:'🧿 Ekstralar takarak\nözel güçler kazan\nMax 3 slot!',pos:{top:'40%',left:'50%'}},
+  {text:'🗺 Minimapı takip et\nHaritayı keşfet\nBoss\'ları bul!',pos:{bottom:'60px',right:'10px'}},
+  {text:'⏸ Duraklatmak için\nçift dokun veya\npause butonuna bas',pos:{top:'10px',right:'10px'}},
+  {text:'👹 Her 5 dalgada\nbir BOSS gelir\nHazır ol!',pos:{top:'50%',left:'50%'}},
+  {text:'🪚 10. dakikada\nTESTERE NECMİ gelir\nKaçabilirsen kaç!',pos:{top:'40%',left:'50%'}}
 ];
 function showTutorial(){
   if(pdata.tutorialDone)return;
@@ -2308,10 +2319,11 @@ function showTutStep(){
   box.style.top=step.pos.top||'';box.style.bottom=step.pos.bottom||'';
   box.style.left=step.pos.left||'';box.style.right=step.pos.right||'';
   if(step.pos.left==='50%')box.style.transform='translateX(-50%)'; else box.style.transform='';
-  function nextStep(){_tutStep++;showTutStep();}
+  var myStep=_tutStep;
+  function nextStep(){if(_tutStep!==myStep)return;_tutStep++;showTutStep();}
   btn.onclick=nextStep;
   btn.addEventListener('touchend',function(e){e.preventDefault();nextStep();},{passive:false});
-  setTimeout(function(){if(_tutStep<TUTORIAL_STEPS.length)nextStep();},4000);
+  setTimeout(function(){if(_tutStep===myStep)nextStep();},5000);
 }
 
 function spawnMiniBoss(def,hpMult){
@@ -2528,7 +2540,7 @@ function fireAutoAbility(cid){
     enemies.forEach(function(e2){if(d2(P,e2)<shockR*shockR){var sd=Math.ceil(P.dmg*3);e2.hp-=sd;spawnDN(e2.x,e2.y-e2.r,sd,'#88aaff');boom(e2.x,e2.y,'#88aaff',5,3);}});
     boom(P.x,P.y,'#88aaff',20,5);sLvl();
   }else if(cid==='cakir'){
-    for(var ci=0;ci<5;ci++){var ca=ci/5*Math.PI*2;bullets.push({x:P.x,y:P.y,vx:Math.cos(ca)*(P.ps||4),vy:Math.sin(ca)*(P.ps||4),dmg:Math.ceil(P.dmg*1.5),r:5,col:'#cccccc',life:800,type:'tb',hits:[],pierce:P.pierce?1:0});}
+    for(var ci=0;ci<5;ci++){var ca=ci/5*Math.PI*2;bullets.push({x:P.x,y:P.y,vx:Math.cos(ca)*(P.ps||4),vy:Math.sin(ca)*(P.ps||4),dmg:Math.ceil(P.dmg*1.5),r:5,col:'#cccccc',life:800,type:'tb',hits:new Set(),pierce:P.pierce?1:0});}
     boom(P.x,P.y,'#cccccc',10,3);
   }else if(cid==='memati'){
     var fireR=300;
@@ -2542,7 +2554,7 @@ function fireAutoAbility(cid){
     var chain=enemies.slice(0,8);
     chain.forEach(function(e2){var cd2=Math.ceil(P.dmg*4);e2.hp-=cd2;spawnDN(e2.x,e2.y-e2.r,cd2,'#00ccff');boom(e2.x,e2.y,'#00ccff',8,3);});
   }else if(cid==='kemal'){
-    for(var ki2=0;ki2<12;ki2++){var ka=ki2/12*Math.PI*2;bullets.push({x:P.x,y:P.y,vx:Math.cos(ka)*(P.ps||4)*0.8,vy:Math.sin(ka)*(P.ps||4)*0.8,dmg:Math.ceil(P.dmg*1.2),r:9*(P.bsize||1.5),col:'#ff8800',life:900,type:'tb',hits:[],pierce:P.pierce?1:0});}
+    for(var ki2=0;ki2<12;ki2++){var ka=ki2/12*Math.PI*2;bullets.push({x:P.x,y:P.y,vx:Math.cos(ka)*(P.ps||4)*0.8,vy:Math.sin(ka)*(P.ps||4)*0.8,dmg:Math.ceil(P.dmg*1.2),r:9*(P.bsize||1.5),col:'#ff8800',life:900,type:'tb',hits:new Set(),pierce:P.pierce?1:0});}
     boom(P.x,P.y,'#ff8800',15,5);
   }
   sHit();
@@ -3545,6 +3557,7 @@ var wT={};
 var activBuffs=[];
 var screenShake=0;
 var runGold=0;
+var _gameId=0; // her startGame'de artar, setTimeout guard icin
 var hancerAng=0;
 var raf2=null,lastT=0;
 var STEP=16;
@@ -4008,7 +4021,7 @@ function fire(id){
   }
   else if(id==='kahve'){
     // Türk Kahvesi: Hız aurası + yakın alan hasar
-    P.spd=Math.min(P.spd+.8,12);setTimeout(function(){P.spd=Math.max(P.spd-.8,1);},1800);
+    var gid=_gameId;P.spd=Math.min(P.spd+.8,12);setTimeout(function(){if(_gameId===gid)P.spd=Math.max(P.spd-.8,1);},1800);
     enemies.forEach(function(e){if(d2(P,e)<130*130){e.hp-=dmg*.6;boom(e.x,e.y,'#886633',3,2);}});
     addBuff('☕');setTimeout(function(){var i=activBuffs.indexOf('☕');if(i>=0)activBuffs.splice(i,1);renderBuffRow();},1800);
   }
@@ -4063,7 +4076,7 @@ function fire(id){
       for(var ki=0;ki<kCnt;ki++){
         var kx=P.x+(Math.random()-.5)*400;
         var ky2=P.y+(Math.random()-.5)*400;
-        bullets.push({x:kx,y:ky2-300,vx:0,vy:P.ps*2||4,dmg:Math.ceil(P.dmg*1.4),r:5*(P.bsize||1),col:'#ccccff',life:600,type:'ky',hits:[],_ty:ky2});
+        bullets.push({x:kx,y:ky2-300,vx:0,vy:P.ps*2||4,dmg:Math.ceil(P.dmg*1.4),r:5*(P.bsize||1),col:'#ccccff',life:600,type:'ky',hits:new Set(),_ty:ky2});
       }
     }
   }
@@ -4071,7 +4084,7 @@ function fire(id){
     var sisAng=hancerAng||0;
     for(var di=0;di<6;di++){
       var sa=sisAng+(di/6)*Math.PI*2;
-      bullets.push({x:P.x+Math.cos(sa)*100,y:P.y+Math.sin(sa)*100,vx:0,vy:0,dmg:Math.ceil(P.dmg*0.8),r:6*(P.bsize||1),col:'#cc6600',life:1600,type:'ds',phase:sa,hits:[]});
+      bullets.push({x:P.x+Math.cos(sa)*100,y:P.y+Math.sin(sa)*100,vx:0,vy:0,dmg:Math.ceil(P.dmg*0.8),r:6*(P.bsize||1),col:'#cc6600',life:1600,type:'ds',phase:sa,hits:new Set()});
     }
   }
   else if(id==='lanet_topu'){
@@ -4084,13 +4097,13 @@ function fire(id){
     var ltR=60;
     enemies.forEach(function(e2){if(d2({x:ltx,y:lty},e2)<ltR*ltR){var ld=Math.ceil(P.dmg*0.8);e2.hp-=ld;spawnDN(e2.x,e2.y-e2.r,ld,'#aa44ff');}});
     boom(ltx,lty,'#aa44ff',3,3);
-    bullets.push({x:ltx,y:lty,vx:0,vy:0,dmg:0,r:ltR,col:'#aa44ff',life:150,type:'lt',hits:[],_display:true});
+    bullets.push({x:ltx,y:lty,vx:0,vy:0,dmg:0,r:ltR,col:'#aa44ff',life:150,type:'lt',hits:new Set(),_display:true});
   }
   else if(id==='ates_halkasi'){
     var ahCnt=16;
     for(var ahi=0;ahi<ahCnt;ahi++){
       var ahA=ahi/ahCnt*Math.PI*2;
-      bullets.push({x:P.x,y:P.y,vx:Math.cos(ahA)*(P.ps||4)*1.5,vy:Math.sin(ahA)*(P.ps||4)*1.5,dmg:Math.ceil(P.dmg*0.9),r:7*(P.bsize||1),col:'#ff6600',life:1200,type:'af',hits:[],fire:true,pierce:3});
+      bullets.push({x:P.x,y:P.y,vx:Math.cos(ahA)*(P.ps||4)*1.5,vy:Math.sin(ahA)*(P.ps||4)*1.5,dmg:Math.ceil(P.dmg*0.9),r:7*(P.bsize||1),col:'#ff6600',life:1200,type:'af',hits:new Set(),fire:true,pierce:3});
     }
     boom(P.x,P.y,'#ff4400',15,5);
   }
@@ -4099,7 +4112,7 @@ function fire(id){
     for(var bki=0;bki<8;bki++){
       var bkA=bkBase+bki/8*Math.PI*2;
       var bkSpiral=bki*0.3;
-      bullets.push({x:P.x,y:P.y,vx:Math.cos(bkA+bkSpiral)*(P.ps||4),vy:Math.sin(bkA+bkSpiral)*(P.ps||4),dmg:Math.ceil(P.dmg*0.7),r:5*(P.bsize||1),col:'#88ccff',life:1000,type:'bk',hits:[],pierce:2});
+      bullets.push({x:P.x,y:P.y,vx:Math.cos(bkA+bkSpiral)*(P.ps||4),vy:Math.sin(bkA+bkSpiral)*(P.ps||4),dmg:Math.ceil(P.dmg*0.7),r:5*(P.bsize||1),col:'#88ccff',life:1000,type:'bk',hits:new Set(),pierce:2});
     }
   }
 }
@@ -4237,8 +4250,8 @@ function gupdate(dt){
   });
   // Enemy specials (aura, poison + yeni: healer, flameRange, netThrow)
   enemies.forEach(function(e){
-    if(e.type.aura&&d2(P,e)<(e.r+65)*(e.r+65)){P.hp-=e.type.auraDmg*dt/1000*(P.armor?1-P.armor:1);_waveNoDmg=false;}
-    if(e.type.poison&&d2(P,e)<(e.r+75)*(e.r+75)){P.hp-=4*dt/1000*(P.armor?1-P.armor:1);_waveNoDmg=false;}
+    if(e.type.aura&&d2(P,e)<(e.r+65)*(e.r+65)){P.hp-=e.type.auraDmg*dt/1000*(P.armor?1-Math.min(P.armor,0.85):1);_waveNoDmg=false;}
+    if(e.type.poison&&d2(P,e)<(e.r+75)*(e.r+75)){P.hp-=4*dt/1000*(P.armor?1-Math.min(P.armor,0.85):1);_waveNoDmg=false;}
     // Büyükanne: yakındaki düşmanları iyileştirir
     if(e.type.healer){
       enemies.forEach(function(e2){
@@ -4246,15 +4259,15 @@ function gupdate(dt){
       });
     }
     // Fırın Ustası: alev alanı
-    if(e.type.flameRange&&d2(P,e)<155*155)P.hp-=11*dt/1000*(P.armor?1-P.armor:1);
+    if(e.type.flameRange&&d2(P,e)<155*155)P.hp-=11*dt/1000*(P.armor?1-Math.min(P.armor,0.85):1);
     // Balıkçı: periyodik ağ atışı
     if(e.type.netThrow){
       if(!e._nt)e._nt=0;
       e._nt+=dt;
       if(e._nt>2500&&d2(P,e)<270*270){
         e._nt=0;
-        var _sp=P.spd;P.spd=Math.max(.6,P.spd*.6);
-        setTimeout(function(){P.spd=_sp;},1800);
+        var _sp=P.spd,gid=_gameId;P.spd=Math.max(.6,P.spd*.6);
+        setTimeout(function(){if(_gameId===gid)P.spd=_sp;},1800);
       }
     }
     // Nişancı Bekir — uzaktan ateş
@@ -4265,7 +4278,7 @@ function gupdate(dt){
         e._sniperT=0;
         var sd2=dn(P,e);
         if(sd2>150&&sd2<400){
-          var sDmg=e.dmg*(P.armor?1-P.armor:1);
+          var sDmg=e.dmg*(P.armor?1-Math.min(P.armor,0.85):1);
           if(!P.shield){P.hp-=sDmg;triggerFlash();}else{P.shield=false;P.shieldT=0;}
           spawnDN(P.x,P.y-30,Math.ceil(sDmg),'#ff4444');
           boom(P.x,P.y,'#ff2200',5,3);sSniper();
@@ -4302,7 +4315,7 @@ function gupdate(dt){
     if(mx2!==0)e.vf=mx2>0?1:-1;
     if(dd2<P.r+e.r){
       if(P.shield){P.shield=false;P.shieldT=0;boom(P.x,P.y,'#0088ff',12,5);spawnDN(P.x,P.y-30,'KALKAN!','#4488ff');}
-      else{P.hp-=e.dmg*dt/1000*(P.armor?1-P.armor:1);}
+      else{P.hp-=e.dmg*dt/1000*(P.armor?1-Math.min(P.armor,0.85):1);}
       if(Math.random()<.03){boom(P.x,P.y,'#f00',3,2);screenShake=Math.max(screenShake,6);triggerFlash();}
       sHit();
     }
@@ -4630,11 +4643,13 @@ function showCards(treasure){
 // GAME OVER
 // ════════════════════════════════════
 function doGameOver(){
+  document.getElementById('lvlup').classList.remove('on');
+  document.querySelectorAll('[data-lore]').forEach(function(el){el.parentNode.removeChild(el);});
   stopAmbientMusic();
   var t=elapsed/1000;
   if(t>pdata.bestTime)pdata.bestTime=t;
   if(wave>pdata.maxWave)pdata.maxWave=wave;
-  pdata.gold+=runGold;pdata.totalG=(pdata.totalG||0)+runGold;
+  // Gold zaten oyun icinde pdata.gold'a eklendi, tekrar ekleme (cift sayim fix)
   // Hesap seviyesi için XP ekle
   var _earnedXP=kills*5+wave*20;
   var _prevLvl=getAccountLevel();
@@ -4725,6 +4740,34 @@ function gdraw(){
 
   if(!worldObj)buildWorld();
   var wo=worldObj;
+
+  // ── ATMOSFER: Bölge bazlı renk geçişleri ──
+  var zoneSize=WORLD/4;
+  for(var zx=0;zx<4;zx++){
+    for(var zy=0;zy<4;zy++){
+      var zLeft=zx*zoneSize,zTop=zy*zoneSize;
+      if(zLeft>camX+W+200||zLeft+zoneSize<camX-200||zTop>camY+H+200||zTop+zoneSize<camY-200)continue;
+      var zAlpha=0.03+((zx+zy)%3)*0.015;
+      var zHue=m.id==='kapalicarsi'?'40,80%':'uskudar'===m.id?'200,60%':'280,50%';
+      gctx.fillStyle='hsla('+zHue+','+Math.round(zAlpha*100)+'%)';
+      gctx.fillRect(zLeft,zTop,zoneSize,zoneSize);
+    }
+  }
+
+  // ── ATMOSFER: Zemin ışık havuzları (her 800px'de bir) ──
+  var lightSpacing=800;
+  var lx0=Math.floor(camX/lightSpacing)*lightSpacing;
+  var ly0=Math.floor(camY/lightSpacing)*lightSpacing;
+  for(var lx=lx0;lx<camX+W+lightSpacing;lx+=lightSpacing){
+    for(var ly=ly0;ly<camY+H+lightSpacing;ly+=lightSpacing){
+      if(lx<100||ly<100||lx>WORLD-100||ly>WORLD-100)continue;
+      var seed=(lx*7+ly*13)%100;
+      if(seed<40)continue; // sadece %60'ında ışık var
+      var lCol=m.id==='kapalicarsi'?'rgba(255,200,80,.04)':m.id==='uskudar'?'rgba(80,180,255,.03)':'rgba(180,100,255,.035)';
+      gctx.fillStyle=lCol;
+      gctx.beginPath();gctx.arc(lx,ly,60+seed*.4,0,Math.PI*2);gctx.fill();
+    }
+  }
 
   if(m.id==='uskudar'){
     // Sahil bandı ve deniz hissi
@@ -5059,6 +5102,7 @@ function gloop(ts){
 // ════════════════════════════════════
 function startGame(){
   if(typeof raf2!=='undefined'&&raf2)cancelAnimationFrame(raf2);
+  _gameId++;
   getAC();
   GW=gc.width=appEl.offsetWidth||430;GH=gc.height=appEl.offsetHeight||760;
   worldObj=null;bossKilled=false;bossSpawned={};runGold=0;
@@ -5270,6 +5314,7 @@ var SIDE_QUESTS=[
   {id:'sq34',name:'Dalga Efendisi',desc:'Wave 50\'ye ulaş',icon:'🌊',progress:function(){return (pdata.maxWave||0)>=50?1:0;},goal:1,reward:{gold:1000}},
   {id:'sq35',name:'Türk Efsanesi',desc:'Toplam 15000 kill',icon:'🇹🇷',progress:function(){return pdata.totalKills||0;},goal:15000,reward:{gold:800}}
 ];
+var QUESTS=MAIN_QUESTS.concat(SIDE_QUESTS);
 
 // ════════════════════════════════════
 // LEVEL GOALS — Hesap Seviyesi Ödülleri
@@ -5468,7 +5513,7 @@ var _lastTapX=0,_lastTapY=0;
 var _dashCooldown=0;
 var _dashAfterX=null,_dashAfterY=null,_dashAfterT=0;
 (function(){
-  var gc2=document.getElementById('gameCanvas')||document.getElementById('app');
+  var gc2=document.getElementById('gc')||document.getElementById('app');
   if(!gc2)return;
   gc2.addEventListener('touchstart',function(ev){
     var now2=Date.now();
@@ -5477,7 +5522,7 @@ var _dashAfterX=null,_dashAfterY=null,_dashAfterT=0;
     var tdx=tx-_lastTapX,tdy=ty-_lastTapY;
     var tooFar=Math.sqrt(tdx*tdx+tdy*tdy)>60;
     if(!tooFar&&now2-_lastTapTime<280&&_dashCooldown<=0&&typeof P!=='undefined'&&P){
-      var canvas=document.getElementById('gameCanvas');
+      var canvas=document.getElementById('gc');
       if(!canvas){_lastTapTime=now2;_lastTapX=tx;_lastTapY=ty;return;}
       var rect=canvas.getBoundingClientRect();
       var dx2=tx-rect.left-rect.width/2,dy2=ty-rect.top-rect.height/2;
