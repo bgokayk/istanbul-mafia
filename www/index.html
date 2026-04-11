@@ -1842,6 +1842,19 @@ function showIntro(onDone){
   btn.addEventListener('touchend',function(e){e.preventDefault();finish();},{passive:false});
   // Skip on tap anywhere
   ov.addEventListener('touchend',function(e){if(e.target===btn)return;txt.textContent=lines.join('\n\n');btn.style.display='block';},{once:true,passive:false});
+  // Klavye ile skip (Enter, Space, Escape)
+  function _introKeySkip(e){
+    if(e.key==='Enter'||e.key===' '||e.key==='Escape'){
+      e.preventDefault();
+      document.removeEventListener('keydown',_introKeySkip);
+      finish();
+    }
+  }
+  document.addEventListener('keydown',_introKeySkip);
+  // 20 saniye sonra otomatik skip (kullanıcı fark etmezse)
+  var _introAutoSkip=setTimeout(function(){finish();},20000);
+  var _origFinish=finish;
+  finish=function(){clearTimeout(_introAutoSkip);document.removeEventListener('keydown',_introKeySkip);_origFinish();};
 }
 
 var _miniBossMinute=0;
@@ -1949,6 +1962,15 @@ function showModifierSelect(){
     btn.addEventListener('click',doApply);
     btn.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();doApply();},{passive:false});
   });
+  // Klavye: Enter/Space modifier olmadan başlat
+  function _modKeySkip(e){
+    if(e.key==='Enter'||e.key===' '){
+      e.preventDefault();
+      document.removeEventListener('keydown',_modKeySkip);
+      window.applyModifier(-1);
+    }
+  }
+  document.addEventListener('keydown',_modKeySkip);
   // 5 saniyelik geri sayım — kullanıcı seçmezse modifier olmadan başlar
   var _mcd=5;
   var _mcdEl=document.getElementById('modCountdownEl');
@@ -5052,6 +5074,21 @@ document.addEventListener('keydown',function(e){
   keys[e.key]=true;
   if(e.key===' '){e.preventDefault();togglePause();}
   if(e.key==='Tab'){e.preventDefault();showStats=!showStats;document.getElementById('statPanel').style.display=showStats?'block':'none';}
+  // Menü/karakter/harita ekranlarında Enter ile devam
+  if(e.key==='Enter'){
+    var scr=document.querySelector('.screen.active');
+    if(!scr)return;
+    var sid=scr.id;
+    if(sid==='menuScreen'){goTo('charScreen');}
+    else if(sid==='charScreen'){confirmChar();}
+    else if(sid==='mapScreen'){startGame();}
+  }
+  // Escape ile menüye dön
+  if(e.key==='Escape'){
+    var scr2=document.querySelector('.screen.active');
+    if(scr2&&scr2.id==='gameScreen'&&!paused){togglePause();}
+    else if(scr2&&scr2.id!=='menuScreen'&&scr2.id!=='gameScreen'){goTo('menuScreen');}
+  }
 });
 document.addEventListener('keyup',function(e){keys[e.key]=false;});
 var lastTap=0;
