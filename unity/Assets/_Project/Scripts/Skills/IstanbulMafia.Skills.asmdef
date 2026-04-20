@@ -1,0 +1,17 @@
+{
+    "name": "IstanbulMafia.Skills",
+    "rootNamespace": "IstanbulMafia.Skills",
+    "references": [
+        "IstanbulMafia.Core",
+        "IstanbulMafia.Player"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

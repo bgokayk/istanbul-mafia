@@ -1,0 +1,19 @@
+{
+    "name": "IstanbulMafia.UI",
+    "rootNamespace": "IstanbulMafia.UI",
+    "references": [
+        "IstanbulMafia.Core",
+        "IstanbulMafia.Player",
+        "IstanbulMafia.Skills",
+        "Unity.TextMeshPro"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

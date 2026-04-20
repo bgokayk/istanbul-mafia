@@ -1,0 +1,16 @@
+{
+    "name": "IstanbulMafia.Enemies",
+    "rootNamespace": "IstanbulMafia.Enemies",
+    "references": [
+        "IstanbulMafia.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

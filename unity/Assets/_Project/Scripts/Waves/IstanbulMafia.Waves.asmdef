@@ -1,0 +1,17 @@
+{
+    "name": "IstanbulMafia.Waves",
+    "rootNamespace": "IstanbulMafia.Waves",
+    "references": [
+        "IstanbulMafia.Core",
+        "IstanbulMafia.Enemies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
