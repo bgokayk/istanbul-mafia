@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f42847a2b43c066449f189e16da4c33f, type: 3}
+  m_Name: Cakir
+  m_EditorClassIdentifier: IstanbulMafia.Player::IstanbulMafia.Player.CharacterData
+  characterId: cakir
+  displayName: "\xC7AKIR"
+  portrait: {fileID: 0}
+  ingameSprite: {fileID: 21300000, guid: 30d25e6dd3ffe6148ab54028bbb7f30d, type: 3}
+  startWeaponId: bicak
+  maxHp: 60
+  moveSpeed: 3.6
+  baseDamage: 16
+  fireInterval: 0.55
+  projectileSpeed: 8
+  projectileCount: 2
+  primaryColor: {r: 0.16470589, g: 0, b: 0.3137255, a: 1}
+  accentColor: {r: 0.6666667, g: 0.26666668, b: 1, a: 1}
+  passive: 2

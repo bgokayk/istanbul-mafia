@@ -51,6 +51,9 @@ namespace IstanbulMafia.Player
 
         /// <summary>
         /// CharacterData'daki sprite ve renk bilgisini SpriteRenderer'a uygular.
+        /// Sprite varsa olduğu gibi kullanır (renk = beyaz, tint yok);
+        /// sprite yoksa placeholder olarak <see cref="CharacterData.primaryColor"/>
+        /// tint uygular (başlangıç daire sprite'ı için).
         /// </summary>
         public void ApplyCharacterVisuals()
         {
@@ -60,9 +63,13 @@ namespace IstanbulMafia.Player
             if (data.ingameSprite != null)
             {
                 spriteRenderer.sprite = data.ingameSprite;
+                spriteRenderer.color = Color.white; // Pixel art renklerini koru
             }
-            // MVP'de sprite yok — renk ile karakteri ayırt edebilelim
-            spriteRenderer.color = data.primaryColor;
+            else
+            {
+                // Sprite yok — placeholder daire sprite'ını karakter rengine boya
+                spriteRenderer.color = data.primaryColor;
+            }
         }
 
         // ─── Input System callback (PlayerInput Send Messages) ──────
