@@ -7,6 +7,8 @@ _Durum işaretleri: ✅ bitti · 🔄 sürüyor · ⏳ bekliyor · ❌ kesildi_
 - **Motor:** HTML5 / Vanilla JS + Canvas (tek dosya `www/index.html`, 5758 satır). Unity yeniden yazımı **park edildi** (`unity/`, dokunulmaz).
 - **Platform + mağaza:** Android · **Google Play** (Capacitor 8 sarmalı). Tek hedef.
 - **Ürün:** Ücretsiz, **IAP yok, reklam yok** (v1.0). Para kazanma v1.1'de.
+- **Karakter adları (onaylı 2026-09-17):** POLAT→KURT · MEMATI→ÇELİK · ÇAKIR→USTURA · ABDÜLHEY→ZARCI · DAYI→AMCA · KEMAL BABA→BABA · EŞREF TAKSİCİ→ŞOFÖR · TESTERE NECMİ→TESTERE
+- **Paket adı (onaylı):** `com.lumenco.istanbulmafia` kalır.
 - **Tek kaynak:** `www/index.html`. `src/` kopyası kaldırılır, `docs/index.html` sürüm anında Terminal kopyalar.
 
 ---
@@ -34,7 +36,7 @@ Hedef: telefonda kurulup çalışan, mağaza politikasına uygun, IP-temiz APK.
 ## Faz 2 — Mağaza sayfası + yayın
 | # | İş | Sahip | Durum |
 |---|---|---|---|
-| 2.1 | Google Play Developer hesabı ($25) · **paket adı kararı** (mevcut `com.lumenco.istanbulmafia` — yayından sonra değişmez) | Gökay | ⏳ |
+| 2.1 | Google Play Developer hesabı ($25) · paket adı `com.lumenco.istanbulmafia` (onaylı) | Gökay | ⏳ |
 | 2.2 | Gizlilik politikası sayfası (lumenco/koza sitesi) — oyun veri toplamıyor, yalnız localStorage | Terminal | ⏳ |
 | 2.3 | Listing TR+EN yeniden yaz (dizi isimleri çıkar), 4+ ekran görüntüsü 1080×1920 | Sohbet + Gökay | ⏳ |
 | 2.4 | IARC anketi (fantezi şiddet, simüle kumar, alkol referansı → beklenen PEGI 12 / Teen) · Data Safety formu | Gökay | ⏳ |
