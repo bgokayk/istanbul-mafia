@@ -108,8 +108,13 @@ node_modules/
 .env.*.local
 *.pem
 *.key
+*.jks
+*.keystore
 credentials.json
 secrets.json
+
+# === Android build output ===
+android/app/build/
 
 # === Large Binary Assets (use Git LFS instead) ===
 # Uncomment and configure with Git LFS for your project:
