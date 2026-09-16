@@ -26,6 +26,7 @@ builds/
 bin/
 obj/
 out/
+!assets/store/out/
 dist/
 *.exe
 *.dll
