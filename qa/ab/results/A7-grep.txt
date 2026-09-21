@@ -1,0 +1,5 @@
+Command: rg -n -i 'polat|memati|çakır|cakir|abdülhey|abdulhey|dayı|dayi|kemal|eşref|esref|necmi|premium|premİum|abonelik|reklamsız|reklamsiz' C:/Dev/CO/koza/istanbul-mafia-v2/www -g '*.html' -g '*.js' -g '*.css' -g '*.md'
+Match count: 0
+rg exit code: 1 (no matches)
+Output: (empty)
+Scope: authoritative www sources, excluding unchanged Android bundled assets and QA reports. Legacy save migration maps escaped IDs to current IDs; those values are never presented in the UI.

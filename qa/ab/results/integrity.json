@@ -1,0 +1,77 @@
+{
+  "source": [
+    {
+      "file": "www/index.html",
+      "match": true
+    },
+    {
+      "file": "www/art-v2.js",
+      "match": true
+    },
+    {
+      "file": "www/world-ab.js",
+      "match": true
+    },
+    {
+      "file": "www/v2.css",
+      "match": true
+    },
+    {
+      "file": "www/atelier.html",
+      "match": true
+    },
+    {
+      "file": "www/textures/README.md",
+      "match": true
+    },
+    {
+      "file": "package.json",
+      "match": true
+    },
+    {
+      "file": "package-lock.json",
+      "match": true
+    },
+    {
+      "file": "www/textures/characters/kurt.png",
+      "match": true,
+      "oldRemoved": true
+    },
+    {
+      "file": "www/textures/characters/ustura.png",
+      "match": true,
+      "oldRemoved": true
+    },
+    {
+      "file": "www/textures/characters/celik.png",
+      "match": true,
+      "oldRemoved": true
+    },
+    {
+      "file": "www/textures/characters/zarci.png",
+      "match": true,
+      "oldRemoved": true
+    },
+    {
+      "file": "www/textures/characters/amca.png",
+      "match": true,
+      "oldRemoved": true
+    },
+    {
+      "file": "www/textures/characters/baba.png",
+      "match": true,
+      "oldRemoved": true
+    },
+    {
+      "file": "www/textures/characters/sofor.png",
+      "match": true,
+      "oldRemoved": true
+    }
+  ],
+  "protected": {
+    "v1www": true,
+    "v2android": true
+  },
+  "scope": "Android build and .gradle caches excluded from hash traversal; no writes or builds performed there.",
+  "portrait": true
+}

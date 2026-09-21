@@ -1,0 +1,4 @@
+// No dependencies; bind locally so the preview is not published on the network.
+const http=require('http'),fs=require('fs'),path=require('path');
+const root=path.join(__dirname,'www'),port=Number(process.env.PORT)||8795;
+http.createServer((req,res)=>{let name;try{name=decodeURIComponent(req.url.split('?')[0]);}catch{res.writeHead(400).end();return;}let file=path.resolve(root,'.'+(name==='/'?'/index.html':name));if(!file.startsWith(root+path.sep)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404).end();return;}res.setHeader('Content-Type',({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.ttf':'font/ttf','.png':'image/png'})[path.extname(file)]||'application/octet-stream');res.setHeader('Cache-Control','no-cache');fs.createReadStream(file).pipe(res);}).listen(port,'127.0.0.1',()=>console.log('Gece Vardiyası V2: http://127.0.0.1:'+port));

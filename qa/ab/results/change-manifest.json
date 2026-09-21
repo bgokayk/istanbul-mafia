@@ -1,0 +1,91 @@
+[
+  {
+    "file": "www/index.html",
+    "before": "9f8d1845b289e5e45d92b99960e5d2d2152df4beb0585cec4cbfc4bd136e3af5",
+    "after": "a464c97860b8ac7a923db5a11dfef8e618dd878a36b45113470442c2f7a5e765"
+  },
+  {
+    "file": "www/art-v2.js",
+    "before": "a079d59332033b3ac03ae4d3fa2ba8349f7c2a883e55071bb4ceff53d4c99184",
+    "after": "912d6121953daf1dc097aa84c26bb7d0c7a2226c0d035af8af9ec3c94a8ddecb"
+  },
+  {
+    "file": "www/world-ab.js",
+    "before": null,
+    "after": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10"
+  },
+  {
+    "file": "www/v2.css",
+    "before": "291fe0197fb3122dbf6bc275fa7723fb96f69209b719e9522f96a187c37a57a8",
+    "after": "7dcb3ca7c96b05e98d2877e6a47f0d9ca1b1fb075a6ce3d8e926e959cc3d497e"
+  },
+  {
+    "file": "www/atelier.html",
+    "before": "8576a3d96accf4c7f5baf52ae7676eb2c1f94a451b89c46adcd49d0ff3358e13",
+    "after": "8592dd0e31c210f1d8763ee7af8ee1fb7af246a0ec83ef7c1cf69e236572f8c2"
+  },
+  {
+    "file": "www/textures/README.md",
+    "before": "9a6698ad53f1424f2c8e2d9ab29cd8a3f0b1187c55b0b1519955e05fb9281184",
+    "after": "7d28b3c0e97dc314f62e278831a41933de3910d30cd1b0a591a123827084bd00"
+  },
+  {
+    "file": "package.json",
+    "before": "10732a765b8d565f9bb2f93f3b557d8378a92fd9ca03a9f0606ad09a6dfe72ce",
+    "after": "6bb68edbc2275c4f308628dcb814bb7432b0ac1083c1d464f984ea59ad3ebfc7"
+  },
+  {
+    "file": "package-lock.json",
+    "before": "81a1d70c43799fe8fba0ea76d50361366b91195a7d7f3fddc0be7eae0ad15217",
+    "after": "b2a322e6d70e676390fa96b7ca89f059c8c717778fe480ef55d59cc90721088c"
+  },
+  {
+    "file": "www/textures/characters/kurt.png",
+    "renamedFrom": "www/textures/characters/polat.png",
+    "before": "39e0732537d0d0cc2a3122f3f38354219095b15478aba765ab01c90dbf569245",
+    "after": "39e0732537d0d0cc2a3122f3f38354219095b15478aba765ab01c90dbf569245",
+    "pixelsUnchanged": true
+  },
+  {
+    "file": "www/textures/characters/ustura.png",
+    "renamedFrom": "www/textures/characters/cakir.png",
+    "before": "dae519e8d42e5e214a0085d140ba2d0af88e799299b67ddf60f06c003f01ae7f",
+    "after": "dae519e8d42e5e214a0085d140ba2d0af88e799299b67ddf60f06c003f01ae7f",
+    "pixelsUnchanged": true
+  },
+  {
+    "file": "www/textures/characters/celik.png",
+    "renamedFrom": "www/textures/characters/memati.png",
+    "before": "d8f187bbe3b6e0d8b42eaaed1fe124e5d8a9c922db0fb786267fdd8a3f3bf155",
+    "after": "d8f187bbe3b6e0d8b42eaaed1fe124e5d8a9c922db0fb786267fdd8a3f3bf155",
+    "pixelsUnchanged": true
+  },
+  {
+    "file": "www/textures/characters/zarci.png",
+    "renamedFrom": "www/textures/characters/abdulhey.png",
+    "before": "74e29e943039d4f2bff3193aeed249839cfe21fee3bc52e16fcf6183dcf70a48",
+    "after": "74e29e943039d4f2bff3193aeed249839cfe21fee3bc52e16fcf6183dcf70a48",
+    "pixelsUnchanged": true
+  },
+  {
+    "file": "www/textures/characters/amca.png",
+    "renamedFrom": "www/textures/characters/dayi.png",
+    "before": "cd7b28a13e2d4e448c2369a0a09e87c5b64110b0fb6d30daa16416cebaff6d17",
+    "after": "cd7b28a13e2d4e448c2369a0a09e87c5b64110b0fb6d30daa16416cebaff6d17",
+    "pixelsUnchanged": true
+  },
+  {
+    "file": "www/textures/characters/baba.png",
+    "renamedFrom": "www/textures/characters/kemal.png",
+    "before": "6f01d93d5b7bbafb49c710c719e75ed55b88c0e6f03cdaa0758400dcd4ab93df",
+    "after": "6f01d93d5b7bbafb49c710c719e75ed55b88c0e6f03cdaa0758400dcd4ab93df",
+    "pixelsUnchanged": true
+  },
+  {
+    "file": "www/textures/characters/sofor.png",
+    "renamedFrom": "www/textures/characters/esref.png",
+    "before": "e1c9822e049ae2ea321eefe5246df263736fcd72d8d30e5958077445b443985a",
+    "after": "e1c9822e049ae2ea321eefe5246df263736fcd72d8d30e5958077445b443985a",
+    "pixelsUnchanged": true
+  }
+]

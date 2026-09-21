@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-17T21:16:28.793Z",
+  "host": {
+    "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "cores": 12,
+    "platform": "win32",
+    "release": "10.0.26200"
+  },
+  "browser": "153.0.4234.32",
+  "method": "Controlled: actual gloop rAF callback including update, draw, minimap, HUD and game timers. Warmup 120 frames + 600 measured frames. Update-only samples discard the first 125 update calls. Chrome tracing enabled. CPU callback wall duration; display refresh intervals are recorded separately. GPU/compositor presentation is not included. God mode and high enemy HP only in this benchmark, not natural runs.",
+  "scenarios": [
+    {
+      "enemies": 180,
+      "viewport": [
+        540,
+        900
+      ],
+      "fullGameCallbackMs": {
+        "n": 600,
+        "min": 1,
+        "median": 2.7000000029802322,
+        "p95": 4.300000011920929,
+        "p99": 5.800000011920929,
+        "max": 9.099999994039536
+      },
+      "updateMs": {
+        "n": 292,
+        "min": 1,
+        "median": 1.699999988079071,
+        "p95": 2.5999999940395355,
+        "p99": 3.5,
+        "max": 4.5
+      },
+      "refreshIntervalMs": {
+        "n": 599,
+        "min": 5.899999999999636,
+        "median": 6.100000000000364,
+        "p95": 18.09999999999991,
+        "p99": 18.300000000000182,
+        "max": 24.300000000000182
+      },
+      "enemyCount": {
+        "min": 180,
+        "max": 180
+      },
+      "separationCandidateChecks": {
+        "n": 600,
+        "min": 31522,
+        "median": 31878,
+        "p95": 31916,
+        "p99": 31916,
+        "max": 31932
+      },
+      "cpuBudgetPass": true
+    }
+  ],
+  "errors": [],
+  "traceAnalysis": {
+    "marks": 720,
+    "taskCount": 46441,
+    "mainThreadFrameWorkMs": {
+      "n": 599,
+      "min": 2.108,
+      "median": 8.809,
+      "p95": 14.862,
+      "p99": 19.892,
+      "max": 24.437
+    },
+    "definition": "Union of main-thread RunTask intervals intersected with successive frame markers; nested tasks counted once. Includes timers, layout and paint on that thread. GPU work excluded.",
+    "cpuBudgetPass": true
+  }
+}

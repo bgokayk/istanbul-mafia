@@ -1,0 +1,53 @@
+{
+  "map": "besiktas",
+  "run": 2,
+  "freshStorage": true,
+  "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+  "samples": [
+    {
+      "elapsed": 240,
+      "end": false,
+      "hp": 60,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 21192,
+      "y": 21000,
+      "level": 1,
+      "kills": 0,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 18,
+      "free": true,
+      "near": 366.5688975509264
+    }
+  ],
+  "errors": [],
+  "version": "2.0.0-preview.2",
+  "sourceHash": "a464c97860b8ac7a923db5a11dfef8e618dd878a36b45113470442c2f7a5e765",
+  "spawn": {
+    "x": 21192,
+    "y": 21000,
+    "free": true
+  },
+  "idleSpawnDisplacement": 0,
+  "final": {
+    "elapsed": 4032,
+    "end": true,
+    "hp": 0,
+    "god": false,
+    "paused": false,
+    "modal": false,
+    "x": 20888.17090936937,
+    "y": 21559.429090630543,
+    "level": 1,
+    "kills": 7,
+    "modifier": null,
+    "ultReady": false,
+    "enemies": 15,
+    "free": true,
+    "near": -9.477147126383935
+  },
+  "wallSeconds": 6.721,
+  "pass": false
+}

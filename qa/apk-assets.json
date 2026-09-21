@@ -1,0 +1,22 @@
+[
+  {
+    "asset": "index.html",
+    "matches": true
+  },
+  {
+    "asset": "art-v2.js",
+    "matches": true
+  },
+  {
+    "asset": "v2.css",
+    "matches": true
+  },
+  {
+    "asset": "textures/characters/polat.png",
+    "matches": true
+  },
+  {
+    "asset": "textures/tiles/kapalicarsi.png",
+    "matches": true
+  }
+]

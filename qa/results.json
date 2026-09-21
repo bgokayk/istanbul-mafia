@@ -1,0 +1,44 @@
+{
+  "checks": [
+    "V2 version and independent save namespace",
+    "Eight character cards, no portrait requests",
+    "Game update and new renderer execute",
+    "Dash moves, consumes cooldown and does not cross walls",
+    "Paused dash cannot move the player",
+    "Calm preference persists independently",
+    "Every available map renders: kapalicarsi, uskudar, balat, besiktas, taksim, eminonu",
+    "TESTERE boss renderer runs without camera reference errors",
+    "All enemy types and 8 hero animations draw",
+    "Pause freezes gameplay",
+    "XP awarded once after repeated game-over calls",
+    "Menu fits viewport 320",
+    "Menu fits viewport 540",
+    "Menu fits viewport 1280",
+    "Explicit V1 import copies progress without changing original",
+    "Original source SHA256 unchanged",
+    "Touch opens character selection",
+    "Touch pause button responds",
+    "Touch dash responds without pausing",
+    "60-second simulation with movement stays valid",
+    "Missing PNG pack falls back to code-native art",
+    "No JavaScript errors",
+    "No failed asset requests"
+  ],
+  "errors": [],
+  "requests": [],
+  "perf": {
+    "median": 0.5999999940395355,
+    "p95": 1,
+    "enemies": 120,
+    "cache": 119,
+    "tiles": 48
+  },
+  "maps": [
+    "kapalicarsi",
+    "uskudar",
+    "balat",
+    "besiktas",
+    "taksim",
+    "eminonu"
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "method": "Real RAF, read-only state inspection for route choice, keyboard and visible UI controls only. Fresh browser contexts, no save injection, no direct updates, no cheats. Normal selectable run modifiers may be chosen.",
+  "attempts": 16,
+  "passes": 10,
+  "deaths": 6,
+  "selected": [
+    {
+      "map": "uskudar",
+      "evidence": "final-natural/natural-uskudar-4.json",
+      "seconds": 180.192,
+      "level": 3,
+      "kills": 284,
+      "hp": 60,
+      "modifier": null,
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    },
+    {
+      "map": "uskudar",
+      "evidence": "final-natural/natural-uskudar-2.json",
+      "seconds": 180.112,
+      "level": 4,
+      "kills": 255,
+      "hp": 60,
+      "modifier": null,
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    },
+    {
+      "map": "uskudar",
+      "evidence": "final-natural/natural-uskudar-1.json",
+      "seconds": 180.048,
+      "level": 6,
+      "kills": 286,
+      "hp": 55.775999999999954,
+      "modifier": null,
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    },
+    {
+      "map": "uskudar",
+      "evidence": "final-natural/natural-uskudar-5.json",
+      "seconds": 180.08,
+      "level": 4,
+      "kills": 362,
+      "hp": 60,
+      "modifier": null,
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    },
+    {
+      "map": "uskudar",
+      "evidence": "final-natural-retry/natural-uskudar-1.json",
+      "seconds": 180.192,
+      "level": 5,
+      "kills": 294,
+      "hp": 60,
+      "modifier": "m_aura",
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural/natural-besiktas-5.json",
+      "seconds": 180.16,
+      "level": 4,
+      "kills": 277,
+      "hp": 53.055104000000235,
+      "modifier": null,
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural/natural-besiktas-4.json",
+      "seconds": 180.08,
+      "level": 6,
+      "kills": 440,
+      "hp": 60,
+      "modifier": null,
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural-retry/natural-besiktas-5.json",
+      "seconds": 180.016,
+      "level": 5,
+      "kills": 364,
+      "hp": 93,
+      "modifier": "m_aura",
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural-retry/natural-besiktas-4.json",
+      "seconds": 180.16,
+      "level": 4,
+      "kills": 258,
+      "hp": 60,
+      "modifier": "m_sniper",
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural-retry/natural-besiktas-2.json",
+      "seconds": 180.192,
+      "level": 4,
+      "kills": 205,
+      "hp": 60,
+      "modifier": "m_time",
+      "god": false,
+      "spawnDisplacement": 0,
+      "collisionViolations": 0,
+      "errors": []
+    }
+  ],
+  "failures": [
+    {
+      "map": "uskudar",
+      "evidence": "final-natural/natural-uskudar-3.json",
+      "seconds": 71.2,
+      "reason": "Combat death; no JS error or solid-object intersection observed",
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural/natural-besiktas-3.json",
+      "seconds": 3.312,
+      "reason": "Combat death; no JS error or solid-object intersection observed",
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural/natural-besiktas-2.json",
+      "seconds": 4.032,
+      "reason": "Combat death; no JS error or solid-object intersection observed",
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural/natural-besiktas-1.json",
+      "seconds": 115.104,
+      "reason": "Combat death; no JS error or solid-object intersection observed",
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural-retry/natural-besiktas-3.json",
+      "seconds": 3.824,
+      "reason": "Combat death; no JS error or solid-object intersection observed",
+      "errors": []
+    },
+    {
+      "map": "besiktas",
+      "evidence": "final-natural-retry/natural-besiktas-1.json",
+      "seconds": 112.24,
+      "reason": "Combat death; no JS error or solid-object intersection observed",
+      "errors": []
+    }
+  ]
+}

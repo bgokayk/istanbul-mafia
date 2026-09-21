@@ -1,0 +1,13 @@
+node_modules/
+qa/**/node_modules
+android/.gradle/
+android/**/build/
+android/app/build/
+android/local.properties
+*.keystore
+*.jks
+keystore.properties
+.env
+GEMINI_API_KEY.txt
+*.apk
+outputs/**/*.gz
