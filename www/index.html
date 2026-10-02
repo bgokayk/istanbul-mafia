@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#000000">
-<title>İstanbul Mafia V2 · Gece Vardiyası</title>
+<title>İstanbul Mafia · Gece Vardiyası</title>
 <style>
 @font-face{font-family:'Press Start 2P';src:url('fonts/PressStart2P-Regular.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -337,7 +337,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
   <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.08) 2px,rgba(0,0,0,.08) 4px);pointer-events:none;z-index:1;"></div>
   <div class="menu-over">
     <div class="menu-top">
-      <div class="mtitle-wrap"><div class="edition-tag">YENİ SÜRÜM · 02</div>
+      <div class="mtitle-wrap"><div class="edition-tag">SÜRÜM · <span data-app-version></span></div>
         <div class="mt1">☽ İSTANBUL ☾</div>
         <div class="mt2">MAFİA</div>
         <div class="mt3">GECE VARDİYASI</div>
@@ -562,6 +562,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:rgba(255,215,0,.2);
 
 <script src="world-ab.js"></script>
 <script src="art-v2.js"></script>
+<script src="release-ui.js"></script>
 <script>
 var v2Settings={calm:false,minimal:false};
 try{Object.assign(v2Settings,JSON.parse(localStorage.getItem('istanbul-mafia-v2-display')||'{}'));}catch(e){}
@@ -577,7 +578,7 @@ window.v2SettingsOpen=function(){
  function apply(){v2Settings.calm=calm.checked;v2Settings.minimal=minimal.checked;document.documentElement.classList.toggle('v2-calm',calm.checked);document.documentElement.classList.toggle('v2-minimal',minimal.checked);try{localStorage.setItem('istanbul-mafia-v2-display',JSON.stringify(v2Settings));}catch(e){}}
  calm.onchange=apply;minimal.onchange=apply;el.querySelector('button').onclick=function(){el.remove();};calm.focus();
 };
-var APP_VERSION='2.0.0-preview.2';
+var APP_VERSION='1.0.0';
 var RESERVED_ENABLED=false;
 document.querySelectorAll('[data-app-version]').forEach(function(el){el.textContent='v'+APP_VERSION;});
 (function(){'use strict';
@@ -593,7 +594,7 @@ var sHit=function(){tone(220,'sawtooth',.06,.06);};
 var sLvl=function(){tone(330,'square',.08,.07,0);tone(440,'square',.08,.07,.08);tone(550,'square',.1,.07,.16);tone(660,'square',.12,.07,.24);};
 var sDie=function(){tone(440,'sawtooth',.1,.1,0);tone(330,'sawtooth',.1,.1,.1);tone(220,'sawtooth',.15,.1,.2);tone(110,'sawtooth',.2,.1,.35);};
 var sBoss=function(){tone(80,'sawtooth',.3,.12,0);tone(60,'square',.4,.1,.15);};
-var sGold=function(){tone(880,'sine',.08,.05);};
+var _lastGoldSound=0;var sGold=function(){if(performance.now()-_lastGoldSound<180)return;_lastGoldSound=performance.now();tone(880,'sine',.08,.05);MafiaUI.reward('gold','+ ALTIN');};
 var sAch=function(){tone(660,'sine',.1,.08,0);tone(880,'sine',.1,.08,.1);tone(1100,'sine',.15,.08,.2);};
 var sBuy=function(){tone(440,'sine',.1,.08,0);tone(550,'sine',.1,.08,.1);};
 var sEvo=function(){[330,440,550,660,880].forEach(function(f,i){tone(f,i<4?'square':'sine',.1,.08,i*.07);});};
@@ -798,7 +799,7 @@ var CHARS=[
   {id:'kurt',   name:'KURT',    wep:'tabanca', desc:'İstanbul\'un demiri. Her vuruşta düşman yavaşlar. Yüksek hasar, orta hız.',   col:'#1a3a8b',acc:'#4488ff',dmg:45,spd:2.3,hp:100,fr:0.75,ps:7,pc:1,stars:[1,0,1,1,0],unlock:'free',  passive:'❄ Yavaşlatma: Her vuruşta -30% hız (1sn)',backstory:'İstanbul\'un demiri. Mahallesini yeniden bir araya getirmek için döndü.'},
   {id:'ustura',   name:'USTURA',    wep:'bicak',   desc:'Sessiz ve hızlı. Bıçaklar geri döner. %25 kritik vuruş şansı.',             col:'#2a0050',acc:'#aa44ff',dmg:16,spd:3.6,hp:60, fr:.55,ps:8,pc:2,stars:[1,1,0,0,1],unlock:'free',  passive:'🗡 Kritik: %25 ihtimalle 2x hasar',backstory:'Eski keskin nişancı. Bir sırrı var.'},
   {id:'celik',  name:'ÇELİK',   wep:'molotov', desc:'Mahallenin korkusu. Tüm alev hasarı +%30. Molotov geniş alan yakar.',       col:'#2a1500',acc:'#ff8800',dmg:20,spd:2.5,hp:110,fr:1.0,ps:5,pc:1,stars:[0,1,1,0,0],unlock:'free',  passive:'🔥 Alev Ustası: Yangın hasarı +30%',backstory:'Yangın ustası. Mahalleyi yakanlara karşı savaşıyor.'},
-  {id:'zarci',name:'ZARCI',wep:'zar',    desc:'tılsım masasının efendisi. Hasar 0-3x arası — şans her şey.',                col:'#001a0d',acc:'#00ff88',dmg:24,spd:2.7,hp:70, fr:.9, ps:6,pc:1,stars:[1,0,0,1,1],unlock:'free',  passive:'✦ tılsım: Hasar 0.05x-3x arası rastgele',backstory:'tılsım masasından kalktı. Şans ona hizmet ediyor.'},
+  {id:'zarci',name:'ZARCI',wep:'zar',    desc:'Tılsımların ustası. Değişken enerji darbeleriyle alanı kontrol eder.',                col:'#001a0d',acc:'#00ff88',dmg:24,spd:2.7,hp:70, fr:.9, ps:6,pc:1,stars:[1,0,0,1,1],unlock:'free',  passive:'✦ tılsım: Hasar 0.05x-3x arası rastgele',backstory:'Eski bir mührün izini sürüyor. Enerjiyi silaha dönüştürüyor.'},
   {id:'amca',  name:'AMCA',    wep:'zincir',desc:'Amca her şeyi halleder. Zinciriyle 4 düşmana aynı anda vurur. Her öldürmede can çalar. 1.000.000 altın ile açılır!', col:'#0d2a1a',acc:'#00ffaa',dmg:72,spd:2.9,hp:160, fr:.8, ps:6,pc:1,stars:[0,1,0,1,1],unlock:'gold:1000000',passive:'💚 Amca Karizması: Her kill +8 HP | 2x Hasar',backstory:'Herkes onu tanır. Kimse nerede olduğunu bilmez.'},
   {id:'baba',   name:'BABA',wep:'av_tufegi',desc:'Esnafın patronu. Saçma mermileri 3 kat genişler. Zırh delici. Alan hasarı +100%. sonraki güncellemede açılacak.', col:'#1a1a00',acc:'#ffff00',dmg:112,spd:2.0,hp:260,fr:1.5,ps:5,pc:1,stars:[1,0,1,0,1],unlock:'reserved100',passive:'🎯 Geniş Saçma: Alan hasarı +100% | 2x Hasar',backstory:'Esnafın patronu. Son kez silah taşıyor.'},
   {id:'abla',    name:'ABLA',     wep:'kama',    desc:'Mahallenin ablası. Hızlı bıçak + can çalma. Düşman öldürünce %15 ihtimalle sağlık orbı düşürür.',   col:'#4a0028',acc:'#ff66aa',dmg:32,spd:3.2,hp:85, fr:.6, ps:7,pc:2,stars:[1,1,0,1,0],unlock:'gold:50000', passive:'💗 Şifacı: Kill\'de %15 sağlık orbı + can çalma',backstory:'Mahallenin ablası. Kimse ona dokunmaz.'},
@@ -835,10 +836,10 @@ var MAPS=[
    tags:['CANAVAR','GECE','BOSS','NEON'],border:'#ff4444',
    th:{f1:'#1a0a18',f2:'#120812',accent:'#4a0040'},
    enemySpeedMult:1.8,enemyHpMult:3.0,goldMult:2.0,spawnRate:1.8,
-   bossMode:true},// Taksim: tüm düşmanlar boss güçlü
+   bossMode:true,unlockLevel:15},// Taksim: tüm düşmanlar boss güçlü
   {id:'eminonu',name:'EMİNÖNÜ',diff:'medium',
    desc:'⚡ SPEEDRUN — 3 dakikan var! Boğaz rüzgarı savunmayı zorlaştırıyor. Her saniye değerli.',
-   tags:['ORTA','SPEEDRUN','SAHIL'],border:'#ffaa00',
+   tags:['ZOR','SPEEDRUN','SAHIL'],border:'#ffaa00',
    th:{f1:'#081824',f2:'#040d16',accent:'#102a44'},
    enemySpeedMult:1.5,enemyHpMult:1.8,goldMult:2.0,spawnRate:1.6,
    speedrun:true,speedrunTime:180},
@@ -1303,7 +1304,7 @@ var RELICS=[
 {id:'taksi_dir',  icon:'🚕',name:'Taksici Direksiyonu',desc:'Hız +2.0',           apply:function(P){P.spd+=2.0;}},
 {id:'balik_agi',  icon:'🎣',name:'Balık Ağı',          desc:'Mermiler yavaşlatır', apply:function(P){P._slowShot=true;P.ps=(P.ps||7)+2;}},
 {id:'berber_ustr',icon:'✂',name:'Berber Usturası',     desc:'Hasar +20%, mermi +1',apply:function(P){P.dmg=Math.floor(P.dmg*1.2);P.pc=(P.pc||1)+1;}},
-{id:'doviz_carki',icon:'💱',name:'Döviz Çarkı',         desc:'Altın +60%',          apply:function(P){P.gm=(P.gm||1)*1.6;}},
+{id:'doviz_carki',icon:'💱',name:'Altın Mührü',         desc:'Altın +60%',          apply:function(P){P.gm=(P.gm||1)*1.6;}},
 {id:'insaat_kask',icon:'⛑',name:'İnşaat Kaskı',        desc:'Zırh +20%',           apply:function(P){P.armor=(P.armor||0)+.20;}},
 // Harita Görev Relicler
 {id:'tabut_religi', icon:'⚰',name:'Tabut Religi',      desc:'Her ölümde +500 altın bırak', apply:function(P){P._tabutRelic=true;}},
@@ -2116,7 +2117,7 @@ function unlockAch(id){
   }
   pdata.ach[id]=true;saveP();
   var a=achDef;if(!a)return;
-  sAch();
+  sAch();MafiaUI.reward('achievement','BAŞARIM AÇILDI');
   var p=document.getElementById('achPopup');
   document.getElementById('achPopupName').textContent=a.icon+' '+a.name+(a.gold?' +'+a.gold+'💰':'');
   p.classList.add('show');setTimeout(function(){p.classList.remove('show');},2800);
@@ -2812,7 +2813,7 @@ window.buildLanetScreen=buildLanetScreen;
 window.buildReservedScreen=buildReservedScreen;
 
 // ════════════════════════════════════
-// ŞANS ÇARKI SİSTEMİ
+// Eski sistem kaldırıldı
 // ════════════════════════════════════
 
 var _cheatBuffer='',_cheatActive=false;
@@ -3068,11 +3069,12 @@ function buildMapScreen(){
     var _coming=m.comingSoon;
     var card=document.createElement('div');card.className='mcard'+(m===selMap&&!_locked&&!_coming?' sel':'');
     if(_locked||_coming)card.style.opacity='.6';
+    if(_locked||m.id==='eminonu')card.style.flexShrink='0';
     var cv=document.createElement('canvas');cv.width=100;cv.height=70;cv.className='mthumb';
     if(_coming){cv.style.filter='grayscale(1)';}
     drawMapThumb(cv.getContext('2d'),m,100,70);
     var tags=m.tags.map(function(t){return'<span class="mtag '+(t==='ZOR'||t==='BOSS'||t==='EFSA'?'th':t==='EKSTREM'||t==='CANAVAR'?'tx':t==='GECE'||t==='HIZLI'?'te':'tn')+'">'+t+'</span>';}).join('');
-    var lockMsg=_locked?'<div style="font-family:\'Press Start 2P\',monospace;font-size:5px;color:#ff4444;margin-top:2px;">🔒 SEVİYE '+m.unlockLevel+' GEREKLİ</div>':'';
+    var lockMsg=_locked?'<div style="font-family:\'Press Start 2P\',monospace;font-size:5px;color:#ff4444;margin-top:2px;">🔒 HESAP LVL '+m.unlockLevel+'</div>':'';
     var comingMsg=_coming?'<div style="font-family:\'Press Start 2P\',monospace;font-size:5px;color:#ff8800;margin-top:2px;">⏳ ÇOK YAKINDA</div>':'';
     var info=document.createElement('div');info.className='minfo';
     info.innerHTML='<div class="mname">'+m.name+'</div><div class="mdesc">'+m.desc.replace(/\n/g,'<br>')+'</div><div class="mtags">'+tags+'</div>'+lockMsg+comingMsg;
@@ -3109,7 +3111,7 @@ function buildShopScreen(){
     var cost=item.cost+lv*Math.floor(item.cost*1.2);
     var can=!mx&&pdata.gold>=cost;
     var el=document.createElement('div');el.className='sitem'+(mx?' maxed':'');
-    el.innerHTML='<div class="si-icon">'+item.icon+'</div><div class="si-info"><div class="si-name">'+item.name+'</div><div class="si-desc">'+item.desc+'</div><div class="si-lv">Lv: '+lv+'/'+item.max+'</div></div><div class="si-cost'+(can?'':' cant')+'" style="color:'+(mx?'#444':can?'#ffd700':'#555')+'">'+(mx?'MAX':'💰'+cost)+'</div>';
+    el.innerHTML='<div class="si-icon">'+MafiaUI.itemIcon(item.icon)+'</div><div class="si-info"><div class="si-name">'+item.name+'</div><div class="si-desc">'+item.desc+'</div><div class="si-lv">Lv: '+lv+'/'+item.max+'</div></div><div class="si-cost'+(can?'':' cant')+'" style="color:'+(mx?'#444':can?'#ffd700':'#555')+'">'+(mx?'MAX':'💰'+cost)+'</div>';
     if(!mx){
       function _buyItem(ev){
         var lv2=pdata.shopLvl[item.id]||0,cost2=item.cost+lv2*Math.floor(item.cost*1.2);
@@ -3188,7 +3190,7 @@ window.toggleSelectedRelic=function(shouldEquip){
   if(!info)return;
   if(shouldEquip){
     if(idx>=0 || pdata.relics.length>=pdata.relicCap || !isRelicUnlocked(id))return;
-    pdata.relics.push(id);
+    pdata.relics.push(id);sEvo();MafiaUI.reward('relic','EKSTRA KUŞANILDI');
   }else{
     if(idx<0)return;
     pdata.relics.splice(idx,1);
@@ -4276,22 +4278,7 @@ function gupdate(dt){
 function doLvlUp(){
   P.xp-=P.xpn;P.lvl++;P.xpn=Math.min(50000,Math.floor(P.xpn*1.4+22));
   sLvl();
-  // Level up parlama efekti
-  var flashDiv=document.getElementById('lvlFlashEl');
-  if(!flashDiv){
-    flashDiv=document.createElement('div');flashDiv.id='lvlFlashEl';
-    flashDiv.style.cssText='position:absolute;inset:0;z-index:8;pointer-events:none;background:rgba(255,215,0,0);transition:background .1s;';
-    document.getElementById('gameScreen').appendChild(flashDiv);
-  }
-  flashDiv.style.background='rgba(255,215,0,.35)';
-  setTimeout(function(){flashDiv.style.background='rgba(255,215,0,0)';},200);
-  // "SEVİYE ATLADI!" text banner
-  var _lt=document.createElement('div');
-  _lt.style.cssText='position:absolute;top:38%;left:50%;transform:translateX(-50%) scale(0);font-family:\'Press Start 2P\',monospace;font-size:10px;color:#ffd700;text-shadow:0 0 16px #ff8800;background:rgba(0,0,0,.85);padding:6px 14px;z-index:20;pointer-events:none;transition:transform .12s cubic-bezier(.175,.885,.32,1.275);white-space:nowrap;border:1px solid rgba(255,215,0,.4);';
-  _lt.textContent='⬆ LVL '+P.lvl+'  SEVİYE ATLADI!';
-  document.getElementById('gameScreen').appendChild(_lt);
-  setTimeout(function(){_lt.style.transform='translateX(-50%) scale(1)';},10);
-  setTimeout(function(){_lt.style.transform='translateX(-50%) scale(0)';setTimeout(function(){if(_lt.parentNode)_lt.parentNode.removeChild(_lt);},150);},900);
+  MafiaUI.reward('level','SEVİYE '+P.lvl+' · GÜÇ SEÇ');
   checkEvolution();
   if(P.lvl%3===0){
     var evoIds=WEVOLUTIONS.map(function(ev){return ev.result;});
@@ -4315,7 +4302,7 @@ function showCards(treasure){
   var box=document.getElementById('luCards');box.innerHTML='';
   ups.forEach(function(u){
     var c=document.createElement('div');c.className='luc'+(u.r==='epic'?' epic':u.r==='rare'?' rare':'');
-    c.innerHTML='<div class="luci">'+u.i+'</div><div><div class="lucn">'+u.n+(u.r!=='common'?' ['+u.r.toUpperCase()+']':'')+'</div><div class="lucd">'+u.d+'</div></div>';
+    c.innerHTML='<div class="luci">'+MafiaUI.itemIcon(u.i)+'</div><div><div class="lucn">'+u.n+(u.r!=='common'?' ['+u.r.toUpperCase()+']':'')+'</div><div class="lucd">'+u.d+'</div></div>';
     function _pickCard(e){
       if(treasure&&picks>=2)return;
       u.fn(P);picks++;
@@ -4468,6 +4455,8 @@ function gdraw(){
     var Sd=4;drawSprite(gctx,_dashAfterX-7*Sd,_dashAfterY-14*Sd,P.facing,P.char,Sd);
     gctx.restore();
   }
+  // Player: a stable ground marker, separate from threats and rewards.
+  gctx.save();gctx.strokeStyle=MafiaUI.colors.teal;gctx.lineWidth=2;gctx.beginPath();gctx.ellipse(P.x,P.y+9,23,10,0,0,Math.PI*2);gctx.stroke();gctx.restore();
   // Player
   gctx.save();gctx.shadowBlur=0;
   if(P.aura){gctx.strokeStyle='rgba(255,80,0,.18)';gctx.lineWidth=2;gctx.beginPath();gctx.arc(P.x,P.y,92,0,Math.PI*2);gctx.stroke();}

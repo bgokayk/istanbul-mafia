@@ -1,7 +1,7 @@
 {
   "name": "istanbul-mafia-v2",
-  "version": "2.0.0-preview.2",
-  "description": "İstanbul Mafia — Gece Vardiyası / standalone V2 preview",
+  "version": "1.0.0",
+  "description": "İstanbul Mafia — Gece Vardiyası",
   "author": "LUMEN CO. 2026",
   "private": true,
   "scripts": {

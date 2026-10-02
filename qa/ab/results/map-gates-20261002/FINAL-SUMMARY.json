@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-02",
+  "sourceHash": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+  "runs": 12,
+  "completed": 6,
+  "deaths": 6,
+  "failures": 0,
+  "freezes": 0,
+  "collisionViolations": 0,
+  "jsErrors": 0,
+  "allFreshRecords": true,
+  "cheats": false,
+  "modifiers": false,
+  "perMap": [
+    {
+      "map": "kapalicarsi",
+      "runs": 3,
+      "completed": 3,
+      "deaths": 0,
+      "seconds": [
+        180.18,
+        180.14,
+        180.13
+      ]
+    },
+    {
+      "map": "uskudar",
+      "runs": 3,
+      "completed": 3,
+      "deaths": 0,
+      "seconds": [
+        180.08,
+        180.06,
+        180.16
+      ]
+    },
+    {
+      "map": "besiktas",
+      "runs": 3,
+      "completed": 0,
+      "deaths": 3,
+      "seconds": [
+        3.71,
+        133.92,
+        2.78
+      ]
+    },
+    {
+      "map": "eminonu",
+      "runs": 3,
+      "completed": 0,
+      "deaths": 3,
+      "seconds": [
+        37.46,
+        45.18,
+        77.6
+      ]
+    }
+  ],
+  "access": {
+    "level": 1,
+    "taksimLockedForClickAndTouch": true,
+    "openMaps": [
+      "kapalicarsi",
+      "uskudar",
+      "besiktas",
+      "eminonu"
+    ],
+    "eminonuBadge": "ZOR",
+    "labelsInsideCards": true
+  },
+  "accountBoundaries": [
+    {
+      "xp": 13999,
+      "accountLevel": 14,
+      "taksimSelectable": false
+    },
+    {
+      "xp": 14000,
+      "accountLevel": 15,
+      "taksimSelectable": true
+    }
+  ]
+}

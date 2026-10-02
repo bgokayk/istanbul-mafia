@@ -1,0 +1,368 @@
+[
+  {
+    "map": "kasimpasa",
+    "run": 1,
+    "freshStorage": true,
+    "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+    "samples": [
+      {
+        "elapsed": 320,
+        "end": false,
+        "hp": 60,
+        "god": false,
+        "paused": false,
+        "modal": false,
+        "x": 21000,
+        "y": 21000,
+        "level": 1,
+        "kills": 0,
+        "modifier": null,
+        "ultReady": false,
+        "enemies": 18,
+        "free": true,
+        "near": 235.07803152656885
+      }
+    ],
+    "errors": [],
+    "failures": [],
+    "death": true,
+    "setup": {
+      "map": "kasimpasa",
+      "entry": "QA-only gated map selection; gameplay unchanged"
+    },
+    "version": "1.0.0",
+    "sourceHash": "f53a353ab32ec2292086bb22f26e966d40e8a0661b0f042fb294cf91f0ea44a8",
+    "spawn": {
+      "x": 21000,
+      "y": 21000,
+      "free": true
+    },
+    "idleSpawnDisplacement": 0,
+    "final": {
+      "elapsed": 2208,
+      "end": true,
+      "hp": 0,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 20837.850129982857,
+      "y": 20731.235324701924,
+      "level": 1,
+      "kills": 2,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 18,
+      "free": true,
+      "near": -7.944528237049919
+    },
+    "wallSeconds": 5.417,
+    "completed": false,
+    "pass": true,
+    "outcome": "death"
+  },
+  {
+    "map": "kasimpasa",
+    "run": 3,
+    "freshStorage": true,
+    "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+    "samples": [
+      {
+        "elapsed": 256,
+        "end": false,
+        "hp": 60,
+        "god": false,
+        "paused": false,
+        "modal": false,
+        "x": 21000,
+        "y": 21000,
+        "level": 1,
+        "kills": 0,
+        "modifier": null,
+        "ultReady": false,
+        "enemies": 18,
+        "free": true,
+        "near": 273.6639456490635
+      }
+    ],
+    "errors": [],
+    "failures": [],
+    "death": true,
+    "setup": {
+      "map": "kasimpasa",
+      "entry": "QA-only gated map selection; gameplay unchanged"
+    },
+    "version": "1.0.0",
+    "sourceHash": "f53a353ab32ec2292086bb22f26e966d40e8a0661b0f042fb294cf91f0ea44a8",
+    "spawn": {
+      "x": 21000,
+      "y": 21000,
+      "free": true
+    },
+    "idleSpawnDisplacement": 0,
+    "final": {
+      "elapsed": 2480,
+      "end": true,
+      "hp": 0,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 20493.847272912994,
+      "y": 21142.552727087153,
+      "level": 1,
+      "kills": 2,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 18,
+      "free": true,
+      "near": -7.767973840494607
+    },
+    "wallSeconds": 5.567,
+    "completed": false,
+    "pass": true,
+    "outcome": "death"
+  },
+  {
+    "map": "kasimpasa",
+    "run": 2,
+    "freshStorage": true,
+    "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+    "samples": [
+      {
+        "elapsed": 384,
+        "end": false,
+        "hp": 60,
+        "god": false,
+        "paused": false,
+        "modal": false,
+        "x": 21000,
+        "y": 21000,
+        "level": 1,
+        "kills": 0,
+        "modifier": null,
+        "ultReady": false,
+        "enemies": 18,
+        "free": true,
+        "near": 205.59991552151018
+      }
+    ],
+    "errors": [],
+    "failures": [],
+    "death": true,
+    "setup": {
+      "map": "kasimpasa",
+      "entry": "QA-only gated map selection; gameplay unchanged"
+    },
+    "version": "1.0.0",
+    "sourceHash": "f53a353ab32ec2292086bb22f26e966d40e8a0661b0f042fb294cf91f0ea44a8",
+    "spawn": {
+      "x": 21000,
+      "y": 21000,
+      "free": true
+    },
+    "idleSpawnDisplacement": 0,
+    "final": {
+      "elapsed": 2640,
+      "end": true,
+      "hp": 0,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 21546.657272657485,
+      "y": 21053.457272657666,
+      "level": 1,
+      "kills": 4,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 17,
+      "free": true,
+      "near": -7.196693616928506
+    },
+    "wallSeconds": 5.92,
+    "completed": false,
+    "pass": true,
+    "outcome": "death"
+  },
+  {
+    "map": "bursa",
+    "run": 3,
+    "freshStorage": true,
+    "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+    "samples": [
+      {
+        "elapsed": 256,
+        "end": false,
+        "hp": 60,
+        "god": false,
+        "paused": false,
+        "modal": false,
+        "x": 21000,
+        "y": 21000,
+        "level": 1,
+        "kills": 0,
+        "modifier": null,
+        "ultReady": false,
+        "enemies": 18,
+        "free": true,
+        "near": 228.29066451580707
+      }
+    ],
+    "errors": [],
+    "failures": [],
+    "death": true,
+    "setup": {
+      "map": "bursa",
+      "entry": "QA-only gated map selection; gameplay unchanged"
+    },
+    "version": "1.0.0",
+    "sourceHash": "f53a353ab32ec2292086bb22f26e966d40e8a0661b0f042fb294cf91f0ea44a8",
+    "spawn": {
+      "x": 21000,
+      "y": 21000,
+      "free": true
+    },
+    "idleSpawnDisplacement": 0,
+    "final": {
+      "elapsed": 2144,
+      "end": true,
+      "hp": 0,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 20988.763246763236,
+      "y": 20931.26922086867,
+      "level": 1,
+      "kills": 2,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 18,
+      "free": true,
+      "near": -8.706834908364275
+    },
+    "wallSeconds": 5.599,
+    "completed": false,
+    "pass": true,
+    "outcome": "death"
+  },
+  {
+    "map": "bursa",
+    "run": 2,
+    "freshStorage": true,
+    "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+    "samples": [
+      {
+        "elapsed": 336,
+        "end": false,
+        "hp": 60,
+        "god": false,
+        "paused": false,
+        "modal": false,
+        "x": 21000,
+        "y": 21000,
+        "level": 1,
+        "kills": 0,
+        "modifier": null,
+        "ultReady": false,
+        "enemies": 18,
+        "free": true,
+        "near": 198.26190996217485
+      }
+    ],
+    "errors": [],
+    "failures": [],
+    "death": true,
+    "setup": {
+      "map": "bursa",
+      "entry": "QA-only gated map selection; gameplay unchanged"
+    },
+    "version": "1.0.0",
+    "sourceHash": "f53a353ab32ec2292086bb22f26e966d40e8a0661b0f042fb294cf91f0ea44a8",
+    "spawn": {
+      "x": 21000,
+      "y": 21000,
+      "free": true
+    },
+    "idleSpawnDisplacement": 0,
+    "final": {
+      "elapsed": 2336,
+      "end": true,
+      "hp": 0,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 21000,
+      "y": 21514.79999999981,
+      "level": 1,
+      "kills": 2,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 18,
+      "free": true,
+      "near": -7.10271465165828
+    },
+    "wallSeconds": 5.668,
+    "completed": false,
+    "pass": true,
+    "outcome": "death"
+  },
+  {
+    "map": "bursa",
+    "run": 1,
+    "freshStorage": true,
+    "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+    "samples": [
+      {
+        "elapsed": 336,
+        "end": false,
+        "hp": 60,
+        "god": false,
+        "paused": false,
+        "modal": false,
+        "x": 21000,
+        "y": 21000,
+        "level": 1,
+        "kills": 0,
+        "modifier": null,
+        "ultReady": false,
+        "enemies": 18,
+        "free": true,
+        "near": 202.17980666989683
+      }
+    ],
+    "errors": [],
+    "failures": [],
+    "death": true,
+    "setup": {
+      "map": "bursa",
+      "entry": "QA-only gated map selection; gameplay unchanged"
+    },
+    "version": "1.0.0",
+    "sourceHash": "f53a353ab32ec2292086bb22f26e966d40e8a0661b0f042fb294cf91f0ea44a8",
+    "spawn": {
+      "x": 21000,
+      "y": 21000,
+      "free": true
+    },
+    "idleSpawnDisplacement": 0,
+    "final": {
+      "elapsed": 2784,
+      "end": true,
+      "hp": 0,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 20402.400000000223,
+      "y": 20982.000000000007,
+      "level": 1,
+      "kills": 2,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 19,
+      "free": true,
+      "near": -8.008427557117546
+    },
+    "wallSeconds": 6.018,
+    "completed": false,
+    "pass": true,
+    "outcome": "death"
+  }
+]

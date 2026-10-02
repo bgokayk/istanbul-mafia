@@ -1,0 +1,61 @@
+{
+  "map": "balat",
+  "run": 2,
+  "freshStorage": true,
+  "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+  "samples": [
+    {
+      "elapsed": 128,
+      "end": false,
+      "hp": 60,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 21000,
+      "y": 21000,
+      "level": 1,
+      "kills": 0,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 18,
+      "free": true,
+      "near": 326.84472213002505
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "death": true,
+  "setup": {
+    "map": "balat",
+    "entry": "QA-only gated map selection; gameplay unchanged"
+  },
+  "version": "1.0.0",
+  "sourceHash": "f53a353ab32ec2292086bb22f26e966d40e8a0661b0f042fb294cf91f0ea44a8",
+  "spawn": {
+    "x": 21000,
+    "y": 21000,
+    "free": true
+  },
+  "idleSpawnDisplacement": 0,
+  "final": {
+    "elapsed": 3040,
+    "end": true,
+    "hp": 0,
+    "god": false,
+    "paused": false,
+    "modal": false,
+    "x": 20969.452987052762,
+    "y": 21548.947012947046,
+    "level": 1,
+    "kills": 3,
+    "modifier": null,
+    "ultReady": false,
+    "enemies": 18,
+    "free": true,
+    "near": -8.212451679975574
+  },
+  "wallSeconds": 5.283,
+  "completed": false,
+  "pass": true,
+  "outcome": "death"
+}

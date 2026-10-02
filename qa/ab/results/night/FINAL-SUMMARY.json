@@ -1,0 +1,28 @@
+{
+  "sourceHash": "f53a353ab32ec2292086bb22f26e966d40e8a0661b0f042fb294cf91f0ea44a8",
+  "runs": 24,
+  "completed": 7,
+  "deaths": 17,
+  "failures": 0,
+  "allSourceHashesMatch": true,
+  "layouts": [
+    {
+      "run": 1,
+      "resolutions": 4,
+      "errors": 0,
+      "controlsPassed": true
+    },
+    {
+      "run": 2,
+      "resolutions": 4,
+      "errors": 0,
+      "controlsPassed": true
+    },
+    {
+      "run": 3,
+      "resolutions": 4,
+      "errors": 0,
+      "controlsPassed": true
+    }
+  ]
+}

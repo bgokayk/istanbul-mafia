@@ -1,0 +1,24 @@
+{
+  "sourceHash": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+  "onlyRequestedProductionChanges": true,
+  "mapBalanceOtherwiseUnchanged": true,
+  "appVersion": "1.0.0",
+  "gradleInitRemoved": true,
+  "v1": {
+    "checked": 262,
+    "changed": []
+  },
+  "android": {
+    "baselineFiles": 112,
+    "externallyChangedDuringWork": [
+      "C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\android\\app\\src\\main\\assets\\public\\art-v2.js",
+      "C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\android\\app\\src\\main\\assets\\public\\index.html",
+      "C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\android\\app\\src\\main\\assets\\public\\v2.css",
+      "C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\android\\app\\src\\main\\assets\\capacitor.config.json"
+    ],
+    "agentEdits": 0
+  },
+  "unityExists": false,
+  "forbiddenMatches": 0,
+  "nativeIndexMatchesWeb": false
+}

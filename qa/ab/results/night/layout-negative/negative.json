@@ -1,0 +1,6 @@
+{
+  "fault": "zero-size ultHud",
+  "expectedExit": 1,
+  "actualExit": 1,
+  "stderr": "locator.waitFor: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#ultHud') to be visible\u001b[22m\n\u001b[2m    24 × locator resolved to hidden <div id=\"ultHud\" onclick=\"window.fireUlt&&window.fireUlt()\" ontouchend=\"event.preventDefault();window.fireUlt&&window.fireUlt();\">…</div>\u001b[22m\n\n    at C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-layout-test.cjs:3:267\n    at waitForHud (C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-layout-test.cjs:3:241)\n    at C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-layout-test.cjs:3:503 {\n  log: [\n    \"  - waiting for locator('#ultHud') to be visible\",\n    '    24 × locator resolved to hidden <div id=\"ultHud\" onclick=\"window.fireUlt&&window.fireUlt()\" ontouchend=\"event.preventDefault();window.fireUlt&&window.fireUlt();\">…</div>'\n  ],\n  name: 'TimeoutError'\n}\n"
+}

@@ -1,0 +1,74 @@
+{
+  "map": "uskudar",
+  "run": 1,
+  "freshStorage": true,
+  "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+  "samples": [
+    {
+      "elapsed": 240,
+      "end": false,
+      "hp": 60,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 21000,
+      "y": 21000,
+      "level": 1,
+      "kills": 0,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 18,
+      "free": true,
+      "near": 327.5478548101935
+    },
+    {
+      "elapsed": 10064,
+      "end": false,
+      "hp": 59.90144,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 22711.535064735577,
+      "y": 21333.97038943795,
+      "level": 2,
+      "kills": 19,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 10,
+      "free": true,
+      "near": 244.677036011465
+    },
+    {
+      "elapsed": 20048,
+      "end": false,
+      "hp": 59.90144,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 23954.65908986414,
+      "y": 20441.219610817287,
+      "level": 2,
+      "kills": 30,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 11,
+      "free": true,
+      "near": 297.8462322373015
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "death": false,
+  "setup": {
+    "map": "uskudar",
+    "entry": "UI map selection"
+  },
+  "version": "1.0.0",
+  "sourceHash": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+  "spawn": {
+    "x": 21000,
+    "y": 21000,
+    "free": true
+  },
+  "idleSpawnDisplacement": 0
+}

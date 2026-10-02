@@ -11,3 +11,6 @@ keystore.properties
 GEMINI_API_KEY.txt
 *.apk
 outputs/**/*.gz
+
+# QA ham tarayıcı izleri (büyük, yeniden üretilebilir)
+qa/**/*.json.gz

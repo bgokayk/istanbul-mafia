@@ -1,0 +1,229 @@
+{
+  "v1": {
+    "checked": 262,
+    "changed": [],
+    "missing": []
+  },
+  "androidExceptIcons": {
+    "checked": 112,
+    "changed": [],
+    "missing": []
+  },
+  "textures": {
+    "checked": 18,
+    "changed": [],
+    "missing": []
+  },
+  "scan": [],
+  "images": [
+    {
+      "file": "01-menu.png",
+      "width": 1080,
+      "height": 1920,
+      "colorType": 2,
+      "bytes": 241938
+    },
+    {
+      "file": "02-combat.png",
+      "width": 1080,
+      "height": 1920,
+      "colorType": 2,
+      "bytes": 80025
+    },
+    {
+      "file": "03-level-up.png",
+      "width": 1080,
+      "height": 1920,
+      "colorType": 2,
+      "bytes": 98219
+    },
+    {
+      "file": "04-boss.png",
+      "width": 1080,
+      "height": 1920,
+      "colorType": 2,
+      "bytes": 77737
+    },
+    {
+      "file": "05-shop.png",
+      "width": 1080,
+      "height": 1920,
+      "colorType": 2,
+      "bytes": 436013
+    },
+    {
+      "file": "feature-1024x500.png",
+      "width": 1024,
+      "height": 500,
+      "colorType": 2,
+      "bytes": 15526
+    },
+    {
+      "file": "play-icon-512.png",
+      "width": 512,
+      "height": 512,
+      "colorType": 6,
+      "bytes": 9072
+    }
+  ],
+  "listings": [
+    {
+      "language": "tr",
+      "titleLength": 30,
+      "shortLength": 77
+    },
+    {
+      "language": "en",
+      "titleLength": 27,
+      "shortLength": 79
+    }
+  ],
+  "version": "1.0.0",
+  "productionTestHook": false,
+  "androidIcons": [
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png",
+      "width": 72,
+      "height": 72,
+      "sha256": "e219ce3e7ac5623caf71c330ce290820fd9c4186c089e7c038e3dae3a758d8b2"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_background.png",
+      "width": 72,
+      "height": 72,
+      "sha256": "4d365367a3279226dec3d7243fb1916178658fe852b957698e672c0719b0651c"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_foreground.png",
+      "width": 72,
+      "height": 72,
+      "sha256": "7aba3e794d68efe299ead88928ae996feebab214c1ffbbd2d4a5a6912aa26c54"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png",
+      "width": 72,
+      "height": 72,
+      "sha256": "d87dbd06ad3414da265ec0c50435e11e832208ce69055c8bc3c337a868e0a83a"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-ldpi\\ic_launcher.png",
+      "width": 36,
+      "height": 36,
+      "sha256": "691d8f40a37097b843cb733981ff2100fae0bfc0fad2f4277ef96eb8a90e637d"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-ldpi\\ic_launcher_background.png",
+      "width": 36,
+      "height": 36,
+      "sha256": "44e87ff09fdd8f53fc0edd78c5eed28373fa02d7932c0fddc098f4ccc91306fd"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-ldpi\\ic_launcher_foreground.png",
+      "width": 36,
+      "height": 36,
+      "sha256": "dd3d006211c3cb106af7747f861abd4e798fa7b8ba6eab23e5812dc36efb2502"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-ldpi\\ic_launcher_round.png",
+      "width": 36,
+      "height": 36,
+      "sha256": "7cfbacc9f773dbdc49725128a56757b6fab469cbc809b07ab9a50a70a1d5b012"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png",
+      "width": 48,
+      "height": 48,
+      "sha256": "4b7cbbdf86a78535c413533be5a16d790dd977d6f511c1997fd2e50691ad8fac"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_background.png",
+      "width": 48,
+      "height": 48,
+      "sha256": "eb8ebce6729ae0e0e2d5c5e2ee3259ddc28fce3819b1da4fa7a64399bf3c0320"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_foreground.png",
+      "width": 48,
+      "height": 48,
+      "sha256": "a963a083cea8cce5e9f28b494dd0918fc050dd0250d31acadbfeac7d4382cfdc"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png",
+      "width": 48,
+      "height": 48,
+      "sha256": "f694c050f05c7b678b74828962e29243f1bf7e4184f67af3098bedfa115f4e83"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png",
+      "width": 96,
+      "height": 96,
+      "sha256": "33f2f6b496a2c975d0beaea54ae90859a94c97e2024a3cbaa4e0ad7a85a234f4"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_background.png",
+      "width": 96,
+      "height": 96,
+      "sha256": "d7270fdf8d015c37dfcc660c4dcd799726373af00f08d57a1bd746e078c1fe46"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_foreground.png",
+      "width": 96,
+      "height": 96,
+      "sha256": "b0c54a4721fe2a3654feda8ed545ba6c889cb46f2768d840c7e0dfeaa6e2eae7"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png",
+      "width": 96,
+      "height": 96,
+      "sha256": "f9e50973f4ce6aa110cb265bd1bdf217b523680a48539fc6ce5c458d95f95526"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png",
+      "width": 144,
+      "height": 144,
+      "sha256": "1e5fb88a7b3bf41f5ecb9e21470a38c272bc3e664660fdfdf27b7fc3de9e5526"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_background.png",
+      "width": 144,
+      "height": 144,
+      "sha256": "9c1404de4fe2b8c234aa9fa6d5c38a3f0cb05f014f2c8df4b37e0a0574531b93"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_foreground.png",
+      "width": 144,
+      "height": 144,
+      "sha256": "7cce9832135fd7f455cb8d0a1d52f5a1e2363f44500c035098cbffec6fd5e95a"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png",
+      "width": 144,
+      "height": 144,
+      "sha256": "9aaed5b07b3fc23aae8efc2c049e00192595e1eecd022ceff8ada5aa301b8601"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "65c82405296eef734c53fb6ad90f2736b239fd12689277540d0ce8b17acc65c4"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_background.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "4eea71770bd4b0daa32043df12a9947fb64eab40352f99fcb7ad07f10062bafe"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_foreground.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "c45c33a37bcccf77d72876183bb1c46ffe98c26c07621a652cd0bd2ff85aa049"
+    },
+    {
+      "file": "android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png",
+      "width": 192,
+      "height": 192,
+      "sha256": "23f4ffb73306c3de23cdd5f59a1316391f413a1c4e4aaf492a09425618badd09"
+    }
+  ]
+}

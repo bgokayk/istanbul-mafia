@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "viewport": [
+    540,
+    960
+  ],
+  "deviceScaleFactor": 2,
+  "pixels": [
+    1080,
+    1920
+  ],
+  "staged": true,
+  "setup": "Real renderer: fixed encounter layout, elapsed/level/boss HP and shop balance staged in memory only. No natural-run claims.",
+  "art": "Existing game font, sprites and skyline; code-native monogram; no generated portraits",
+  "errors": []
+}

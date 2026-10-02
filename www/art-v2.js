@@ -79,7 +79,7 @@ function tile(id,n){let key=id+n;if(tiles.has(key))return tiles.get(key);let a=c
  for(let row=0;row<4;row++)for(let col=-1;col<3;col++){let x=col*32+(row%2)*16,y=row*16,k=hash(n+col+99,row+3);rect(c,t[k%2],x+1,y+1,30,14);rect(c,t[2],x+2,y+1,28,1);rect(c,t[3],x+1,y+14,30,1);for(let j=0;j<4;j++)rect(c,t[(k+j)%3],x+3+(k>>j)%25,y+3+(k>>(j+3))%9,2,1);if(k%5===0){rect(c,t[3],x+10,y+7,3,1);rect(c,t[3],x+12,y+8,1,3);}}
  tiles.set(key,a);return a;
 }
-function floor(c,camX,camY,w,h,id){c.imageSmoothingEnabled=false;for(let x=Math.floor(camX/64)*64;x<camX+w+64;x+=64)for(let y=Math.floor(camY/64)*64;y<camY+h+64;y+=64)c.drawImage(tile(id,hash(x/64,y/64)%8),x,y);}
+function floor(c,camX,camY,w,h,id){c.imageSmoothingEnabled=false;rect(c,window.MafiaUI?MafiaUI.colors.ink:ink,camX,camY,w,h);c.save();c.globalAlpha*=.56;for(let x=Math.floor(camX/64)*64;x<camX+w+64;x+=64)for(let y=Math.floor(camY/64)*64;y<camY+h+64;y+=64)c.drawImage(tile(id,hash(x/64,y/64)%8),x,y);c.restore();}
 function prop(c,t,id){let x=Math.round(t.x-t.w/2),y=Math.round(t.y-t.h/2),w=Math.round(t.w),h=Math.round(t.h),pal=themes[id]||themes.balat;
  rect(c,'#15222b88',x+6,y+7,w,h);rect(c,ink,x,y,w,h);
  if(w<45||h>110){rect(c,pal[1],x+2,y+2,w-4,h-4);for(let yy=4;yy<h-4;yy+=12){rect(c,pal[2],x+2,y+yy,w-4,2);for(let xx=yy%24?12:24;xx<w-4;xx+=24)rect(c,pal[3],x+xx,y+yy+2,2,10);}return;}

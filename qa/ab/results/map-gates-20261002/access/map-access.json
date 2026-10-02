@@ -1,0 +1,51 @@
+{
+  "errors": [],
+  "freshRecord": {
+    "level": 1,
+    "taksimLockedForClickAndTouch": true,
+    "openMaps": [
+      "kapalicarsi",
+      "uskudar",
+      "besiktas",
+      "eminonu"
+    ],
+    "eminonuBadge": "ZOR",
+    "labelsInsideCards": true
+  },
+  "boundaries": [
+    {
+      "xp": 13999,
+      "accountLevel": 14,
+      "taksimSelectable": false
+    },
+    {
+      "xp": 14000,
+      "accountLevel": 15,
+      "taksimSelectable": true
+    }
+  ],
+  "sourceHash": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+  "layouts": [
+    {
+      "width": 390,
+      "height": 844,
+      "labelsInsideCards": true
+    },
+    {
+      "width": 540,
+      "height": 1310,
+      "labelsInsideCards": true
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "labelsInsideCards": true
+    },
+    {
+      "width": 932,
+      "height": 430,
+      "labelsInsideCards": true
+    }
+  ],
+  "pass": true
+}

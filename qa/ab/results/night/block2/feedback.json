@@ -1,0 +1,22 @@
+{
+  "effects": [
+    {
+      "kind": "level",
+      "ms": 542.1999999992549
+    },
+    {
+      "kind": "gold",
+      "ms": 543.5999999996275
+    },
+    {
+      "kind": "achievement",
+      "ms": 542.6000000005588
+    },
+    {
+      "kind": "relic",
+      "ms": 543.2000000001863
+    }
+  ],
+  "soundMaxSeconds": 0.38,
+  "errors": []
+}

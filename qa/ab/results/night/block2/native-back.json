@@ -1,0 +1,10 @@
+{
+  "method": "Capacitor bridge mock; real registered callbacks and game UI",
+  "menuConfirm": true,
+  "cancelDoesNotExit": true,
+  "confirmedExit": true,
+  "gamePauses": true,
+  "repeatBackStaysPaused": true,
+  "inputReset": true,
+  "errors": []
+}

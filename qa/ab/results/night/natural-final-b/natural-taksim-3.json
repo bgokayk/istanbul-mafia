@@ -1,0 +1,61 @@
+{
+  "map": "taksim",
+  "run": 3,
+  "freshStorage": true,
+  "method": "Real requestAnimationFrame + UI clicks + Playwright keyboard, no state mutations or cheats",
+  "samples": [
+    {
+      "elapsed": 176,
+      "end": false,
+      "hp": 60,
+      "god": false,
+      "paused": false,
+      "modal": false,
+      "x": 21144,
+      "y": 21000,
+      "level": 1,
+      "kills": 0,
+      "modifier": null,
+      "ultReady": false,
+      "enemies": 18,
+      "free": true,
+      "near": 303.5206139445779
+    }
+  ],
+  "errors": [],
+  "failures": [],
+  "death": true,
+  "setup": {
+    "map": "taksim",
+    "entry": "UI map selection"
+  },
+  "version": "1.0.0",
+  "sourceHash": "f53a353ab32ec2292086bb22f26e966d40e8a0661b0f042fb294cf91f0ea44a8",
+  "spawn": {
+    "x": 21144,
+    "y": 21000,
+    "free": true
+  },
+  "idleSpawnDisplacement": 0,
+  "final": {
+    "elapsed": 2144,
+    "end": true,
+    "hp": 0,
+    "god": false,
+    "paused": false,
+    "modal": false,
+    "x": 21394.839610306626,
+    "y": 21033.09259735955,
+    "level": 1,
+    "kills": 1,
+    "modifier": null,
+    "ultReady": false,
+    "enemies": 19,
+    "free": true,
+    "near": -5.28662280466503
+  },
+  "wallSeconds": 4.298,
+  "completed": false,
+  "pass": true,
+  "outcome": "death"
+}
