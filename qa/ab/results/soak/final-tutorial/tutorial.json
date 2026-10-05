@@ -1,0 +1,146 @@
+{
+  "steps": [
+    {
+      "text": "🕹 Parmağını sürükle veya WASD ile yürü Hareketli kal!",
+      "box": {
+        "x": 61,
+        "y": 651.21875,
+        "width": 200,
+        "height": 92.78125,
+        "top": 651.21875,
+        "right": 261,
+        "bottom": 744,
+        "left": 61
+      },
+      "fits": true
+    },
+    {
+      "text": "🔫 Silahın otomatik ateş eder Mesafeni koru!",
+      "box": {
+        "x": 98,
+        "y": 60,
+        "width": 194,
+        "height": 92.78125,
+        "top": 60,
+        "right": 292,
+        "bottom": 152.78125,
+        "left": 98
+      },
+      "fits": true
+    },
+    {
+      "text": "💎 XP kürelerini topla Seviye kartını seç Her seviyede güçlen!",
+      "box": {
+        "x": 179,
+        "y": 30,
+        "width": 200,
+        "height": 92.78125,
+        "top": 30,
+        "right": 379,
+        "bottom": 122.78125,
+        "left": 179
+      },
+      "fits": true
+    },
+    {
+      "text": "💰 Altın topla Dükkandan kalıcı güçlendirme al!",
+      "box": {
+        "x": 11,
+        "y": 30,
+        "width": 200,
+        "height": 80.1875,
+        "top": 30,
+        "right": 211,
+        "bottom": 110.1875,
+        "left": 11
+      },
+      "fits": true
+    },
+    {
+      "text": "❤ Kırmızı haçları al Canını doldur Hayatta kal!",
+      "box": {
+        "x": 98,
+        "y": 422,
+        "width": 194,
+        "height": 92.78125,
+        "top": 422,
+        "right": 292,
+        "bottom": 514.78125,
+        "left": 98
+      },
+      "fits": true
+    },
+    {
+      "text": "💨 Dash düğmesi veya Shift ile sıyrıl Kalabalıktan uzaklaş!",
+      "box": {
+        "x": 98,
+        "y": 337.59375,
+        "width": 194,
+        "height": 92.78125,
+        "top": 337.59375,
+        "right": 292,
+        "bottom": 430.375,
+        "left": 98
+      },
+      "fits": true
+    },
+    {
+      "text": "🗺 Minimapı takip et Haritayı keşfet Boss'ları bul!",
+      "box": {
+        "x": 179,
+        "y": 691.21875,
+        "width": 200,
+        "height": 92.78125,
+        "top": 691.21875,
+        "right": 379,
+        "bottom": 784,
+        "left": 179
+      },
+      "fits": true
+    },
+    {
+      "text": "⏸ Duraklatmak için duraklat düğmesine veya boşluğa bas",
+      "box": {
+        "x": 179,
+        "y": 10,
+        "width": 200,
+        "height": 92.78125,
+        "top": 10,
+        "right": 379,
+        "bottom": 102.78125,
+        "left": 179
+      },
+      "fits": true
+    },
+    {
+      "text": "👹 Her 5 dalgada bir BOSS gelir Hazır ol!",
+      "box": {
+        "x": 98,
+        "y": 422,
+        "width": 194,
+        "height": 80.1875,
+        "top": 422,
+        "right": 292,
+        "bottom": 502.1875,
+        "left": 98
+      },
+      "fits": true
+    },
+    {
+      "text": "🪚 10. dakikada TESTERE gelir Kaçabilirsen kaç!",
+      "box": {
+        "x": 98,
+        "y": 337.59375,
+        "width": 194,
+        "height": 80.1875,
+        "top": 337.59375,
+        "right": 292,
+        "bottom": 417.78125,
+        "left": 98
+      },
+      "fits": true
+    }
+  ],
+  "errors": [],
+  "pass": true
+}

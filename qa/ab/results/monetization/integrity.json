@@ -1,0 +1,44 @@
+{
+  "created": "2026-10-02T20:42:57.268Z",
+  "branch": "v2",
+  "baselineFiles": 139,
+  "changed": [
+    "www/index.html",
+    "android/app/build.gradle",
+    "android/app/src/main/AndroidManifest.xml"
+  ],
+  "missing": [],
+  "androidChanges": [
+    "android/app/build.gradle",
+    "android/app/src/main/AndroidManifest.xml"
+  ],
+  "androidAllowed": [
+    "android/app/build.gradle",
+    "android/app/src/main/AndroidManifest.xml"
+  ],
+  "textureChanges": [],
+  "scans": {
+    "legacyPayments": [],
+    "fixedPrices": [],
+    "realAdIds": [],
+    "testHooks": []
+  },
+  "sourceHashes": {
+    "www/art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+    "www/atelier.html": "8592dd0e31c210f1d8763ee7af8ee1fb7af246a0ec83ef7c1cf69e236572f8c2",
+    "www/index.html": "db191b4a44b00b12382d3db46902e2e20f3c02b9cf62db708275f2d0fb7e406a",
+    "www/monetization-ads.js": "e744a9c56d90e514675fa2d8932b2b6711cdb557509b33188575825d10aab3d4",
+    "www/monetization-config.js": "ecd7061c0c704749369508ee98b736f725d04ca7067db09b8936bb2729430147",
+    "www/monetization-iap.js": "9d2565ff7c0a908cd62899bfe8b5150971bb0f90eba3d2c500e1ecf74b6a08c3",
+    "www/monetization-ui.js": "aeba2d8c1133e2d06a8254c799df6ab0c5f68a2639a62698ca03fb9a6c69f7c0",
+    "www/monetization.css": "b3162bb4af6639870a699b1e249bc7902e554a79a3b7ddb8cb97122566c70364",
+    "www/release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+    "www/v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f",
+    "www/world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10"
+  },
+  "v1": "No file operation wrote into the V1 directory; no claim of a new before/after V1 hash comparison.",
+  "nativeSync": false,
+  "commit": false,
+  "push": false,
+  "pass": true
+}

@@ -8,6 +8,12 @@ android/local.properties
 *.jks
 keystore.properties
 .env
+.env.*
+!.env.example
+monetization.local.properties
+www/monetization-config.local.js
+android/app/src/main/assets/public/monetization-config.local.js
+*.service-account.json
 GEMINI_API_KEY.txt
 *.apk
 outputs/**/*.gz

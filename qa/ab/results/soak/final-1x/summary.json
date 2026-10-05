@@ -1,0 +1,4099 @@
+[
+  {
+    "map": "kapalicarsi",
+    "run": 1,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "4ec9378256b1f698244ffac247e390ee6c75c5ac1522054733fa89e27c880c1a",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "measurementVersion": 3,
+    "diagnosticLayerIsolation": false,
+    "qaHashes": {
+      "ab-soak.cjs": "2218819b38a6c0363d36ef0133e16e4dd7c6cb2d7d72504800bdf17b315ed088",
+      "ab-harness.cjs": "e3e54e3981cf58f19297125efbe1ae7e81826406e0044d48e25b55d7812bf18f",
+      "ab-ui.cjs": "199dae8d4368cc991fd0078e04a5a6ece2b2473fed31dbfc53959d3c70c83d9f"
+    },
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = rAF timestamp interval between actual gdraw calls (includes render pacing, not verified GPU presentation); skipped render callbacks cannot improve this metric. All gloop callback CPU durations also recorded. Fixed-size histograms. Game rAF briefly stopped across forced GC and retained heap read; checkpointPauseMs recorded. Next 3 drawn frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.894,
+        "fullFrameMs": {
+          "n": 7033,
+          "p50": 6.1,
+          "p95": 18.2,
+          "max": 48.5
+        },
+        "callbackMs": {
+          "n": 7033,
+          "p50": 1.1,
+          "p95": 1.9,
+          "max": 14.5
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.894,
+        "toSeconds": 120.999,
+        "fullFrameMs": {
+          "n": 6016,
+          "p50": 6.1,
+          "p95": 18.3,
+          "max": 248.39999999999418
+        },
+        "callbackMs": {
+          "n": 6016,
+          "p50": 1.3,
+          "p95": 2.2,
+          "max": 9.5
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 120.999,
+        "toSeconds": 181.096,
+        "fullFrameMs": {
+          "n": 4273,
+          "p50": 12.1,
+          "p95": 30.3,
+          "max": 90.80000000001746
+        },
+        "callbackMs": {
+          "n": 4273,
+          "p50": 1.6,
+          "p95": 3,
+          "max": 10.400000005960464
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 181.096,
+        "toSeconds": 241.256,
+        "fullFrameMs": {
+          "n": 3896,
+          "p50": 12.2,
+          "p95": 30.3,
+          "max": 200.10000000003492
+        },
+        "callbackMs": {
+          "n": 3896,
+          "p50": 1.9,
+          "p95": 3.4,
+          "max": 8
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 241.256,
+        "toSeconds": 301.338,
+        "fullFrameMs": {
+          "n": 3512,
+          "p50": 18.1,
+          "p95": 30.3,
+          "max": 48.59999999997672
+        },
+        "callbackMs": {
+          "n": 3512,
+          "p50": 2.3,
+          "p95": 3.9,
+          "max": 8.199999988079071
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 301.338,
+        "toSeconds": 361.911,
+        "fullFrameMs": {
+          "n": 2999,
+          "p50": 18.2,
+          "p95": 36.4,
+          "max": 90.90000000002328
+        },
+        "callbackMs": {
+          "n": 2999,
+          "p50": 2.5,
+          "p95": 4.3,
+          "max": 10.299999997019768
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 361.911,
+        "toSeconds": 422.104,
+        "fullFrameMs": {
+          "n": 2756,
+          "p50": 18.3,
+          "p95": 42.4,
+          "max": 127.20000000001164
+        },
+        "callbackMs": {
+          "n": 2756,
+          "p50": 2.6,
+          "p95": 4.6,
+          "max": 10.800000011920929
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 422.104,
+        "toSeconds": 482.373,
+        "fullFrameMs": {
+          "n": 3029,
+          "p50": 18.2,
+          "p95": 36.4,
+          "max": 54.600000000034925
+        },
+        "callbackMs": {
+          "n": 3029,
+          "p50": 2.4,
+          "p95": 4.1,
+          "max": 8.700000002980232
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 482.373,
+        "toSeconds": 542.766,
+        "fullFrameMs": {
+          "n": 2738,
+          "p50": 18.3,
+          "p95": 42.4,
+          "max": 266.5999999999767
+        },
+        "callbackMs": {
+          "n": 2738,
+          "p50": 2.7,
+          "p95": 4.5,
+          "max": 8.900000005960464
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 542.766,
+        "toSeconds": 602.785,
+        "fullFrameMs": {
+          "n": 2657,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 66.70000000006985
+        },
+        "callbackMs": {
+          "n": 2657,
+          "p50": 2.6,
+          "p95": 4.6,
+          "max": 9.799999997019768
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 602.785,
+        "toSeconds": 663.247,
+        "fullFrameMs": {
+          "n": 2405,
+          "p50": 24.2,
+          "p95": 42.5,
+          "max": 357.5
+        },
+        "callbackMs": {
+          "n": 2405,
+          "p50": 2.9,
+          "p95": 5.4,
+          "max": 39.6000000089407
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 663.247,
+        "toSeconds": 723.396,
+        "fullFrameMs": {
+          "n": 2138,
+          "p50": 24.3,
+          "p95": 48.5,
+          "max": 327.30000000004657
+        },
+        "callbackMs": {
+          "n": 2138,
+          "p50": 3,
+          "p95": 5.7,
+          "max": 14
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 723.396,
+        "toSeconds": 783.575,
+        "fullFrameMs": {
+          "n": 2740,
+          "p50": 18.3,
+          "p95": 42.3,
+          "max": 66.90000000002328
+        },
+        "callbackMs": {
+          "n": 2740,
+          "p50": 2.7,
+          "p95": 4.6,
+          "max": 14.799999997019768
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 783.575,
+        "toSeconds": 843.933,
+        "fullFrameMs": {
+          "n": 2401,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 139.30000000004657
+        },
+        "callbackMs": {
+          "n": 2401,
+          "p50": 2.7,
+          "p95": 4.4,
+          "max": 48.599999994039536
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 843.933,
+        "toSeconds": 904.547,
+        "fullFrameMs": {
+          "n": 2459,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 60.70000000006985
+        },
+        "callbackMs": {
+          "n": 2459,
+          "p50": 2.7,
+          "p95": 4.5,
+          "max": 8.899999991059303
+        },
+        "excludedFrames": 15
+      },
+      {
+        "fromSeconds": 904.547,
+        "toSeconds": 915.151,
+        "fullFrameMs": {
+          "n": 380,
+          "p50": 24.3,
+          "p95": 48.4,
+          "max": 54.60000000009313
+        },
+        "callbackMs": {
+          "n": 380,
+          "p50": 2.8,
+          "p95": 4.5,
+          "max": 8.399999991059303
+        },
+        "excludedFrames": 15
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 2991356,
+        "retainedBytes": 2286816,
+        "backingStorageBytes": 484501,
+        "dom": {
+          "documents": 1,
+          "nodes": 1107,
+          "jsEventListeners": 146
+        },
+        "elapsed": 16,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 8,
+        "artCache": 11,
+        "checkpointPauseMs": 49
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 3913164,
+        "retainedBytes": 3447384,
+        "backingStorageBytes": 484968,
+        "dom": {
+          "documents": 1,
+          "nodes": 1161,
+          "jsEventListeners": 163
+        },
+        "elapsed": 29904,
+        "wave": 2,
+        "kills": 25,
+        "level": 2,
+        "orbs": 3,
+        "enemies": 3,
+        "artCache": 31,
+        "checkpointPauseMs": 23
+      },
+      {
+        "label": "5m",
+        "wallSeconds": 300.328,
+        "rawBytes": 7964524,
+        "retainedBytes": 3807948,
+        "backingStorageBytes": 494670,
+        "dom": {
+          "documents": 1,
+          "nodes": 1361,
+          "jsEventListeners": 171
+        },
+        "elapsed": 323328,
+        "wave": 18,
+        "kills": 2492,
+        "level": 15,
+        "orbs": 31,
+        "enemies": 48,
+        "artCache": 116,
+        "checkpointPauseMs": 48
+      },
+      {
+        "label": "10m",
+        "wallSeconds": 600.258,
+        "rawBytes": 5252060,
+        "retainedBytes": 3974016,
+        "backingStorageBytes": 486687,
+        "dom": {
+          "documents": 1,
+          "nodes": 1385,
+          "jsEventListeners": 170
+        },
+        "elapsed": 620064,
+        "wave": 35,
+        "kills": 6741,
+        "level": 18,
+        "orbs": 26,
+        "enemies": 41,
+        "artCache": 116,
+        "checkpointPauseMs": 36
+      },
+      {
+        "label": "15m",
+        "wallSeconds": 900.367,
+        "rawBytes": 21531940,
+        "retainedBytes": 4020908,
+        "backingStorageBytes": 486520,
+        "dom": {
+          "documents": 1,
+          "nodes": 1409,
+          "jsEventListeners": 173
+        },
+        "elapsed": 915488,
+        "wave": 51,
+        "kills": 11010,
+        "level": 20,
+        "orbs": 1,
+        "enemies": 69,
+        "artCache": 120,
+        "checkpointPauseMs": 80
+      },
+      {
+        "label": "end",
+        "wallSeconds": 915.151,
+        "rawBytes": 7473948,
+        "retainedBytes": 4229588,
+        "backingStorageBytes": 486456,
+        "dom": {
+          "documents": 1,
+          "nodes": 1411,
+          "jsEventListeners": 174
+        },
+        "elapsed": 930368,
+        "wave": 52,
+        "kills": 11248,
+        "level": 20,
+        "orbs": 10,
+        "enemies": 58,
+        "artCache": 120,
+        "checkpointPauseMs": 55
+      }
+    ],
+    "peaks": {
+      "enemies": 85,
+      "bullets": 41,
+      "particles": 500,
+      "xpOrbs": 70,
+      "goldOrbs": 55,
+      "healthOrbs": 14,
+      "chests": 3,
+      "floorItems": 10,
+      "floorIconCache": 8,
+      "projectileArtCache": 0,
+      "damageNumbers": 50,
+      "rescueNpcs": 1,
+      "artCache": 120,
+      "floorTiles": 43
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 1.4847999999970198,
+    "progress": {
+      "wallSeconds": 945.459,
+      "measuredSeconds": 915.151,
+      "gameSeconds": 900.16,
+      "wave": 52,
+      "kills": 11245,
+      "level": 20
+    },
+    "fullFrameMs": {
+      "n": 51432,
+      "p50": 18.1,
+      "p95": 36.4
+    },
+    "callbackMs": {
+      "n": 51432,
+      "p50": 2.1,
+      "p95": 4.2
+    },
+    "heapGrowth": 0.22689784485859432,
+    "plateauLastFiveMinutes": 0.06431076271459402,
+    "heapPass": true,
+    "over33msWindows": [
+      {
+        "fromSeconds": 301.338,
+        "toSeconds": 361.911,
+        "p95": 36.4
+      },
+      {
+        "fromSeconds": 361.911,
+        "toSeconds": 422.104,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 422.104,
+        "toSeconds": 482.373,
+        "p95": 36.4
+      },
+      {
+        "fromSeconds": 482.373,
+        "toSeconds": 542.766,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 542.766,
+        "toSeconds": 602.785,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 602.785,
+        "toSeconds": 663.247,
+        "p95": 42.5
+      },
+      {
+        "fromSeconds": 663.247,
+        "toSeconds": 723.396,
+        "p95": 48.5
+      },
+      {
+        "fromSeconds": 723.396,
+        "toSeconds": 783.575,
+        "p95": 42.3
+      },
+      {
+        "fromSeconds": 783.575,
+        "toSeconds": 843.933,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 843.933,
+        "toSeconds": 904.547,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 904.547,
+        "toSeconds": 915.151,
+        "p95": 48.4
+      }
+    ],
+    "complete": true,
+    "pass": true
+  },
+  {
+    "map": "uskudar",
+    "run": 1,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "4ec9378256b1f698244ffac247e390ee6c75c5ac1522054733fa89e27c880c1a",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "measurementVersion": 3,
+    "diagnosticLayerIsolation": false,
+    "qaHashes": {
+      "ab-soak.cjs": "2218819b38a6c0363d36ef0133e16e4dd7c6cb2d7d72504800bdf17b315ed088",
+      "ab-harness.cjs": "e3e54e3981cf58f19297125efbe1ae7e81826406e0044d48e25b55d7812bf18f",
+      "ab-ui.cjs": "199dae8d4368cc991fd0078e04a5a6ece2b2473fed31dbfc53959d3c70c83d9f"
+    },
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = rAF timestamp interval between actual gdraw calls (includes render pacing, not verified GPU presentation); skipped render callbacks cannot improve this metric. All gloop callback CPU durations also recorded. Fixed-size histograms. Game rAF briefly stopped across forced GC and retained heap read; checkpointPauseMs recorded. Next 3 drawn frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.287,
+        "fullFrameMs": {
+          "n": 6719,
+          "p50": 6.1,
+          "p95": 18.2,
+          "max": 42.39999999999418
+        },
+        "callbackMs": {
+          "n": 6719,
+          "p50": 1.1,
+          "p95": 2,
+          "max": 10.899999991059303
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.287,
+        "toSeconds": 120.594,
+        "fullFrameMs": {
+          "n": 3712,
+          "p50": 18.1,
+          "p95": 30.3,
+          "max": 54.59999999999127
+        },
+        "callbackMs": {
+          "n": 3712,
+          "p50": 2.2,
+          "p95": 3.8,
+          "max": 11.699999988079071
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 120.594,
+        "toSeconds": 180.747,
+        "fullFrameMs": {
+          "n": 2489,
+          "p50": 24.2,
+          "p95": 42.5,
+          "max": 66.70000000001164
+        },
+        "callbackMs": {
+          "n": 2489,
+          "p50": 3.3,
+          "p95": 6,
+          "max": 10.799999997019768
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 180.747,
+        "toSeconds": 241.244,
+        "fullFrameMs": {
+          "n": 2244,
+          "p50": 24.3,
+          "p95": 48.4,
+          "max": 200
+        },
+        "callbackMs": {
+          "n": 2244,
+          "p50": 2.9,
+          "p95": 4.9,
+          "max": 10.400000005960464
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 241.244,
+        "toSeconds": 301.96,
+        "fullFrameMs": {
+          "n": 1884,
+          "p50": 30.3,
+          "p95": 48.5,
+          "max": 90.90000000002328
+        },
+        "callbackMs": {
+          "n": 1884,
+          "p50": 3.3,
+          "p95": 5.5,
+          "max": 17.900000005960464
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 301.96,
+        "toSeconds": 362.476,
+        "fullFrameMs": {
+          "n": 1785,
+          "p50": 30.4,
+          "p95": 54.5,
+          "max": 72.79999999998836
+        },
+        "callbackMs": {
+          "n": 1785,
+          "p50": 3.8,
+          "p95": 6,
+          "max": 18.5
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 362.476,
+        "toSeconds": 422.721,
+        "fullFrameMs": {
+          "n": 1706,
+          "p50": 36.3,
+          "p95": 54.6,
+          "max": 84.79999999998836
+        },
+        "callbackMs": {
+          "n": 1706,
+          "p50": 3.7,
+          "p95": 6.4,
+          "max": 14.900000005960464
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 422.721,
+        "toSeconds": 482.934,
+        "fullFrameMs": {
+          "n": 1867,
+          "p50": 30.3,
+          "p95": 48.5,
+          "max": 72.70000000001164
+        },
+        "callbackMs": {
+          "n": 1867,
+          "p50": 3.4,
+          "p95": 5.5,
+          "max": 15.299999997019768
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 482.934,
+        "toSeconds": 543.459,
+        "fullFrameMs": {
+          "n": 2044,
+          "p50": 30.3,
+          "p95": 48.4,
+          "max": 200
+        },
+        "callbackMs": {
+          "n": 2044,
+          "p50": 3.1,
+          "p95": 5.1,
+          "max": 13.800000011920929
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 543.459,
+        "toSeconds": 603.705,
+        "fullFrameMs": {
+          "n": 2021,
+          "p50": 30.2,
+          "p95": 48.5,
+          "max": 72.70000000006985
+        },
+        "callbackMs": {
+          "n": 2021,
+          "p50": 3.2,
+          "p95": 5.3,
+          "max": 13.5
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 603.705,
+        "toSeconds": 663.851,
+        "fullFrameMs": {
+          "n": 1987,
+          "p50": 30.2,
+          "p95": 48.5,
+          "max": 339.5999999999767
+        },
+        "callbackMs": {
+          "n": 1987,
+          "p50": 3.3,
+          "p95": 6.5,
+          "max": 22
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 663.851,
+        "toSeconds": 724.043,
+        "fullFrameMs": {
+          "n": 2149,
+          "p50": 24.3,
+          "p95": 48.4,
+          "max": 103.09999999997672
+        },
+        "callbackMs": {
+          "n": 2149,
+          "p50": 3.4,
+          "p95": 6.7,
+          "max": 18.099999994039536
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 724.043,
+        "toSeconds": 784.226,
+        "fullFrameMs": {
+          "n": 2336,
+          "p50": 24.2,
+          "p95": 42.5,
+          "max": 78.79999999993015
+        },
+        "callbackMs": {
+          "n": 2336,
+          "p50": 3,
+          "p95": 5.3,
+          "max": 20.599999994039536
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 784.226,
+        "toSeconds": 844.441,
+        "fullFrameMs": {
+          "n": 2042,
+          "p50": 30.2,
+          "p95": 48.4,
+          "max": 297
+        },
+        "callbackMs": {
+          "n": 2042,
+          "p50": 3.3,
+          "p95": 5.5,
+          "max": 18.5
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 844.441,
+        "toSeconds": 904.517,
+        "fullFrameMs": {
+          "n": 2155,
+          "p50": 24.3,
+          "p95": 42.5,
+          "max": 127.29999999993015
+        },
+        "callbackMs": {
+          "n": 2155,
+          "p50": 3.2,
+          "p95": 5.3,
+          "max": 9.599999994039536
+        },
+        "excludedFrames": 15
+      },
+      {
+        "fromSeconds": 904.517,
+        "toSeconds": 922.984,
+        "fullFrameMs": {
+          "n": 731,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 54.59999999997672
+        },
+        "callbackMs": {
+          "n": 731,
+          "p50": 2.7,
+          "p95": 4.5,
+          "max": 9.299999997019768
+        },
+        "excludedFrames": 15
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3050432,
+        "retainedBytes": 2250144,
+        "backingStorageBytes": 484298,
+        "dom": {
+          "documents": 1,
+          "nodes": 1107,
+          "jsEventListeners": 146
+        },
+        "elapsed": 0,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 8,
+        "artCache": 11,
+        "checkpointPauseMs": 41
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 4047080,
+        "retainedBytes": 3497648,
+        "backingStorageBytes": 485480,
+        "dom": {
+          "documents": 1,
+          "nodes": 1172,
+          "jsEventListeners": 162
+        },
+        "elapsed": 29456,
+        "wave": 2,
+        "kills": 30,
+        "level": 3,
+        "orbs": 7,
+        "enemies": 1,
+        "artCache": 28,
+        "checkpointPauseMs": 23
+      },
+      {
+        "label": "5m",
+        "wallSeconds": 300.42,
+        "rawBytes": 27032676,
+        "retainedBytes": 3810580,
+        "backingStorageBytes": 487257,
+        "dom": {
+          "documents": 1,
+          "nodes": 1373,
+          "jsEventListeners": 168
+        },
+        "elapsed": 320928,
+        "wave": 18,
+        "kills": 2532,
+        "level": 17,
+        "orbs": 116,
+        "enemies": 47,
+        "artCache": 116,
+        "checkpointPauseMs": 99
+      },
+      {
+        "label": "10m",
+        "wallSeconds": 600.345,
+        "rawBytes": 9941984,
+        "retainedBytes": 3906792,
+        "backingStorageBytes": 486680,
+        "dom": {
+          "documents": 1,
+          "nodes": 1404,
+          "jsEventListeners": 175
+        },
+        "elapsed": 613568,
+        "wave": 35,
+        "kills": 6784,
+        "level": 20,
+        "orbs": 0,
+        "enemies": 39,
+        "artCache": 116,
+        "checkpointPauseMs": 37
+      },
+      {
+        "label": "15m",
+        "wallSeconds": 900.287,
+        "rawBytes": 14790212,
+        "retainedBytes": 3988364,
+        "backingStorageBytes": 486488,
+        "dom": {
+          "documents": 1,
+          "nodes": 1387,
+          "jsEventListeners": 171
+        },
+        "elapsed": 907712,
+        "wave": 51,
+        "kills": 11022,
+        "level": 23,
+        "orbs": 16,
+        "enemies": 46,
+        "artCache": 120,
+        "checkpointPauseMs": 62
+      },
+      {
+        "label": "end",
+        "wallSeconds": 922.984,
+        "rawBytes": 8647480,
+        "retainedBytes": 4224992,
+        "backingStorageBytes": 486503,
+        "dom": {
+          "documents": 1,
+          "nodes": 1397,
+          "jsEventListeners": 168
+        },
+        "elapsed": 929744,
+        "wave": 52,
+        "kills": 11308,
+        "level": 24,
+        "orbs": 37,
+        "enemies": 58,
+        "artCache": 120,
+        "checkpointPauseMs": 51
+      }
+    ],
+    "peaks": {
+      "enemies": 123,
+      "bullets": 97,
+      "particles": 500,
+      "xpOrbs": 162,
+      "goldOrbs": 60,
+      "healthOrbs": 14,
+      "chests": 3,
+      "floorItems": 13,
+      "floorIconCache": 8,
+      "projectileArtCache": 0,
+      "damageNumbers": 51,
+      "rescueNpcs": 1,
+      "artCache": 120,
+      "floorTiles": 46
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 1.2966000000089406,
+    "progress": {
+      "wallSeconds": 953.01,
+      "measuredSeconds": 922.984,
+      "gameSeconds": 900.032,
+      "wave": 52,
+      "kills": 11307,
+      "level": 24
+    },
+    "fullFrameMs": {
+      "n": 37871,
+      "p50": 24.2,
+      "p95": 48.4
+    },
+    "callbackMs": {
+      "n": 37871,
+      "p50": 2.9,
+      "p95": 5.3
+    },
+    "heapGrowth": 0.20795231538450976,
+    "plateauLastFiveMinutes": 0.08144789894112603,
+    "heapPass": true,
+    "over33msWindows": [
+      {
+        "fromSeconds": 120.594,
+        "toSeconds": 180.747,
+        "p95": 42.5
+      },
+      {
+        "fromSeconds": 180.747,
+        "toSeconds": 241.244,
+        "p95": 48.4
+      },
+      {
+        "fromSeconds": 241.244,
+        "toSeconds": 301.96,
+        "p95": 48.5
+      },
+      {
+        "fromSeconds": 301.96,
+        "toSeconds": 362.476,
+        "p95": 54.5
+      },
+      {
+        "fromSeconds": 362.476,
+        "toSeconds": 422.721,
+        "p95": 54.6
+      },
+      {
+        "fromSeconds": 422.721,
+        "toSeconds": 482.934,
+        "p95": 48.5
+      },
+      {
+        "fromSeconds": 482.934,
+        "toSeconds": 543.459,
+        "p95": 48.4
+      },
+      {
+        "fromSeconds": 543.459,
+        "toSeconds": 603.705,
+        "p95": 48.5
+      },
+      {
+        "fromSeconds": 603.705,
+        "toSeconds": 663.851,
+        "p95": 48.5
+      },
+      {
+        "fromSeconds": 663.851,
+        "toSeconds": 724.043,
+        "p95": 48.4
+      },
+      {
+        "fromSeconds": 724.043,
+        "toSeconds": 784.226,
+        "p95": 42.5
+      },
+      {
+        "fromSeconds": 784.226,
+        "toSeconds": 844.441,
+        "p95": 48.4
+      },
+      {
+        "fromSeconds": 844.441,
+        "toSeconds": 904.517,
+        "p95": 42.5
+      },
+      {
+        "fromSeconds": 904.517,
+        "toSeconds": 922.984,
+        "p95": 42.4
+      }
+    ],
+    "complete": true,
+    "pass": true
+  },
+  {
+    "map": "besiktas",
+    "run": 1,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "4ec9378256b1f698244ffac247e390ee6c75c5ac1522054733fa89e27c880c1a",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "measurementVersion": 3,
+    "diagnosticLayerIsolation": false,
+    "qaHashes": {
+      "ab-soak.cjs": "2218819b38a6c0363d36ef0133e16e4dd7c6cb2d7d72504800bdf17b315ed088",
+      "ab-harness.cjs": "e3e54e3981cf58f19297125efbe1ae7e81826406e0044d48e25b55d7812bf18f",
+      "ab-ui.cjs": "199dae8d4368cc991fd0078e04a5a6ece2b2473fed31dbfc53959d3c70c83d9f"
+    },
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = rAF timestamp interval between actual gdraw calls (includes render pacing, not verified GPU presentation); skipped render callbacks cannot improve this metric. All gloop callback CPU durations also recorded. Fixed-size histograms. Game rAF briefly stopped across forced GC and retained heap read; checkpointPauseMs recorded. Next 3 drawn frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.067,
+        "fullFrameMs": {
+          "n": 5743,
+          "p50": 6.1,
+          "p95": 24.3,
+          "max": 66.70000000001164
+        },
+        "callbackMs": {
+          "n": 5743,
+          "p50": 1.2,
+          "p95": 2.5,
+          "max": 11.700000002980232
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.067,
+        "toSeconds": 120.621,
+        "fullFrameMs": {
+          "n": 2889,
+          "p50": 18.2,
+          "p95": 36.4,
+          "max": 78.5
+        },
+        "callbackMs": {
+          "n": 2889,
+          "p50": 2.4,
+          "p95": 4.3,
+          "max": 10.799999997019768
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 120.621,
+        "toSeconds": 180.741,
+        "fullFrameMs": {
+          "n": 2823,
+          "p50": 18.3,
+          "p95": 36.3,
+          "max": 54.39999999999418
+        },
+        "callbackMs": {
+          "n": 2823,
+          "p50": 3.7,
+          "p95": 6.2,
+          "max": 16.899999991059303
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 180.741,
+        "toSeconds": 240.768,
+        "fullFrameMs": {
+          "n": 3036,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 48.5
+        },
+        "callbackMs": {
+          "n": 3036,
+          "p50": 3.9,
+          "p95": 6.4,
+          "max": 13.900000005960464
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 240.768,
+        "toSeconds": 300.918,
+        "fullFrameMs": {
+          "n": 2452,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 72.70000000001164
+        },
+        "callbackMs": {
+          "n": 2452,
+          "p50": 5.7,
+          "p95": 9.4,
+          "max": 25.099999994039536
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 300.918,
+        "toSeconds": 361.252,
+        "fullFrameMs": {
+          "n": 2431,
+          "p50": 24.2,
+          "p95": 42.3,
+          "max": 54.59999999997672
+        },
+        "callbackMs": {
+          "n": 2431,
+          "p50": 6.3,
+          "p95": 10.1,
+          "max": 21.19999998807907
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 361.252,
+        "toSeconds": 421.784,
+        "fullFrameMs": {
+          "n": 2362,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 60.59999999997672
+        },
+        "callbackMs": {
+          "n": 2362,
+          "p50": 6.8,
+          "p95": 10.6,
+          "max": 20.399999991059303
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 421.784,
+        "toSeconds": 482.052,
+        "fullFrameMs": {
+          "n": 2344,
+          "p50": 24.3,
+          "p95": 42.4,
+          "max": 54.5
+        },
+        "callbackMs": {
+          "n": 2344,
+          "p50": 6.1,
+          "p95": 9.8,
+          "max": 15.599999994039536
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 482.052,
+        "toSeconds": 542.143,
+        "fullFrameMs": {
+          "n": 2417,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 60.60000000009313
+        },
+        "callbackMs": {
+          "n": 2417,
+          "p50": 6.1,
+          "p95": 9.7,
+          "max": 17.100000008940697
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 542.143,
+        "toSeconds": 602.388,
+        "fullFrameMs": {
+          "n": 2427,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 54.59999999997672
+        },
+        "callbackMs": {
+          "n": 2427,
+          "p50": 6.5,
+          "p95": 10.3,
+          "max": 16.299999997019768
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 602.388,
+        "toSeconds": 662.472,
+        "fullFrameMs": {
+          "n": 2174,
+          "p50": 24.3,
+          "p95": 48.4,
+          "max": 103
+        },
+        "callbackMs": {
+          "n": 2174,
+          "p50": 7.9,
+          "p95": 13.8,
+          "max": 54.599999994039536
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 662.472,
+        "toSeconds": 722.611,
+        "fullFrameMs": {
+          "n": 1913,
+          "p50": 30.3,
+          "p95": 48.5,
+          "max": 72.79999999993015
+        },
+        "callbackMs": {
+          "n": 1913,
+          "p50": 8.8,
+          "p95": 14.1,
+          "max": 24.700000002980232
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 722.611,
+        "toSeconds": 782.703,
+        "fullFrameMs": {
+          "n": 2363,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 66.59999999997672
+        },
+        "callbackMs": {
+          "n": 2363,
+          "p50": 7.2,
+          "p95": 11.5,
+          "max": 30.599999994039536
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 782.703,
+        "toSeconds": 842.811,
+        "fullFrameMs": {
+          "n": 2330,
+          "p50": 24.3,
+          "p95": 42.4,
+          "max": 60.70000000006985
+        },
+        "callbackMs": {
+          "n": 2330,
+          "p50": 7.3,
+          "p95": 11.4,
+          "max": 25.5
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 842.811,
+        "toSeconds": 903.595,
+        "fullFrameMs": {
+          "n": 2599,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 54.699999999953434
+        },
+        "callbackMs": {
+          "n": 2599,
+          "p50": 6.4,
+          "p95": 10.7,
+          "max": 17.19999998807907
+        },
+        "excludedFrames": 15
+      },
+      {
+        "fromSeconds": 903.595,
+        "toSeconds": 907.471,
+        "fullFrameMs": {
+          "n": 201,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 48.5
+        },
+        "callbackMs": {
+          "n": 201,
+          "p50": 6.3,
+          "p95": 10.5,
+          "max": 15
+        },
+        "excludedFrames": 15
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3349764,
+        "retainedBytes": 2364464,
+        "backingStorageBytes": 484458,
+        "dom": {
+          "documents": 1,
+          "nodes": 1109,
+          "jsEventListeners": 146
+        },
+        "elapsed": 32,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 8,
+        "artCache": 10,
+        "checkpointPauseMs": 59
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 4934664,
+        "retainedBytes": 3420140,
+        "backingStorageBytes": 485388,
+        "dom": {
+          "documents": 1,
+          "nodes": 1170,
+          "jsEventListeners": 162
+        },
+        "elapsed": 29920,
+        "wave": 2,
+        "kills": 27,
+        "level": 3,
+        "orbs": 3,
+        "enemies": 2,
+        "artCache": 29,
+        "checkpointPauseMs": 21
+      },
+      {
+        "label": "5m",
+        "wallSeconds": 300.251,
+        "rawBytes": 16790168,
+        "retainedBytes": 3750748,
+        "backingStorageBytes": 493924,
+        "dom": {
+          "documents": 1,
+          "nodes": 1328,
+          "jsEventListeners": 167
+        },
+        "elapsed": 325792,
+        "wave": 19,
+        "kills": 490,
+        "level": 10,
+        "orbs": 0,
+        "enemies": 180,
+        "artCache": 108,
+        "checkpointPauseMs": 78
+      },
+      {
+        "label": "10m",
+        "wallSeconds": 600.217,
+        "rawBytes": 19409224,
+        "retainedBytes": 4070684,
+        "backingStorageBytes": 485965,
+        "dom": {
+          "documents": 1,
+          "nodes": 1321,
+          "jsEventListeners": 163
+        },
+        "elapsed": 624992,
+        "wave": 35,
+        "kills": 641,
+        "level": 11,
+        "orbs": 0,
+        "enemies": 180,
+        "artCache": 116,
+        "checkpointPauseMs": 84
+      },
+      {
+        "label": "15m",
+        "wallSeconds": 900.205,
+        "rawBytes": 27090084,
+        "retainedBytes": 4229008,
+        "backingStorageBytes": 485899,
+        "dom": {
+          "documents": 1,
+          "nodes": 1331,
+          "jsEventListeners": 162
+        },
+        "elapsed": 923568,
+        "wave": 52,
+        "kills": 780,
+        "level": 12,
+        "orbs": 8,
+        "enemies": 160,
+        "artCache": 120,
+        "checkpointPauseMs": 54
+      },
+      {
+        "label": "end",
+        "wallSeconds": 907.471,
+        "rawBytes": 4451164,
+        "retainedBytes": 4111320,
+        "backingStorageBytes": 485950,
+        "dom": {
+          "documents": 1,
+          "nodes": 1335,
+          "jsEventListeners": 166
+        },
+        "elapsed": 930208,
+        "wave": 52,
+        "kills": 899,
+        "level": 13,
+        "orbs": 2,
+        "enemies": 137,
+        "artCache": 120,
+        "checkpointPauseMs": 46
+      }
+    ],
+    "peaks": {
+      "enemies": 195,
+      "bullets": 110,
+      "particles": 500,
+      "xpOrbs": 11,
+      "goldOrbs": 15,
+      "healthOrbs": 4,
+      "chests": 1,
+      "floorItems": 10,
+      "floorIconCache": 8,
+      "projectileArtCache": 0,
+      "damageNumbers": 50,
+      "rescueNpcs": 1,
+      "artCache": 120,
+      "floorTiles": 46
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 0.9072000000029802,
+    "progress": {
+      "wallSeconds": 937.765,
+      "measuredSeconds": 907.471,
+      "gameSeconds": 900.048,
+      "wave": 52,
+      "kills": 896,
+      "level": 13
+    },
+    "fullFrameMs": {
+      "n": 40504,
+      "p50": 24.2,
+      "p95": 42.4
+    },
+    "callbackMs": {
+      "n": 40504,
+      "p50": 5.1,
+      "p95": 10.4
+    },
+    "heapGrowth": 0.2020911424678522,
+    "plateauLastFiveMinutes": 0.00998259751923758,
+    "heapPass": true,
+    "over33msWindows": [
+      {
+        "fromSeconds": 60.067,
+        "toSeconds": 120.621,
+        "p95": 36.4
+      },
+      {
+        "fromSeconds": 120.621,
+        "toSeconds": 180.741,
+        "p95": 36.3
+      },
+      {
+        "fromSeconds": 240.768,
+        "toSeconds": 300.918,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 300.918,
+        "toSeconds": 361.252,
+        "p95": 42.3
+      },
+      {
+        "fromSeconds": 361.252,
+        "toSeconds": 421.784,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 421.784,
+        "toSeconds": 482.052,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 482.052,
+        "toSeconds": 542.143,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 542.143,
+        "toSeconds": 602.388,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 602.388,
+        "toSeconds": 662.472,
+        "p95": 48.4
+      },
+      {
+        "fromSeconds": 662.472,
+        "toSeconds": 722.611,
+        "p95": 48.5
+      },
+      {
+        "fromSeconds": 722.611,
+        "toSeconds": 782.703,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 782.703,
+        "toSeconds": 842.811,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 842.811,
+        "toSeconds": 903.595,
+        "p95": 42.4
+      }
+    ],
+    "complete": true,
+    "pass": true
+  },
+  {
+    "map": "eminonu",
+    "run": 1,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "4ec9378256b1f698244ffac247e390ee6c75c5ac1522054733fa89e27c880c1a",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "measurementVersion": 3,
+    "diagnosticLayerIsolation": false,
+    "qaHashes": {
+      "ab-soak.cjs": "2218819b38a6c0363d36ef0133e16e4dd7c6cb2d7d72504800bdf17b315ed088",
+      "ab-harness.cjs": "e3e54e3981cf58f19297125efbe1ae7e81826406e0044d48e25b55d7812bf18f",
+      "ab-ui.cjs": "199dae8d4368cc991fd0078e04a5a6ece2b2473fed31dbfc53959d3c70c83d9f"
+    },
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = rAF timestamp interval between actual gdraw calls (includes render pacing, not verified GPU presentation); skipped render callbacks cannot improve this metric. All gloop callback CPU durations also recorded. Fixed-size histograms. Game rAF briefly stopped across forced GC and retained heap read; checkpointPauseMs recorded. Next 3 drawn frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.088,
+        "fullFrameMs": {
+          "n": 6208,
+          "p50": 6.1,
+          "p95": 18.3,
+          "max": 163.5
+        },
+        "callbackMs": {
+          "n": 6208,
+          "p50": 1.1,
+          "p95": 2,
+          "max": 14.099999994039536
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.088,
+        "toSeconds": 120.152,
+        "fullFrameMs": {
+          "n": 4972,
+          "p50": 12.1,
+          "p95": 24.2,
+          "max": 54.59999999999127
+        },
+        "callbackMs": {
+          "n": 4972,
+          "p50": 1.3,
+          "p95": 2.2,
+          "max": 7
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 120.152,
+        "toSeconds": 180.189,
+        "fullFrameMs": {
+          "n": 4002,
+          "p50": 12.2,
+          "p95": 30.3,
+          "max": 333.30000000001746
+        },
+        "callbackMs": {
+          "n": 4002,
+          "p50": 1.6,
+          "p95": 2.9,
+          "max": 9.099999994039536
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 180.189,
+        "toSeconds": 240.464,
+        "fullFrameMs": {
+          "n": 3001,
+          "p50": 18.2,
+          "p95": 36.3,
+          "max": 54.60000000000582
+        },
+        "callbackMs": {
+          "n": 3001,
+          "p50": 2.2,
+          "p95": 3.4,
+          "max": 6.799999997019768
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 240.464,
+        "toSeconds": 300.516,
+        "fullFrameMs": {
+          "n": 3682,
+          "p50": 18.1,
+          "p95": 30.3,
+          "max": 357.6000000000349
+        },
+        "callbackMs": {
+          "n": 3682,
+          "p50": 2.1,
+          "p95": 3.7,
+          "max": 10.399999991059303
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 300.516,
+        "toSeconds": 360.917,
+        "fullFrameMs": {
+          "n": 3503,
+          "p50": 18.1,
+          "p95": 30.3,
+          "max": 54.5
+        },
+        "callbackMs": {
+          "n": 3503,
+          "p50": 2.3,
+          "p95": 3.8,
+          "max": 9.299999997019768
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 360.917,
+        "toSeconds": 421.141,
+        "fullFrameMs": {
+          "n": 2914,
+          "p50": 18.2,
+          "p95": 42.4,
+          "max": 72.70000000001164
+        },
+        "callbackMs": {
+          "n": 2914,
+          "p50": 2.5,
+          "p95": 4.6,
+          "max": 13.5
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 421.141,
+        "toSeconds": 481.277,
+        "fullFrameMs": {
+          "n": 1653,
+          "p50": 36.4,
+          "p95": 54.6,
+          "max": 642.3999999999651
+        },
+        "callbackMs": {
+          "n": 1653,
+          "p50": 3.1,
+          "p95": 4.8,
+          "max": 12.599999994039536
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 481.277,
+        "toSeconds": 541.77,
+        "fullFrameMs": {
+          "n": 1780,
+          "p50": 36.3,
+          "p95": 48.6,
+          "max": 96.90000000002328
+        },
+        "callbackMs": {
+          "n": 1780,
+          "p50": 3.1,
+          "p95": 4.9,
+          "max": 12.900000005960464
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 541.77,
+        "toSeconds": 602.075,
+        "fullFrameMs": {
+          "n": 1654,
+          "p50": 36.4,
+          "p95": 54.6,
+          "max": 78.80000000004657
+        },
+        "callbackMs": {
+          "n": 1654,
+          "p50": 3.1,
+          "p95": 4.9,
+          "max": 17.200000002980232
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 602.075,
+        "toSeconds": 662.127,
+        "fullFrameMs": {
+          "n": 1591,
+          "p50": 36.4,
+          "p95": 60.6,
+          "max": 127.30000000004657
+        },
+        "callbackMs": {
+          "n": 1591,
+          "p50": 3.2,
+          "p95": 5.7,
+          "max": 34.400000005960464
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 662.127,
+        "toSeconds": 722.268,
+        "fullFrameMs": {
+          "n": 1445,
+          "p50": 42.4,
+          "p95": 60.6,
+          "max": 133.40000000002328
+        },
+        "callbackMs": {
+          "n": 1445,
+          "p50": 3.5,
+          "p95": 6.8,
+          "max": 27.399999991059303
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 722.268,
+        "toSeconds": 782.424,
+        "fullFrameMs": {
+          "n": 1534,
+          "p50": 42.3,
+          "p95": 54.7,
+          "max": 84.90000000002328
+        },
+        "callbackMs": {
+          "n": 1534,
+          "p50": 3.3,
+          "p95": 5.2,
+          "max": 14.899999991059303
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 782.424,
+        "toSeconds": 842.522,
+        "fullFrameMs": {
+          "n": 1626,
+          "p50": 36.4,
+          "p95": 54.6,
+          "max": 163.5
+        },
+        "callbackMs": {
+          "n": 1626,
+          "p50": 3.2,
+          "p95": 4.7,
+          "max": 8.299999997019768
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 842.522,
+        "toSeconds": 902.865,
+        "fullFrameMs": {
+          "n": 1683,
+          "p50": 36.4,
+          "p95": 54.5,
+          "max": 66.69999999995343
+        },
+        "callbackMs": {
+          "n": 1683,
+          "p50": 3.2,
+          "p95": 4.7,
+          "max": 7.700000002980232
+        },
+        "excludedFrames": 15
+      },
+      {
+        "fromSeconds": 902.865,
+        "toSeconds": 925.832,
+        "fullFrameMs": {
+          "n": 683,
+          "p50": 36.3,
+          "p95": 48.6,
+          "max": 97
+        },
+        "callbackMs": {
+          "n": 683,
+          "p50": 2.8,
+          "p95": 4.2,
+          "max": 8.600000008940697
+        },
+        "excludedFrames": 15
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3439136,
+        "retainedBytes": 2248408,
+        "backingStorageBytes": 484116,
+        "dom": {
+          "documents": 1,
+          "nodes": 1106,
+          "jsEventListeners": 146
+        },
+        "elapsed": 0,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 8,
+        "artCache": 9,
+        "checkpointPauseMs": 36
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 3913692,
+        "retainedBytes": 3420608,
+        "backingStorageBytes": 485396,
+        "dom": {
+          "documents": 1,
+          "nodes": 1175,
+          "jsEventListeners": 161
+        },
+        "elapsed": 29728,
+        "wave": 2,
+        "kills": 36,
+        "level": 3,
+        "orbs": 5,
+        "enemies": 2,
+        "artCache": 33,
+        "checkpointPauseMs": 25
+      },
+      {
+        "label": "5m",
+        "wallSeconds": 300.115,
+        "rawBytes": 15851652,
+        "retainedBytes": 3758860,
+        "backingStorageBytes": 487156,
+        "dom": {
+          "documents": 1,
+          "nodes": 1366,
+          "jsEventListeners": 172
+        },
+        "elapsed": 322544,
+        "wave": 18,
+        "kills": 2764,
+        "level": 16,
+        "orbs": 32,
+        "enemies": 52,
+        "artCache": 116,
+        "checkpointPauseMs": 38
+      },
+      {
+        "label": "10m",
+        "wallSeconds": 600.263,
+        "rawBytes": 10782824,
+        "retainedBytes": 3966040,
+        "backingStorageBytes": 486641,
+        "dom": {
+          "documents": 1,
+          "nodes": 1379,
+          "jsEventListeners": 170
+        },
+        "elapsed": 616544,
+        "wave": 35,
+        "kills": 7463,
+        "level": 19,
+        "orbs": 0,
+        "enemies": 48,
+        "artCache": 116,
+        "checkpointPauseMs": 71
+      },
+      {
+        "label": "15m",
+        "wallSeconds": 900.084,
+        "rawBytes": 12012764,
+        "retainedBytes": 4164572,
+        "backingStorageBytes": 486432,
+        "dom": {
+          "documents": 1,
+          "nodes": 1387,
+          "jsEventListeners": 171
+        },
+        "elapsed": 904928,
+        "wave": 51,
+        "kills": 12123,
+        "level": 23,
+        "orbs": 4,
+        "enemies": 50,
+        "artCache": 120,
+        "checkpointPauseMs": 34
+      },
+      {
+        "label": "end",
+        "wallSeconds": 925.832,
+        "rawBytes": 5142100,
+        "retainedBytes": 4131040,
+        "backingStorageBytes": 486442,
+        "dom": {
+          "documents": 1,
+          "nodes": 1389,
+          "jsEventListeners": 172
+        },
+        "elapsed": 930176,
+        "wave": 52,
+        "kills": 12541,
+        "level": 23,
+        "orbs": 0,
+        "enemies": 42,
+        "artCache": 120,
+        "checkpointPauseMs": 25
+      }
+    ],
+    "peaks": {
+      "enemies": 78,
+      "bullets": 22,
+      "particles": 500,
+      "xpOrbs": 45,
+      "goldOrbs": 28,
+      "healthOrbs": 4,
+      "chests": 1,
+      "floorItems": 14,
+      "floorIconCache": 8,
+      "projectileArtCache": 0,
+      "damageNumbers": 50,
+      "rescueNpcs": 1,
+      "artCache": 120,
+      "floorTiles": 46
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 1.0873999999910593,
+    "progress": {
+      "wallSeconds": 956.119,
+      "measuredSeconds": 925.832,
+      "gameSeconds": 900.256,
+      "wave": 52,
+      "kills": 12538,
+      "level": 23
+    },
+    "fullFrameMs": {
+      "n": 41931,
+      "p50": 18.2,
+      "p95": 48.5
+    },
+    "callbackMs": {
+      "n": 41931,
+      "p50": 2.2,
+      "p95": 4.3
+    },
+    "heapGrowth": 0.20769173199618307,
+    "plateauLastFiveMinutes": 0.041603211263628204,
+    "heapPass": true,
+    "over33msWindows": [
+      {
+        "fromSeconds": 180.189,
+        "toSeconds": 240.464,
+        "p95": 36.3
+      },
+      {
+        "fromSeconds": 360.917,
+        "toSeconds": 421.141,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 421.141,
+        "toSeconds": 481.277,
+        "p95": 54.6
+      },
+      {
+        "fromSeconds": 481.277,
+        "toSeconds": 541.77,
+        "p95": 48.6
+      },
+      {
+        "fromSeconds": 541.77,
+        "toSeconds": 602.075,
+        "p95": 54.6
+      },
+      {
+        "fromSeconds": 602.075,
+        "toSeconds": 662.127,
+        "p95": 60.6
+      },
+      {
+        "fromSeconds": 662.127,
+        "toSeconds": 722.268,
+        "p95": 60.6
+      },
+      {
+        "fromSeconds": 722.268,
+        "toSeconds": 782.424,
+        "p95": 54.7
+      },
+      {
+        "fromSeconds": 782.424,
+        "toSeconds": 842.522,
+        "p95": 54.6
+      },
+      {
+        "fromSeconds": 842.522,
+        "toSeconds": 902.865,
+        "p95": 54.5
+      },
+      {
+        "fromSeconds": 902.865,
+        "toSeconds": 925.832,
+        "p95": 48.6
+      }
+    ],
+    "complete": true,
+    "pass": true
+  },
+  {
+    "map": "kapalicarsi",
+    "run": 2,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "4ec9378256b1f698244ffac247e390ee6c75c5ac1522054733fa89e27c880c1a",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "measurementVersion": 3,
+    "diagnosticLayerIsolation": false,
+    "qaHashes": {
+      "ab-soak.cjs": "2218819b38a6c0363d36ef0133e16e4dd7c6cb2d7d72504800bdf17b315ed088",
+      "ab-harness.cjs": "e3e54e3981cf58f19297125efbe1ae7e81826406e0044d48e25b55d7812bf18f",
+      "ab-ui.cjs": "199dae8d4368cc991fd0078e04a5a6ece2b2473fed31dbfc53959d3c70c83d9f"
+    },
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = rAF timestamp interval between actual gdraw calls (includes render pacing, not verified GPU presentation); skipped render callbacks cannot improve this metric. All gloop callback CPU durations also recorded. Fixed-size histograms. Game rAF briefly stopped across forced GC and retained heap read; checkpointPauseMs recorded. Next 3 drawn frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.003,
+        "fullFrameMs": {
+          "n": 7190,
+          "p50": 6.1,
+          "p95": 12.2,
+          "max": 296.90000000000873
+        },
+        "callbackMs": {
+          "n": 7190,
+          "p50": 1,
+          "p95": 1.8,
+          "max": 11.300000011920929
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.003,
+        "toSeconds": 120.242,
+        "fullFrameMs": {
+          "n": 4734,
+          "p50": 12.1,
+          "p95": 24.2,
+          "max": 48.5
+        },
+        "callbackMs": {
+          "n": 4734,
+          "p50": 1.5,
+          "p95": 2.6,
+          "max": 6.799999997019768
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 120.242,
+        "toSeconds": 180.51,
+        "fullFrameMs": {
+          "n": 3269,
+          "p50": 18.1,
+          "p95": 36.3,
+          "max": 290.8999999999942
+        },
+        "callbackMs": {
+          "n": 3269,
+          "p50": 2,
+          "p95": 3.7,
+          "max": 10.199999988079071
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 180.51,
+        "toSeconds": 240.63,
+        "fullFrameMs": {
+          "n": 2184,
+          "p50": 24.3,
+          "p95": 48.4,
+          "max": 199.90000000002328
+        },
+        "callbackMs": {
+          "n": 2184,
+          "p50": 3,
+          "p95": 5.1,
+          "max": 29.099999994039536
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 240.63,
+        "toSeconds": 300.637,
+        "fullFrameMs": {
+          "n": 2382,
+          "p50": 24.2,
+          "p95": 48.4,
+          "max": 72.70000000001164
+        },
+        "callbackMs": {
+          "n": 2382,
+          "p50": 2.8,
+          "p95": 5.1,
+          "max": 10.5
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 300.637,
+        "toSeconds": 360.823,
+        "fullFrameMs": {
+          "n": 2642,
+          "p50": 24.2,
+          "p95": 36.4,
+          "max": 387.8999999999651
+        },
+        "callbackMs": {
+          "n": 2642,
+          "p50": 2.2,
+          "p95": 3.7,
+          "max": 6.0999999940395355
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 360.823,
+        "toSeconds": 421.07,
+        "fullFrameMs": {
+          "n": 2488,
+          "p50": 24.2,
+          "p95": 36.5,
+          "max": 60.600000000034925
+        },
+        "callbackMs": {
+          "n": 2488,
+          "p50": 2.3,
+          "p95": 3.8,
+          "max": 7.899999991059303
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 421.07,
+        "toSeconds": 481.306,
+        "fullFrameMs": {
+          "n": 2454,
+          "p50": 24.2,
+          "p95": 36.5,
+          "max": 127.29999999998836
+        },
+        "callbackMs": {
+          "n": 2454,
+          "p50": 2.3,
+          "p95": 3.7,
+          "max": 6.9000000059604645
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 481.306,
+        "toSeconds": 541.346,
+        "fullFrameMs": {
+          "n": 2513,
+          "p50": 24.2,
+          "p95": 36.4,
+          "max": 90.90000000002328
+        },
+        "callbackMs": {
+          "n": 2513,
+          "p50": 2.3,
+          "p95": 3.8,
+          "max": 6.300000011920929
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 541.346,
+        "toSeconds": 601.492,
+        "fullFrameMs": {
+          "n": 2522,
+          "p50": 24.2,
+          "p95": 36.5,
+          "max": 60.59999999997672
+        },
+        "callbackMs": {
+          "n": 2522,
+          "p50": 2.6,
+          "p95": 4,
+          "max": 7.199999988079071
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 601.492,
+        "toSeconds": 661.695,
+        "fullFrameMs": {
+          "n": 2620,
+          "p50": 24.2,
+          "p95": 36.4,
+          "max": 121.19999999995343
+        },
+        "callbackMs": {
+          "n": 2620,
+          "p50": 2.9,
+          "p95": 4.6,
+          "max": 8
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 661.695,
+        "toSeconds": 721.86,
+        "fullFrameMs": {
+          "n": 2741,
+          "p50": 24.1,
+          "p95": 36.4,
+          "max": 290.80000000004657
+        },
+        "callbackMs": {
+          "n": 2741,
+          "p50": 2.8,
+          "p95": 4.4,
+          "max": 7.5999999940395355
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 721.86,
+        "toSeconds": 782.215,
+        "fullFrameMs": {
+          "n": 2657,
+          "p50": 24.2,
+          "p95": 36.4,
+          "max": 66.59999999997672
+        },
+        "callbackMs": {
+          "n": 2657,
+          "p50": 2.8,
+          "p95": 4.4,
+          "max": 7.100000008940697
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 782.215,
+        "toSeconds": 842.392,
+        "fullFrameMs": {
+          "n": 2503,
+          "p50": 24.2,
+          "p95": 42.3,
+          "max": 60.5
+        },
+        "callbackMs": {
+          "n": 2503,
+          "p50": 2.8,
+          "p95": 4.4,
+          "max": 7.399999991059303
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 842.392,
+        "toSeconds": 902.57,
+        "fullFrameMs": {
+          "n": 2710,
+          "p50": 24.1,
+          "p95": 36.4,
+          "max": 54.59999999997672
+        },
+        "callbackMs": {
+          "n": 2710,
+          "p50": 2.7,
+          "p95": 4.2,
+          "max": 7.399999991059303
+        },
+        "excludedFrames": 15
+      },
+      {
+        "fromSeconds": 902.57,
+        "toSeconds": 914.509,
+        "fullFrameMs": {
+          "n": 669,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 42.5
+        },
+        "callbackMs": {
+          "n": 669,
+          "p50": 2.3,
+          "p95": 3.7,
+          "max": 7.4000000059604645
+        },
+        "excludedFrames": 15
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3086372,
+        "retainedBytes": 2231540,
+        "backingStorageBytes": 484060,
+        "dom": {
+          "documents": 1,
+          "nodes": 1101,
+          "jsEventListeners": 146
+        },
+        "elapsed": 0,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 8,
+        "artCache": 8,
+        "checkpointPauseMs": 22
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 3923040,
+        "retainedBytes": 3417916,
+        "backingStorageBytes": 485360,
+        "dom": {
+          "documents": 1,
+          "nodes": 1158,
+          "jsEventListeners": 162
+        },
+        "elapsed": 29888,
+        "wave": 2,
+        "kills": 26,
+        "level": 2,
+        "orbs": 4,
+        "enemies": 5,
+        "artCache": 24,
+        "checkpointPauseMs": 16
+      },
+      {
+        "label": "5m",
+        "wallSeconds": 300.232,
+        "rawBytes": 12269296,
+        "retainedBytes": 3821516,
+        "backingStorageBytes": 487030,
+        "dom": {
+          "documents": 1,
+          "nodes": 1353,
+          "jsEventListeners": 169
+        },
+        "elapsed": 322448,
+        "wave": 18,
+        "kills": 2457,
+        "level": 15,
+        "orbs": 71,
+        "enemies": 42,
+        "artCache": 116,
+        "checkpointPauseMs": 26
+      },
+      {
+        "label": "10m",
+        "wallSeconds": 600.028,
+        "rawBytes": 29635476,
+        "retainedBytes": 4010892,
+        "backingStorageBytes": 486720,
+        "dom": {
+          "documents": 1,
+          "nodes": 1377,
+          "jsEventListeners": 169
+        },
+        "elapsed": 619312,
+        "wave": 35,
+        "kills": 6694,
+        "level": 18,
+        "orbs": 76,
+        "enemies": 36,
+        "artCache": 116,
+        "checkpointPauseMs": 39
+      },
+      {
+        "label": "15m",
+        "wallSeconds": 900.378,
+        "rawBytes": 22722144,
+        "retainedBytes": 4058840,
+        "backingStorageBytes": 486536,
+        "dom": {
+          "documents": 1,
+          "nodes": 1398,
+          "jsEventListeners": 174
+        },
+        "elapsed": 916240,
+        "wave": 51,
+        "kills": 10878,
+        "level": 20,
+        "orbs": 60,
+        "enemies": 31,
+        "artCache": 120,
+        "checkpointPauseMs": 48
+      },
+      {
+        "label": "end",
+        "wallSeconds": 914.509,
+        "rawBytes": 5053216,
+        "retainedBytes": 4286324,
+        "backingStorageBytes": 486521,
+        "dom": {
+          "documents": 1,
+          "nodes": 1398,
+          "jsEventListeners": 173
+        },
+        "elapsed": 930448,
+        "wave": 52,
+        "kills": 11073,
+        "level": 20,
+        "orbs": 62,
+        "enemies": 29,
+        "artCache": 120,
+        "checkpointPauseMs": 31
+      }
+    ],
+    "peaks": {
+      "enemies": 82,
+      "bullets": 200,
+      "particles": 500,
+      "xpOrbs": 130,
+      "goldOrbs": 42,
+      "healthOrbs": 11,
+      "chests": 2,
+      "floorItems": 16,
+      "floorIconCache": 8,
+      "projectileArtCache": 0,
+      "damageNumbers": 51,
+      "rescueNpcs": 1,
+      "artCache": 120,
+      "floorTiles": 43
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 1.1025999999940395,
+    "progress": {
+      "wallSeconds": 944.632,
+      "measuredSeconds": 914.509,
+      "gameSeconds": 900.384,
+      "wave": 52,
+      "kills": 11069,
+      "level": 20
+    },
+    "fullFrameMs": {
+      "n": 46278,
+      "p50": 18.2,
+      "p95": 36.4
+    },
+    "callbackMs": {
+      "n": 46278,
+      "p50": 2.2,
+      "p95": 4.1
+    },
+    "heapGrowth": 0.25407529032310916,
+    "plateauLastFiveMinutes": 0.06867100884292077,
+    "heapPass": true,
+    "over33msWindows": [
+      {
+        "fromSeconds": 120.242,
+        "toSeconds": 180.51,
+        "p95": 36.3
+      },
+      {
+        "fromSeconds": 180.51,
+        "toSeconds": 240.63,
+        "p95": 48.4
+      },
+      {
+        "fromSeconds": 240.63,
+        "toSeconds": 300.637,
+        "p95": 48.4
+      },
+      {
+        "fromSeconds": 300.637,
+        "toSeconds": 360.823,
+        "p95": 36.4
+      },
+      {
+        "fromSeconds": 360.823,
+        "toSeconds": 421.07,
+        "p95": 36.5
+      },
+      {
+        "fromSeconds": 421.07,
+        "toSeconds": 481.306,
+        "p95": 36.5
+      },
+      {
+        "fromSeconds": 481.306,
+        "toSeconds": 541.346,
+        "p95": 36.4
+      },
+      {
+        "fromSeconds": 541.346,
+        "toSeconds": 601.492,
+        "p95": 36.5
+      },
+      {
+        "fromSeconds": 601.492,
+        "toSeconds": 661.695,
+        "p95": 36.4
+      },
+      {
+        "fromSeconds": 661.695,
+        "toSeconds": 721.86,
+        "p95": 36.4
+      },
+      {
+        "fromSeconds": 721.86,
+        "toSeconds": 782.215,
+        "p95": 36.4
+      },
+      {
+        "fromSeconds": 782.215,
+        "toSeconds": 842.392,
+        "p95": 42.3
+      },
+      {
+        "fromSeconds": 842.392,
+        "toSeconds": 902.57,
+        "p95": 36.4
+      }
+    ],
+    "complete": true,
+    "pass": true
+  },
+  {
+    "map": "uskudar",
+    "run": 2,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "4ec9378256b1f698244ffac247e390ee6c75c5ac1522054733fa89e27c880c1a",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "measurementVersion": 3,
+    "diagnosticLayerIsolation": false,
+    "qaHashes": {
+      "ab-soak.cjs": "2218819b38a6c0363d36ef0133e16e4dd7c6cb2d7d72504800bdf17b315ed088",
+      "ab-harness.cjs": "e3e54e3981cf58f19297125efbe1ae7e81826406e0044d48e25b55d7812bf18f",
+      "ab-ui.cjs": "199dae8d4368cc991fd0078e04a5a6ece2b2473fed31dbfc53959d3c70c83d9f"
+    },
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = rAF timestamp interval between actual gdraw calls (includes render pacing, not verified GPU presentation); skipped render callbacks cannot improve this metric. All gloop callback CPU durations also recorded. Fixed-size histograms. Game rAF briefly stopped across forced GC and retained heap read; checkpointPauseMs recorded. Next 3 drawn frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.133,
+        "fullFrameMs": {
+          "n": 8400,
+          "p50": 6.1,
+          "p95": 12.2,
+          "max": 18.30000000000291
+        },
+        "callbackMs": {
+          "n": 8400,
+          "p50": 1.1,
+          "p95": 2.3,
+          "max": 10.5
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.133,
+        "toSeconds": 120.422,
+        "fullFrameMs": {
+          "n": 6178,
+          "p50": 12,
+          "p95": 12.3,
+          "max": 24.30000000000291
+        },
+        "callbackMs": {
+          "n": 6178,
+          "p50": 2.2,
+          "p95": 3.5,
+          "max": 11.799999997019768
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 120.422,
+        "toSeconds": 180.872,
+        "fullFrameMs": {
+          "n": 5841,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 24.29999999998836
+        },
+        "callbackMs": {
+          "n": 5841,
+          "p50": 2.2,
+          "p95": 3.5,
+          "max": 8.300000011920929
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 180.872,
+        "toSeconds": 240.984,
+        "fullFrameMs": {
+          "n": 5552,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 48.5
+        },
+        "callbackMs": {
+          "n": 5552,
+          "p50": 2.3,
+          "p95": 3.7,
+          "max": 6.799999997019768
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 240.984,
+        "toSeconds": 301.205,
+        "fullFrameMs": {
+          "n": 4885,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 24.399999999965075
+        },
+        "callbackMs": {
+          "n": 4885,
+          "p50": 2.4,
+          "p95": 3.7,
+          "max": 7.299999997019768
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 301.205,
+        "toSeconds": 361.354,
+        "fullFrameMs": {
+          "n": 5993,
+          "p50": 12,
+          "p95": 18.2,
+          "max": 24.29999999998836
+        },
+        "callbackMs": {
+          "n": 5993,
+          "p50": 1.7,
+          "p95": 2.9,
+          "max": 5.5
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 361.354,
+        "toSeconds": 421.486,
+        "fullFrameMs": {
+          "n": 5570,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 24.29999999998836
+        },
+        "callbackMs": {
+          "n": 5570,
+          "p50": 1.7,
+          "p95": 2.9,
+          "max": 6.5999999940395355
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 421.486,
+        "toSeconds": 481.566,
+        "fullFrameMs": {
+          "n": 6454,
+          "p50": 6.2,
+          "p95": 18.1,
+          "max": 24.20000000001164
+        },
+        "callbackMs": {
+          "n": 6454,
+          "p50": 1.7,
+          "p95": 2.8,
+          "max": 5.5
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 481.566,
+        "toSeconds": 541.805,
+        "fullFrameMs": {
+          "n": 6310,
+          "p50": 6.2,
+          "p95": 18.2,
+          "max": 24.300000000046566
+        },
+        "callbackMs": {
+          "n": 6310,
+          "p50": 1.7,
+          "p95": 2.8,
+          "max": 4.700000002980232
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 541.805,
+        "toSeconds": 601.93,
+        "fullFrameMs": {
+          "n": 7099,
+          "p50": 6.1,
+          "p95": 18.1,
+          "max": 24.300000000046566
+        },
+        "callbackMs": {
+          "n": 7099,
+          "p50": 1.7,
+          "p95": 3.6,
+          "max": 6.700000002980232
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 601.93,
+        "toSeconds": 662.161,
+        "fullFrameMs": {
+          "n": 8278,
+          "p50": 6.1,
+          "p95": 12.2,
+          "max": 24.300000000046566
+        },
+        "callbackMs": {
+          "n": 8278,
+          "p50": 1.8,
+          "p95": 4.3,
+          "max": 7.100000008940697
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 662.161,
+        "toSeconds": 722.519,
+        "fullFrameMs": {
+          "n": 8608,
+          "p50": 6.1,
+          "p95": 12.1,
+          "max": 24.199999999953434
+        },
+        "callbackMs": {
+          "n": 8608,
+          "p50": 1.7,
+          "p95": 4.3,
+          "max": 6.899999991059303
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 722.519,
+        "toSeconds": 782.684,
+        "fullFrameMs": {
+          "n": 8594,
+          "p50": 6.1,
+          "p95": 12.2,
+          "max": 18.300000000046566
+        },
+        "callbackMs": {
+          "n": 8594,
+          "p50": 1.7,
+          "p95": 4.3,
+          "max": 6.699999988079071
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 782.684,
+        "toSeconds": 842.714,
+        "fullFrameMs": {
+          "n": 8434,
+          "p50": 6.1,
+          "p95": 12.2,
+          "max": 24.300000000046566
+        },
+        "callbackMs": {
+          "n": 8434,
+          "p50": 1.7,
+          "p95": 4.3,
+          "max": 8.099999994039536
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 842.714,
+        "toSeconds": 900.84,
+        "fullFrameMs": {
+          "n": 7886,
+          "p50": 6.1,
+          "p95": 12.2,
+          "max": 18.300000000046566
+        },
+        "callbackMs": {
+          "n": 7886,
+          "p50": 1.8,
+          "p95": 4.3,
+          "max": 7.200000002980232
+        },
+        "excludedFrames": 15
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3008648,
+        "retainedBytes": 2205928,
+        "backingStorageBytes": 484294,
+        "dom": {
+          "documents": 1,
+          "nodes": 1108,
+          "jsEventListeners": 146
+        },
+        "elapsed": 0,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 8,
+        "artCache": 12,
+        "checkpointPauseMs": 23
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 5276600,
+        "retainedBytes": 3445756,
+        "backingStorageBytes": 485532,
+        "dom": {
+          "documents": 1,
+          "nodes": 1169,
+          "jsEventListeners": 163
+        },
+        "elapsed": 29696,
+        "wave": 2,
+        "kills": 24,
+        "level": 3,
+        "orbs": 1,
+        "enemies": 5,
+        "artCache": 28,
+        "checkpointPauseMs": 17
+      },
+      {
+        "label": "5m",
+        "wallSeconds": 300.198,
+        "rawBytes": 14439948,
+        "retainedBytes": 3718388,
+        "backingStorageBytes": 486030,
+        "dom": {
+          "documents": 1,
+          "nodes": 1285,
+          "jsEventListeners": 164
+        },
+        "elapsed": 329888,
+        "wave": 19,
+        "kills": 64,
+        "level": 3,
+        "orbs": 0,
+        "enemies": 180,
+        "artCache": 100,
+        "checkpointPauseMs": 21
+      },
+      {
+        "label": "10m",
+        "wallSeconds": 600.277,
+        "rawBytes": 14940592,
+        "retainedBytes": 3938520,
+        "backingStorageBytes": 485887,
+        "dom": {
+          "documents": 1,
+          "nodes": 1294,
+          "jsEventListeners": 164
+        },
+        "elapsed": 629536,
+        "wave": 35,
+        "kills": 101,
+        "level": 4,
+        "orbs": 0,
+        "enemies": 180,
+        "artCache": 104,
+        "checkpointPauseMs": 19
+      },
+      {
+        "label": "15m",
+        "wallSeconds": 900.178,
+        "rawBytes": 27215420,
+        "retainedBytes": 3872672,
+        "backingStorageBytes": 485656,
+        "dom": {
+          "documents": 1,
+          "nodes": 1304,
+          "jsEventListeners": 164
+        },
+        "elapsed": 929216,
+        "wave": 52,
+        "kills": 149,
+        "level": 5,
+        "orbs": 0,
+        "enemies": 180,
+        "artCache": 112,
+        "checkpointPauseMs": 28
+      },
+      {
+        "label": "end",
+        "wallSeconds": 900.84,
+        "rawBytes": 5124092,
+        "retainedBytes": 4006140,
+        "backingStorageBytes": 485656,
+        "dom": {
+          "documents": 1,
+          "nodes": 1304,
+          "jsEventListeners": 162
+        },
+        "elapsed": 930016,
+        "wave": 52,
+        "kills": 149,
+        "level": 5,
+        "orbs": 0,
+        "enemies": 180,
+        "artCache": 112,
+        "checkpointPauseMs": 15
+      }
+    ],
+    "peaks": {
+      "enemies": 195,
+      "bullets": 16,
+      "particles": 248,
+      "xpOrbs": 4,
+      "goldOrbs": 3,
+      "healthOrbs": 1,
+      "chests": 1,
+      "floorItems": 2,
+      "floorIconCache": 8,
+      "projectileArtCache": 0,
+      "damageNumbers": 11,
+      "rescueNpcs": 1,
+      "artCache": 112,
+      "floorTiles": 46
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 0.4166000000089407,
+    "progress": {
+      "wallSeconds": 931.029,
+      "measuredSeconds": 900.84,
+      "gameSeconds": 900.144,
+      "wave": 52,
+      "kills": 149,
+      "level": 5
+    },
+    "fullFrameMs": {
+      "n": 104082,
+      "p50": 6.1,
+      "p95": 18.1
+    },
+    "callbackMs": {
+      "n": 104082,
+      "p50": 1.7,
+      "p95": 4.1
+    },
+    "heapGrowth": 0.1626302036476175,
+    "plateauLastFiveMinutes": 0.017168885774351716,
+    "heapPass": true,
+    "over33msWindows": [],
+    "complete": true,
+    "pass": true
+  },
+  {
+    "map": "besiktas",
+    "run": 2,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "4ec9378256b1f698244ffac247e390ee6c75c5ac1522054733fa89e27c880c1a",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "measurementVersion": 3,
+    "diagnosticLayerIsolation": false,
+    "qaHashes": {
+      "ab-soak.cjs": "2218819b38a6c0363d36ef0133e16e4dd7c6cb2d7d72504800bdf17b315ed088",
+      "ab-harness.cjs": "e3e54e3981cf58f19297125efbe1ae7e81826406e0044d48e25b55d7812bf18f",
+      "ab-ui.cjs": "199dae8d4368cc991fd0078e04a5a6ece2b2473fed31dbfc53959d3c70c83d9f"
+    },
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = rAF timestamp interval between actual gdraw calls (includes render pacing, not verified GPU presentation); skipped render callbacks cannot improve this metric. All gloop callback CPU durations also recorded. Fixed-size histograms. Game rAF briefly stopped across forced GC and retained heap read; checkpointPauseMs recorded. Next 3 drawn frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.671,
+        "fullFrameMs": {
+          "n": 6418,
+          "p50": 6.1,
+          "p95": 18.2,
+          "max": 42.30000000000291
+        },
+        "callbackMs": {
+          "n": 6418,
+          "p50": 1,
+          "p95": 2,
+          "max": 10
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.671,
+        "toSeconds": 120.923,
+        "fullFrameMs": {
+          "n": 3194,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 48.5
+        },
+        "callbackMs": {
+          "n": 3194,
+          "p50": 2,
+          "p95": 3.6,
+          "max": 7
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 120.923,
+        "toSeconds": 181.136,
+        "fullFrameMs": {
+          "n": 2535,
+          "p50": 24.2,
+          "p95": 36.3,
+          "max": 48.5
+        },
+        "callbackMs": {
+          "n": 2535,
+          "p50": 3.9,
+          "p95": 7.3,
+          "max": 13.399999991059303
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 181.136,
+        "toSeconds": 241.303,
+        "fullFrameMs": {
+          "n": 2404,
+          "p50": 24.2,
+          "p95": 36.4,
+          "max": 72.69999999998254
+        },
+        "callbackMs": {
+          "n": 2404,
+          "p50": 5.7,
+          "p95": 8.7,
+          "max": 16.80000001192093
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 241.303,
+        "toSeconds": 301.488,
+        "fullFrameMs": {
+          "n": 2389,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 54.600000000034925
+        },
+        "callbackMs": {
+          "n": 2389,
+          "p50": 5.3,
+          "p95": 8.9,
+          "max": 13.5
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 301.488,
+        "toSeconds": 361.663,
+        "fullFrameMs": {
+          "n": 3079,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 42.5
+        },
+        "callbackMs": {
+          "n": 3079,
+          "p50": 3.8,
+          "p95": 6.5,
+          "max": 10.399999991059303
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 361.663,
+        "toSeconds": 422.083,
+        "fullFrameMs": {
+          "n": 3105,
+          "p50": 18.2,
+          "p95": 30.2,
+          "max": 42.5
+        },
+        "callbackMs": {
+          "n": 3105,
+          "p50": 3.7,
+          "p95": 6.2,
+          "max": 11.200000002980232
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 422.083,
+        "toSeconds": 482.197,
+        "fullFrameMs": {
+          "n": 2943,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 42.5
+        },
+        "callbackMs": {
+          "n": 2943,
+          "p50": 3.9,
+          "p95": 6.4,
+          "max": 9.900000005960464
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 482.197,
+        "toSeconds": 542.508,
+        "fullFrameMs": {
+          "n": 2970,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 42.59999999997672
+        },
+        "callbackMs": {
+          "n": 2970,
+          "p50": 3.8,
+          "p95": 6.5,
+          "max": 11.299999997019768
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 542.508,
+        "toSeconds": 602.778,
+        "fullFrameMs": {
+          "n": 3046,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 42.5
+        },
+        "callbackMs": {
+          "n": 3046,
+          "p50": 3.9,
+          "p95": 6.4,
+          "max": 9.700000002980232
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 602.778,
+        "toSeconds": 662.81,
+        "fullFrameMs": {
+          "n": 2956,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 48.5
+        },
+        "callbackMs": {
+          "n": 2956,
+          "p50": 4.3,
+          "p95": 7.4,
+          "max": 10.799999997019768
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 662.81,
+        "toSeconds": 723.254,
+        "fullFrameMs": {
+          "n": 2948,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 42.5
+        },
+        "callbackMs": {
+          "n": 2948,
+          "p50": 4.4,
+          "p95": 7.4,
+          "max": 11.599999994039536
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 723.254,
+        "toSeconds": 783.417,
+        "fullFrameMs": {
+          "n": 2966,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 42.5
+        },
+        "callbackMs": {
+          "n": 2966,
+          "p50": 4.3,
+          "p95": 7.1,
+          "max": 11
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 783.417,
+        "toSeconds": 843.806,
+        "fullFrameMs": {
+          "n": 2998,
+          "p50": 18.2,
+          "p95": 30.3,
+          "max": 42.59999999997672
+        },
+        "callbackMs": {
+          "n": 2998,
+          "p50": 4.1,
+          "p95": 6.8,
+          "max": 12.200000002980232
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 843.806,
+        "toSeconds": 904.133,
+        "fullFrameMs": {
+          "n": 2642,
+          "p50": 24.2,
+          "p95": 30.4,
+          "max": 48.5
+        },
+        "callbackMs": {
+          "n": 2642,
+          "p50": 4.5,
+          "p95": 7,
+          "max": 10.400000005960464
+        },
+        "excludedFrames": 15
+      },
+      {
+        "fromSeconds": 904.133,
+        "toSeconds": 905.164,
+        "fullFrameMs": {
+          "n": 47,
+          "p50": 24.1,
+          "p95": 30.3,
+          "max": 36.5
+        },
+        "callbackMs": {
+          "n": 47,
+          "p50": 4.4,
+          "p95": 7.2,
+          "max": 7.5
+        },
+        "excludedFrames": 15
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3427708,
+        "retainedBytes": 2209876,
+        "backingStorageBytes": 484133,
+        "dom": {
+          "documents": 1,
+          "nodes": 1105,
+          "jsEventListeners": 146
+        },
+        "elapsed": 0,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 8,
+        "artCache": 9,
+        "checkpointPauseMs": 21
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 4698460,
+        "retainedBytes": 3421516,
+        "backingStorageBytes": 485344,
+        "dom": {
+          "documents": 1,
+          "nodes": 1178,
+          "jsEventListeners": 162
+        },
+        "elapsed": 29584,
+        "wave": 2,
+        "kills": 27,
+        "level": 3,
+        "orbs": 1,
+        "enemies": 3,
+        "artCache": 35,
+        "checkpointPauseMs": 14
+      },
+      {
+        "label": "5m",
+        "wallSeconds": 300.295,
+        "rawBytes": 10398220,
+        "retainedBytes": 3723984,
+        "backingStorageBytes": 486711,
+        "dom": {
+          "documents": 1,
+          "nodes": 1326,
+          "jsEventListeners": 163
+        },
+        "elapsed": 326176,
+        "wave": 19,
+        "kills": 895,
+        "level": 12,
+        "orbs": 9,
+        "enemies": 180,
+        "artCache": 116,
+        "checkpointPauseMs": 35
+      },
+      {
+        "label": "10m",
+        "wallSeconds": 600.154,
+        "rawBytes": 32069904,
+        "retainedBytes": 4153780,
+        "backingStorageBytes": 493998,
+        "dom": {
+          "documents": 1,
+          "nodes": 1332,
+          "jsEventListeners": 165
+        },
+        "elapsed": 625536,
+        "wave": 35,
+        "kills": 1054,
+        "level": 13,
+        "orbs": 9,
+        "enemies": 180,
+        "artCache": 116,
+        "checkpointPauseMs": 48
+      },
+      {
+        "label": "15m",
+        "wallSeconds": 900.002,
+        "rawBytes": 23334920,
+        "retainedBytes": 4159908,
+        "backingStorageBytes": 485894,
+        "dom": {
+          "documents": 1,
+          "nodes": 1337,
+          "jsEventListeners": 163
+        },
+        "elapsed": 924928,
+        "wave": 52,
+        "kills": 1317,
+        "level": 14,
+        "orbs": 9,
+        "enemies": 180,
+        "artCache": 120,
+        "checkpointPauseMs": 64
+      },
+      {
+        "label": "end",
+        "wallSeconds": 905.164,
+        "rawBytes": 7002704,
+        "retainedBytes": 4179380,
+        "backingStorageBytes": 485830,
+        "dom": {
+          "documents": 1,
+          "nodes": 1337,
+          "jsEventListeners": 162
+        },
+        "elapsed": 930192,
+        "wave": 52,
+        "kills": 1320,
+        "level": 14,
+        "orbs": 9,
+        "enemies": 180,
+        "artCache": 120,
+        "checkpointPauseMs": 41
+      }
+    ],
+    "peaks": {
+      "enemies": 180,
+      "bullets": 22,
+      "particles": 495,
+      "xpOrbs": 42,
+      "goldOrbs": 18,
+      "healthOrbs": 3,
+      "chests": 1,
+      "floorItems": 2,
+      "floorIconCache": 8,
+      "projectileArtCache": 0,
+      "damageNumbers": 50,
+      "rescueNpcs": 1,
+      "artCache": 120,
+      "floorTiles": 46
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 0.724,
+    "progress": {
+      "wallSeconds": 935.241,
+      "measuredSeconds": 905.164,
+      "gameSeconds": 900.384,
+      "wave": 52,
+      "kills": 1320,
+      "level": 14
+    },
+    "fullFrameMs": {
+      "n": 46640,
+      "p50": 18.2,
+      "p95": 30.3
+    },
+    "callbackMs": {
+      "n": 46640,
+      "p50": 3.8,
+      "p95": 7
+    },
+    "heapGrowth": 0.22149947567101824,
+    "plateauLastFiveMinutes": 0.006163061115417756,
+    "heapPass": true,
+    "over33msWindows": [
+      {
+        "fromSeconds": 120.923,
+        "toSeconds": 181.136,
+        "p95": 36.3
+      },
+      {
+        "fromSeconds": 181.136,
+        "toSeconds": 241.303,
+        "p95": 36.4
+      },
+      {
+        "fromSeconds": 241.303,
+        "toSeconds": 301.488,
+        "p95": 42.4
+      }
+    ],
+    "complete": true,
+    "pass": true
+  },
+  {
+    "map": "eminonu",
+    "run": 2,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "4ec9378256b1f698244ffac247e390ee6c75c5ac1522054733fa89e27c880c1a",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "measurementVersion": 3,
+    "diagnosticLayerIsolation": false,
+    "qaHashes": {
+      "ab-soak.cjs": "2218819b38a6c0363d36ef0133e16e4dd7c6cb2d7d72504800bdf17b315ed088",
+      "ab-harness.cjs": "e3e54e3981cf58f19297125efbe1ae7e81826406e0044d48e25b55d7812bf18f",
+      "ab-ui.cjs": "199dae8d4368cc991fd0078e04a5a6ece2b2473fed31dbfc53959d3c70c83d9f"
+    },
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = rAF timestamp interval between actual gdraw calls (includes render pacing, not verified GPU presentation); skipped render callbacks cannot improve this metric. All gloop callback CPU durations also recorded. Fixed-size histograms. Game rAF briefly stopped across forced GC and retained heap read; checkpointPauseMs recorded. Next 3 drawn frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.016,
+        "fullFrameMs": {
+          "n": 6554,
+          "p50": 6.1,
+          "p95": 18.2,
+          "max": 400
+        },
+        "callbackMs": {
+          "n": 6554,
+          "p50": 1,
+          "p95": 1.7,
+          "max": 10.400000005960464
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.016,
+        "toSeconds": 120.516,
+        "fullFrameMs": {
+          "n": 5538,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 30.400000000023283
+        },
+        "callbackMs": {
+          "n": 5538,
+          "p50": 1.3,
+          "p95": 2.2,
+          "max": 9.600000008940697
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 120.516,
+        "toSeconds": 180.568,
+        "fullFrameMs": {
+          "n": 5308,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 30.39999999999418
+        },
+        "callbackMs": {
+          "n": 5308,
+          "p50": 1.6,
+          "p95": 2.8,
+          "max": 7.5
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 180.568,
+        "toSeconds": 240.638,
+        "fullFrameMs": {
+          "n": 3920,
+          "p50": 12.2,
+          "p95": 30.2,
+          "max": 72.89999999999418
+        },
+        "callbackMs": {
+          "n": 3920,
+          "p50": 2.7,
+          "p95": 4.3,
+          "max": 8.699999988079071
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 240.638,
+        "toSeconds": 300.642,
+        "fullFrameMs": {
+          "n": 3875,
+          "p50": 12.2,
+          "p95": 24.3,
+          "max": 54.59999999997672
+        },
+        "callbackMs": {
+          "n": 3875,
+          "p50": 2.7,
+          "p95": 4.5,
+          "max": 9.599999994039536
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 300.642,
+        "toSeconds": 360.956,
+        "fullFrameMs": {
+          "n": 4929,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 42.399999999965075
+        },
+        "callbackMs": {
+          "n": 4929,
+          "p50": 2.1,
+          "p95": 3.2,
+          "max": 6
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 360.956,
+        "toSeconds": 421.182,
+        "fullFrameMs": {
+          "n": 4905,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 30.400000000023283
+        },
+        "callbackMs": {
+          "n": 4905,
+          "p50": 2.1,
+          "p95": 3.3,
+          "max": 5.799999997019768
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 421.182,
+        "toSeconds": 481.305,
+        "fullFrameMs": {
+          "n": 5180,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 36.40000000002328
+        },
+        "callbackMs": {
+          "n": 5180,
+          "p50": 2.1,
+          "p95": 3.3,
+          "max": 5.5
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 481.305,
+        "toSeconds": 541.38,
+        "fullFrameMs": {
+          "n": 5089,
+          "p50": 12.1,
+          "p95": 18.2,
+          "max": 42.40000000002328
+        },
+        "callbackMs": {
+          "n": 5089,
+          "p50": 2.1,
+          "p95": 3.2,
+          "max": 6.9000000059604645
+        },
+        "excludedFrames": 9
+      },
+      {
+        "fromSeconds": 541.38,
+        "toSeconds": 601.557,
+        "fullFrameMs": {
+          "n": 4254,
+          "p50": 12.2,
+          "p95": 24.3,
+          "max": 321.20000000006985
+        },
+        "callbackMs": {
+          "n": 4254,
+          "p50": 2.4,
+          "p95": 3.8,
+          "max": 8.299999997019768
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 601.557,
+        "toSeconds": 661.828,
+        "fullFrameMs": {
+          "n": 2410,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 115.19999999995343
+        },
+        "callbackMs": {
+          "n": 2410,
+          "p50": 2.3,
+          "p95": 3.5,
+          "max": 6.5
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 661.828,
+        "toSeconds": 721.881,
+        "fullFrameMs": {
+          "n": 2298,
+          "p50": 24.3,
+          "p95": 42.4,
+          "max": 96.89999999990687
+        },
+        "callbackMs": {
+          "n": 2298,
+          "p50": 2.2,
+          "p95": 3.3,
+          "max": 6
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 721.881,
+        "toSeconds": 782.308,
+        "fullFrameMs": {
+          "n": 2465,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 327.19999999995343
+        },
+        "callbackMs": {
+          "n": 2465,
+          "p50": 1.9,
+          "p95": 2.8,
+          "max": 5.600000008940697
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 782.308,
+        "toSeconds": 842.437,
+        "fullFrameMs": {
+          "n": 2376,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 54.60000000009313
+        },
+        "callbackMs": {
+          "n": 2376,
+          "p50": 2,
+          "p95": 3,
+          "max": 6.200000002980232
+        },
+        "excludedFrames": 12
+      },
+      {
+        "fromSeconds": 842.437,
+        "toSeconds": 902.598,
+        "fullFrameMs": {
+          "n": 2362,
+          "p50": 24.2,
+          "p95": 42.4,
+          "max": 327.29999999993015
+        },
+        "callbackMs": {
+          "n": 2362,
+          "p50": 2,
+          "p95": 3,
+          "max": 5.299999997019768
+        },
+        "excludedFrames": 15
+      },
+      {
+        "fromSeconds": 902.598,
+        "toSeconds": 912.56,
+        "fullFrameMs": {
+          "n": 378,
+          "p50": 24.3,
+          "p95": 42.4,
+          "max": 60.59999999997672
+        },
+        "callbackMs": {
+          "n": 378,
+          "p50": 1.9,
+          "p95": 3.1,
+          "max": 5.0999999940395355
+        },
+        "excludedFrames": 15
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3023440,
+        "retainedBytes": 2247360,
+        "backingStorageBytes": 484280,
+        "dom": {
+          "documents": 1,
+          "nodes": 1109,
+          "jsEventListeners": 146
+        },
+        "elapsed": 0,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 8,
+        "artCache": 12,
+        "checkpointPauseMs": 27
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 5010792,
+        "retainedBytes": 3472536,
+        "backingStorageBytes": 485417,
+        "dom": {
+          "documents": 1,
+          "nodes": 1179,
+          "jsEventListeners": 163
+        },
+        "elapsed": 29632,
+        "wave": 2,
+        "kills": 33,
+        "level": 3,
+        "orbs": 3,
+        "enemies": 3,
+        "artCache": 37,
+        "checkpointPauseMs": 16
+      },
+      {
+        "label": "5m",
+        "wallSeconds": 300.211,
+        "rawBytes": 11542852,
+        "retainedBytes": 3781360,
+        "backingStorageBytes": 486422,
+        "dom": {
+          "documents": 1,
+          "nodes": 1364,
+          "jsEventListeners": 170
+        },
+        "elapsed": 324384,
+        "wave": 19,
+        "kills": 2886,
+        "level": 14,
+        "orbs": 1175,
+        "enemies": 63,
+        "artCache": 116,
+        "checkpointPauseMs": 28
+      },
+      {
+        "label": "10m",
+        "wallSeconds": 600.006,
+        "rawBytes": 5013388,
+        "retainedBytes": 3940552,
+        "backingStorageBytes": 486452,
+        "dom": {
+          "documents": 1,
+          "nodes": 1377,
+          "jsEventListeners": 170
+        },
+        "elapsed": 622288,
+        "wave": 35,
+        "kills": 7662,
+        "level": 18,
+        "orbs": 1534,
+        "enemies": 52,
+        "artCache": 116,
+        "checkpointPauseMs": 48
+      },
+      {
+        "label": "15m",
+        "wallSeconds": 900.017,
+        "rawBytes": 6276908,
+        "retainedBytes": 3947340,
+        "backingStorageBytes": 486508,
+        "dom": {
+          "documents": 1,
+          "nodes": 1402,
+          "jsEventListeners": 175
+        },
+        "elapsed": 917456,
+        "wave": 51,
+        "kills": 12416,
+        "level": 20,
+        "orbs": 12,
+        "enemies": 34,
+        "artCache": 120,
+        "checkpointPauseMs": 20
+      },
+      {
+        "label": "end",
+        "wallSeconds": 912.56,
+        "rawBytes": 5586320,
+        "retainedBytes": 4186072,
+        "backingStorageBytes": 486451,
+        "dom": {
+          "documents": 1,
+          "nodes": 1398,
+          "jsEventListeners": 174
+        },
+        "elapsed": 930080,
+        "wave": 52,
+        "kills": 12624,
+        "level": 20,
+        "orbs": 15,
+        "enemies": 31,
+        "artCache": 120,
+        "checkpointPauseMs": 13
+      }
+    ],
+    "peaks": {
+      "enemies": 155,
+      "bullets": 35,
+      "particles": 500,
+      "xpOrbs": 1690,
+      "goldOrbs": 100,
+      "healthOrbs": 34,
+      "chests": 3,
+      "floorItems": 19,
+      "floorIconCache": 8,
+      "projectileArtCache": 0,
+      "damageNumbers": 50,
+      "rescueNpcs": 1,
+      "artCache": 120,
+      "floorTiles": 46
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 1.0377000000029801,
+    "progress": {
+      "wallSeconds": 942.861,
+      "measuredSeconds": 912.56,
+      "gameSeconds": 900.288,
+      "wave": 52,
+      "kills": 12620,
+      "level": 20
+    },
+    "fullFrameMs": {
+      "n": 61841,
+      "p50": 12.1,
+      "p95": 30.3
+    },
+    "callbackMs": {
+      "n": 61841,
+      "p50": 2,
+      "p95": 3.4
+    },
+    "heapGrowth": 0.20547979920150583,
+    "plateauLastFiveMinutes": 0.06230599164787076,
+    "heapPass": true,
+    "over33msWindows": [
+      {
+        "fromSeconds": 601.557,
+        "toSeconds": 661.828,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 661.828,
+        "toSeconds": 721.881,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 721.881,
+        "toSeconds": 782.308,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 782.308,
+        "toSeconds": 842.437,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 842.437,
+        "toSeconds": 902.598,
+        "p95": 42.4
+      },
+      {
+        "fromSeconds": 902.598,
+        "toSeconds": 912.56,
+        "p95": 42.4
+      }
+    ],
+    "complete": true,
+    "pass": true
+  }
+]

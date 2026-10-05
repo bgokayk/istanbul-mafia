@@ -1,0 +1,82 @@
+[
+  {
+    "file": "ab-natural.cjs",
+    "folder": "natural-final",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-first-session.cjs",
+    "folder": "first-session",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-soak.cjs",
+    "folder": "final-1x",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-controlled.cjs",
+    "folder": "final-controlled",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-opening-test.cjs",
+    "folder": "final-controlled",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-natural-ui-test.cjs",
+    "folder": "final-controlled",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-render-bound-test.cjs",
+    "folder": "final-render",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-hud-noop-test.cjs",
+    "folder": "final-hud",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-floor-icon-test.cjs",
+    "folder": "final-floor-icons",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-tutorial-test.cjs",
+    "folder": "final-tutorial",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-natural-exit-test.cjs",
+    "folder": "final-exit",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-layout-test.cjs",
+    "folder": "final-layout-1",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-layout-test.cjs",
+    "folder": "final-layout-2",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-layout-test.cjs",
+    "folder": "final-layout-3",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-soak-integrity.cjs",
+    "folder": "",
+    "exitCode": 0
+  },
+  {
+    "file": "ab-soak-report.cjs",
+    "folder": "",
+    "exitCode": 1
+  }
+]

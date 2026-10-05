@@ -1,0 +1,330 @@
+{
+  "top": [
+    [
+      "(program) :0",
+      23714
+    ],
+    [
+      " :4583",
+      740
+    ],
+    [
+      "querySelector :0",
+      653
+    ],
+    [
+      "drawImage :0",
+      462
+    ],
+    [
+      "gupdate :3827",
+      310
+    ],
+    [
+      "(idle) :0",
+      203
+    ],
+    [
+      "gdraw :4411",
+      194
+    ],
+    [
+      "gloop :4635",
+      180
+    ],
+    [
+      " world-ab.js:38",
+      128
+    ],
+    [
+      "(garbage collector) :0",
+      125
+    ],
+    [
+      "restore :0",
+      120
+    ],
+    [
+      "getElementById :0",
+      98
+    ],
+    [
+      "query :5607",
+      92
+    ],
+    [
+      "save :0",
+      90
+    ],
+    [
+      "fillText :0",
+      88
+    ],
+    [
+      "d2 :3411",
+      81
+    ],
+    [
+      " :0",
+      79
+    ],
+    [
+      "clearRect :0",
+      76
+    ],
+    [
+      "fillRect :0",
+      74
+    ],
+    [
+      " :4430",
+      72
+    ],
+    [
+      " :4561",
+      70
+    ],
+    [
+      "setHudText :1069",
+      68
+    ],
+    [
+      "updateUltHud :1071",
+      66
+    ],
+    [
+      "fill :0",
+      66
+    ],
+    [
+      "separation world-ab.js:37",
+      63
+    ],
+    [
+      "gloop :4",
+      62
+    ],
+    [
+      "rect art-v2.js:18",
+      52
+    ],
+    [
+      " world-ab.js:37",
+      51
+    ],
+    [
+      " :3460",
+      46
+    ],
+    [
+      "tile art-v2.js:76",
+      46
+    ],
+    [
+      "strokeText :0",
+      45
+    ],
+    [
+      "enemy art-v2.js:125",
+      45
+    ],
+    [
+      " :4439",
+      44
+    ],
+    [
+      "createOscillator :0",
+      38
+    ],
+    [
+      "intersects world-ab.js:4",
+      38
+    ],
+    [
+      "getComputedStyle :0",
+      36
+    ],
+    [
+      "requestAnimationFrame :0",
+      36
+    ],
+    [
+      " :1",
+      36
+    ],
+    [
+      " :4442",
+      35
+    ],
+    [
+      "stroke :0",
+      31
+    ],
+    [
+      "modalOpen :4583",
+      25
+    ],
+    [
+      " :4453",
+      25
+    ],
+    [
+      "connect :0",
+      24
+    ],
+    [
+      "vibrate :0",
+      24
+    ],
+    [
+      " :4434",
+      24
+    ]
+  ],
+  "metrics": [
+    {
+      "name": "Timestamp",
+      "value": 85167.054614
+    },
+    {
+      "name": "AudioHandlers",
+      "value": 74
+    },
+    {
+      "name": "AudioWorkletProcessors",
+      "value": 0
+    },
+    {
+      "name": "Documents",
+      "value": 1
+    },
+    {
+      "name": "Frames",
+      "value": 1
+    },
+    {
+      "name": "JSEventListeners",
+      "value": 200
+    },
+    {
+      "name": "LayoutObjects",
+      "value": 265
+    },
+    {
+      "name": "MediaKeySessions",
+      "value": 0
+    },
+    {
+      "name": "MediaKeys",
+      "value": 0
+    },
+    {
+      "name": "Nodes",
+      "value": 1390
+    },
+    {
+      "name": "Resources",
+      "value": 22
+    },
+    {
+      "name": "ContextLifecycleStateObservers",
+      "value": 6
+    },
+    {
+      "name": "V8PerContextDatas",
+      "value": 2
+    },
+    {
+      "name": "WorkerGlobalScopes",
+      "value": 0
+    },
+    {
+      "name": "UACSSResources",
+      "value": 0
+    },
+    {
+      "name": "RTCPeerConnections",
+      "value": 0
+    },
+    {
+      "name": "ResourceFetchers",
+      "value": 1
+    },
+    {
+      "name": "AdSubframes",
+      "value": 0
+    },
+    {
+      "name": "DetachedScriptStates",
+      "value": 0
+    },
+    {
+      "name": "ArrayBufferContents",
+      "value": 5
+    },
+    {
+      "name": "LayoutCount",
+      "value": 1328
+    },
+    {
+      "name": "RecalcStyleCount",
+      "value": 3937
+    },
+    {
+      "name": "LayoutDuration",
+      "value": 0.828754
+    },
+    {
+      "name": "RecalcStyleDuration",
+      "value": 0.92531
+    },
+    {
+      "name": "DevToolsCommandDuration",
+      "value": 0.818768
+    },
+    {
+      "name": "ScriptDuration",
+      "value": 6.970516
+    },
+    {
+      "name": "V8CompileDuration",
+      "value": 0
+    },
+    {
+      "name": "TaskDuration",
+      "value": 44.242613
+    },
+    {
+      "name": "TaskOtherDuration",
+      "value": 34.699265
+    },
+    {
+      "name": "ThreadTime",
+      "value": 11.271737
+    },
+    {
+      "name": "ProcessTime",
+      "value": 220.769705
+    },
+    {
+      "name": "JSHeapUsedSize",
+      "value": 9021868
+    },
+    {
+      "name": "JSHeapTotalSize",
+      "value": 19251200
+    },
+    {
+      "name": "FirstMeaningfulPaint",
+      "value": 0
+    },
+    {
+      "name": "DomContentLoaded",
+      "value": 85001.004997
+    },
+    {
+      "name": "NavigationStart",
+      "value": 85000.631153
+    }
+  ]
+}

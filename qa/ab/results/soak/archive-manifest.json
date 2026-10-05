@@ -1,0 +1,23 @@
+[
+  {
+    "source": "trace-4x/kapalicarsi-4x-1-trace.json",
+    "archive": "trace-4x/kapalicarsi-4x-1-trace.json.gz",
+    "bytes": 39162962,
+    "compressedBytes": 3201996,
+    "sha256": "1e6649f709bc9279eb0f5a1bc075916218aa99979f09c8d5e49a882843e18f2f"
+  },
+  {
+    "source": "heap-diagnostic/uskudar-1x-1-start.heapsnapshot",
+    "archive": "heap-diagnostic/uskudar-1x-1-start.heapsnapshot.json.gz",
+    "bytes": 8221841,
+    "compressedBytes": 1725732,
+    "sha256": "94f525b9a174b21b5fa89da542817b350a0012172b9ab3d24f2a3c1e88adc609"
+  },
+  {
+    "source": "heap-diagnostic/uskudar-1x-1-end.heapsnapshot",
+    "archive": "heap-diagnostic/uskudar-1x-1-end.heapsnapshot.json.gz",
+    "bytes": 9335498,
+    "compressedBytes": 1980503,
+    "sha256": "22f3f50347fe0b974866d28e4f4f2e7cf161e74c4d6badefd9e9fccdef025833"
+  }
+]

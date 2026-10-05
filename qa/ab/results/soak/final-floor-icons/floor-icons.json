@@ -1,0 +1,235 @@
+{
+  "errors": [],
+  "icons": {
+    "rows": [
+      {
+        "icon": "💉",
+        "offset": 0,
+        "changedChannels": 3350,
+        "meanChannelError": 0.1098361545138889,
+        "maxChannelError": 3
+      },
+      {
+        "icon": "💉",
+        "offset": 0.25,
+        "changedChannels": 3809,
+        "meanChannelError": 0.4871961805555556,
+        "maxChannelError": 131
+      },
+      {
+        "icon": "💉",
+        "offset": 0.5,
+        "changedChannels": 3658,
+        "meanChannelError": 0.2711317274305556,
+        "maxChannelError": 90
+      },
+      {
+        "icon": "💉",
+        "offset": 0.75,
+        "changedChannels": 3513,
+        "meanChannelError": 0.1801215277777778,
+        "maxChannelError": 45
+      },
+      {
+        "icon": "🩸",
+        "offset": 0,
+        "changedChannels": 3464,
+        "meanChannelError": 0.10506184895833333,
+        "maxChannelError": 3
+      },
+      {
+        "icon": "🩸",
+        "offset": 0.25,
+        "changedChannels": 3634,
+        "meanChannelError": 0.306640625,
+        "maxChannelError": 160
+      },
+      {
+        "icon": "🩸",
+        "offset": 0.5,
+        "changedChannels": 3525,
+        "meanChannelError": 0.24818250868055555,
+        "maxChannelError": 153
+      },
+      {
+        "icon": "🩸",
+        "offset": 0.75,
+        "changedChannels": 3459,
+        "meanChannelError": 0.15806749131944445,
+        "maxChannelError": 49
+      },
+      {
+        "icon": "🫖",
+        "offset": 0,
+        "changedChannels": 3583,
+        "meanChannelError": 0.11943901909722222,
+        "maxChannelError": 3
+      },
+      {
+        "icon": "🫖",
+        "offset": 0.25,
+        "changedChannels": 3980,
+        "meanChannelError": 0.4244520399305556,
+        "maxChannelError": 151
+      },
+      {
+        "icon": "🫖",
+        "offset": 0.5,
+        "changedChannels": 3941,
+        "meanChannelError": 0.2686903211805556,
+        "maxChannelError": 124
+      },
+      {
+        "icon": "🫖",
+        "offset": 0.75,
+        "changedChannels": 3850,
+        "meanChannelError": 0.20005967881944445,
+        "maxChannelError": 101
+      },
+      {
+        "icon": "🧿",
+        "offset": 0,
+        "changedChannels": 4186,
+        "meanChannelError": 0.1337619357638889,
+        "maxChannelError": 3
+      },
+      {
+        "icon": "🧿",
+        "offset": 0.25,
+        "changedChannels": 4718,
+        "meanChannelError": 0.5726453993055556,
+        "maxChannelError": 126
+      },
+      {
+        "icon": "🧿",
+        "offset": 0.5,
+        "changedChannels": 4584,
+        "meanChannelError": 0.34228515625,
+        "maxChannelError": 79
+      },
+      {
+        "icon": "🧿",
+        "offset": 0.75,
+        "changedChannels": 4464,
+        "meanChannelError": 0.23399522569444445,
+        "maxChannelError": 43
+      },
+      {
+        "icon": "🍯",
+        "offset": 0,
+        "changedChannels": 3733,
+        "meanChannelError": 0.1237521701388889,
+        "maxChannelError": 3
+      },
+      {
+        "icon": "🍯",
+        "offset": 0.25,
+        "changedChannels": 4236,
+        "meanChannelError": 0.4154188368055556,
+        "maxChannelError": 126
+      },
+      {
+        "icon": "🍯",
+        "offset": 0.5,
+        "changedChannels": 4069,
+        "meanChannelError": 0.2310112847222222,
+        "maxChannelError": 75
+      },
+      {
+        "icon": "🍯",
+        "offset": 0.75,
+        "changedChannels": 3878,
+        "meanChannelError": 0.16748046875,
+        "maxChannelError": 34
+      },
+      {
+        "icon": "🧲",
+        "offset": 0,
+        "changedChannels": 4257,
+        "meanChannelError": 0.1499565972222222,
+        "maxChannelError": 6
+      },
+      {
+        "icon": "🧲",
+        "offset": 0.25,
+        "changedChannels": 5046,
+        "meanChannelError": 0.5232747395833334,
+        "maxChannelError": 164
+      },
+      {
+        "icon": "🧲",
+        "offset": 0.5,
+        "changedChannels": 4887,
+        "meanChannelError": 0.3849012586805556,
+        "maxChannelError": 154
+      },
+      {
+        "icon": "🧲",
+        "offset": 0.75,
+        "changedChannels": 4619,
+        "meanChannelError": 0.2456325954861111,
+        "maxChannelError": 88
+      },
+      {
+        "icon": "🍾",
+        "offset": 0,
+        "changedChannels": 3572,
+        "meanChannelError": 0.10758463541666667,
+        "maxChannelError": 3
+      },
+      {
+        "icon": "🍾",
+        "offset": 0.25,
+        "changedChannels": 4198,
+        "meanChannelError": 0.4359266493055556,
+        "maxChannelError": 145
+      },
+      {
+        "icon": "🍾",
+        "offset": 0.5,
+        "changedChannels": 3948,
+        "meanChannelError": 0.301025390625,
+        "maxChannelError": 131
+      },
+      {
+        "icon": "🍾",
+        "offset": 0.75,
+        "changedChannels": 3754,
+        "meanChannelError": 0.2001681857638889,
+        "maxChannelError": 63
+      },
+      {
+        "icon": "💰",
+        "offset": 0,
+        "changedChannels": 3848,
+        "meanChannelError": 0.1303439670138889,
+        "maxChannelError": 5
+      },
+      {
+        "icon": "💰",
+        "offset": 0.25,
+        "changedChannels": 4321,
+        "meanChannelError": 0.5065104166666666,
+        "maxChannelError": 151
+      },
+      {
+        "icon": "💰",
+        "offset": 0.5,
+        "changedChannels": 4155,
+        "meanChannelError": 0.2794596354166667,
+        "maxChannelError": 86
+      },
+      {
+        "icon": "💰",
+        "offset": 0.75,
+        "changedChannels": 3980,
+        "meanChannelError": 0.19099934895833334,
+        "maxChannelError": 41
+      }
+    ],
+    "types": 8,
+    "count": 8,
+    "boundedCount": 32
+  },
+  "pass": true
+}

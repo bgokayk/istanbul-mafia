@@ -1,0 +1,17 @@
+const assert=require('assert/strict'),cp=require('child_process');
+const {fs,path,root,out,server,launch,ev,start}=require('./ab-harness.cjs');
+const old=cp.execFileSync('git',['-c','safe.directory='+path.dirname(root).replaceAll('\\','/'),'show','HEAD:www/index.html'],{cwd:path.dirname(root),encoding:'utf8'});
+const baseline=old.slice(old.indexOf('function spawnEnemy(forceTp){'),old.indexOf('\nfunction checkBoss(){')).replace('function spawnEnemy(','function baselineSpawnEnemy(');
+(async()=>{const browser=await launch(),result={errors:[]};try{
+ const p=await browser.newPage({viewport:{width:390,height:844}});p.on('pageerror',e=>result.errors.push(e.message));await start(p,'besiktas');
+ result.initial=await ev(p,'({count:enemies.length,free:WorldRules.free(worldObj,P.x,P.y,P.r)})');
+ assert.equal(result.initial.count,8);assert(result.initial.free);
+ result.comparisons=await ev(p,`(()=>{cancelAnimationFrame(raf2);stopTutorial();resetInput();${baseline}
+  const originalRandom=Math.random,rows=[];
+  try{for(const map of MAPS){selMap=map;for(const difficulty of ['normal','hard','hiper']){diff=difficulty;for(const w of [1,2,3,4,7,10,30,50]){wave=w;elapsed=(w-1)*18000;let seed=17;Math.random=()=>{seed=(Math.imul(seed,1664525)+1013904223)>>>0;return seed/4294967296;};enemies=[];for(let j=0;j<50;j++)baselineSpawnEnemy();let expected=JSON.parse(JSON.stringify(enemies));seed=17;enemies=[];for(let j=0;j<50;j++)spawnEnemy();const profile=openingWave(),actual=JSON.parse(JSON.stringify(enemies));let hp=true;actual.forEach((e,i)=>{hp=hp&&Math.abs(e.hp-expected[i].hp*profile.hp)<1e-7&&Math.abs(e.maxHp-expected[i].maxHp*profile.hp)<1e-7;e.hp=expected[i].hp;e.maxHp=expected[i].maxHp;});rows.push({map:map.id,difficulty,wave:w,profile,hp,otherFieldsIdentical:JSON.stringify(actual)===JSON.stringify(expected),oldInterval:Math.max(200,900-w*50-(diff==='hiper'?150:diff==='hard'?80:0)),newInterval:Math.max(200,900-w*50-(diff==='hiper'?150:diff==='hard'?80:0))/profile.spawn});}}}}
+  finally{Math.random=originalRandom;}return rows;})()`);
+ assert(result.comparisons.every(r=>r.hp&&r.otherFieldsIdentical));
+ assert(result.comparisons.filter(r=>r.wave>=4||!['kapalicarsi','uskudar','besiktas','eminonu'].includes(r.map)).every(r=>r.profile.hp===1&&r.newInterval===r.oldInterval));
+ result.audio=await ev(p,`(()=>{const originalAC=AC,originalNow=performance.now;let now=1000,created=0,disconnected=0,sources=[];const node=()=>({connect(){},disconnect(){disconnected++;},gain:{setValueAtTime(){},exponentialRampToValueAtTime(){}},frequency:{value:0},start(){},stop(){}});AC={state:'running',currentTime:0,destination:{},createOscillator(){created++;let n=node();sources.push(n);return n;},createGain:node};performance.now=()=>now;_lastHitSound=-Infinity;try{for(let j=0;j<1000;j++)sHit();let burst=created;now+=80;sHit();sources.forEach(n=>n.onended());AC.state='suspended';tone(440);return{burst,created,disconnected,endedCleared:sources.every(n=>n.onended===null)};}finally{AC=originalAC;performance.now=originalNow;_lastHitSound=-Infinity;}})()`);
+ assert.deepEqual(result.audio,{burst:1,created:2,disconnected:4,endedCleared:true});assert.equal(result.errors.length,0);result.pass=true;
+}finally{fs.writeFileSync(out+'/opening.json',JSON.stringify(result,null,2));await browser.close();server.close();}console.log(JSON.stringify({pass:result.pass,comparisons:result.comparisons.length,initial:result.initial,audio:result.audio,errors:result.errors}));})().catch(e=>{console.error(e);process.exitCode=1;server.close();});

@@ -1,0 +1,39 @@
+{
+  "android": {
+    "checked": 113,
+    "changed": [],
+    "missing": []
+  },
+  "www": {
+    "checked": 26,
+    "changed": [
+      "www/index.html"
+    ],
+    "missing": []
+  },
+  "textures": {
+    "checked": 18,
+    "changed": [],
+    "missing": []
+  },
+  "localStorage": {
+    "before": [
+      "imv7",
+      "istanbul-mafia-v2",
+      "istanbul-mafia-v2-display",
+      "istanbul-mafia-v2-imported"
+    ],
+    "after": [
+      "imv7",
+      "istanbul-mafia-v2",
+      "istanbul-mafia-v2-display",
+      "istanbul-mafia-v2-imported"
+    ],
+    "equal": true
+  },
+  "forbiddenMatches": [],
+  "productionTestHook": false,
+  "unityExists": false,
+  "note": "Android hashes from this task start; V1 was never written. No native sync/build/commit/push in this task.",
+  "pass": true
+}

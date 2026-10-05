@@ -1,0 +1,90 @@
+{
+  "kind": "controlled contract tests; native SDK/network mocked, no Play account or paid ad requests",
+  "tests": [
+    {
+      "name": "five products: verify -> atomic delivery -> finish/consume/ack; localized prices",
+      "pass": true
+    },
+    {
+      "name": "cancel, error, pending and invalid receipt give no goods",
+      "pass": true
+    },
+    {
+      "name": "storage failure: no delivery and no consume; restore retries safely",
+      "pass": true
+    },
+    {
+      "name": "finish failure: retry acknowledges without double gold",
+      "pass": true
+    },
+    {
+      "name": "clean save restore permanent products; consumed gold never restored; refund revokes",
+      "pass": true
+    },
+    {
+      "name": "missing validator: order disabled; local ownership cannot authorize purchases",
+      "pass": true
+    },
+    {
+      "name": "UMP blocks all ad loads until form completed; NPA only; privacy entry",
+      "pass": true
+    },
+    {
+      "name": "denied/unavailable consent: no SDK init or load; denial with canRequestAds uses NPA",
+      "pass": true
+    },
+    {
+      "name": "first 3 completed runs: 0 interstitial; boundary 179999/180000ms; clock rollback; remove_ads",
+      "pass": true
+    },
+    {
+      "name": "reward granted once only on Rewarded event; dismissal alone gives zero; optional after remove_ads",
+      "pass": true
+    },
+    {
+      "name": "active play / menu / stale run: never display; concurrent reward serialized",
+      "pass": true
+    },
+    {
+      "name": "server verifies Play state/product/test flag and strips token; pending/refund/mismatch/network",
+      "pass": true
+    },
+    {
+      "name": "test defaults ignore real IDs; production rejects missing config; secrets never exported",
+      "pass": true
+    }
+  ],
+  "measurements": [
+    {
+      "run": 1,
+      "wall": 1000000,
+      "shown": false
+    },
+    {
+      "run": 2,
+      "wall": 1000000,
+      "shown": false
+    },
+    {
+      "run": 3,
+      "wall": 1000000,
+      "shown": false
+    },
+    {
+      "run": 4,
+      "wall": 1000000,
+      "shown": true
+    },
+    {
+      "run": 5,
+      "sinceLastMs": 179999,
+      "shown": false
+    },
+    {
+      "run": 5,
+      "sinceLastMs": 180000,
+      "shown": true
+    }
+  ],
+  "pass": true
+}

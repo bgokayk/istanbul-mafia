@@ -1,0 +1,522 @@
+[
+  {
+    "map": "kapalicarsi",
+    "run": 1,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = successive rAF timestamps (includes pacing, not verified GPU presentation); JS callback CPU duration also recorded. Fixed-size histograms. Forced GC at checkpoints, its next 3 frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [
+      "ReferenceError: applyUpgrade is not defined\n    at HTMLButtonElement.doSelect (http://127.0.0.1:8820/:2735:26)"
+    ],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.307,
+        "fullFrameMs": {
+          "n": 6572,
+          "p50": 6.1,
+          "p95": 18.2,
+          "max": 36.40000000000873
+        },
+        "callbackMs": {
+          "n": 6572,
+          "p50": 1.1,
+          "p95": 1.8,
+          "max": 10.200000002980232
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.307,
+        "toSeconds": 120.716,
+        "fullFrameMs": {
+          "n": 5083,
+          "p50": 12.1,
+          "p95": 24.2,
+          "max": 54.5
+        },
+        "callbackMs": {
+          "n": 5083,
+          "p50": 1.6,
+          "p95": 3.5,
+          "max": 13.5
+        },
+        "excludedFrames": 6
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3340216,
+        "retainedBytes": 2521020,
+        "backingStorageBytes": 481637,
+        "dom": {
+          "documents": 1,
+          "nodes": 1147,
+          "jsEventListeners": 143
+        },
+        "elapsed": 32,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 18,
+        "artCache": 14
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 4167980,
+        "retainedBytes": 3488036,
+        "backingStorageBytes": 482741,
+        "dom": {
+          "documents": 1,
+          "nodes": 1191,
+          "jsEventListeners": 161
+        },
+        "elapsed": 29232,
+        "wave": 2,
+        "kills": 51,
+        "level": 4,
+        "orbs": 4,
+        "enemies": 6,
+        "artCache": 37
+      },
+      {
+        "label": "end",
+        "wallSeconds": 165.187,
+        "rawBytes": 7362504,
+        "retainedBytes": 3777580,
+        "backingStorageBytes": 485234,
+        "dom": {
+          "documents": 1,
+          "nodes": 1345,
+          "jsEventListeners": 167
+        },
+        "elapsed": 190160,
+        "wave": 11,
+        "kills": 803,
+        "level": 12,
+        "orbs": 5,
+        "enemies": 38,
+        "artCache": 112
+      }
+    ],
+    "peaks": {
+      "enemies": 120,
+      "bullets": 24,
+      "particles": 487,
+      "xpOrbs": 18,
+      "goldOrbs": 17,
+      "healthOrbs": 6,
+      "chests": 4,
+      "damageNumbers": 34,
+      "rescueNpcs": 0,
+      "artCache": 112,
+      "floorTiles": 43
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 0.9232999999970197,
+    "progress": {
+      "wallSeconds": 195.269,
+      "measuredSeconds": 165.187,
+      "gameSeconds": 160.928,
+      "wave": 11,
+      "kills": 803,
+      "level": 12
+    },
+    "fullFrameMs": {
+      "n": 11655,
+      "p50": 12,
+      "p95": 18.2
+    },
+    "callbackMs": {
+      "n": 11655,
+      "p50": 1.2,
+      "p95": 2.9
+    },
+    "heapGrowth": 0.08301061112901365,
+    "plateauLastFiveMinutes": null,
+    "heapPass": false,
+    "over33msWindows": [],
+    "complete": false,
+    "pass": false
+  },
+  {
+    "map": "uskudar",
+    "run": 1,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = successive rAF timestamps (includes pacing, not verified GPU presentation); JS callback CPU duration also recorded. Fixed-size histograms. Forced GC at checkpoints, its next 3 frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [
+      "ReferenceError: applyUpgrade is not defined\n    at HTMLButtonElement.doSelect (http://127.0.0.1:8820/:2735:26)"
+    ],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.035,
+        "fullFrameMs": {
+          "n": 7443,
+          "p50": 6.1,
+          "p95": 12.2,
+          "max": 36.40000000000873
+        },
+        "callbackMs": {
+          "n": 7443,
+          "p50": 1.1,
+          "p95": 1.7,
+          "max": 10.800000011920929
+        },
+        "excludedFrames": 6
+      },
+      {
+        "fromSeconds": 60.035,
+        "toSeconds": 120.389,
+        "fullFrameMs": {
+          "n": 6855,
+          "p50": 6.1,
+          "p95": 18.2,
+          "max": 42.5
+        },
+        "callbackMs": {
+          "n": 6855,
+          "p50": 1.3,
+          "p95": 2.6,
+          "max": 9.299999997019768
+        },
+        "excludedFrames": 6
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3345768,
+        "retainedBytes": 2690856,
+        "backingStorageBytes": 481648,
+        "dom": {
+          "documents": 1,
+          "nodes": 1149,
+          "jsEventListeners": 143
+        },
+        "elapsed": 32,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 18,
+        "artCache": 13
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 3726588,
+        "retainedBytes": 3477228,
+        "backingStorageBytes": 482837,
+        "dom": {
+          "documents": 1,
+          "nodes": 1192,
+          "jsEventListeners": 161
+        },
+        "elapsed": 29088,
+        "wave": 2,
+        "kills": 53,
+        "level": 4,
+        "orbs": 1,
+        "enemies": 2,
+        "artCache": 37
+      },
+      {
+        "label": "end",
+        "wallSeconds": 147.718,
+        "rawBytes": 10869216,
+        "retainedBytes": 3770352,
+        "backingStorageBytes": 485119,
+        "dom": {
+          "documents": 1,
+          "nodes": 1327,
+          "jsEventListeners": 167
+        },
+        "elapsed": 173600,
+        "wave": 10,
+        "kills": 649,
+        "level": 11,
+        "orbs": 122,
+        "enemies": 18,
+        "artCache": 104
+      }
+    ],
+    "peaks": {
+      "enemies": 30,
+      "bullets": 200,
+      "particles": 475,
+      "xpOrbs": 129,
+      "goldOrbs": 43,
+      "healthOrbs": 12,
+      "chests": 3,
+      "damageNumbers": 50,
+      "rescueNpcs": 0,
+      "artCache": 104,
+      "floorTiles": 46
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 0.8345,
+    "progress": {
+      "wallSeconds": 177.781,
+      "measuredSeconds": 147.718,
+      "gameSeconds": 144.528,
+      "wave": 10,
+      "kills": 649,
+      "level": 11
+    },
+    "fullFrameMs": {
+      "n": 14298,
+      "p50": 6.1,
+      "p95": 18.2
+    },
+    "callbackMs": {
+      "n": 14298,
+      "p50": 1.2,
+      "p95": 2.2
+    },
+    "heapGrowth": 0.08429818234524733,
+    "plateauLastFiveMinutes": null,
+    "heapPass": false,
+    "over33msWindows": [],
+    "complete": false,
+    "pass": false
+  },
+  {
+    "map": "besiktas",
+    "run": 1,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = successive rAF timestamps (includes pacing, not verified GPU presentation); JS callback CPU duration also recorded. Fixed-size histograms. Forced GC at checkpoints, its next 3 frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [
+      "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#lvlup.on .luc').first()\u001b[22m\n\u001b[2m    - locator resolved to <div class=\"luc\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>undefined</div> from <div id=\"bossChestOverlay\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>undefined</div> from <div id=\"bossChestOverlay\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>undefined</div> from <div id=\"bossChestOverlay\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n    at chooseUpgrade (C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-ui.cjs:6:20)\n    at async run (C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-soak.cjs:51:52)\n    at async C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-soak.cjs:101:94"
+    ],
+    "minutes": [],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3165828,
+        "retainedBytes": 2453140,
+        "backingStorageBytes": 481524,
+        "dom": {
+          "documents": 1,
+          "nodes": 1127,
+          "jsEventListeners": 143
+        },
+        "elapsed": 16,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 18,
+        "artCache": 10
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 4906272,
+        "retainedBytes": 3590872,
+        "backingStorageBytes": 482715,
+        "dom": {
+          "documents": 1,
+          "nodes": 1204,
+          "jsEventListeners": 161
+        },
+        "elapsed": 29312,
+        "wave": 2,
+        "kills": 56,
+        "level": 4,
+        "orbs": 9,
+        "enemies": 4,
+        "artCache": 32
+      }
+    ],
+    "peaks": {
+      "enemies": 19,
+      "bullets": 47,
+      "particles": 174,
+      "xpOrbs": 120,
+      "goldOrbs": 27,
+      "healthOrbs": 7,
+      "chests": 1,
+      "damageNumbers": 46,
+      "rescueNpcs": 0,
+      "artCache": 75,
+      "floorTiles": 46
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 0.3512999999970198,
+    "progress": {
+      "wallSeconds": 78.656,
+      "measuredSeconds": 48.62,
+      "gameSeconds": 48.352,
+      "wave": 5,
+      "kills": 187,
+      "level": 5
+    },
+    "pass": false
+  },
+  {
+    "map": "eminonu",
+    "run": 1,
+    "cpuRate": 1,
+    "targetSeconds": 900,
+    "warmupSeconds": 30,
+    "sourceHashes": {
+      "index.html": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = successive rAF timestamps (includes pacing, not verified GPU presentation); JS callback CPU duration also recorded. Fixed-size histograms. Forced GC at checkpoints, its next 3 frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 4,
+    "errors": [],
+    "failures": [
+      "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#lvlup.on .luc').first()\u001b[22m\n\u001b[2m    - locator resolved to <div class=\"luc epic\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>⬆</div> from <div id=\"bossChestOverlay\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>⬆</div> from <div id=\"bossChestOverlay\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>⬆</div> from <div id=\"bossChestOverlay\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n    at chooseUpgrade (C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-ui.cjs:6:20)\n    at async run (C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-soak.cjs:51:52)\n    at async C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-soak.cjs:101:94"
+    ],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 60.457,
+        "fullFrameMs": {
+          "n": 5382,
+          "p50": 12,
+          "p95": 24.3,
+          "max": 48.60000000000582
+        },
+        "callbackMs": {
+          "n": 5382,
+          "p50": 1.3,
+          "p95": 2.6,
+          "max": 12.700000002980232
+        },
+        "excludedFrames": 6
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3320464,
+        "retainedBytes": 2692640,
+        "backingStorageBytes": 481565,
+        "dom": {
+          "documents": 1,
+          "nodes": 1142,
+          "jsEventListeners": 143
+        },
+        "elapsed": 32,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 18,
+        "artCache": 11
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 4253904,
+        "retainedBytes": 3522788,
+        "backingStorageBytes": 482764,
+        "dom": {
+          "documents": 1,
+          "nodes": 1210,
+          "jsEventListeners": 161
+        },
+        "elapsed": 29552,
+        "wave": 2,
+        "kills": 64,
+        "level": 4,
+        "orbs": 13,
+        "enemies": 6,
+        "artCache": 41
+      }
+    ],
+    "peaks": {
+      "enemies": 35,
+      "bullets": 181,
+      "particles": 481,
+      "xpOrbs": 21,
+      "goldOrbs": 13,
+      "healthOrbs": 4,
+      "chests": 1,
+      "damageNumbers": 50,
+      "rescueNpcs": 0,
+      "artCache": 84,
+      "floorTiles": 46
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 0.6860999999940396,
+    "progress": {
+      "wallSeconds": 97.097,
+      "measuredSeconds": 66.82,
+      "gameSeconds": 65.152,
+      "wave": 6,
+      "kills": 286,
+      "level": 8
+    },
+    "pass": false
+  }
+]

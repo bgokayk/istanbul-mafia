@@ -1,0 +1,2512 @@
+{
+  "errors": [],
+  "initial": {
+    "count": 8,
+    "free": true
+  },
+  "comparisons": [
+    {
+      "map": "kapalicarsi",
+      "difficulty": "normal",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 850,
+      "newInterval": 1888.888888888889
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "normal",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 800,
+      "newInterval": 1230.7692307692307
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "normal",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 750,
+      "newInterval": 882.3529411764706
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "normal",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "normal",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "normal",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "normal",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "normal",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hard",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 770,
+      "newInterval": 1711.111111111111
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hard",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 720,
+      "newInterval": 1107.6923076923076
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hard",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 670,
+      "newInterval": 788.2352941176471
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hard",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 620,
+      "newInterval": 620
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hard",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 470,
+      "newInterval": 470
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hard",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 320,
+      "newInterval": 320
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hard",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hard",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hiper",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 1555.5555555555554
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hiper",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 650,
+      "newInterval": 1000
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hiper",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 600,
+      "newInterval": 705.8823529411765
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hiper",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hiper",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hiper",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 250,
+      "newInterval": 250
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hiper",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kapalicarsi",
+      "difficulty": "hiper",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "normal",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 850,
+      "newInterval": 1888.888888888889
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "normal",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 800,
+      "newInterval": 1230.7692307692307
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "normal",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 750,
+      "newInterval": 882.3529411764706
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "normal",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "normal",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "normal",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "normal",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "normal",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hard",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 770,
+      "newInterval": 1711.111111111111
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hard",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 720,
+      "newInterval": 1107.6923076923076
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hard",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 670,
+      "newInterval": 788.2352941176471
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hard",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 620,
+      "newInterval": 620
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hard",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 470,
+      "newInterval": 470
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hard",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 320,
+      "newInterval": 320
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hard",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hard",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hiper",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 1555.5555555555554
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hiper",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 650,
+      "newInterval": 1000
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hiper",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 600,
+      "newInterval": 705.8823529411765
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hiper",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hiper",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hiper",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 250,
+      "newInterval": 250
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hiper",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "uskudar",
+      "difficulty": "hiper",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "balat",
+      "difficulty": "normal",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 850,
+      "newInterval": 850
+    },
+    {
+      "map": "balat",
+      "difficulty": "normal",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 800,
+      "newInterval": 800
+    },
+    {
+      "map": "balat",
+      "difficulty": "normal",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 750,
+      "newInterval": 750
+    },
+    {
+      "map": "balat",
+      "difficulty": "normal",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "balat",
+      "difficulty": "normal",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "balat",
+      "difficulty": "normal",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "balat",
+      "difficulty": "normal",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "balat",
+      "difficulty": "normal",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "balat",
+      "difficulty": "hard",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 770,
+      "newInterval": 770
+    },
+    {
+      "map": "balat",
+      "difficulty": "hard",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 720,
+      "newInterval": 720
+    },
+    {
+      "map": "balat",
+      "difficulty": "hard",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 670,
+      "newInterval": 670
+    },
+    {
+      "map": "balat",
+      "difficulty": "hard",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 620,
+      "newInterval": 620
+    },
+    {
+      "map": "balat",
+      "difficulty": "hard",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 470,
+      "newInterval": 470
+    },
+    {
+      "map": "balat",
+      "difficulty": "hard",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 320,
+      "newInterval": 320
+    },
+    {
+      "map": "balat",
+      "difficulty": "hard",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "balat",
+      "difficulty": "hard",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "balat",
+      "difficulty": "hiper",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "balat",
+      "difficulty": "hiper",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 650,
+      "newInterval": 650
+    },
+    {
+      "map": "balat",
+      "difficulty": "hiper",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 600,
+      "newInterval": 600
+    },
+    {
+      "map": "balat",
+      "difficulty": "hiper",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "balat",
+      "difficulty": "hiper",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "balat",
+      "difficulty": "hiper",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 250,
+      "newInterval": 250
+    },
+    {
+      "map": "balat",
+      "difficulty": "hiper",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "balat",
+      "difficulty": "hiper",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "normal",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 850,
+      "newInterval": 1888.888888888889
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "normal",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 800,
+      "newInterval": 1230.7692307692307
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "normal",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 750,
+      "newInterval": 882.3529411764706
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "normal",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "normal",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "normal",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "normal",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "normal",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hard",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 770,
+      "newInterval": 1711.111111111111
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hard",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 720,
+      "newInterval": 1107.6923076923076
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hard",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 670,
+      "newInterval": 788.2352941176471
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hard",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 620,
+      "newInterval": 620
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hard",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 470,
+      "newInterval": 470
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hard",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 320,
+      "newInterval": 320
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hard",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hard",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hiper",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 1555.5555555555554
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hiper",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 650,
+      "newInterval": 1000
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hiper",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 600,
+      "newInterval": 705.8823529411765
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hiper",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hiper",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hiper",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 250,
+      "newInterval": 250
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hiper",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "besiktas",
+      "difficulty": "hiper",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "taksim",
+      "difficulty": "normal",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 850,
+      "newInterval": 850
+    },
+    {
+      "map": "taksim",
+      "difficulty": "normal",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 800,
+      "newInterval": 800
+    },
+    {
+      "map": "taksim",
+      "difficulty": "normal",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 750,
+      "newInterval": 750
+    },
+    {
+      "map": "taksim",
+      "difficulty": "normal",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "taksim",
+      "difficulty": "normal",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "taksim",
+      "difficulty": "normal",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "taksim",
+      "difficulty": "normal",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "taksim",
+      "difficulty": "normal",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hard",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 770,
+      "newInterval": 770
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hard",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 720,
+      "newInterval": 720
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hard",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 670,
+      "newInterval": 670
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hard",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 620,
+      "newInterval": 620
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hard",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 470,
+      "newInterval": 470
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hard",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 320,
+      "newInterval": 320
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hard",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hard",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hiper",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hiper",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 650,
+      "newInterval": 650
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hiper",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 600,
+      "newInterval": 600
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hiper",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hiper",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hiper",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 250,
+      "newInterval": 250
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hiper",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "taksim",
+      "difficulty": "hiper",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "normal",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 850,
+      "newInterval": 1888.888888888889
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "normal",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 800,
+      "newInterval": 1230.7692307692307
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "normal",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 750,
+      "newInterval": 882.3529411764706
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "normal",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "normal",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "normal",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "normal",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "normal",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hard",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 770,
+      "newInterval": 1711.111111111111
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hard",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 720,
+      "newInterval": 1107.6923076923076
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hard",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 670,
+      "newInterval": 788.2352941176471
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hard",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 620,
+      "newInterval": 620
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hard",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 470,
+      "newInterval": 470
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hard",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 320,
+      "newInterval": 320
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hard",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hard",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hiper",
+      "wave": 1,
+      "profile": {
+        "spawn": 0.45,
+        "hp": 0.55
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 1555.5555555555554
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hiper",
+      "wave": 2,
+      "profile": {
+        "spawn": 0.65,
+        "hp": 0.7
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 650,
+      "newInterval": 1000
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hiper",
+      "wave": 3,
+      "profile": {
+        "spawn": 0.85,
+        "hp": 0.85
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 600,
+      "newInterval": 705.8823529411765
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hiper",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hiper",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hiper",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 250,
+      "newInterval": 250
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hiper",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "eminonu",
+      "difficulty": "hiper",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "normal",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 850,
+      "newInterval": 850
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "normal",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 800,
+      "newInterval": 800
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "normal",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 750,
+      "newInterval": 750
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "normal",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "normal",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "normal",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "normal",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "normal",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hard",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 770,
+      "newInterval": 770
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hard",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 720,
+      "newInterval": 720
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hard",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 670,
+      "newInterval": 670
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hard",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 620,
+      "newInterval": 620
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hard",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 470,
+      "newInterval": 470
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hard",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 320,
+      "newInterval": 320
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hard",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hard",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hiper",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hiper",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 650,
+      "newInterval": 650
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hiper",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 600,
+      "newInterval": 600
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hiper",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hiper",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hiper",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 250,
+      "newInterval": 250
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hiper",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "kasimpasa",
+      "difficulty": "hiper",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "bursa",
+      "difficulty": "normal",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 850,
+      "newInterval": 850
+    },
+    {
+      "map": "bursa",
+      "difficulty": "normal",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 800,
+      "newInterval": 800
+    },
+    {
+      "map": "bursa",
+      "difficulty": "normal",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 750,
+      "newInterval": 750
+    },
+    {
+      "map": "bursa",
+      "difficulty": "normal",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "bursa",
+      "difficulty": "normal",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "bursa",
+      "difficulty": "normal",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "bursa",
+      "difficulty": "normal",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "bursa",
+      "difficulty": "normal",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hard",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 770,
+      "newInterval": 770
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hard",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 720,
+      "newInterval": 720
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hard",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 670,
+      "newInterval": 670
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hard",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 620,
+      "newInterval": 620
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hard",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 470,
+      "newInterval": 470
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hard",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 320,
+      "newInterval": 320
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hard",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hard",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hiper",
+      "wave": 1,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 700,
+      "newInterval": 700
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hiper",
+      "wave": 2,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 650,
+      "newInterval": 650
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hiper",
+      "wave": 3,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 600,
+      "newInterval": 600
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hiper",
+      "wave": 4,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 550,
+      "newInterval": 550
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hiper",
+      "wave": 7,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 400,
+      "newInterval": 400
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hiper",
+      "wave": 10,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 250,
+      "newInterval": 250
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hiper",
+      "wave": 30,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    },
+    {
+      "map": "bursa",
+      "difficulty": "hiper",
+      "wave": 50,
+      "profile": {
+        "spawn": 1,
+        "hp": 1
+      },
+      "hp": true,
+      "otherFieldsIdentical": true,
+      "oldInterval": 200,
+      "newInterval": 200
+    }
+  ],
+  "audio": {
+    "burst": 1,
+    "created": 2,
+    "disconnected": 4,
+    "endedCleared": true
+  },
+  "pass": true
+}

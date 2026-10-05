@@ -1,0 +1,150 @@
+{
+  "map": "kapalicarsi",
+  "run": 1,
+  "cpuRate": 4,
+  "targetSeconds": 600,
+  "warmupSeconds": 30,
+  "sourceHashes": {
+    "index.html": "3c9d923c0478a63eda2693bdc62c806233af8843369b2c991d652722890ab194",
+    "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+    "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+    "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+    "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+  },
+  "controlled": true,
+  "measurementVersion": 3,
+  "qaHashes": {
+    "ab-soak.cjs": "5804938c33b7dc2888f64ad4c9b1e5286a99cee1ec5c791fa554effdfdf38f51",
+    "ab-harness.cjs": "e3e54e3981cf58f19297125efbe1ae7e81826406e0044d48e25b55d7812bf18f",
+    "ab-ui.cjs": "199dae8d4368cc991fd0078e04a5a6ece2b2473fed31dbfc53959d3c70c83d9f"
+  },
+  "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = rAF timestamp interval between actual gdraw calls (includes render pacing, not verified GPU presentation); skipped render callbacks cannot improve this metric. All gloop callback CPU durations also recorded. Fixed-size histograms. Game rAF briefly stopped across forced GC and retained heap read; checkpointPauseMs recorded. Next 3 drawn frame samples excluded and counted. No accelerated clock.",
+  "host": {
+    "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "cores": 12
+  },
+  "browser": "154.0.4258.48",
+  "concurrentMaps": 1,
+  "errors": [],
+  "failures": [],
+  "minutes": [
+    {
+      "fromSeconds": 0,
+      "toSeconds": 60.027,
+      "fullFrameMs": {
+        "n": 5422,
+        "p50": 6.1,
+        "p95": 30.3,
+        "max": 78.90000000000146
+      },
+      "callbackMs": {
+        "n": 5422,
+        "p50": 3,
+        "p95": 6.3,
+        "max": 31.400000005960464
+      },
+      "excludedFrames": 6
+    },
+    {
+      "fromSeconds": 60.027,
+      "toSeconds": 120.11,
+      "fullFrameMs": {
+        "n": 3911,
+        "p50": 6.2,
+        "p95": 48.4,
+        "max": 151.5
+      },
+      "callbackMs": {
+        "n": 3911,
+        "p50": 4.1,
+        "p95": 8.4,
+        "max": 34.70000000298023
+      },
+      "excludedFrames": 6
+    },
+    {
+      "fromSeconds": 120.11,
+      "toSeconds": 180.345,
+      "fullFrameMs": {
+        "n": 2359,
+        "p50": 12.2,
+        "p95": 78.8,
+        "max": 157.60000000000582
+      },
+      "callbackMs": {
+        "n": 2359,
+        "p50": 5.7,
+        "p95": 12.4,
+        "max": 30
+      },
+      "excludedFrames": 6
+    }
+  ],
+  "heap": [
+    {
+      "label": "cold",
+      "wallSeconds": 0,
+      "rawBytes": 3331828,
+      "retainedBytes": 2454952,
+      "backingStorageBytes": 484482,
+      "dom": {
+        "documents": 1,
+        "nodes": 1107,
+        "jsEventListeners": 146
+      },
+      "elapsed": 64,
+      "wave": 1,
+      "kills": 0,
+      "level": 1,
+      "orbs": 0,
+      "enemies": 8,
+      "artCache": 11,
+      "checkpointPauseMs": 55
+    },
+    {
+      "label": "start",
+      "wallSeconds": 0,
+      "rawBytes": 5203120,
+      "retainedBytes": 3397356,
+      "backingStorageBytes": 485309,
+      "dom": {
+        "documents": 1,
+        "nodes": 1161,
+        "jsEventListeners": 162
+      },
+      "elapsed": 29600,
+      "wave": 2,
+      "kills": 26,
+      "level": 2,
+      "orbs": 4,
+      "enemies": 4,
+      "artCache": 27,
+      "checkpointPauseMs": 52
+    }
+  ],
+  "peaks": {
+    "enemies": 51,
+    "bullets": 54,
+    "particles": 499,
+    "xpOrbs": 122,
+    "goldOrbs": 43,
+    "healthOrbs": 8,
+    "chests": 1,
+    "floorItems": 3,
+    "floorIconCache": 7,
+    "damageNumbers": 50,
+    "rescueNpcs": 0,
+    "artCache": 112,
+    "floorTiles": 43
+  },
+  "clockStalls": [],
+  "maxClockStallSeconds": 1.0230999999940396,
+  "progress": {
+    "wallSeconds": 210.668,
+    "measuredSeconds": 180.345,
+    "gameSeconds": 163.008,
+    "wave": 11,
+    "kills": 777,
+    "level": 12
+  }
+}

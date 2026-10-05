@@ -1,0 +1,90 @@
+{
+  "errors": [],
+  "pacing": {
+    "rows": [
+      {
+        "hz": 30,
+        "before": {
+          "draws": 60,
+          "steps": 125,
+          "elapsed": 2000
+        },
+        "after": {
+          "draws": 60,
+          "steps": 125,
+          "elapsed": 2000
+        }
+      },
+      {
+        "hz": 60,
+        "before": {
+          "draws": 120,
+          "steps": 125,
+          "elapsed": 2000
+        },
+        "after": {
+          "draws": 120,
+          "steps": 125,
+          "elapsed": 2000
+        }
+      },
+      {
+        "hz": 90,
+        "before": {
+          "draws": 180,
+          "steps": 125,
+          "elapsed": 2000
+        },
+        "after": {
+          "draws": 120,
+          "steps": 125,
+          "elapsed": 2000
+        }
+      },
+      {
+        "hz": 120,
+        "before": {
+          "draws": 240,
+          "steps": 125,
+          "elapsed": 2000
+        },
+        "after": {
+          "draws": 120,
+          "steps": 125,
+          "elapsed": 2000
+        }
+      },
+      {
+        "hz": 165,
+        "before": {
+          "draws": 330,
+          "steps": 125,
+          "elapsed": 2000
+        },
+        "after": {
+          "draws": 120,
+          "steps": 125,
+          "elapsed": 2000
+        }
+      },
+      {
+        "hz": 240,
+        "before": {
+          "draws": 480,
+          "steps": 125,
+          "elapsed": 2000
+        },
+        "after": {
+          "draws": 120,
+          "steps": 125,
+          "elapsed": 2000
+        }
+      }
+    ],
+    "beam": {
+      "afterDraw": 80,
+      "afterStep": 64
+    }
+  },
+  "pass": true
+}

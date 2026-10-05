@@ -1,0 +1,915 @@
+{
+  "snapshots": [
+    {
+      "file": "uskudar-1x-1-end.heapsnapshot.json.gz",
+      "selfBytes": 7961643,
+      "nodeCount": 102401,
+      "top": [
+        [
+          "code: system / InstructionStream",
+          {
+            "count": 459,
+            "bytes": 975744
+          }
+        ],
+        [
+          "native: system / ExternalStringData",
+          {
+            "count": 518,
+            "bytes": 646731
+          }
+        ],
+        [
+          "string: \n        (() => {\n        \n        const module = {};\n        \nvar __commonJS = obj => {\n  let required = false;\n  let r…",
+          {
+            "count": 2,
+            "bytes": 634188
+          }
+        ],
+        [
+          "native: CanvasRenderingContext2D",
+          {
+            "count": 187,
+            "bytes": 317648
+          }
+        ],
+        [
+          "native: system / FunctionTemplateInfo",
+          {
+            "count": 4272,
+            "bytes": 273280
+          }
+        ],
+        [
+          "code: system / TrustedByteArray",
+          {
+            "count": 981,
+            "bytes": 250612
+          }
+        ],
+        [
+          "native: system / JSArrayBufferData",
+          {
+            "count": 2,
+            "bytes": 160008
+          }
+        ],
+        [
+          "native: blink::ImmutableCSSPropertyValueSet",
+          {
+            "count": 1024,
+            "bytes": 149376
+          }
+        ],
+        [
+          "object shape: system / DescriptorArray",
+          {
+            "count": 1211,
+            "bytes": 148800
+          }
+        ],
+        [
+          "native: blink::CanvasRenderingContext2DState",
+          {
+            "count": 187,
+            "bytes": 140624
+          }
+        ],
+        [
+          "array: ",
+          {
+            "count": 266,
+            "bytes": 119980
+          }
+        ],
+        [
+          "object shape: system / Map",
+          {
+            "count": 2891,
+            "bytes": 117912
+          }
+        ],
+        [
+          "native: system / WeakArrayList",
+          {
+            "count": 622,
+            "bytes": 109584
+          }
+        ],
+        [
+          "code: system / BytecodeArray",
+          {
+            "count": 363,
+            "bytes": 107436
+          }
+        ],
+        [
+          "native: blink::Font",
+          {
+            "count": 583,
+            "bytes": 97944
+          }
+        ],
+        [
+          "native: blink::HeapHashTableBacking<blink::HashTable<std::pair<blink::String, blink::TextDirection>, blink::KeyValuePair<std::pair<blink::String, blink::TextDirection>, blink::FrameShapeCache::ShapeEntry>, blink::KeyValuePairExtractor, blink::HashMapValueTraits<blink::HashTraits<std::pair<blink::String, blink::TextDirection>>, blink::HashTraits<blink::FrameShapeCache::ShapeEntry>>, blink::HashTraits<std::pair<blink::String, blink::TextDirection>>, blink::HeapAllocator>>",
+          {
+            "count": 8,
+            "bytes": 87104
+          }
+        ],
+        [
+          "array: (object properties)",
+          {
+            "count": 67,
+            "bytes": 79700
+          }
+        ],
+        [
+          "object: Object",
+          {
+            "count": 2004,
+            "bytes": 77140
+          }
+        ],
+        [
+          "native: <canvas width=\"24\" height=\"32\">",
+          {
+            "count": 111,
+            "bytes": 73704
+          }
+        ],
+        [
+          "code: system / ProtectedFixedArray",
+          {
+            "count": 124,
+            "bytes": 72488
+          }
+        ],
+        [
+          "native: blink::StyleRule",
+          {
+            "count": 910,
+            "bytes": 71104
+          }
+        ],
+        [
+          "number: heap number",
+          {
+            "count": 5213,
+            "bytes": 62436
+          }
+        ],
+        [
+          "native: system / ArrayList",
+          {
+            "count": 145,
+            "bytes": 60712
+          }
+        ],
+        [
+          "code: system / FeedbackVector",
+          {
+            "count": 347,
+            "bytes": 58540
+          }
+        ],
+        [
+          "native: blink::ComputedStyle",
+          {
+            "count": 810,
+            "bytes": 58320
+          }
+        ],
+        [
+          "native: blink::ComputedStyleBase::StyleInheritedData",
+          {
+            "count": 424,
+            "bytes": 57664
+          }
+        ],
+        [
+          "native: blink::ComputedStyleBase::StyleSurroundData",
+          {
+            "count": 181,
+            "bytes": 56472
+          }
+        ],
+        [
+          "native: system / PropertyCell",
+          {
+            "count": 2604,
+            "bytes": 52080
+          }
+        ],
+        [
+          "native: Text",
+          {
+            "count": 576,
+            "bytes": 50688
+          }
+        ],
+        [
+          "native: blink::ImageResource",
+          {
+            "count": 17,
+            "bytes": 50184
+          }
+        ],
+        [
+          "native: system / DoubleStringCache",
+          {
+            "count": 1,
+            "bytes": 49160
+          }
+        ],
+        [
+          "native: blink::CachedColor",
+          {
+            "count": 973,
+            "bytes": 46704
+          }
+        ],
+        [
+          "native: blink::ComputedStyleBase::StyleMiscInherited2Data",
+          {
+            "count": 296,
+            "bytes": 44992
+          }
+        ],
+        [
+          "native: blink::UniqueElementData",
+          {
+            "count": 394,
+            "bytes": 44128
+          }
+        ],
+        [
+          "native: PerformanceEventTiming",
+          {
+            "count": 164,
+            "bytes": 41984
+          }
+        ]
+      ]
+    },
+    {
+      "file": "uskudar-1x-1-start.heapsnapshot.json.gz",
+      "selfBytes": 6155083,
+      "nodeCount": 85376,
+      "top": [
+        [
+          "native: system / ExternalStringData",
+          {
+            "count": 417,
+            "bytes": 643771
+          }
+        ],
+        [
+          "string: \n        (() => {\n        \n        const module = {};\n        \nvar __commonJS = obj => {\n  let required = false;\n  let r…",
+          {
+            "count": 2,
+            "bytes": 634188
+          }
+        ],
+        [
+          "code: system / InstructionStream",
+          {
+            "count": 302,
+            "bytes": 592960
+          }
+        ],
+        [
+          "native: system / FunctionTemplateInfo",
+          {
+            "count": 4261,
+            "bytes": 272576
+          }
+        ],
+        [
+          "native: system / JSArrayBufferData",
+          {
+            "count": 2,
+            "bytes": 160008
+          }
+        ],
+        [
+          "native: CanvasRenderingContext2D",
+          {
+            "count": 92,
+            "bytes": 156240
+          }
+        ],
+        [
+          "object shape: system / DescriptorArray",
+          {
+            "count": 1181,
+            "bytes": 144432
+          }
+        ],
+        [
+          "native: blink::ImmutableCSSPropertyValueSet",
+          {
+            "count": 968,
+            "bytes": 144032
+          }
+        ],
+        [
+          "code: system / BytecodeArray",
+          {
+            "count": 397,
+            "bytes": 120268
+          }
+        ],
+        [
+          "object shape: system / Map",
+          {
+            "count": 2757,
+            "bytes": 112504
+          }
+        ],
+        [
+          "array: ",
+          {
+            "count": 137,
+            "bytes": 110944
+          }
+        ],
+        [
+          "code: system / TrustedByteArray",
+          {
+            "count": 655,
+            "bytes": 107808
+          }
+        ],
+        [
+          "array: (object properties)",
+          {
+            "count": 68,
+            "bytes": 79204
+          }
+        ],
+        [
+          "native: blink::StyleRule",
+          {
+            "count": 910,
+            "bytes": 71104
+          }
+        ],
+        [
+          "native: blink::CanvasRenderingContext2DState",
+          {
+            "count": 92,
+            "bytes": 69184
+          }
+        ],
+        [
+          "native: blink::HeapHashTableBacking<blink::HashTable<std::pair<blink::String, blink::TextDirection>, blink::KeyValuePair<std::pair<blink::String, blink::TextDirection>, blink::FrameShapeCache::ShapeEntry>, blink::KeyValuePairExtractor, blink::HashMapValueTraits<blink::HashTraits<std::pair<blink::String, blink::TextDirection>>, blink::HashTraits<blink::FrameShapeCache::ShapeEntry>>, blink::HashTraits<std::pair<blink::String, blink::TextDirection>>, blink::HeapAllocator>>",
+          {
+            "count": 5,
+            "bytes": 63400
+          }
+        ],
+        [
+          "native: system / ArrayList",
+          {
+            "count": 143,
+            "bytes": 60576
+          }
+        ],
+        [
+          "native: system / PropertyCell",
+          {
+            "count": 2601,
+            "bytes": 52020
+          }
+        ],
+        [
+          "native: blink::ImageResource",
+          {
+            "count": 17,
+            "bytes": 50184
+          }
+        ],
+        [
+          "code: system / FeedbackVector",
+          {
+            "count": 275,
+            "bytes": 50004
+          }
+        ],
+        [
+          "native: system / DoubleStringCache",
+          {
+            "count": 1,
+            "bytes": 49160
+          }
+        ],
+        [
+          "object: Object",
+          {
+            "count": 1449,
+            "bytes": 48216
+          }
+        ],
+        [
+          "native: Text",
+          {
+            "count": 519,
+            "bytes": 45672
+          }
+        ],
+        [
+          "native: blink::ComputedStyleBase::StyleSurroundData",
+          {
+            "count": 138,
+            "bytes": 43056
+          }
+        ],
+        [
+          "native: system / WeakArrayList",
+          {
+            "count": 384,
+            "bytes": 35668
+          }
+        ],
+        [
+          "native: blink::HeapHashTableBacking<blink::HashTable<cppgc::internal::BasicMember<const blink::ScriptWrappable, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>, blink::KeyValuePair<cppgc::internal::BasicMember<const blink::ScriptWrappable, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>, v8::TracedReference<v8::Object>>, blink::KeyValuePairExtractor, blink::HashMapValueTraits<blink::HashTraits<cppgc::internal::BasicMember<const blink::ScriptWrappable, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>, blink::HashTraits<v8::TracedReference<v8::Object>>>, blink::HashTraits<cppgc::internal::BasicMember<const blink::ScriptWrappable, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>, blink::HeapAllocator>>",
+          {
+            "count": 1,
+            "bytes": 32776
+          }
+        ],
+        [
+          "native: system / AccessorPair",
+          {
+            "count": 2592,
+            "bytes": 31104
+          }
+        ],
+        [
+          "code: system / FeedbackCell",
+          {
+            "count": 1919,
+            "bytes": 30688
+          }
+        ],
+        [
+          "native: blink::Font",
+          {
+            "count": 182,
+            "bytes": 30576
+          }
+        ],
+        [
+          "native: <canvas width=\"64\" height=\"64\">",
+          {
+            "count": 46,
+            "bytes": 30544
+          }
+        ],
+        [
+          "native: blink::UniqueElementData",
+          {
+            "count": 265,
+            "bytes": 29680
+          }
+        ],
+        [
+          "code: system / UncompiledDataWithoutPreparseData",
+          {
+            "count": 1434,
+            "bytes": 28680
+          }
+        ],
+        [
+          "code: system / ScopeInfo",
+          {
+            "count": 545,
+            "bytes": 28412
+          }
+        ],
+        [
+          "native: blink::ComputedStyleBase::StyleBoxData",
+          {
+            "count": 159,
+            "bytes": 27984
+          }
+        ],
+        [
+          "native: blink::CSSValueList",
+          {
+            "count": 522,
+            "bytes": 25056
+          }
+        ]
+      ]
+    }
+  ],
+  "growth": [
+    {
+      "name": "code: system / InstructionStream",
+      "countDelta": 157,
+      "bytesDelta": 382784,
+      "end": {
+        "count": 459,
+        "bytes": 975744
+      }
+    },
+    {
+      "name": "native: CanvasRenderingContext2D",
+      "countDelta": 95,
+      "bytesDelta": 161408,
+      "end": {
+        "count": 187,
+        "bytes": 317648
+      }
+    },
+    {
+      "name": "code: system / TrustedByteArray",
+      "countDelta": 326,
+      "bytesDelta": 142804,
+      "end": {
+        "count": 981,
+        "bytes": 250612
+      }
+    },
+    {
+      "name": "native: system / WeakArrayList",
+      "countDelta": 238,
+      "bytesDelta": 73916,
+      "end": {
+        "count": 622,
+        "bytes": 109584
+      }
+    },
+    {
+      "name": "native: blink::CanvasRenderingContext2DState",
+      "countDelta": 95,
+      "bytesDelta": 71440,
+      "end": {
+        "count": 187,
+        "bytes": 140624
+      }
+    },
+    {
+      "name": "native: blink::Font",
+      "countDelta": 401,
+      "bytesDelta": 67368,
+      "end": {
+        "count": 583,
+        "bytes": 97944
+      }
+    },
+    {
+      "name": "native: <canvas width=\"24\" height=\"32\">",
+      "countDelta": 92,
+      "bytesDelta": 61088,
+      "end": {
+        "count": 111,
+        "bytes": 73704
+      }
+    },
+    {
+      "name": "code: system / ProtectedFixedArray",
+      "countDelta": 83,
+      "bytesDelta": 55492,
+      "end": {
+        "count": 124,
+        "bytes": 72488
+      }
+    },
+    {
+      "name": "number: heap number",
+      "countDelta": 3610,
+      "bytesDelta": 43320,
+      "end": {
+        "count": 5213,
+        "bytes": 62436
+      }
+    },
+    {
+      "name": "native: blink::ComputedStyleBase::StyleInheritedData",
+      "countDelta": 308,
+      "bytesDelta": 41888,
+      "end": {
+        "count": 424,
+        "bytes": 57664
+      }
+    },
+    {
+      "name": "native: blink::ComputedStyleBase::StyleMiscInherited2Data",
+      "countDelta": 272,
+      "bytesDelta": 41344,
+      "end": {
+        "count": 296,
+        "bytes": 44992
+      }
+    },
+    {
+      "name": "native: blink::CachedColor",
+      "countDelta": 759,
+      "bytesDelta": 36432,
+      "end": {
+        "count": 973,
+        "bytes": 46704
+      }
+    },
+    {
+      "name": "native: blink::ComputedStyle",
+      "countDelta": 493,
+      "bytesDelta": 35496,
+      "end": {
+        "count": 810,
+        "bytes": 58320
+      }
+    },
+    {
+      "name": "native: PerformanceEventTiming",
+      "countDelta": 138,
+      "bytesDelta": 35328,
+      "end": {
+        "count": 164,
+        "bytes": 41984
+      }
+    },
+    {
+      "name": "object: Object",
+      "countDelta": 555,
+      "bytesDelta": 28924,
+      "end": {
+        "count": 2004,
+        "bytes": 77140
+      }
+    },
+    {
+      "name": "native: blink::PlainTextNode",
+      "countDelta": 22,
+      "bytesDelta": 27280,
+      "end": {
+        "count": 32,
+        "bytes": 39680
+      }
+    },
+    {
+      "name": "native: blink::HeapHashTableBacking<blink::HashTable<cppgc::internal::BasicMember<blink::CachedColor, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>, blink::KeyValuePair<cppgc::internal::BasicMember<blink::CachedColor, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>, unsigned int>, blink::KeyValuePairExtractor, blink::HashMapValueTraits<blink::CachedColorTraits, blink::HashTraits<unsigned int>>, blink::CachedColorTraits, blink::HeapAllocator>>",
+      "countDelta": 95,
+      "bytesDelta": 24952,
+      "end": {
+        "count": 130,
+        "bytes": 31760
+      }
+    },
+    {
+      "name": "native: TaskAttributionTiming",
+      "countDelta": 198,
+      "bytesDelta": 23760,
+      "end": {
+        "count": 200,
+        "bytes": 24000
+      }
+    },
+    {
+      "name": "native: blink::HeapHashTableBacking<blink::HashTable<std::pair<blink::String, blink::TextDirection>, blink::KeyValuePair<std::pair<blink::String, blink::TextDirection>, blink::FrameShapeCache::ShapeEntry>, blink::KeyValuePairExtractor, blink::HashMapValueTraits<blink::HashTraits<std::pair<blink::String, blink::TextDirection>>, blink::HashTraits<blink::FrameShapeCache::ShapeEntry>>, blink::HashTraits<std::pair<blink::String, blink::TextDirection>>, blink::HeapAllocator>>",
+      "countDelta": 3,
+      "bytesDelta": 23704,
+      "end": {
+        "count": 8,
+        "bytes": 87104
+      }
+    },
+    {
+      "name": "native: blink::ShadowList",
+      "countDelta": 277,
+      "bytesDelta": 22160,
+      "end": {
+        "count": 307,
+        "bytes": 24560
+      }
+    },
+    {
+      "name": "native: PerformanceLongTaskTiming",
+      "countDelta": 198,
+      "bytesDelta": 20592,
+      "end": {
+        "count": 200,
+        "bytes": 20800
+      }
+    },
+    {
+      "name": "native: blink::HeapVectorBacking<blink::ShadowData>",
+      "countDelta": 137,
+      "bytesDelta": 16440,
+      "end": {
+        "count": 153,
+        "bytes": 18360
+      }
+    },
+    {
+      "name": "native: blink::UniqueElementData",
+      "countDelta": 129,
+      "bytesDelta": 14448,
+      "end": {
+        "count": 394,
+        "bytes": 44128
+      }
+    },
+    {
+      "name": "native: blink::HeapHashTableBacking<blink::HashTable<blink::FontCacheKey, blink::KeyValuePair<blink::FontCacheKey, cppgc::internal::BasicMember<const blink::FontPlatformData, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>, blink::KeyValuePairExtractor, blink::HashMapValueTraits<blink::HashTraits<FontCacheKey>, blink::HashTraits<cppgc::internal::BasicMember<const blink::FontPlatformData, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>>, blink::HashTraits<FontCacheKey>, blink::HeapAllocator>>",
+      "countDelta": 0,
+      "bytesDelta": 14336,
+      "end": {
+        "count": 1,
+        "bytes": 28680
+      }
+    },
+    {
+      "name": "native: blink::HeapVectorBacking<blink::VectorBackedLinkedListNode<cppgc::internal::BasicMember<blink::CachedColor, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>, blink::HeapAllocator>>",
+      "countDelta": 95,
+      "bytesDelta": 13640,
+      "end": {
+        "count": 187,
+        "bytes": 20792
+      }
+    },
+    {
+      "name": "native: blink::ComputedStyleBase::StyleSurroundData",
+      "countDelta": 43,
+      "bytesDelta": 13416,
+      "end": {
+        "count": 181,
+        "bytes": 56472
+      }
+    },
+    {
+      "name": "native: blink::HeapVectorBacking<blink::CachedMatchedProperties::Entry>",
+      "countDelta": 2,
+      "bytesDelta": 12304,
+      "end": {
+        "count": 2,
+        "bytes": 12304
+      }
+    },
+    {
+      "name": "code: system / Code",
+      "countDelta": 157,
+      "bytesDelta": 11304,
+      "end": {
+        "count": 459,
+        "bytes": 33048
+      }
+    },
+    {
+      "name": "array: ",
+      "countDelta": 129,
+      "bytesDelta": 9036,
+      "end": {
+        "count": 266,
+        "bytes": 119980
+      }
+    },
+    {
+      "name": "native: blink::ComputedStyleBase::StyleMiscInheritedData",
+      "countDelta": 272,
+      "bytesDelta": 8704,
+      "end": {
+        "count": 306,
+        "bytes": 9792
+      }
+    },
+    {
+      "name": "code: system / FeedbackVector",
+      "countDelta": 72,
+      "bytesDelta": 8536,
+      "end": {
+        "count": 347,
+        "bytes": 58540
+      }
+    },
+    {
+      "name": "native: blink::HeapHashTableBacking<blink::HashTable<std::pair<blink::String, blink::TextDirection>, blink::KeyValuePair<std::pair<blink::String, blink::TextDirection>, blink::FrameShapeCache::NodeEntry>, blink::KeyValuePairExtractor, blink::HashMapValueTraits<blink::HashTraits<std::pair<blink::String, blink::TextDirection>>, blink::HashTraits<blink::FrameShapeCache::NodeEntry>>, blink::HashTraits<std::pair<blink::String, blink::TextDirection>>, blink::HeapAllocator>>",
+      "countDelta": 3,
+      "bytesDelta": 7896,
+      "end": {
+        "count": 8,
+        "bytes": 26944
+      }
+    },
+    {
+      "name": "native: blink::ComputedStyleBase::StyleBoxData",
+      "countDelta": 43,
+      "bytesDelta": 7568,
+      "end": {
+        "count": 202,
+        "bytes": 35552
+      }
+    },
+    {
+      "name": "native: blink::HeapVectorBacking<blink::CSSPropertyValue>",
+      "countDelta": 14,
+      "bytesDelta": 6944,
+      "end": {
+        "count": 41,
+        "bytes": 17416
+      }
+    },
+    {
+      "name": "native: blink::SimpleFontData",
+      "countDelta": 25,
+      "bytesDelta": 6400,
+      "end": {
+        "count": 88,
+        "bytes": 22528
+      }
+    },
+    {
+      "name": "native: blink::ElementAnimations",
+      "countDelta": 9,
+      "bytesDelta": 6048,
+      "end": {
+        "count": 24,
+        "bytes": 16128
+      }
+    },
+    {
+      "name": "native: blink::InterpolableLength",
+      "countDelta": 33,
+      "bytesDelta": 5544,
+      "end": {
+        "count": 75,
+        "bytes": 12600
+      }
+    },
+    {
+      "name": "native: system / PropertyArray",
+      "countDelta": 254,
+      "bytesDelta": 5452,
+      "end": {
+        "count": 1115,
+        "bytes": 30292
+      }
+    },
+    {
+      "name": "object shape: system / Map",
+      "countDelta": 134,
+      "bytesDelta": 5408,
+      "end": {
+        "count": 2891,
+        "bytes": 117912
+      }
+    },
+    {
+      "name": "native: blink::ImmutableCSSPropertyValueSet",
+      "countDelta": 56,
+      "bytesDelta": 5344,
+      "end": {
+        "count": 1024,
+        "bytes": 149376
+      }
+    },
+    {
+      "name": "native: blink::HeapVectorBacking<blink::VectorBackedLinkedListNode<cppgc::internal::BasicMember<blink::Element, cppgc::internal::WeakMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>, blink::HeapAllocator>>",
+      "countDelta": 95,
+      "bytesDelta": 5320,
+      "end": {
+        "count": 187,
+        "bytes": 10472
+      }
+    },
+    {
+      "name": "native: blink::CachedMatchedProperties",
+      "countDelta": 39,
+      "bytesDelta": 5304,
+      "end": {
+        "count": 206,
+        "bytes": 28016
+      }
+    },
+    {
+      "name": "native: Text",
+      "countDelta": 57,
+      "bytesDelta": 5016,
+      "end": {
+        "count": 576,
+        "bytes": 50688
+      }
+    },
+    {
+      "name": "native: blink::RuleSet",
+      "countDelta": 3,
+      "bytesDelta": 4992,
+      "end": {
+        "count": 12,
+        "bytes": 19968
+      }
+    },
+    {
+      "name": "native: blink::HeapVectorBacking<cppgc::internal::BasicMember<blink::TaskAttributionTiming, cppgc::internal::StrongMemberTag, cppgc::internal::DijkstraWriteBarrierPolicy>>",
+      "countDelta": 198,
+      "bytesDelta": 4752,
+      "end": {
+        "count": 200,
+        "bytes": 4800
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "generated": "2026-10-02T20:42:57.303Z",
+  "localPass": true,
+  "nativeAccepted": false,
+  "overallAccepted": false,
+  "natural": {
+    "runs": 12,
+    "passed": 12,
+    "completed": 8,
+    "deaths": 4,
+    "jsErrors": 0,
+    "collisionViolations": 0,
+    "failures": [],
+    "sourceMatches": true
+  },
+  "controlledGroups": 13,
+  "cooldownIntervalMs": 180053
+}

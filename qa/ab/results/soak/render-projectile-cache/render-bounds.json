@@ -1,0 +1,20 @@
+{
+  "errors": [],
+  "tests": {
+    "cap": {
+      "count": 500,
+      "randomCalls": 8000
+    },
+    "changedChannels": 0,
+    "cacheChangedChannels": 3121,
+    "cacheMaxError": 1,
+    "cacheMeanError": 0.0023704277554988454,
+    "counts": {
+      "xp": 1000,
+      "gold": 1000,
+      "particles": 1000,
+      "bullets": 1000
+    }
+  },
+  "pass": true
+}

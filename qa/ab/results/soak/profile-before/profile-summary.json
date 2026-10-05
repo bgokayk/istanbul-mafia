@@ -1,0 +1,146 @@
+{
+  "controlled": true,
+  "setup": "180 enemies, wave 31, weapons disabled, stationary invulnerable player; CPU profile only",
+  "top": [
+    [
+      "(program) :0",
+      3137
+    ],
+    [
+      "createOscillator :0",
+      1628
+    ],
+    [
+      "createGain :0",
+      1183
+    ],
+    [
+      " world-ab.js:38",
+      934
+    ],
+    [
+      "connect :0",
+      929
+    ],
+    [
+      "drawImage :0",
+      610
+    ],
+    [
+      "querySelector :0",
+      386
+    ],
+    [
+      "gupdate :3815",
+      326
+    ],
+    [
+      "(idle) :0",
+      319
+    ],
+    [
+      " :4569",
+      310
+    ],
+    [
+      "tone :591",
+      276
+    ],
+    [
+      "fillRect :0",
+      183
+    ],
+    [
+      "save :0",
+      183
+    ],
+    [
+      "rect art-v2.js:18",
+      163
+    ],
+    [
+      "(garbage collector) :0",
+      161
+    ],
+    [
+      "separation world-ab.js:37",
+      119
+    ],
+    [
+      "restore :0",
+      112
+    ],
+    [
+      "updateUltHud :1064",
+      103
+    ],
+    [
+      "gloop :4621",
+      94
+    ],
+    [
+      "enemy art-v2.js:125",
+      93
+    ],
+    [
+      "setValueAtTime :0",
+      78
+    ],
+    [
+      "gdraw :4399",
+      71
+    ],
+    [
+      " world-ab.js:37",
+      66
+    ],
+    [
+      "getElementById :0",
+      66
+    ],
+    [
+      "updateAutoAbilities :2619",
+      59
+    ],
+    [
+      "start :0",
+      54
+    ],
+    [
+      "blit art-v2.js:61",
+      51
+    ],
+    [
+      "exponentialRampToValueAtTime :0",
+      47
+    ],
+    [
+      "triggerFlash :3412",
+      46
+    ],
+    [
+      "actorFrame art-v2.js:20",
+      44
+    ],
+    [
+      " :4429",
+      40
+    ],
+    [
+      "objectFrame art-v2.js:115",
+      40
+    ],
+    [
+      "window._tickDashAndAmbush :5134",
+      38
+    ],
+    [
+      "fillText :0",
+      37
+    ],
+    [
+      "clearRect :0",
+      35
+    ]
+  ]
+}

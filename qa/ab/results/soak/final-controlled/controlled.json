@@ -1,0 +1,163 @@
+{
+  "errors": [],
+  "tests": {
+    "world": [
+      {
+        "map": "kapalicarsi",
+        "seeds": 100,
+        "failures": 0,
+        "jumps": 0
+      },
+      {
+        "map": "uskudar",
+        "seeds": 100,
+        "failures": 0,
+        "jumps": 0
+      },
+      {
+        "map": "balat",
+        "seeds": 100,
+        "failures": 0,
+        "jumps": 0
+      },
+      {
+        "map": "besiktas",
+        "seeds": 100,
+        "failures": 0,
+        "jumps": 0
+      },
+      {
+        "map": "taksim",
+        "seeds": 100,
+        "failures": 0,
+        "jumps": 0
+      },
+      {
+        "map": "eminonu",
+        "seeds": 100,
+        "failures": 0,
+        "jumps": 0
+      },
+      {
+        "map": "kasimpasa",
+        "seeds": 100,
+        "failures": 0,
+        "jumps": 0
+      },
+      {
+        "map": "bursa",
+        "seeds": 100,
+        "failures": 0,
+        "jumps": 0
+      }
+    ],
+    "damage": {
+      "dash": 0,
+      "dashHp": 100,
+      "armor": 20,
+      "timed": 0,
+      "depleted": 10,
+      "one": 0,
+      "finalHp": 70
+    },
+    "contactDash": {
+      "damage": 0,
+      "updates": 10
+    },
+    "blur": {
+      "keys": {
+        "w": false,
+        "ArrowLeft": false
+      },
+      "joyAct": false,
+      "jDx": 0,
+      "jDy": 0,
+      "primaryTouchId": null
+    },
+    "multitouch": {
+      "first": {
+        "primaryTouchId": 7,
+        "jDx": 0.7142857142857143,
+        "jDy": 0
+      },
+      "second": {
+        "primaryTouchId": 7,
+        "jDx": 0.7142857142857143,
+        "jDy": 0
+      },
+      "release": {
+        "primaryTouchId": null,
+        "joyAct": false,
+        "jDx": 0,
+        "jDy": 0
+      }
+    },
+    "modal": {
+      "reset": true,
+      "elapsedDelta": 0
+    },
+    "visibility": {
+      "paused": true,
+      "reset": true
+    },
+    "rescue": {
+      "world": 1,
+      "minimap": 1,
+      "arrows": 1
+    },
+    "walls": {
+      "structuralWalls": 38,
+      "rendered": 38
+    },
+    "scaling": [
+      {
+        "n": 90,
+        "checks": 1404,
+        "allPairs": 8010
+      },
+      {
+        "n": 180,
+        "checks": 4468,
+        "allPairs": 32220
+      },
+      {
+        "n": 360,
+        "checks": 10264,
+        "allPairs": 129240
+      },
+      {
+        "n": 720,
+        "checks": 21856,
+        "allPairs": 517680
+      }
+    ],
+    "migration": {
+      "unlockedChars": [
+        "kurt"
+      ],
+      "_kurtRuns": 7,
+      "gold": 321,
+      "lb": [
+        {
+          "char": "KURT"
+        }
+      ],
+      "storageKeys": [
+        "istanbul-mafia-v2"
+      ]
+    },
+    "pickups": {
+      "levelGain": 1,
+      "goldGain": 17,
+      "hp": 34,
+      "remaining": [
+        0,
+        0,
+        0
+      ],
+      "cards": 3
+    },
+    "settings": true
+  },
+  "date": "2026-10-02T19:36:28.622Z"
+}

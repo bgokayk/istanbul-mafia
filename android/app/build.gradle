@@ -1,5 +1,12 @@
 apply plugin: 'com.android.application'
 
+// Generated locally from .env; the source default is Google's Android demo app.
+def monetizationProperties = new Properties()
+def monetizationFile = rootProject.file('../monetization.local.properties')
+if (monetizationFile.exists()) {
+    monetizationFile.withInputStream { monetizationProperties.load(it) }
+}
+
 android {
     namespace = "com.lumenco.istanbulmafia"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -10,6 +17,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0.0"
+        manifestPlaceholders = [admobAppId: monetizationProperties.getProperty('ADMOB_APP_ID', 'ca-app-pub-3940256099942544~3347511713')]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.

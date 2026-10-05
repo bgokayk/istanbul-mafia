@@ -1,0 +1,14 @@
+// Moving render-only layer isolation; diagnostic, never acceptance.
+const {fs,out,server,launch,ev,start}=require('./ab-harness.cjs');
+(async()=>{const b=await launch(),results=[];try{const p=await b.newPage({viewport:{width:390,height:844}}),cdp=await p.context().newCDPSession(p);await start(p,'kapalicarsi');await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});
+ await ev(p,`cancelAnimationFrame(raf2);stopTutorial();resetInput();screenShake=0;enemies=[];particles=[];bullets=[];orbs=[];goldOrbs=[];healthOrbs=[];chests=[];floorItems=[];for(let j=0;j<40;j++){spawnEnemy(ET[j%16]);let e=enemies.at(-1);e.x=P.x-150+j%8*40;e.y=P.y-200+Math.floor(j/8)*80;}
+ for(let j=0;j<60;j++)bullets.push({x:P.x-150+j%10*30,y:P.y-200+Math.floor(j/10)*80,r:5,col:'#cccccc',type:j%2?'k':'tb',vx:1,vy:1});
+ for(let j=0;j<8;j++)healthOrbs.push({x:P.x-100+j%4*60,y:P.y-150+Math.floor(j/4)*200,r:8,life:7000,pulse:0});
+ for(let j=0;j<3;j++)chests.push({x:P.x-100+j*80,y:P.y+100,r:14,life:7000,pulse:0,tier:'boss'});
+ boom(P.x,P.y,'#cc0000',500,4);particles.forEach((p,j)=>{p.x=P.x-150+j%25*12;p.y=P.y-200+Math.floor(j/25)*20;});for(let j=0;j<8;j++)spawnFloor(P.x-100+j%4*60,P.y-150+Math.floor(j/4)*200);for(let j=0;j<60;j++)goldOrbs.push({x:P.x-150+j%10*30,y:P.y-200+Math.floor(j/10)*80,life:10000});window.__scene={enemies,particles,bullets,healthOrbs,chests,floorItems,goldOrbs};`);
+ if(process.env.QA_CRIT_PROBE==='1')await ev(p,`dmgNums=Array.from({length:30},(_,j)=>({x:P.x-150+j%10*30,y:P.y-100+Math.floor(j/10)*80,born:Date.now(),val:'💥'+(300+j),_crit:true}));__scene.dmgNums=dmgNums;`);
+ for(const omit of (process.env.QA_CRIT_PROBE==='1'?['none','dmgNums']:process.env.QA_FLOOR_PROBE==='1'?['none','floorItems','goldOrbs']:['none','particles','bullets','healthOrbs','chests','enemies'])){
+  const r=await ev(p,`new Promise(resolve=>{for(const k of Object.keys(__scene))window.__testEval(k+'=__scene.'+k);${omit==='none'?'':omit+'=[];'}let frames=[],cpu=[],last=0,began=performance.now();function frame(ts){elapsed=ts;dmgNums.forEach(d=>d.born=Date.now()-200);healthOrbs.forEach(o=>o.pulse=ts);floorItems.forEach(o=>o.pulse=ts);chests.forEach(o=>o.pulse=ts);bullets.forEach(o=>{o.vx=Math.cos(ts/300);o.vy=Math.sin(ts/300);});particles.forEach((o,j)=>{o.life=200+(Math.sin(ts/300+j)+1)*200;o.x+=Math.sin(ts/300+j)*.5;});if(last)frames.push(ts-last);last=ts;let a=performance.now();gdraw();cpu.push(performance.now()-a);if(performance.now()-began<8000)requestAnimationFrame(frame);else{frames.sort((a,b)=>a-b);cpu.sort((a,b)=>a-b);resolve({p50:frames[Math.floor(frames.length*.5)],p95:frames[Math.floor(frames.length*.95)],callback95:cpu[Math.floor(cpu.length*.95)]});}}requestAnimationFrame(frame);})`);results.push({omit,...r});console.log(results.at(-1));
+ }
+ fs.writeFileSync(out+'/scene-profile.json',JSON.stringify(results,null,2));
+}finally{await b.close();server.close();}})().catch(e=>{console.error(e);process.exitCode=1;server.close();});

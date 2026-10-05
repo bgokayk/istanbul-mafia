@@ -1,0 +1,6 @@
+const assert=require('assert/strict');
+const {fs,out,server,launch,ev,start}=require('./ab-harness.cjs');
+(async()=>{const b=await launch(),r={steps:[],errors:[]};try{const p=await b.newPage({viewport:{width:390,height:844},hasTouch:true});p.on('pageerror',e=>r.errors.push(e.message));await start(p,'kapalicarsi');await p.locator('#tutBtn').waitFor({state:'visible'});
+ for(let i=0;i<10;i++){const step=await p.locator('#tutBox').evaluate(el=>{const box=el.getBoundingClientRect(),text=el.querySelector('#tutText');return{text:text.innerText,box:box.toJSON(),fits:box.x>=0&&box.y>=0&&box.right<=innerWidth&&box.bottom<=innerHeight&&text.scrollWidth<=text.clientWidth};});r.steps.push(step);assert(step.fits,JSON.stringify(step));if([0,1,5].includes(i))await p.screenshot({path:out+'/tutorial-'+(i+1)+'.png'});await p.locator('#tutBtn').click();}
+ assert.equal(await p.locator('#tutBtn').isVisible(),false);assert.equal(await ev(p,'pdata.tutorialDone'),true);assert.equal(r.errors.length,0);r.pass=true;
+}finally{fs.writeFileSync(out+'/tutorial.json',JSON.stringify(r,null,2));await b.close();server.close();}console.log(JSON.stringify({pass:r.pass,steps:r.steps.length,errors:r.errors}));})().catch(e=>{console.error(e);process.exitCode=1;server.close();});

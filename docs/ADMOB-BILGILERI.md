@@ -4,9 +4,9 @@ _Oluşturuldu: 2026-10-02 · Hesap: b.gokaykupeli@gmail.com_
 | Alan | Değer |
 |---|---|
 | Uygulama | İstanbul Mafia (Android) |
-| Uygulama kimliği | `ca-app-pub-6512462593783150~5405343606` |
-| Geçiş reklamı — `run_sonu_gecis` | `ca-app-pub-6512462593783150/5213771912` |
-| Ödüllü — `canlanma_2x_altin` (ödül: odul ×1) | `ca-app-pub-6512462593783150/3756296577` |
+| Uygulama kimliği | `yerel .env dosyasında` |
+| Geçiş reklamı — `run_sonu_gecis` | `yerel .env dosyasında` |
+| Ödüllü — `canlanma_2x_altin` (ödül: odul ×1) | `yerel .env dosyasında` |
 | Durum | Uygulama "İnceleme gerekli"; mağazada yayınlanınca AdMob'a bağlanacak |
 | İş ortağı teklif sistemi | Kapalı (üçüncü taraf veri paylaşımı yok) |
 

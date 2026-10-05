@@ -1,0 +1,42 @@
+{
+  "kind": "real elapsed wall clock; AdMob bridge simulated, no clock substitution",
+  "samples": [
+    {
+      "run": 1,
+      "at": "2026-10-02T20:34:05.156Z",
+      "shown": false
+    },
+    {
+      "run": 2,
+      "at": "2026-10-02T20:34:05.157Z",
+      "shown": false
+    },
+    {
+      "run": 3,
+      "at": "2026-10-02T20:34:05.157Z",
+      "shown": false
+    },
+    {
+      "run": 4,
+      "at": "2026-10-02T20:34:05.158Z",
+      "shown": true
+    },
+    {
+      "label": "immediate",
+      "elapsedMs": 0,
+      "shown": false
+    },
+    {
+      "label": "179 seconds",
+      "elapsedMs": 179014,
+      "shown": false
+    },
+    {
+      "label": "180 seconds",
+      "elapsedMs": 180053,
+      "shown": true
+    }
+  ],
+  "intervalMs": 180053,
+  "pass": true
+}

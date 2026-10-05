@@ -1,0 +1,143 @@
+[
+  {
+    "map": "kapalicarsi",
+    "run": 1,
+    "cpuRate": 1,
+    "targetSeconds": 20,
+    "warmupSeconds": 2,
+    "sourceHashes": {
+      "index.html": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+      "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+      "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+      "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+      "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+    },
+    "controlled": true,
+    "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = successive rAF timestamps (includes pacing, not verified GPU presentation); JS callback CPU duration also recorded. Fixed-size histograms. Forced GC at checkpoints, its next 3 frame samples excluded and counted. No accelerated clock.",
+    "host": {
+      "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+      "cores": 12
+    },
+    "browser": "154.0.4258.48",
+    "concurrentMaps": 1,
+    "errors": [],
+    "failures": [],
+    "minutes": [
+      {
+        "fromSeconds": 0,
+        "toSeconds": 20.722,
+        "fullFrameMs": {
+          "n": 3331,
+          "p50": 6.1,
+          "p95": 6.2,
+          "max": 18.300000000000182
+        },
+        "callbackMs": {
+          "n": 3331,
+          "p50": 0.7,
+          "p95": 1.3,
+          "max": 2.5999999940395355
+        },
+        "excludedFrames": 6
+      }
+    ],
+    "heap": [
+      {
+        "label": "cold",
+        "wallSeconds": 0,
+        "rawBytes": 3450288,
+        "retainedBytes": 2374900,
+        "backingStorageBytes": 481420,
+        "dom": {
+          "documents": 1,
+          "nodes": 1117,
+          "jsEventListeners": 143
+        },
+        "elapsed": 0,
+        "wave": 1,
+        "kills": 0,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 18,
+        "artCache": 12
+      },
+      {
+        "label": "start",
+        "wallSeconds": 0,
+        "rawBytes": 4503320,
+        "retainedBytes": 2755700,
+        "backingStorageBytes": 481921,
+        "dom": {
+          "documents": 1,
+          "nodes": 1144,
+          "jsEventListeners": 143
+        },
+        "elapsed": 2336,
+        "wave": 1,
+        "kills": 4,
+        "level": 1,
+        "orbs": 0,
+        "enemies": 16,
+        "artCache": 26
+      },
+      {
+        "label": "end",
+        "wallSeconds": 20.722,
+        "rawBytes": 4091632,
+        "retainedBytes": 3468808,
+        "backingStorageBytes": 482470,
+        "dom": {
+          "documents": 1,
+          "nodes": 1196,
+          "jsEventListeners": 161
+        },
+        "elapsed": 22528,
+        "wave": 2,
+        "kills": 41,
+        "level": 3,
+        "orbs": 1,
+        "enemies": 3,
+        "artCache": 36
+      }
+    ],
+    "peaks": {
+      "enemies": 18,
+      "bullets": 23,
+      "particles": 255,
+      "xpOrbs": 2,
+      "goldOrbs": 2,
+      "healthOrbs": 1,
+      "chests": 0,
+      "damageNumbers": 9,
+      "rescueNpcs": 0,
+      "artCache": 36,
+      "floorTiles": 43
+    },
+    "clockStalls": [],
+    "maxClockStallSeconds": 0.4665,
+    "progress": {
+      "wallSeconds": 23.063,
+      "measuredSeconds": 20.722,
+      "gameSeconds": 20.064,
+      "wave": 2,
+      "kills": 41,
+      "level": 3
+    },
+    "fullFrameMs": {
+      "n": 3331,
+      "p50": 6.1,
+      "p95": 6.2
+    },
+    "callbackMs": {
+      "n": 3331,
+      "p50": 0.7,
+      "p95": 1.3
+    },
+    "heapGrowth": 0.25877562869688275,
+    "plateauLastFiveMinutes": null,
+    "heapPass": true,
+    "over33msWindows": [],
+    "complete": true,
+    "pass": true
+  }
+]

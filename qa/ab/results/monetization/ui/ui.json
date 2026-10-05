@@ -1,0 +1,125 @@
+{
+  "kind": "real game UI; native AdMob/Billing bridge responses controlled",
+  "errors": [],
+  "screens": [
+    {
+      "width": 390,
+      "height": 844,
+      "geometry": [
+        {
+          "width": 364,
+          "insideX": true
+        },
+        {
+          "width": 364,
+          "insideX": true
+        },
+        {
+          "width": 364,
+          "insideX": true
+        },
+        {
+          "width": 364,
+          "insideX": true
+        },
+        {
+          "width": 364,
+          "insideX": true
+        }
+      ]
+    },
+    {
+      "width": 540,
+      "height": 1310,
+      "geometry": [
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        }
+      ]
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "geometry": [
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        }
+      ]
+    },
+    {
+      "width": 932,
+      "height": 430,
+      "geometry": [
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        },
+        {
+          "width": 514,
+          "insideX": true
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "Native startup consent precedes SDK init; no ad load or show on opening.",
+    {
+      "revived": {
+        "hp": 30,
+        "max": 60,
+        "invuln": 2997.3,
+        "ended": false,
+        "paused": false
+      },
+      "skippedAdDidNotRevive": true
+    },
+    "Only one revive per run; summary reward adds exact runGold once; run 1 has no interstitial."
+  ],
+  "pass": true
+}

@@ -1,0 +1,160 @@
+{
+  "map": "uskudar",
+  "run": 1,
+  "cpuRate": 1,
+  "targetSeconds": 900,
+  "warmupSeconds": 30,
+  "sourceHashes": {
+    "index.html": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+    "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+    "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+    "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+    "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+  },
+  "controlled": true,
+  "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = successive rAF timestamps (includes pacing, not verified GPU presentation); JS callback CPU duration also recorded. Fixed-size histograms. Forced GC at checkpoints, its next 3 frame samples excluded and counted. No accelerated clock.",
+  "host": {
+    "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "cores": 12
+  },
+  "browser": "154.0.4258.48",
+  "concurrentMaps": 4,
+  "errors": [
+    "ReferenceError: applyUpgrade is not defined\n    at HTMLButtonElement.doSelect (http://127.0.0.1:8820/:2735:26)"
+  ],
+  "failures": [],
+  "minutes": [
+    {
+      "fromSeconds": 0,
+      "toSeconds": 60.035,
+      "fullFrameMs": {
+        "n": 7443,
+        "p50": 6.1,
+        "p95": 12.2,
+        "max": 36.40000000000873
+      },
+      "callbackMs": {
+        "n": 7443,
+        "p50": 1.1,
+        "p95": 1.7,
+        "max": 10.800000011920929
+      },
+      "excludedFrames": 6
+    },
+    {
+      "fromSeconds": 60.035,
+      "toSeconds": 120.389,
+      "fullFrameMs": {
+        "n": 6855,
+        "p50": 6.1,
+        "p95": 18.2,
+        "max": 42.5
+      },
+      "callbackMs": {
+        "n": 6855,
+        "p50": 1.3,
+        "p95": 2.6,
+        "max": 9.299999997019768
+      },
+      "excludedFrames": 6
+    }
+  ],
+  "heap": [
+    {
+      "label": "cold",
+      "wallSeconds": 0,
+      "rawBytes": 3345768,
+      "retainedBytes": 2690856,
+      "backingStorageBytes": 481648,
+      "dom": {
+        "documents": 1,
+        "nodes": 1149,
+        "jsEventListeners": 143
+      },
+      "elapsed": 32,
+      "wave": 1,
+      "kills": 0,
+      "level": 1,
+      "orbs": 0,
+      "enemies": 18,
+      "artCache": 13
+    },
+    {
+      "label": "start",
+      "wallSeconds": 0,
+      "rawBytes": 3726588,
+      "retainedBytes": 3477228,
+      "backingStorageBytes": 482837,
+      "dom": {
+        "documents": 1,
+        "nodes": 1192,
+        "jsEventListeners": 161
+      },
+      "elapsed": 29088,
+      "wave": 2,
+      "kills": 53,
+      "level": 4,
+      "orbs": 1,
+      "enemies": 2,
+      "artCache": 37
+    },
+    {
+      "label": "end",
+      "wallSeconds": 147.718,
+      "rawBytes": 10869216,
+      "retainedBytes": 3770352,
+      "backingStorageBytes": 485119,
+      "dom": {
+        "documents": 1,
+        "nodes": 1327,
+        "jsEventListeners": 167
+      },
+      "elapsed": 173600,
+      "wave": 10,
+      "kills": 649,
+      "level": 11,
+      "orbs": 122,
+      "enemies": 18,
+      "artCache": 104
+    }
+  ],
+  "peaks": {
+    "enemies": 30,
+    "bullets": 200,
+    "particles": 475,
+    "xpOrbs": 129,
+    "goldOrbs": 43,
+    "healthOrbs": 12,
+    "chests": 3,
+    "damageNumbers": 50,
+    "rescueNpcs": 0,
+    "artCache": 104,
+    "floorTiles": 46
+  },
+  "clockStalls": [],
+  "maxClockStallSeconds": 0.8345,
+  "progress": {
+    "wallSeconds": 177.781,
+    "measuredSeconds": 147.718,
+    "gameSeconds": 144.528,
+    "wave": 10,
+    "kills": 649,
+    "level": 11
+  },
+  "fullFrameMs": {
+    "n": 14298,
+    "p50": 6.1,
+    "p95": 18.2
+  },
+  "callbackMs": {
+    "n": 14298,
+    "p50": 1.2,
+    "p95": 2.2
+  },
+  "heapGrowth": 0.08429818234524733,
+  "plateauLastFiveMinutes": null,
+  "heapPass": false,
+  "over33msWindows": [],
+  "complete": false,
+  "pass": false
+}

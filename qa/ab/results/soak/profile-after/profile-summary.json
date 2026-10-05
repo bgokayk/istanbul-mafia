@@ -1,0 +1,146 @@
+{
+  "controlled": true,
+  "setup": "180 enemies, wave 31, weapons disabled, stationary invulnerable player; CPU profile only",
+  "top": [
+    [
+      "(program) :0",
+      5565
+    ],
+    [
+      "drawImage :0",
+      1313
+    ],
+    [
+      " world-ab.js:38",
+      892
+    ],
+    [
+      "querySelector :0",
+      444
+    ],
+    [
+      "fillRect :0",
+      433
+    ],
+    [
+      "save :0",
+      368
+    ],
+    [
+      " :4578",
+      360
+    ],
+    [
+      "rect art-v2.js:18",
+      342
+    ],
+    [
+      "gupdate :3824",
+      268
+    ],
+    [
+      "restore :0",
+      255
+    ],
+    [
+      "updateUltHud :1068",
+      194
+    ],
+    [
+      "enemy art-v2.js:125",
+      192
+    ],
+    [
+      "gdraw :4408",
+      176
+    ],
+    [
+      "separation world-ab.js:37",
+      169
+    ],
+    [
+      "(garbage collector) :0",
+      161
+    ],
+    [
+      "gloop :4630",
+      125
+    ],
+    [
+      "(idle) :0",
+      117
+    ],
+    [
+      "blit art-v2.js:61",
+      115
+    ],
+    [
+      "window._tickDashAndAmbush :5143",
+      111
+    ],
+    [
+      "actorFrame art-v2.js:20",
+      104
+    ],
+    [
+      "getElementById :0",
+      93
+    ],
+    [
+      "translate :0",
+      81
+    ],
+    [
+      " :4435",
+      78
+    ],
+    [
+      " :4528",
+      72
+    ],
+    [
+      " world-ab.js:37",
+      71
+    ],
+    [
+      "fill :0",
+      71
+    ],
+    [
+      "tile art-v2.js:76",
+      68
+    ],
+    [
+      "clearRect :0",
+      67
+    ],
+    [
+      "objectFrame art-v2.js:115",
+      61
+    ],
+    [
+      "fillText :0",
+      60
+    ],
+    [
+      " :4438",
+      60
+    ],
+    [
+      " :3861",
+      41
+    ],
+    [
+      "createOscillator :0",
+      35
+    ],
+    [
+      "scale :0",
+      33
+    ],
+    [
+      " :3416",
+      33
+    ]
+  ]
+}

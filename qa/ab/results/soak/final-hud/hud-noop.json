@@ -1,0 +1,49 @@
+{
+  "errors": [],
+  "hud": {
+    "old": {
+      "mutations": 1100,
+      "values": {
+        "hHp": "50",
+        "hMaxHp": "60",
+        "hLvl": "1",
+        "hKill": "0",
+        "hWave": "2",
+        "ibTime": "0:18",
+        "ultName": "30s",
+        "v2Dash": "ATILSHIFT",
+        "mhLabel": "İlk Kan — 30 Kill",
+        "evoHint": ""
+      }
+    },
+    "optimized": {
+      "mutations": 0,
+      "values": {
+        "hHp": "50",
+        "hMaxHp": "60",
+        "hLvl": "1",
+        "hKill": "0",
+        "hWave": "2",
+        "ibTime": "0:18",
+        "ultName": "30s",
+        "v2Dash": "ATILSHIFT",
+        "mhLabel": "İlk Kan — 30 Kill",
+        "evoHint": ""
+      }
+    },
+    "changed": {
+      "hHp": "47",
+      "hMaxHp": "60",
+      "hLvl": "4",
+      "hKill": "9",
+      "hWave": "4",
+      "ibTime": "1:00",
+      "ultName": "30s",
+      "v2Dash": "3SANİYE",
+      "mhLabel": "İlk Kan — 30 Kill",
+      "evoHint": ""
+    },
+    "dashDisabled": true
+  },
+  "pass": true
+}

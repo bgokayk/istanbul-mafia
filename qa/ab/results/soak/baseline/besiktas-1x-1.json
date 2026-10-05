@@ -1,0 +1,91 @@
+{
+  "map": "besiktas",
+  "run": 1,
+  "cpuRate": 1,
+  "targetSeconds": 900,
+  "warmupSeconds": 30,
+  "sourceHashes": {
+    "index.html": "dc5534117d8302eb3730aaf6a77c08d9d8e97254818e391dd4e4e3e69c934cae",
+    "world-ab.js": "601547424bc7d217ab0d0acbd818eeafaa8037610b2e29c7b32dde755f08ab10",
+    "art-v2.js": "cc9989bc60b0d9377a433b4ecb6083d470d4715eb1637c966cf4b3944b547097",
+    "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+    "v2.css": "8ed06ba5865b36c07069e9353c0ed46dd8cbb04f8d4500bdbf7c6f2214b7924f"
+  },
+  "controlled": true,
+  "method": "Real wall time and requestAnimationFrame. QA-only god mode; Eminonu deadline extended in memory only. Keyboard movement and UI upgrades. Full-frame = successive rAF timestamps (includes pacing, not verified GPU presentation); JS callback CPU duration also recorded. Fixed-size histograms. Forced GC at checkpoints, its next 3 frame samples excluded and counted. No accelerated clock.",
+  "host": {
+    "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "cores": 12
+  },
+  "browser": "154.0.4258.48",
+  "concurrentMaps": 4,
+  "errors": [],
+  "failures": [
+    "locator.click: Timeout 1000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('#lvlup.on .luc').first()\u001b[22m\n\u001b[2m    - locator resolved to <div class=\"luc\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>undefined</div> from <div id=\"bossChestOverlay\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>undefined</div> from <div id=\"bossChestOverlay\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is visible, enabled and stable\u001b[22m\n\u001b[2m      - scrolling into view if needed\u001b[22m\n\u001b[2m      - done scrolling\u001b[22m\n\u001b[2m      - <div>undefined</div> from <div id=\"bossChestOverlay\">…</div> subtree intercepts pointer events\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m      - waiting 500ms\u001b[22m\n\n    at chooseUpgrade (C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-ui.cjs:6:20)\n    at async run (C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-soak.cjs:51:52)\n    at async C:\\Dev\\CO\\koza\\istanbul-mafia-v2\\qa\\ab\\ab-soak.cjs:101:94"
+  ],
+  "minutes": [],
+  "heap": [
+    {
+      "label": "cold",
+      "wallSeconds": 0,
+      "rawBytes": 3165828,
+      "retainedBytes": 2453140,
+      "backingStorageBytes": 481524,
+      "dom": {
+        "documents": 1,
+        "nodes": 1127,
+        "jsEventListeners": 143
+      },
+      "elapsed": 16,
+      "wave": 1,
+      "kills": 0,
+      "level": 1,
+      "orbs": 0,
+      "enemies": 18,
+      "artCache": 10
+    },
+    {
+      "label": "start",
+      "wallSeconds": 0,
+      "rawBytes": 4906272,
+      "retainedBytes": 3590872,
+      "backingStorageBytes": 482715,
+      "dom": {
+        "documents": 1,
+        "nodes": 1204,
+        "jsEventListeners": 161
+      },
+      "elapsed": 29312,
+      "wave": 2,
+      "kills": 56,
+      "level": 4,
+      "orbs": 9,
+      "enemies": 4,
+      "artCache": 32
+    }
+  ],
+  "peaks": {
+    "enemies": 19,
+    "bullets": 47,
+    "particles": 174,
+    "xpOrbs": 120,
+    "goldOrbs": 27,
+    "healthOrbs": 7,
+    "chests": 1,
+    "damageNumbers": 46,
+    "rescueNpcs": 0,
+    "artCache": 75,
+    "floorTiles": 46
+  },
+  "clockStalls": [],
+  "maxClockStallSeconds": 0.3512999999970198,
+  "progress": {
+    "wallSeconds": 78.656,
+    "measuredSeconds": 48.62,
+    "gameSeconds": 48.352,
+    "wave": 5,
+    "kills": 187,
+    "level": 5
+  },
+  "pass": false
+}

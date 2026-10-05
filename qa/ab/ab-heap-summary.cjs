@@ -1,0 +1,8 @@
+const fs=require('fs'),path=require('path'),zlib=require('zlib');
+const folder=process.argv[2]||path.join(__dirname,'results/soak/heap-diagnostic');
+function summarize(file){const s=JSON.parse(file.endsWith('.gz')?zlib.gunzipSync(fs.readFileSync(file)).toString('utf8'):fs.readFileSync(file,'utf8')),fields=s.snapshot.meta.node_fields,types=s.snapshot.meta.node_types[0],stride=fields.length,totals=new Map();let selfBytes=0;for(let i=0;i<s.nodes.length;i+=stride){const type=types[s.nodes[i]],name=s.strings[s.nodes[i+1]],size=s.nodes[i+3];selfBytes+=size;const key=type+': '+(type==='string'&&name.length>120?name.slice(0,120)+'…':name);const item=totals.get(key)||{count:0,bytes:0};item.count++;item.bytes+=size;totals.set(key,item);}return{file:path.basename(file),selfBytes,nodeCount:s.nodes.length/stride,totals};}
+const inputs=fs.readdirSync(folder).filter(f=>/\.heapsnapshot(?:\.json\.gz)?$/.test(f)).sort(),snapshots=inputs.map(f=>summarize(path.join(folder,f)));
+const start=snapshots.find(s=>s.file.includes('-start.')),end=snapshots.find(s=>s.file.includes('-end.'));
+const result={snapshots:snapshots.map(s=>({file:s.file,selfBytes:s.selfBytes,nodeCount:s.nodeCount,top:[...s.totals].sort((a,b)=>b[1].bytes-a[1].bytes).slice(0,35)}))};
+if(start&&end)result.growth=[...end.totals].map(([name,v])=>({name,countDelta:v.count-(start.totals.get(name)?.count||0),bytesDelta:v.bytes-(start.totals.get(name)?.bytes||0),end:v})).sort((a,b)=>b.bytesDelta-a.bytesDelta).slice(0,45);
+fs.writeFileSync(path.join(folder,'heap-summary.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result.growth||result.snapshots.map(s=>({file:s.file,selfBytes:s.selfBytes,nodeCount:s.nodeCount,top:s.top.slice(0,12)})),null,2));

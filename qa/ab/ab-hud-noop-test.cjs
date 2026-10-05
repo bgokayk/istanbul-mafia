@@ -1,0 +1,12 @@
+const assert=require('assert/strict');
+const {fs,out,server,launch,ev,start}=require('./ab-harness.cjs');
+(async()=>{const b=await launch(),r={errors:[]};try{const p=await b.newPage({viewport:{width:390,height:844}});p.on('pageerror',e=>r.errors.push(e.message));await start(p,'kapalicarsi');
+ r.hud=await ev(p,`(async()=>{cancelAnimationFrame(raf2);stopTutorial();resetInput();P._godMode=false;P.hp=50;P.weaps=[];enemies=[];bullets=[];orbs=[];elapsed=18000;spawnT=0;_dashCooldown=0;
+  const tick=()=>{window._tickDashAndAmbush(0);gupdate(0);updateUltHud();};tick();
+  const ids=['hHp','hMaxHp','hLvl','hKill','hWave','ibTime','ultName','v2Dash','mhLabel','evoHint'];const values=()=>Object.fromEntries(ids.map(id=>[id,document.getElementById(id).textContent]));
+  const measure=async()=>{let mutations=0;const observer=new MutationObserver(records=>mutations+=records.length);observer.observe(document.getElementById('gameScreen'),{childList:true,subtree:true,characterData:true});for(let i=0;i<100;i++)tick();await Promise.resolve();observer.disconnect();return{mutations,values:values()};};
+  const text=setHudText,html=setHudHtml;setHudText=(el,v)=>{if(el)el.textContent=String(v);};setHudHtml=(el,v)=>{if(el)el.innerHTML=v;};const old=await measure();setHudText=text;setHudHtml=html;const optimized=await measure();
+  P.hp=47;P.lvl=4;kills=9;elapsed=60500;_dashCooldown=2500;tick();const changed=values();return{old,optimized,changed,dashDisabled:document.getElementById('v2Dash').disabled};})()`);
+ assert(r.hud.old.mutations>=800);assert.equal(r.hud.optimized.mutations,0);assert.deepEqual(r.hud.old.values,r.hud.optimized.values);
+ assert.equal(r.hud.changed.hHp,'47');assert.equal(r.hud.changed.hLvl,'4');assert.equal(r.hud.changed.hKill,'9');assert.equal(r.hud.changed.ibTime,'1:00');assert.equal(r.hud.changed.v2Dash,'3SANİYE');assert.equal(r.hud.dashDisabled,true);assert.equal(r.errors.length,0);r.pass=true;
+}finally{fs.writeFileSync(out+'/hud-noop.json',JSON.stringify(r,null,2));await b.close();server.close();}console.log(JSON.stringify(r));})().catch(e=>{console.error(e);process.exitCode=1;server.close();});

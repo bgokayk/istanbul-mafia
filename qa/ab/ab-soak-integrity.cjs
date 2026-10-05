@@ -1,0 +1,12 @@
+const fs=require('fs'),path=require('path'),crypto=require('crypto'),cp=require('child_process');
+const repo=path.resolve(__dirname,'../..'),out=path.join(__dirname,'results/soak');
+const baseline=JSON.parse(fs.readFileSync(process.argv[2]||path.join(out,'source-before.json'),'utf8'));
+const hash=f=>crypto.createHash('sha256').update(fs.readFileSync(f)).digest('hex').toUpperCase();
+const groups={android:{checked:0,changed:[],missing:[]},www:{checked:0,changed:[],missing:[]},textures:{checked:0,changed:[],missing:[]}};
+for(const [file,value] of Object.entries(baseline)){const rel=path.relative(repo,file).replaceAll('\\','/');for(const name of Object.keys(groups)){if(!(name==='textures'?rel.startsWith('www/textures/'):rel.startsWith(name+'/')))continue;const g=groups[name];g.checked++;if(!fs.existsSync(file))g.missing.push(rel);else if(hash(file)!==value.toUpperCase())g.changed.push(rel);}}
+const old=cp.execFileSync('git',['-c','safe.directory='+repo.replaceAll('\\','/'),'show','HEAD:www/index.html'],{cwd:repo,encoding:'utf8'}),current=fs.readFileSync(path.join(repo,'www/index.html'),'utf8');
+const keys=s=>[...new Set([...s.matchAll(/localStorage\.(?:getItem|setItem|removeItem)\(\s*['"]([^'"]+)/g)].map(m=>m[1]))].sort();
+const scan=[];function walk(p){for(const e of fs.readdirSync(p,{withFileTypes:true})){const f=path.join(p,e.name);if(e.isDirectory())walk(f);else if(/\.(?:html|js|css)$/i.test(e.name)){const content=fs.readFileSync(f,'utf8'),matches=content.match(/polat|memati|çakır|cakir|abdülhey|abdulhey|necmi|eşref|esref|premium|abonelik|reklamsiz|jackpot/gi);if(matches)scan.push({file:path.relative(repo,f),count:matches.length});}}}walk(path.join(repo,'www'));
+const result={...groups,localStorage:{before:keys(old),after:keys(current),equal:JSON.stringify(keys(old))===JSON.stringify(keys(current))},forbiddenMatches:scan,productionTestHook:/__testEval|__deathTrace|__soak/.test(current),unityExists:fs.existsSync(path.join(repo,'unity')),note:'Android hashes from this task start; V1 was never written. No native sync/build/commit/push in this task.'};
+result.pass=!groups.android.changed.length&&!groups.android.missing.length&&!groups.textures.changed.length&&!groups.textures.missing.length&&groups.www.changed.every(f=>f==='www/index.html')&&result.localStorage.equal&&!scan.length&&!result.productionTestHook;
+fs.writeFileSync(path.join(out,'integrity.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result,null,2));if(!result.pass)process.exitCode=1;

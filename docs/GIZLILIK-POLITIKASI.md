@@ -1,3 +1,5 @@
+> **2 Ekim 2026 — BU ESKİ METİN V1.0 REKLAM + IAP SÜRÜMÜ İÇİN YAYINA HAZIR DEĞİLDİR.** Aşağıdaki reklamsız/çevrimdışı sürüm beyanı arşiv bilgisidir. AdMob SDK ve Google Play satın alma doğrulaması eklendi. “Veri toplanmıyor”, “reklam/IAP yok” ve “INTERNET gereksiz” cevapları artık kullanılamaz. Güncel teknik veri akışı ve yayın kapıları: [MONETIZATION-KURULUM](MONETIZATION-KURULUM.md). Native SDK Data Safety beyanı ve sunucu işletim/saklama bilgileri doğrulanıp TR+EN metin yeniden onaylanmadan bu metni yayımlama.
+
 # Gizlilik Politikası — İstanbul Mafia
 _Son güncelleme: 2026-10-01 · LUMEN CO. · İletişim: b.gokaykupeli@gmail.com_
 

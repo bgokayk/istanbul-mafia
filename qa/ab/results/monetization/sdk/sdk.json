@@ -1,0 +1,70 @@
+{
+  "kind": "Real cordova-plugin-purchase 13.18.0 JS + real game modules, mocked Android bridge/Google HTTP. Not a native Play purchase.",
+  "flows": [
+    {
+      "key": "remove_ads",
+      "gold": 0,
+      "owned": true,
+      "state": {
+        "ready": true,
+        "busy": false,
+        "status": "Satın alma doğrulandı ve teslim edildi.",
+        "pending": null
+      },
+      "finalized": "acknowledged"
+    },
+    {
+      "key": "starter_pack",
+      "gold": 2000,
+      "owned": true,
+      "state": {
+        "ready": true,
+        "busy": false,
+        "status": "Satın alma doğrulandı ve teslim edildi.",
+        "pending": null
+      },
+      "finalized": "acknowledged"
+    },
+    {
+      "key": "gold_small",
+      "gold": 6000,
+      "owned": false,
+      "state": {
+        "ready": true,
+        "busy": false,
+        "status": "Satın alma doğrulandı ve teslim edildi.",
+        "pending": null
+      },
+      "finalized": "consumed"
+    },
+    {
+      "key": "gold_medium",
+      "gold": 18000,
+      "owned": false,
+      "state": {
+        "ready": true,
+        "busy": false,
+        "status": "Satın alma doğrulandı ve teslim edildi.",
+        "pending": null
+      },
+      "finalized": "consumed"
+    },
+    {
+      "key": "gold_large",
+      "gold": 48000,
+      "owned": false,
+      "state": {
+        "ready": true,
+        "busy": false,
+        "status": "Satın alma doğrulandı ve teslim edildi.",
+        "pending": null
+      },
+      "finalized": "consumed"
+    }
+  ],
+  "errors": [],
+  "pendingThenApproved": true,
+  "nativeFinishFailureRecovered": true,
+  "cleanRestore": true,
+  "pass": true
+}

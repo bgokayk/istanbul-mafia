@@ -1,0 +1,534 @@
+{
+  "layouts": [
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "top": 0,
+        "right": 390,
+        "bottom": 844,
+        "left": 0
+      },
+      "logo": {
+        "x": 43.75,
+        "y": 87,
+        "width": 302.5,
+        "height": 70.1875,
+        "top": 87,
+        "right": 346.25,
+        "bottom": 157.1875,
+        "left": 43.75
+      },
+      "play": {
+        "x": 17,
+        "y": 319.1875,
+        "width": 356,
+        "height": 72,
+        "top": 319.1875,
+        "right": 373,
+        "bottom": 391.1875,
+        "left": 17
+      },
+      "logoRatio": 0.7756410256410257,
+      "gap": 162,
+      "gapRatio": 0.19194312796208532,
+      "settingsReachable": true,
+      "gameControls": [
+        {
+          "id": "pauseBtn",
+          "visible": true,
+          "rect": {
+            "x": 11,
+            "y": 70,
+            "width": 38,
+            "height": 34,
+            "top": 70,
+            "right": 49,
+            "bottom": 104,
+            "left": 11
+          },
+          "inside": true
+        },
+        {
+          "id": "v2Dash",
+          "visible": true,
+          "rect": {
+            "x": 319,
+            "y": 710,
+            "width": 58,
+            "height": 52,
+            "top": 710,
+            "right": 377,
+            "bottom": 762,
+            "left": 319
+          },
+          "inside": true
+        },
+        {
+          "id": "ultHud",
+          "visible": true,
+          "rect": {
+            "x": 295,
+            "y": 642,
+            "width": 36,
+            "height": 42,
+            "top": 642,
+            "right": 331,
+            "bottom": 684,
+            "left": 295
+          },
+          "inside": true
+        },
+        {
+          "id": "aaHud",
+          "visible": true,
+          "rect": {
+            "x": 339,
+            "y": 638,
+            "width": 40,
+            "height": 46,
+            "top": 638,
+            "right": 379,
+            "bottom": 684,
+            "left": 339
+          },
+          "inside": true
+        },
+        {
+          "id": "minimap",
+          "visible": true,
+          "rect": {
+            "x": 305,
+            "y": 70,
+            "width": 74,
+            "height": 74,
+            "top": 70,
+            "right": 379,
+            "bottom": 144,
+            "left": 305
+          },
+          "inside": true
+        },
+        {
+          "id": "wepRow",
+          "visible": true,
+          "rect": {
+            "x": 174,
+            "y": 790,
+            "width": 42,
+            "height": 42,
+            "top": 790,
+            "right": 216,
+            "bottom": 832,
+            "left": 174
+          },
+          "inside": true
+        }
+      ]
+    },
+    {
+      "viewport": [
+        540,
+        1310
+      ],
+      "stage": {
+        "x": 0,
+        "y": 0,
+        "width": 540,
+        "height": 1310,
+        "top": 0,
+        "right": 540,
+        "bottom": 1310,
+        "left": 0
+      },
+      "logo": {
+        "x": 62.5,
+        "y": 87,
+        "width": 415,
+        "height": 97.1875,
+        "top": 87,
+        "right": 477.5,
+        "bottom": 184.1875,
+        "left": 62.5
+      },
+      "play": {
+        "x": 40,
+        "y": 346.1875,
+        "width": 460,
+        "height": 72,
+        "top": 346.1875,
+        "right": 500,
+        "bottom": 418.1875,
+        "left": 40
+      },
+      "logoRatio": 0.7685185185185185,
+      "gap": 162,
+      "gapRatio": 0.12366412213740458,
+      "settingsReachable": true,
+      "gameControls": [
+        {
+          "id": "pauseBtn",
+          "visible": true,
+          "rect": {
+            "x": 11,
+            "y": 70,
+            "width": 38,
+            "height": 34,
+            "top": 70,
+            "right": 49,
+            "bottom": 104,
+            "left": 11
+          },
+          "inside": true
+        },
+        {
+          "id": "v2Dash",
+          "visible": true,
+          "rect": {
+            "x": 469,
+            "y": 1176,
+            "width": 58,
+            "height": 52,
+            "top": 1176,
+            "right": 527,
+            "bottom": 1228,
+            "left": 469
+          },
+          "inside": true
+        },
+        {
+          "id": "ultHud",
+          "visible": true,
+          "rect": {
+            "x": 445,
+            "y": 1108,
+            "width": 36,
+            "height": 42,
+            "top": 1108,
+            "right": 481,
+            "bottom": 1150,
+            "left": 445
+          },
+          "inside": true
+        },
+        {
+          "id": "aaHud",
+          "visible": true,
+          "rect": {
+            "x": 489,
+            "y": 1104,
+            "width": 40,
+            "height": 46,
+            "top": 1104,
+            "right": 529,
+            "bottom": 1150,
+            "left": 489
+          },
+          "inside": true
+        },
+        {
+          "id": "minimap",
+          "visible": true,
+          "rect": {
+            "x": 455,
+            "y": 70,
+            "width": 74,
+            "height": 74,
+            "top": 70,
+            "right": 529,
+            "bottom": 144,
+            "left": 455
+          },
+          "inside": true
+        },
+        {
+          "id": "wepRow",
+          "visible": true,
+          "rect": {
+            "x": 249,
+            "y": 1256,
+            "width": 42,
+            "height": 42,
+            "top": 1256,
+            "right": 291,
+            "bottom": 1298,
+            "left": 249
+          },
+          "inside": true
+        }
+      ]
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "stage": {
+        "x": 152,
+        "y": 0,
+        "width": 540,
+        "height": 390,
+        "top": 0,
+        "right": 692,
+        "bottom": 390,
+        "left": 152
+      },
+      "logo": {
+        "x": 214.5,
+        "y": 45,
+        "width": 415,
+        "height": 97.1875,
+        "top": 45,
+        "right": 629.5,
+        "bottom": 142.1875,
+        "left": 214.5
+      },
+      "play": {
+        "x": 192,
+        "y": 238.1875,
+        "width": 460,
+        "height": 48,
+        "top": 238.1875,
+        "right": 652,
+        "bottom": 286.1875,
+        "left": 192
+      },
+      "logoRatio": 0.7685185185185185,
+      "gap": 96,
+      "gapRatio": 0.24615384615384617,
+      "settingsReachable": true,
+      "gameControls": [
+        {
+          "id": "pauseBtn",
+          "visible": true,
+          "rect": {
+            "x": 163,
+            "y": 70,
+            "width": 38,
+            "height": 34,
+            "top": 70,
+            "right": 201,
+            "bottom": 104,
+            "left": 163
+          },
+          "inside": true
+        },
+        {
+          "id": "v2Dash",
+          "visible": true,
+          "rect": {
+            "x": 621,
+            "y": 271,
+            "width": 58,
+            "height": 52,
+            "top": 271,
+            "right": 679,
+            "bottom": 323,
+            "left": 621
+          },
+          "inside": true
+        },
+        {
+          "id": "ultHud",
+          "visible": true,
+          "rect": {
+            "x": 597,
+            "y": 218,
+            "width": 36,
+            "height": 42,
+            "top": 218,
+            "right": 633,
+            "bottom": 260,
+            "left": 597
+          },
+          "inside": true
+        },
+        {
+          "id": "aaHud",
+          "visible": true,
+          "rect": {
+            "x": 641,
+            "y": 214,
+            "width": 40,
+            "height": 46,
+            "top": 214,
+            "right": 681,
+            "bottom": 260,
+            "left": 641
+          },
+          "inside": true
+        },
+        {
+          "id": "minimap",
+          "visible": true,
+          "rect": {
+            "x": 607,
+            "y": 70,
+            "width": 74,
+            "height": 74,
+            "top": 70,
+            "right": 681,
+            "bottom": 144,
+            "left": 607
+          },
+          "inside": true
+        },
+        {
+          "id": "wepRow",
+          "visible": true,
+          "rect": {
+            "x": 401,
+            "y": 342,
+            "width": 42,
+            "height": 42,
+            "top": 342,
+            "right": 443,
+            "bottom": 384,
+            "left": 401
+          },
+          "inside": true
+        }
+      ]
+    },
+    {
+      "viewport": [
+        932,
+        430
+      ],
+      "stage": {
+        "x": 196,
+        "y": 0,
+        "width": 540,
+        "height": 430,
+        "top": 0,
+        "right": 736,
+        "bottom": 430,
+        "left": 196
+      },
+      "logo": {
+        "x": 258.5,
+        "y": -78,
+        "width": 415,
+        "height": 97.1875,
+        "top": -78,
+        "right": 673.5,
+        "bottom": 19.1875,
+        "left": 258.5
+      },
+      "play": {
+        "x": 236,
+        "y": 115.1875,
+        "width": 460,
+        "height": 48,
+        "top": 115.1875,
+        "right": 696,
+        "bottom": 163.1875,
+        "left": 236
+      },
+      "logoRatio": 0.7685185185185185,
+      "gap": 96,
+      "gapRatio": 0.22325581395348837,
+      "settingsReachable": true,
+      "gameControls": [
+        {
+          "id": "pauseBtn",
+          "visible": true,
+          "rect": {
+            "x": 207,
+            "y": 70,
+            "width": 38,
+            "height": 34,
+            "top": 70,
+            "right": 245,
+            "bottom": 104,
+            "left": 207
+          },
+          "inside": true
+        },
+        {
+          "id": "v2Dash",
+          "visible": true,
+          "rect": {
+            "x": 665,
+            "y": 311,
+            "width": 58,
+            "height": 52,
+            "top": 311,
+            "right": 723,
+            "bottom": 363,
+            "left": 665
+          },
+          "inside": true
+        },
+        {
+          "id": "ultHud",
+          "visible": true,
+          "rect": {
+            "x": 641,
+            "y": 258,
+            "width": 36,
+            "height": 42,
+            "top": 258,
+            "right": 677,
+            "bottom": 300,
+            "left": 641
+          },
+          "inside": true
+        },
+        {
+          "id": "aaHud",
+          "visible": true,
+          "rect": {
+            "x": 685,
+            "y": 254,
+            "width": 40,
+            "height": 46,
+            "top": 254,
+            "right": 725,
+            "bottom": 300,
+            "left": 685
+          },
+          "inside": true
+        },
+        {
+          "id": "minimap",
+          "visible": true,
+          "rect": {
+            "x": 651,
+            "y": 70,
+            "width": 74,
+            "height": 74,
+            "top": 70,
+            "right": 725,
+            "bottom": 144,
+            "left": 651
+          },
+          "inside": true
+        },
+        {
+          "id": "wepRow",
+          "visible": true,
+          "rect": {
+            "x": 445,
+            "y": 382,
+            "width": 42,
+            "height": 42,
+            "top": 382,
+            "right": 487,
+            "bottom": 424,
+            "left": 445
+          },
+          "inside": true
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "pauseLastButtonReachable": true
+}

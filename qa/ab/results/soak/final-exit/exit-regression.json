@@ -1,0 +1,73 @@
+[
+  {
+    "scenario": "complete",
+    "exitCode": 0,
+    "death": false,
+    "outcome": "completed",
+    "failures": []
+  },
+  {
+    "scenario": "death",
+    "exitCode": 0,
+    "death": true,
+    "outcome": "death",
+    "failures": []
+  },
+  {
+    "scenario": "freeze",
+    "exitCode": 1,
+    "death": false,
+    "outcome": "error",
+    "failures": [
+      "stalled: game clock unchanged for 15 seconds",
+      "incomplete: ended before target duration without combat death"
+    ]
+  },
+  {
+    "scenario": "collision",
+    "exitCode": 1,
+    "death": false,
+    "outcome": "error",
+    "failures": [
+      "incomplete: ended before target duration without combat death",
+      "collision violation"
+    ]
+  },
+  {
+    "scenario": "js",
+    "exitCode": 1,
+    "death": false,
+    "outcome": "error",
+    "failures": [
+      "incomplete: ended before target duration without combat death",
+      "JavaScript error"
+    ]
+  },
+  {
+    "scenario": "early-end",
+    "exitCode": 1,
+    "death": false,
+    "outcome": "error",
+    "failures": [
+      "incomplete: ended before target duration without combat death"
+    ]
+  },
+  {
+    "scenario": "death-js",
+    "exitCode": 1,
+    "death": true,
+    "outcome": "error",
+    "failures": [
+      "JavaScript error"
+    ]
+  },
+  {
+    "scenario": "death-collision",
+    "exitCode": 1,
+    "death": true,
+    "outcome": "error",
+    "failures": [
+      "collision violation"
+    ]
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "controlled": true,
+  "setup": "180 enemies, wave 31, weapons disabled, stationary invulnerable player; hotspot probe with profiler overhead, not endurance acceptance",
+  "fullFrame": {
+    "n": 1553,
+    "p50": 12.100000000000364,
+    "p95": 24.299999999999272
+  },
+  "top": [
+    [
+      "(program) :0",
+      5838
+    ],
+    [
+      "drawImage :0",
+      1302
+    ],
+    [
+      " world-ab.js:38",
+      867
+    ],
+    [
+      "fillRect :0",
+      487
+    ],
+    [
+      "querySelector :0",
+      401
+    ],
+    [
+      "rect art-v2.js:18",
+      365
+    ],
+    [
+      "save :0",
+      337
+    ],
+    [
+      " :4578",
+      322
+    ],
+    [
+      "gupdate :3824",
+      236
+    ],
+    [
+      "restore :0",
+      223
+    ],
+    [
+      "(idle) :0",
+      198
+    ],
+    [
+      "enemy art-v2.js:125",
+      180
+    ],
+    [
+      "updateUltHud :1068",
+      165
+    ],
+    [
+      "gdraw :4408",
+      161
+    ],
+    [
+      "(garbage collector) :0",
+      160
+    ],
+    [
+      "separation world-ab.js:37",
+      144
+    ],
+    [
+      "gloop :4630",
+      101
+    ],
+    [
+      "window._tickDashAndAmbush :5143",
+      100
+    ],
+    [
+      "blit art-v2.js:61",
+      95
+    ],
+    [
+      "actorFrame art-v2.js:20",
+      90
+    ],
+    [
+      " :4528",
+      88
+    ],
+    [
+      "translate :0",
+      82
+    ],
+    [
+      " :4435",
+      82
+    ],
+    [
+      " world-ab.js:37",
+      66
+    ],
+    [
+      "tile art-v2.js:76",
+      66
+    ],
+    [
+      "objectFrame art-v2.js:115",
+      65
+    ],
+    [
+      "getElementById :0",
+      62
+    ],
+    [
+      " :4438",
+      61
+    ],
+    [
+      "clearRect :0",
+      59
+    ],
+    [
+      "fillText :0",
+      50
+    ],
+    [
+      "fill :0",
+      48
+    ],
+    [
+      "getComputedStyle :0",
+      35
+    ],
+    [
+      " :3861",
+      35
+    ],
+    [
+      "scale :0",
+      35
+    ],
+    [
+      " :3416",
+      33
+    ]
+  ]
+}
