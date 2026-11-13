@@ -58,7 +58,26 @@ function actorFrame(id,frame,enemy){
  if(weapon==='club'){p('#8b6c51',21,15,2,8);p('#c1a779',21,15,1,6);}
  cache.set(key,a);return a;
 }
-function blit(c,a,x,y,scale,flip){c.save();c.imageSmoothingEnabled=false;c.translate(Math.round(x),Math.round(y));if(flip)c.scale(-1,1);c.drawImage(a,-Math.floor(a.width*scale/2),-Math.floor((a.height-2)*scale),Math.round(a.width*scale),Math.round(a.height*scale));c.restore();}
+const mirroredFrames=new WeakMap();
+function blit(c,a,x,y,scale,flip){
+ let width=Math.round(a.width*scale);
+ let left=Math.round(x)-Math.floor(a.width*scale/2);
+ if(flip){
+   left=Math.round(x)+Math.floor(a.width*scale/2)-width;
+   let mirrored=mirroredFrames.get(a);
+   if(!mirrored){
+     mirrored=canvas(a.width,a.height);
+     const ctx=mirrored.getContext('2d');
+     ctx.translate(a.width,0);
+     ctx.scale(-1,1);
+     ctx.drawImage(a,0,0);
+     mirroredFrames.set(a,mirrored);
+   }
+   a=mirrored;
+ }
+ c.imageSmoothingEnabled=false;
+ c.drawImage(a,left,Math.round(y)-Math.floor((a.height-2)*scale),width,Math.round(a.height*scale));
+}
 function shadow(c,x,y,r){rect(c,'#17202699',x-r,y-1,r*2,4);rect(c,'#17202655',x-r+3,y+3,r*2-6,2);}
 function hero(c,x,y,id,scale,face,time,moving){let f=moving?Math.floor(time/130)%4:0;shadow(c,x,y,9*scale);blit(c,actorFrame(id,f),x,y,scale,face<0);}
 const themes={
@@ -79,7 +98,47 @@ function tile(id,n){let key=id+n;if(tiles.has(key))return tiles.get(key);let a=c
  for(let row=0;row<4;row++)for(let col=-1;col<3;col++){let x=col*32+(row%2)*16,y=row*16,k=hash(n+col+99,row+3);rect(c,t[k%2],x+1,y+1,30,14);rect(c,t[2],x+2,y+1,28,1);rect(c,t[3],x+1,y+14,30,1);for(let j=0;j<4;j++)rect(c,t[(k+j)%3],x+3+(k>>j)%25,y+3+(k>>(j+3))%9,2,1);if(k%5===0){rect(c,t[3],x+10,y+7,3,1);rect(c,t[3],x+12,y+8,1,3);}}
  tiles.set(key,a);return a;
 }
-function floor(c,camX,camY,w,h,id){c.imageSmoothingEnabled=false;rect(c,window.MafiaUI?MafiaUI.colors.ink:ink,camX,camY,w,h);c.save();c.globalAlpha*=.56;for(let x=Math.floor(camX/64)*64;x<camX+w+64;x+=64)for(let y=Math.floor(camY/64)*64;y<camY+h+64;y+=64)c.drawImage(tile(id,hash(x/64,y/64)%8),x,y);c.restore();}
+const FLOOR_CHUNK=256;
+const floorChunks=new Map();
+function floorChunk(id,x,y,baseColor){
+ const key=id+':'+x+':'+y+':'+(baseColor||'');
+ let image=floorChunks.get(key);
+ if(image){
+   floorChunks.delete(key);
+ }else{
+   image=canvas(FLOOR_CHUNK,FLOOR_CHUNK);
+   const ctx=image.getContext('2d',{alpha:!baseColor});
+   if(baseColor){
+     ctx.fillStyle=baseColor;
+     ctx.fillRect(0,0,FLOOR_CHUNK,FLOOR_CHUNK);
+     ctx.globalAlpha=.56;
+   }
+   for(let dx=0;dx<FLOOR_CHUNK;dx+=64){
+     for(let dy=0;dy<FLOOR_CHUNK;dy+=64){
+       ctx.drawImage(tile(id,hash((x+dx)/64,(y+dy)/64)%8),dx,dy);
+     }
+   }
+   if(floorChunks.size>=32)floorChunks.delete(floorChunks.keys().next().value);
+ }
+ floorChunks.set(key,image);
+ return image;
+}
+function floor(c,camX,camY,w,h,id,opaque){
+ c.imageSmoothingEnabled=false;
+ const baseColor=window.MafiaUI?MafiaUI.colors.ink:ink;
+ if(!opaque)rect(c,baseColor,camX,camY,w,h);
+ const left=Math.floor(camX/64)*64,top=Math.floor(camY/64)*64;
+ const right=Math.ceil((camX+w+64)/64)*64,bottom=Math.ceil((camY+h+64)/64)*64;
+ if(!opaque){c.save();c.globalAlpha*=.56;}
+ for(let x=Math.floor(left/FLOOR_CHUNK)*FLOOR_CHUNK;x<right;x+=FLOOR_CHUNK){
+   for(let y=Math.floor(top/FLOOR_CHUNK)*FLOOR_CHUNK;y<bottom;y+=FLOOR_CHUNK){
+     const sx=Math.max(0,left-x),sy=Math.max(0,top-y);
+     const width=Math.min(FLOOR_CHUNK,right-x)-sx,height=Math.min(FLOOR_CHUNK,bottom-y)-sy;
+     c.drawImage(floorChunk(id,x,y,opaque?baseColor:null),sx,sy,width,height,x+sx,y+sy,width,height);
+   }
+ }
+ if(!opaque)c.restore();
+}
 function prop(c,t,id){let x=Math.round(t.x-t.w/2),y=Math.round(t.y-t.h/2),w=Math.round(t.w),h=Math.round(t.h),pal=themes[id]||themes.balat;
  rect(c,'#15222b88',x+6,y+7,w,h);rect(c,ink,x,y,w,h);
  if(w<45||h>110){rect(c,pal[1],x+2,y+2,w-4,h-4);for(let yy=4;yy<h-4;yy+=12){rect(c,pal[2],x+2,y+yy,w-4,2);for(let xx=yy%24?12:24;xx<w-4;xx+=24)rect(c,pal[3],x+xx,y+yy+2,2,10);}return;}
@@ -110,8 +169,64 @@ function prop(c,t,id){let x=Math.round(t.x-t.w/2),y=Math.round(t.y-t.h/2),w=Math
 }
 function barrel(c,x,y){x=Math.round(x);y=Math.round(y);shadow(c,x,y+8,12);rect(c,ink,x-11,y-12,22,22);rect(c,'#755840',x-9,y-11,18,20);rect(c,'#ad8754',x-7,y-10,3,19);rect(c,'#3c3836',x-10,y-6,20,3);rect(c,'#3c3836',x-10,y+4,20,3);rect(c,'#b3aaa0',x-8,y-6,3);}
 function pillar(c,p,id){let r=p.r,t=themes[id]||themes.balat;shadow(c,p.x+4,p.y+r,r);rect(c,ink,p.x-r,p.y-r,r*2,r*2);rect(c,t[1],p.x-r+3,p.y-r+3,r*2-6,r*2-6);rect(c,t[2],p.x-r+4,p.y-r+4,r*2-8,5);rect(c,t[3],p.x-r+5,p.y+r-9,r*2-10,5);if(r<60){rect(c,'#a58b62',p.x-4,p.y-r-9,8,10);rect(c,'#ebcd85',p.x-2,p.y-r-8,4,6);}}
-function world(c,wo,id,camX,camY,w,h){floor(c,camX,camY,w,h,id);wo.objects.forEach(o=>{let b=WorldRules.bounds(o);if(b.x>camX+w+16||b.x+b.w<camX-16||b.y>camY+h+16||b.y+b.h<camY-16)return;
- if(o.kind==='pillar')pillar(c,{x:o.x+o.r,y:o.y+o.r,r:o.r},id);else if(o.kind==='barrel')barrel(c,o.x+11,o.y+12);else{let x=Math.max(b.x,camX-64),y=Math.max(b.y,camY-64),right=Math.min(b.x+b.w,camX+w+64),bottom=Math.min(b.y+b.h,camY+h+64);prop(c,{x:(x+right)/2,y:(y+bottom)/2,w:right-x,h:bottom-y},o.kind==='wall'?'galata':id);}});}
+let stampedWorld=null;
+const sceneryStamps=new Map();
+function paintWorld(c,wo,id,camX,camY,w,h,compact){
+ floor(c,camX,camY,w,h,id,compact);
+ if(stampedWorld!==wo){sceneryStamps.clear();stampedWorld=wo;}
+ for(const object of wo.objects){
+   const b=WorldRules.bounds(object);
+   if(b.x>camX+w+16||b.x+b.w<camX-16||b.y>camY+h+16||b.y+b.h<camY-16)continue;
+   if(object.kind==='wall'){
+     const x=Math.max(b.x,camX-64),y=Math.max(b.y,camY-64);
+     const right=Math.min(b.x+b.w,camX+w+64),bottom=Math.min(b.y+b.h,camY+h+64);
+     prop(c,{x:(x+right)/2,y:(y+bottom)/2,w:right-x,h:bottom-y},'galata');
+     continue;
+   }
+   const key=object.id;
+   let stamp=sceneryStamps.get(key);
+   if(!stamp){
+     const left=Math.floor(b.x)-16,top=Math.floor(b.y)-16;
+     const image=canvas(Math.ceil(b.x+b.w)-left+16,Math.ceil(b.y+b.h)-top+16);
+     const ctx=image.getContext('2d');
+     ctx.translate(-left,-top);
+     if(object.kind==='pillar')pillar(ctx,{x:object.x+object.r,y:object.y+object.r,r:object.r},id);
+     else if(object.kind==='barrel')barrel(ctx,object.x+11,object.y+12);
+     else prop(ctx,{x:b.x+b.w/2,y:b.y+b.h/2,w:b.w,h:b.h},id);
+     stamp={image,left,top};
+     if(sceneryStamps.size>=24)sceneryStamps.delete(sceneryStamps.keys().next().value);
+     sceneryStamps.set(key,stamp);
+   }
+   c.drawImage(stamp.image,stamp.left,stamp.top);
+ }
+}
+const WORLD_VIEW_MARGIN=72;
+let worldView=null;
+function world(c,wo,id,camX,camY,w,h,compact){
+ if(!compact){
+   paintWorld(c,wo,id,camX,camY,w,h,false);
+   return;
+ }
+ const scaleX=c.canvas.width/w,scaleY=c.canvas.height/h;
+ const margin=WORLD_VIEW_MARGIN;
+ // Keep the cached viewport aligned to the destination's pixel grid.
+ const x=Math.round(camX*scaleX),y=Math.round(camY*scaleY);
+ const width=c.canvas.width,height=c.canvas.height;
+ if(!worldView||worldView.world!==wo||worldView.id!==id||
+   worldView.width!==width||worldView.height!==height||
+   x<worldView.x||y<worldView.y||x+width>worldView.x+worldView.image.width||
+   y+height>worldView.y+worldView.image.height){
+   const left=x-margin,top=y-margin;
+   const image=worldView&&worldView.width===width&&worldView.height===height?
+     worldView.image:canvas(width+2*margin,height+2*margin);
+   const ctx=image.getContext('2d',{alpha:false});
+   ctx.setTransform(scaleX,0,0,scaleY,-left,-top);
+   paintWorld(ctx,wo,id,left/scaleX,top/scaleY,image.width/scaleX,image.height/scaleY,true);
+   worldView={world:wo,id,width,height,x:left,y:top,image};
+ }
+ c.imageSmoothingEnabled=false;
+ c.drawImage(worldView.image,x-worldView.x,y-worldView.y,width,height,camX,camY,w,h);
+}
 function objectFrame(id){const key='object:'+id;if(cache.has(key))return cache.get(key);let a=canvas(24,24),c=a.getContext('2d'),p=(col,x,y,w=1,h=1)=>rect(c,col,x,y,w,h);
  if(id==='cay'||id==='raki'){p(ink,6,3,12,18);p('#b7c7c2',7,3,10,2);p('#8d423a',8,6,8,12);p('#b65743',9,6,3,9);p('#e8c8a0',7,19,10,2);p('#eee2c1',5,21,14,1);p('#f5bc74',9,9);p('#f5bc74',14,9);if(id==='raki'){p('#9aaab9',8,7,8,12);p('#e3e2ce',9,13,6,5);}}
  else if(id==='para'||id==='nazar'){p(ink,6,3,12,18);p(ink,3,6,18,12);let col=id==='para'?'#c89950':'#427eaa';p(col,6,4,12,16);p(col,4,6,16,12);p(id==='para'?'#efd48a':'#8ebbbd',7,6,10,12);p(id==='para'?'#966735':'#e9dfbf',9,8,6,8);p(id==='para'?'#e7c170':'#223c5d',11,10,3,4);}
@@ -122,12 +237,12 @@ function objectFrame(id){const key='object:'+id;if(cache.has(key))return cache.g
  else if(id==='nargile'){p(ink,6,13,12,10);p('#786589',7,13,10,8);p('#b299a4',8,14,3,5);p('#c3ad7e',11,4,3,10);p('#a27b4c',8,3,9,3);p('#748e83',15,0,5,2);p('#465c58',17,2,4,3);}
  cache.set(key,a);return a;}
 const objects=new Set(['cay','raki','para','nazar','hali','taksi','dolmus','marti','kaldirim','nargile']);
-function enemy(c,e,time){let id=e.type.id,s=Math.max(1,Math.min(3,Math.round(e.r/10))),f=Math.floor((time+hash(Math.round(e.x/10),0)%200)/150)%4;shadow(c,e.x,e.y+e.r*.5,e.r*.8);
+function enemy(c,e,time,compact){let id=e.type.id,s=Math.max(1,Math.min(3,Math.round(e.r/10))),f=Math.floor((time+hash(Math.round(e.x/10),0)%200)/150)%4;if(!compact)shadow(c,e.x,e.y+e.r*.5,e.r*.8);
  if(objects.has(id))blit(c,objectFrame(id),e.x,e.y+e.r*.7,s,e.vf<0);
  else {let boss=e.type.boss||e._isMiniTimeBoss;let col=boss?'#804b58':e.type.col||'#6e7277';blit(c,actorFrame(id,f,col),e.x,e.y+e.r*.6,boss?Math.max(2,Math.round(e.r/12)):Math.max(1,Math.min(2,Math.round(e.r/11))),e.vf<0);if(boss){rect(c,ink,e.x-27,e.y-e.r*2.2,54,6);rect(c,'#c26963',e.x-26,e.y-e.r*2.2+1,52*Math.max(0,e.hp/e.maxHp),4);}}
  if(e.type.boss||e._isMiniTimeBoss){c.save();c.font='8px "Press Start 2P"';c.textAlign='center';c.fillStyle='#ead7b0';c.fillText(id==='testere_testere'?'TESTERE':id.replaceAll('_',' ').toLocaleUpperCase('tr').slice(0,20),e.x,e.y-e.r*2.2-7);c.restore();}
  if(id==='testere_testere'){let sx=Math.round(e.x+e.r*.6),sy=Math.round(e.y-e.r*.4);rect(c,ink,sx-28,sy-24,56,48);rect(c,'#8b9f9f',sx-24,sy-18,48,36);rect(c,'#4b636b',sx-18,sy-12,36,24);for(let i=0;i<10;i++){let ang=i*Math.PI/5+Math.floor(time/100)*.63;rect(c,'#d2d3ba',sx+Math.cos(ang)*25-4,sy+Math.sin(ang)*21-4,8,8);}rect(c,'#b86258',sx-6,sy-6,12,12);}
- if(e._hitFlash>0){c.save();c.globalAlpha=.6;c.strokeStyle='#fff0c5';c.lineWidth=2;c.strokeRect(Math.round(e.x-e.r),Math.round(e.y-e.r),e.r*2,e.r*2);c.restore();}
+ if(e._hitFlash>0){c.strokeStyle='rgba(255,240,197,.6)';c.lineWidth=2;c.strokeRect(Math.round(e.x-e.r),Math.round(e.y-e.r),e.r*2,e.r*2);}
 }
 function pickup(c,x,y,kind,col){x=Math.round(x);y=Math.round(y);if(kind==='xp'){rect(c,ink,x-4,y-4,8,8);rect(c,col||'#67b7bf',x-2,y-4,4,8);rect(c,col||'#67b7bf',x-4,y-2,8,4);rect(c,'#d4eee0',x-2,y-3,2,3);}else if(kind==='gold'){rect(c,'#644c35',x-4,y-5,8,10);rect(c,'#d5b367',x-3,y-4,6,8);rect(c,'#ffdf90',x-2,y-3,2,5);}else{rect(c,ink,x-7,y-7,14,14);rect(c,'#a94755',x-6,y-6,12,12);rect(c,'#f1ddc4',x-1,y-4,3,9);rect(c,'#f1ddc4',x-4,y-1,9,3);}}
 function menu(c,w,h,time){let fullH=h;h=Math.min(h,540);rect(c,'#131e2a',0,0,w,fullH);let horizon=h*.34;
@@ -149,6 +264,6 @@ window.MafiaArt={hero,enemy,world,pickup,actorFrame,objectFrame,floor,tile,prop,
 // Missing or corrupt sheets keep the original art and never block gameplay.
 if(location.protocol==='http:'||location.protocol==='https:'||location.protocol==='file:'){
  Object.keys(costumes).forEach(id=>{let img=new Image();img.onload=()=>{if(img.naturalWidth!==96||img.naturalHeight!==32)return;heroSheets[id]=img;for(let f=0;f<4;f++)cache.delete(id+':'+f+':');};img.src='textures/characters/'+id+'.png';});
- Object.keys(themes).forEach(id=>{let img=new Image();img.onload=()=>{if(img.naturalWidth!==512||img.naturalHeight!==64)return;tileSheets[id]=img;for(let n=0;n<8;n++)tiles.delete(id+n);};img.src='textures/tiles/'+id+'.png';});
+ Object.keys(themes).forEach(id=>{let img=new Image();img.onload=()=>{if(img.naturalWidth!==512||img.naturalHeight!==64)return;tileSheets[id]=img;for(let n=0;n<8;n++)tiles.delete(id+n);for(const key of floorChunks.keys())if(key.startsWith(id+':'))floorChunks.delete(key);};img.src='textures/tiles/'+id+'.png';});
 }
 })();

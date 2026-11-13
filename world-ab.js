@@ -1,8 +1,22 @@
 /* Shared world geometry for rendering, spawn validation and movement. */
 (function(){'use strict';
 function bounds(o){return o.shape==='circle'?{x:o.x-o.r,y:o.y-o.r,w:o.r*2,h:o.r*2}:{x:o.x,y:o.y,w:o.w,h:o.h};}
-function intersects(o,x,y,r){if(!o.solid)return false;if(o.shape==='circle')return Math.hypot(x-o.x,y-o.y)<r+o.r;let b=bounds(o),cx=Math.max(b.x,Math.min(x,b.x+b.w)),cy=Math.max(b.y,Math.min(y,b.y+b.h));return (x-cx)**2+(y-cy)**2<r*r;}
-function free(world,x,y,r){return !world.objects.some(o=>intersects(o,x,y,r));}
+function intersects(o,x,y,r){if(!o.solid)return false;if(o.shape==='circle')return Math.hypot(x-o.x,y-o.y)<r+o.r;const cx=Math.max(o.x,Math.min(x,o.x+o.w)),cy=Math.max(o.y,Math.min(y,o.y+o.h));return (x-cx)**2+(y-cy)**2<r*r;}
+const WORLD_CELL=256;
+const worldCollisionCells=new WeakMap();
+function free(world,x,y,r){
+ const cells=worldCollisionCells.get(world);
+ if(!cells)return !world.objects.some(o=>intersects(o,x,y,r));
+ for(let cx=Math.floor((x-r)/WORLD_CELL);cx<=Math.floor((x+r)/WORLD_CELL);cx++){
+   const column=cells.get(cx);
+   if(!column)continue;
+   for(let cy=Math.floor((y-r)/WORLD_CELL);cy<=Math.floor((y+r)/WORLD_CELL);cy++){
+     const objects=column.get(cy);
+     if(objects&&objects.some(o=>intersects(o,x,y,r)))return false;
+   }
+ }
+ return true;
+}
 function safeSpawn(world,x,y,r){if(free(world,x,y,r+8))return{x,y};for(let radius=24;radius<2000;radius+=24)for(let a=0;a<32;a++){let px=x+Math.cos(a*Math.PI/16)*radius,py=y+Math.sin(a*Math.PI/16)*radius;if(free(world,px,py,r+8))return{x:px,y:py};}throw new Error('No safe spawn point');}
 function move(world,p,dx,dy){let count=Math.max(1,Math.ceil(Math.hypot(dx,dy)/4));dx/=count;dy/=count;for(let n=0;n<count;n++){if(free(world,p.x+dx,p.y,p.r))p.x+=dx;if(free(world,p.x,p.y+dy,p.r))p.y+=dy;}}
 function build(id,size,rng=Math.random){
@@ -31,11 +45,90 @@ function build(id,size,rng=Math.random){
  [[-300,-250],[-120,-350],[200,-200],[350,-120],[-250,200],[120,300],[-350,80],[260,260],[-180,-130],[80,-300],[300,130],[-130,260]].forEach(([x,y])=>{let w=rand(100,180),h=rand(60,100);box('stall',center+x-w/2,center+y-h/2,w,h);});
  for(let i=0;i<8;i++){let d=rand(600,1400);pole(center+Math.cos(i*Math.PI/4)*d,center+Math.sin(i*Math.PI/4)*d,rand(25,45));}
  for(let i=0;i<20;i++)barrel(rand(center-1800,center+1800),rand(center-1800,center+1800));
+ const cells=new Map();
+ for(const object of world.objects){
+   if(!object.solid)continue;
+   const {x,y,w,h}=bounds(object);
+   for(let cx=Math.floor(x/WORLD_CELL);cx<=Math.floor((x+w)/WORLD_CELL);cx++){
+     let column=cells.get(cx);
+     if(!column)cells.set(cx,column=new Map());
+     for(let cy=Math.floor(y/WORLD_CELL);cy<=Math.floor((y+h)/WORLD_CELL);cy++){
+       let objects=column.get(cy);
+       if(!objects)column.set(cy,objects=[]);
+       objects.push(object);
+     }
+   }
+ }
+ worldCollisionCells.set(world,cells);
  return world;
 }
-// A uniform grid bounds typical local separation work. Dense worst case remains quadratic.
-function separation(enemies){const cell=192,grid=new Map();let checks=0,maxR=0;enemies.forEach(e=>{maxR=Math.max(maxR,e.r);e._sepX=0;e._sepY=0;let key=Math.floor(e.x/cell)+','+Math.floor(e.y/cell),bucket=grid.get(key);if(!bucket)grid.set(key,bucket=[]);bucket.push(e);});
- enemies.forEach(e=>{let ix=Math.floor(e.x/cell),iy=Math.floor(e.y/cell),range=Math.ceil((e.r+maxR)*1.1/cell);for(let x=ix-range;x<=ix+range;x++)for(let y=iy-range;y<=iy+range;y++){let bucket=grid.get(x+','+y);if(!bucket)continue;for(let j of bucket){if(j===e)continue;checks++;let dx=e.x-j.x,dy=e.y-j.y,md=(e.r+j.r)*1.1,ds=dx*dx+dy*dy;if(ds<md*md&&ds>.01){let d=Math.sqrt(ds),f=(md-d)/md;e._sepX+=dx/d*f;e._sepY+=dy/d*f;}}}});return checks;
+const ENEMY_CELL=64;
+function indexEnemies(enemies){
+ const columns=new Map();
+ let maxRadius=0;
+ for(let i=0;i<enemies.length;i++){
+   const enemy=enemies[i],x=Math.floor(enemy.x/ENEMY_CELL),y=Math.floor(enemy.y/ENEMY_CELL);
+   maxRadius=Math.max(maxRadius,enemy.r);
+   let column=columns.get(x);
+   if(!column)columns.set(x,column=new Map());
+   let bucket=column.get(y);
+   if(!bucket)column.set(y,bucket=[]);
+   bucket.push(i);
+ }
+ return {columns,maxRadius,enemies};
 }
-window.WorldRules={build,bounds,intersects,free,safeSpawn,move,separation};
+function nearbyEnemyIndices(index,x,y,r,indices){
+ indices.length=0;
+ const reach=r+index.maxRadius;
+ const left=Math.floor((x-reach)/ENEMY_CELL),right=Math.floor((x+reach)/ENEMY_CELL);
+ const top=Math.floor((y-reach)/ENEMY_CELL),bottom=Math.floor((y+reach)/ENEMY_CELL);
+ for(let cx=left;cx<=right;cx++){
+   const column=index.columns.get(cx);
+   if(!column)continue;
+   for(let cy=top;cy<=bottom;cy++){
+     const bucket=column.get(cy);
+     if(bucket)for(const i of bucket){
+       const enemy=index.enemies[i],limit=r+enemy.r;
+       if(Math.abs(enemy.x-x)<limit&&Math.abs(enemy.y-y)<limit)indices.push(i);
+     }
+   }
+ }
+ // Piercing limits and critical-hit rolls rely on the original reverse array order.
+ return indices.sort((a,b)=>b-a);
+}
+function separation(enemies){
+ const {columns,maxRadius}=indexEnemies(enemies);
+ let checks=0;
+ for(const enemy of enemies){enemy._sepX=0;enemy._sepY=0;}
+ for(let i=0;i<enemies.length;i++){
+   const enemy=enemies[i],reach=(enemy.r+maxRadius)*1.1;
+   const left=Math.floor((enemy.x-reach)/ENEMY_CELL),right=Math.floor((enemy.x+reach)/ENEMY_CELL);
+   const top=Math.floor((enemy.y-reach)/ENEMY_CELL),bottom=Math.floor((enemy.y+reach)/ENEMY_CELL);
+   for(let cx=left;cx<=right;cx++){
+     const column=columns.get(cx);
+     if(!column)continue;
+     for(let cy=top;cy<=bottom;cy++){
+       const bucket=column.get(cy);
+       if(!bucket)continue;
+       for(const j of bucket){
+         if(j<=i)continue;
+         checks++;
+         const other=enemies[j],limit=(enemy.r+other.r)*1.1;
+         const dx=enemy.x-other.x;
+         if(dx<=-limit||dx>=limit)continue;
+         const dy=enemy.y-other.y,distanceSquared=dx*dx+dy*dy;
+         if(distanceSquared>=limit*limit||distanceSquared<=.01)continue;
+         const distance=Math.sqrt(distanceSquared),force=(limit-distance)/limit;
+         const sx=dx/distance*force,sy=dy/distance*force;
+         enemy._sepX+=sx;
+         enemy._sepY+=sy;
+         other._sepX-=sx;
+         other._sepY-=sy;
+       }
+     }
+   }
+ }
+ return checks;
+}
+window.WorldRules={build,bounds,intersects,free,safeSpawn,move,separation,indexEnemies,nearbyEnemyIndices};
 })();

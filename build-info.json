@@ -1,7 +1,24 @@
 {
   "version": "1.0.0",
   "sourceBranch": "v2",
-  "sourceCommit": "a180a14a98c9cfe8d64a22c55d9dbafa3cf396a5",
-  "indexSha256": "db191b4a44b00b12382d3db46902e2e20f3c02b9cf62db708275f2d0fb7e406a",
-  "publishedBuild": "2026-10-06"
+  "sourceBase": "a180a14a98c9cfe8d64a22c55d9dbafa3cf396a5",
+  "indexSha256": "9e2e54b6e35661f900b3424d92349d5155b88b254906e772ddffa37e345d580f",
+  "publishedBuild": "2026-11-13",
+  "sourceHashes": {
+    "index.html": "9e2e54b6e35661f900b3424d92349d5155b88b254906e772ddffa37e345d580f",
+    "world-ab.js": "b0c1bf09bf4c82c4cf32623606fed32bdb3677e334ec20f6f5607897abbecacf",
+    "art-v2.js": "2ffd533f226df0ef17b6551acb2d343c14c0c6974bb3f18e7d7ee5b3a492c026",
+    "release-ui.js": "abb0e83aba66bf3c80813633b68e232805aa815dfd3d6d221fbe759a3a29b7a7",
+    "v2.css": "176d828ddbb83e4e925c62e0d9182d7759d646e3499a0e06158c3061b8e3f9b5"
+  },
+  "performance": {
+    "throttle": 4,
+    "gameSeconds": 600.192,
+    "p95": 30.3
+  },
+  "apk": {
+    "url": "https://github.com/bgokayk/istanbul-mafia/releases/download/mobile-test-20261113-9e2e54b/istanbul-mafia-v2-performance-test.apk",
+    "sha256": "855e34d91633d903af3fb8b5185c8acf6829288eafdb69c4a84a85c911cc8455",
+    "versionCode": 2
+  }
 }
